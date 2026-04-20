@@ -1,18 +1,41 @@
 import { useState, useMemo } from 'react';
-import { projects } from '../../data';
+import { projects, type Project } from '../../data';
 import SectionHeader from './SectionHeader';
 import RepoCard from '../cards/RepoCard';
 import WebsiteCard from '../cards/WebsiteCard';
+import XAccountCard from '../cards/XAccountCard';
+import TokenCard from '../cards/TokenCard';
+
+function ProjectCard({ project }: { project: Project }) {
+  switch (project.type) {
+    case 'Website':    return <WebsiteCard project={project} />;
+    case 'GitHub Repo': return <RepoCard project={project} />;
+    case 'X Account':  return <XAccountCard project={project} />;
+    case 'Token':      return <TokenCard project={project} />;
+  }
+}
+
+const typeFilters: { label: string; value: Project['type'] | 'all' }[] = [
+  { label: 'All Types', value: 'all' },
+  { label: 'Websites', value: 'Website' },
+  { label: 'Repos', value: 'GitHub Repo' },
+  { label: 'X Accounts', value: 'X Account' },
+  { label: 'Tokens', value: 'Token' },
+];
 
 const featured = projects.filter(p => p.featured);
 const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort();
 
 export default function Projects() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeType, setActiveType] = useState<Project['type'] | 'all'>('all');
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
     return projects.filter(item => {
+      // Featured projects render in their own section; don't double-list them here.
+      if (item.featured) return false;
+      if (activeType !== 'all' && item.type !== activeType) return false;
       if (activeTag && !item.tags.includes(activeTag)) return false;
       if (search) {
         const q = search.toLowerCase();
@@ -20,7 +43,7 @@ export default function Projects() {
       }
       return true;
     });
-  }, [activeTag, search]);
+  }, [activeTag, activeType, search]);
 
   return (
     <>
@@ -29,9 +52,7 @@ export default function Projects() {
         <SectionHeader label="Featured" />
         <div className="featured-grid">
           {featured.map(project => (
-            project.type === 'Website'
-              ? <WebsiteCard key={project.url} project={project} />
-              : <RepoCard key={project.url} project={project} />
+            <ProjectCard key={project.url} project={project} />
           ))}
         </div>
       </section>
@@ -42,12 +63,25 @@ export default function Projects() {
 
         <div className="filters">
           <div className="filter-buttons-row">
+            {typeFilters.map(f => (
+              <button
+                key={f.value}
+                className={`filter-pill ${activeType === f.value ? 'active' : ''}`}
+                onClick={() => setActiveType(f.value)}
+                aria-pressed={activeType === f.value}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="filter-buttons-row filter-buttons-tags">
             <button
               className={`filter-pill ${!activeTag ? 'active' : ''}`}
               onClick={() => setActiveTag(null)}
               aria-pressed={activeTag === null}
             >
-              All
+              All Tags
             </button>
             {allTags.map(tag => (
               <button
@@ -73,9 +107,7 @@ export default function Projects() {
 
         <div className="project-grid">
           {filtered.map(project => (
-            project.type === 'Website'
-              ? <WebsiteCard key={project.url} project={project} />
-              : <RepoCard key={project.url} project={project} />
+            <ProjectCard key={project.url} project={project} />
           ))}
         </div>
 

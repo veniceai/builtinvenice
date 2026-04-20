@@ -1,5 +1,6 @@
 import { ExternalArrow } from '../icons';
 import { SUBMIT_URL } from '../../constants';
+import AgentPromptCard from '../AgentPromptCard';
 
 export default function Hero() {
   return (
@@ -17,6 +18,7 @@ export default function Hero() {
       >
         Submit Your Project <ExternalArrow />
       </a>
+      <AgentPromptCard />
     </section>
   );
 }

@@ -1,9 +1,10 @@
 import { GlobeIcon, ExternalArrow } from '../icons';
 import { categoryLabels, type WebsiteProject } from '../../data';
+import SocialsRow from './SocialsRow';
 
 export default function WebsiteCard({ project }: { project: WebsiteProject }) {
   return (
-    <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-card website-card" aria-label={`Visit ${project.title}`}>
+    <article className="project-card website-card">
       {project.preview ? (
         <div className="card-preview">
           <img src={project.preview} alt={`${project.title} preview`} />
@@ -30,10 +31,18 @@ export default function WebsiteCard({ project }: { project: WebsiteProject }) {
         <div className="project-card-tags">
           {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
         </div>
+        <SocialsRow socials={project.socials} />
         {project.submittedBy && (
           <p className="submitted-by">by {project.submittedBy}</p>
         )}
       </div>
-    </a>
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="card-stretched-link"
+        aria-label={`Visit ${project.title}`}
+      />
+    </article>
   );
 }

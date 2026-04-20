@@ -1,5 +1,26 @@
 export type ProjectCategory = 'ecosystem' | 'powered-by';
 
+export type SocialKind =
+  | 'x'
+  | 'github'
+  | 'website'
+  | 'farcaster'
+  | 'instagram'
+  | 'telegram'
+  | 'discord'
+  | 'youtube'
+  | 'tiktok'
+  | 'warpcast'
+  | 'token';
+
+export interface Social {
+  kind: SocialKind;
+  url: string;
+  label?: string;
+}
+
+export type TokenChain = 'solana' | 'base' | 'ethereum';
+
 interface BaseProject {
   title: string;
   description: string;
@@ -7,7 +28,8 @@ interface BaseProject {
   tags: string[];
   category: ProjectCategory;
   submittedBy?: string;
-  featured?: boolean;
+  featured?: true;
+  socials?: Social[];
 }
 
 export interface WebsiteProject extends BaseProject {
@@ -24,7 +46,23 @@ export interface RepoProject extends BaseProject {
   language?: string;
 }
 
-export type Project = WebsiteProject | RepoProject;
+export interface XAccountProject extends BaseProject {
+  type: 'X Account';
+  handle: string;
+  followers?: number;
+  bio?: string;
+}
+
+export interface TokenProject extends BaseProject {
+  type: 'Token';
+  ticker: string;
+  address: string;
+  chain: TokenChain;
+  marketCap?: number;
+  holders?: number;
+}
+
+export type Project = WebsiteProject | RepoProject | XAccountProject | TokenProject;
 
 export const projects: Project[] = [
   // ── Venice Ecosystem ─────────────────────────────────
@@ -38,6 +76,10 @@ export const projects: Project[] = [
     preview: "/preview-venicestats.png",
     submittedBy: "gekko.eth",
     featured: true,
+    socials: [
+      { kind: 'x', url: 'https://x.com/venicestats' },
+      { kind: 'github', url: 'https://github.com/gekko-eth/venicestats' },
+    ],
   },
   {
     title: "venice-dev-tools",
@@ -52,6 +94,9 @@ export const projects: Project[] = [
     owner: "georgeglarson",
     repo: "venice-dev-tools",
     submittedBy: "georgeglarson",
+    socials: [
+      { kind: 'x', url: 'https://x.com/georgeglarson' },
+    ],
   },
   {
     title: "venice-ai",
@@ -81,6 +126,23 @@ export const projects: Project[] = [
     repo: "venice-ai-php",
     submittedBy: "georgeglarson",
   },
+  {
+    title: "@venicebuilds",
+    description: "Daily highlights of projects shipping in the Venice ecosystem. Launches, hackathon winners, and builder tips.",
+    type: "X Account",
+    handle: "venicebuilds",
+    url: "https://x.com/venicebuilds",
+    followers: 4200,
+    bio: "Shipping the private AI frontier, one build at a time.",
+    tags: ["Community", "News"],
+    category: "ecosystem",
+    submittedBy: "venicebuilds",
+    socials: [
+      { kind: 'farcaster', url: 'https://warpcast.com/venicebuilds' },
+      { kind: 'telegram', url: 'https://t.me/venicebuilds' },
+      { kind: 'website', url: 'https://venicebuilds.xyz' },
+    ],
+  },
 
   // ── Powered by Venice ────────────────────────────────
   {
@@ -97,6 +159,10 @@ export const projects: Project[] = [
     repo: "openvenice",
     submittedBy: "nikshepsvn",
     featured: true,
+    socials: [
+      { kind: 'x', url: 'https://x.com/nikshepsvn' },
+      { kind: 'website', url: 'https://openvenice.app' },
+    ],
   },
   {
     title: "deep-research-privacy",
@@ -140,6 +206,10 @@ export const projects: Project[] = [
     owner: "lorenzovenice",
     repo: "nanoclaw-venice",
     submittedBy: "lorenzovenice",
+    socials: [
+      { kind: 'telegram', url: 'https://t.me/nanoclaw' },
+      { kind: 'x', url: 'https://x.com/lorenzovenice' },
+    ],
   },
   {
     title: "venice_ai",
@@ -154,6 +224,43 @@ export const projects: Project[] = [
     owner: "grasponcrypto",
     repo: "venice_ai",
     submittedBy: "grasponcrypto",
+  },
+  {
+    title: "@uncensoredlab",
+    description: "Indie research lab posting daily experiments, jailbreak safety notes, and uncensored-model demos — all built on Venice.",
+    type: "X Account",
+    handle: "uncensoredlab",
+    url: "https://x.com/uncensoredlab",
+    followers: 9800,
+    bio: "Experiments in private, uncensored, open-model AI.",
+    tags: ["Research", "Privacy"],
+    category: "powered-by",
+    submittedBy: "uncensoredlab",
+    socials: [
+      { kind: 'farcaster', url: 'https://warpcast.com/uncensoredlab' },
+      { kind: 'instagram', url: 'https://instagram.com/uncensoredlab' },
+      { kind: 'youtube', url: 'https://youtube.com/@uncensoredlab' },
+      { kind: 'github', url: 'https://github.com/uncensoredlab' },
+    ],
+  },
+  {
+    title: "$DOGE-DAO",
+    description: "Community-run token funding Venice-powered open-source tools. Creators pitch, holders vote, builders get paid in USDC.",
+    type: "Token",
+    ticker: "DOGEDAO",
+    address: "DoGEDAo5UNCensoRedAIbuiLdersLaBtoKen111111111",
+    chain: "solana",
+    marketCap: 2_400_000,
+    holders: 1820,
+    url: "https://dexscreener.com/solana/dogedao",
+    tags: ["Token", "DAO", "Community"],
+    category: "powered-by",
+    submittedBy: "dogedao",
+    socials: [
+      { kind: 'x', url: 'https://x.com/dogedao' },
+      { kind: 'telegram', url: 'https://t.me/dogedao' },
+      { kind: 'discord', url: 'https://discord.gg/dogedao' },
+    ],
   },
 ];
 
@@ -171,4 +278,16 @@ export const langColors: Record<string, string> = {
   MDX: '#fcb32c',
   HTML: '#e34c26',
   PHP: '#4F5D95',
+};
+
+export const chainLabels: Record<TokenChain, string> = {
+  solana: 'Solana',
+  base: 'Base',
+  ethereum: 'Ethereum',
+};
+
+export const chainColors: Record<TokenChain, string> = {
+  solana: '#9945FF',
+  base: '#0052FF',
+  ethereum: '#627EEA',
 };

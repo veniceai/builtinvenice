@@ -114,6 +114,13 @@ body {
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+button:focus { outline: none; }
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
 /* ==============================
    HEADER — Floating pill nav
@@ -339,6 +346,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
    SHARED CARD STYLES
    ============================== */
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border);
@@ -349,6 +357,30 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   cursor: pointer;
   text-decoration: none;
   color: var(--black);
+}
+
+/* Stretched-link pattern:
+   - Link sits LAST in DOM so Tab reaches inner interactive chips first.
+   - Link is absolutely positioned over the card for pointer hit testing on
+     the "empty" card area; interactive children (socials) opt out by
+     raising their own z-index. */
+.card-stretched-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  text-indent: -9999px;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.card-stretched-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.socials-row {
+  position: relative;
+  z-index: 2;
 }
 
 .project-card:hover {
@@ -457,6 +489,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   align-items: center;
   justify-content: center;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.2s ease;
 }
 
@@ -639,61 +672,467 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 
 /* ==============================
-   COMING SOON SECTION
+   SOCIALS ROW (on cards)
    ============================== */
-.coming-soon-section {
-  margin-bottom: 56px;
+.socials-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.social-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.04);
+  color: var(--black);
+  opacity: 0.55;
+  transition: opacity 0.15s, background 0.15s, transform 0.15s;
+}
+
+.social-chip:hover {
+  opacity: 1;
+  background: rgba(190, 169, 137, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   X ACCOUNT CARD
+   ============================== */
+.x-account-card .card-body {
+  border-left: 3px solid var(--black);
+}
+
+.x-bio {
+  font-size: 13px;
+  line-height: 1.55;
+  opacity: 0.55;
+  font-style: italic;
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.025);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+
+/* ==============================
+   TOKEN CARD
+   ============================== */
+.token-card .card-body {
+  border-left: 3px solid var(--accent);
+}
+
+.token-chain-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.chain-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.chain-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.token-address {
+  font-size: 11px;
+  font-family: var(--mono);
+  background: rgba(0,0,0,0.04);
+  padding: 3px 8px;
+  border-radius: 4px;
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+
+/* ==============================
+   SECTION LEDE (intro text)
+   ============================== */
+.section-lede {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.5;
+  max-width: 560px;
+  margin: 16px auto 0;
+  line-height: 1.6;
+}
+
+/* ==============================
+   EVENTS SECTION
+   ============================== */
+.events-section,
+.cookbooks-section,
+.spotlights-section {
+  margin-bottom: 64px;
+}
+
+.filter-inline {
+  margin-top: 24px;
   text-align: center;
 }
 
-.coming-soon-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 24px 0 20px;
+.filter-inline .filter-buttons-row {
+  justify-content: center;
+  margin-bottom: 24px;
 }
 
-.coming-soon-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 20px;
-  border: 1px dashed var(--border);
-  border-radius: var(--radius-md);
-  text-align: left;
+.filter-buttons-tags {
+  margin-top: 6px;
+  opacity: 0.85;
 }
 
-.coming-soon-number {
-  font-size: 13px;
-  font-family: var(--mono);
-  opacity: 0.25;
-  flex-shrink: 0;
-  margin-top: 2px;
+/* Event card */
+.event-card .card-body {
+  border-left: 3px solid var(--sea-dark);
 }
 
-.coming-soon-title {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 4px;
+.event-card.event-hackathon .card-body { border-left-color: var(--accent); }
+.event-card.event-workshop .card-body { border-left-color: var(--gold); }
+.event-card.event-conference .card-body { border-left-color: var(--sea-dark); }
+.event-card.event-meetup .card-body { border-left-color: #6b7280; }
+
+.event-card.status-past {
   opacity: 0.7;
 }
 
-.coming-soon-desc {
-  font-size: 13px;
-  line-height: 1.5;
-  opacity: 0.4;
+.event-status-badge {
+  font-size: 10px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.coming-soon-cta {
-  font-size: 13px;
+.event-status-badge.status-upcoming {
+  background: rgba(221, 51, 0, 0.1);
+  color: var(--accent);
+}
+
+.event-status-badge.status-live {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+}
+
+.event-status-badge.status-past {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 4px 0 14px;
+  padding: 10px 12px;
+  background: rgba(190, 169, 137, 0.08);
+  border-radius: var(--radius-sm);
+}
+
+.event-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--mono);
+  opacity: 0.7;
+}
+
+.event-meta-item.event-prize {
+  color: var(--accent);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.event-host {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* ==============================
+   COOKBOOK CARD
+   ============================== */
+.cookbook-card .card-body {
+  border-left: 3px solid var(--gold);
+}
+
+.cookbook-card.difficulty-beginner .card-body { border-left-color: #22c55e; }
+.cookbook-card.difficulty-intermediate .card-body { border-left-color: var(--gold); }
+.cookbook-card.difficulty-advanced .card-body { border-left-color: var(--accent); }
+
+.difficulty-badge {
+  font-size: 10px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.difficulty-badge.difficulty-beginner {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+}
+
+.difficulty-badge.difficulty-intermediate {
+  background: rgba(190, 169, 137, 0.18);
+  color: #8a7556;
+}
+
+.difficulty-badge.difficulty-advanced {
+  background: rgba(221, 51, 0, 0.1);
+  color: var(--accent);
+}
+
+/* ==============================
+   SPOTLIGHT CARD
+   ============================== */
+.spotlight-card .card-body {
+  border-left: 3px solid var(--accent);
+}
+
+.spotlight-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #1a1a1a;
+  max-height: 180px;
+  border-bottom: 1px solid var(--img-border);
+}
+
+.spotlight-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .spotlight-thumb img { transform: scale(1.04); }
+
+.spotlight-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--sea-dark) 0%, #1a3552 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotlight-thumb-initial {
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.25);
+  font-family: var(--sans);
+  letter-spacing: -0.03em;
+}
+
+.spotlight-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.project-card:hover .spotlight-play {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.spotlight-duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0,0,0,0.7);
+  color: var(--white);
+  font-size: 11px;
+  font-family: var(--mono);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+.spotlight-byline {
+  font-size: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.spotlight-builder {
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.spotlight-role {
+  font-family: var(--mono);
+  font-size: 11px;
   opacity: 0.45;
+}
+
+/* ==============================
+   SUBMIT CALLOUT (replaces Coming Soon)
+   ============================== */
+.submit-callout {
+  text-align: center;
+  margin: 16px 0 72px;
+  padding-top: 8px;
+}
+
+.submit-callout-text {
+  font-size: 15px;
+  opacity: 0.6;
+  margin: 20px auto 16px;
+  max-width: 520px;
+  line-height: 1.55;
+}
+
+/* ==============================
+   AGENT PROMPT CARD (copy-paste)
+   ============================== */
+.agent-prompt-card {
+  text-align: left;
+  max-width: 560px;
+  margin: 28px auto 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.agent-prompt-card:hover {
+  border-color: var(--gold);
+}
+
+.agent-prompt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.025);
+  border-bottom: 1px solid var(--border);
+}
+
+.agent-prompt-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+}
+
+.agent-prompt-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  box-shadow: 0 0 0 3px rgba(221, 51, 0, 0.15);
+}
+
+.agent-prompt-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--black);
+  opacity: 0.7;
+  transition: opacity 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.agent-prompt-copy:hover {
+  opacity: 1;
+  border-color: var(--black);
+}
+
+.agent-prompt-copy.copied {
+  background: rgba(34, 197, 94, 0.08);
+  color: #15803d;
+  border-color: rgba(34, 197, 94, 0.3);
+  opacity: 1;
+}
+
+.agent-prompt-body {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  padding: 14px 16px;
+  margin: 0;
+  background: var(--white);
+  color: rgba(0, 0, 0, 0.78);
+  white-space: pre-wrap;
+  word-break: break-word;
+  cursor: text;
+  user-select: all;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.agent-prompt-foot {
+  font-size: 11px;
+  font-family: var(--mono);
+  opacity: 0.45;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.015);
+  line-height: 1.55;
+}
+
+.agent-prompt-foot a {
+  color: var(--accent);
   text-decoration: underline;
   text-decoration-color: var(--gold);
   text-underline-offset: 3px;
   transition: opacity 0.15s;
 }
 
-.coming-soon-cta:hover { opacity: 0.8; }
+.agent-prompt-foot a:hover { opacity: 0.75; }
 
 /* ==============================
    FOOTER
@@ -803,12 +1242,13 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   .section-padding { padding-left: 16px; padding-right: 16px; }
   .featured-section,
   .projects-section,
-  .coming-soon-section { margin-bottom: 40px; }
+  .events-section,
+  .cookbooks-section,
+  .spotlights-section { margin-bottom: 40px; }
 
   /* Grids — single column */
   .featured-grid { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
-  .coming-soon-row { grid-template-columns: 1fr; gap: 10px; }
 
   /* Cards — tighter padding */
   .card-body { padding: 16px; }
@@ -827,9 +1267,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   .filter-buttons-row::-webkit-scrollbar { display: none; }
   .filter-pill { white-space: nowrap; flex-shrink: 0; }
 
-  /* Coming soon */
-  .coming-soon-item { padding: 16px; }
-
   /* Footer */
   .footer {
     flex-direction: column;
@@ -846,6 +1283,12 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   /* Splash */
   .splash-logo { width: 44px; }
   .splash-title { font-size: 24px; }
+
+  /* Agent prompt card */
+  .agent-prompt-card { margin-top: 24px; }
+  .agent-prompt-body { font-size: 12px; padding: 12px; }
+  .agent-prompt-header { padding: 9px 10px; }
+  .agent-prompt-foot { padding: 9px 10px; }
 }
 
 /* ==============================
@@ -856,4 +1299,5 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   .hero-subtitle { font-size: 14px; }
   .footer-columns { grid-template-columns: 1fr; }
   .card-preview { max-height: 140px; }
+  .spotlight-thumb { max-height: 160px; }
 }
