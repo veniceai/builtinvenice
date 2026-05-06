@@ -169,6 +169,15 @@ export function TrophyIcon({ size = 14 }: { size?: number }) {
   );
 }
 
+export function SparkleIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2.5l2.1 5.4 5.4 2.1-5.4 2.1L12 17.5l-2.1-5.4-5.4-2.1 5.4-2.1L12 2.5z"/>
+      <path d="M19 14l1 2.5L22.5 17.5 20 18.5 19 21l-1-2.5L15.5 17.5 18 16.5z" opacity="0.6"/>
+    </svg>
+  );
+}
+
 export function SearchIcon({ size = 14 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

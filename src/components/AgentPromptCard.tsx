@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AGENT_SKILL_URL, AGENT_SKILL_CANONICAL } from '../constants';
+import { SparkleIcon } from './icons';
 
 const PROMPT = `Submit to Built with Venice — fetch ${AGENT_SKILL_CANONICAL} and follow it.`;
 
@@ -35,9 +36,20 @@ export default function AgentPromptCard() {
 
   return (
     <div className="agent-prompt-card">
-      <span className="agent-prompt-label">Or paste into your AI agent</span>
-      <div className="agent-prompt-row">
-        <code className="agent-prompt-snippet">{PROMPT}</code>
+      <div className="agent-prompt-head">
+        <span className="agent-prompt-title">
+          <SparkleIcon /> Use any AI agent
+        </span>
+        <a className="agent-prompt-link" href={AGENT_SKILL_URL} target="_blank" rel="noopener noreferrer">
+          View skill →
+        </a>
+      </div>
+      <div className="agent-prompt-snippet-wrap">
+        <code className="agent-prompt-snippet">
+          <span className="agent-prompt-prose">Submit to Built with Venice — fetch </span>
+          <span className="agent-prompt-url">{AGENT_SKILL_CANONICAL}</span>
+          <span className="agent-prompt-prose"> and follow it.</span>
+        </code>
         <button
           type="button"
           onClick={copy}
@@ -47,9 +59,9 @@ export default function AgentPromptCard() {
           {copied ? <><CheckIcon /> Copied</> : <><CopyIcon /> Copy</>}
         </button>
       </div>
-      <a className="agent-prompt-link" href={AGENT_SKILL_URL} target="_blank" rel="noopener noreferrer">
-        View the skill →
-      </a>
+      <p className="agent-prompt-foot">
+        Claude Code · Cursor · Codex · any agent that can fetch a URL
+      </p>
     </div>
   );
 }

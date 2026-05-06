@@ -1110,54 +1110,98 @@ input:focus-visible {
 }
 
 /* ==============================
-   AGENT PROMPT — compact card
+   AGENT PROMPT CARD
    ============================== */
 .agent-prompt-card {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-  max-width: 520px;
-  margin: 22px auto 0;
+  position: relative;
+  max-width: 540px;
+  margin: 24px auto 0;
   padding: 14px 16px 12px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   text-align: left;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
 }
 
-.agent-prompt-card:hover { border-color: var(--gold); }
+.agent-prompt-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(221, 51, 0, 0.04), transparent 50%);
+  pointer-events: none;
+  opacity: 0.7;
+}
 
-.agent-prompt-label {
+.agent-prompt-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+
+.agent-prompt-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.agent-prompt-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: -0.005em;
+}
+
+.agent-prompt-title svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.agent-prompt-link {
   font-family: var(--mono);
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: rgba(0,0,0,0.5);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.15s;
 }
 
-.agent-prompt-row {
+.agent-prompt-link:hover { color: var(--accent); }
+
+.agent-prompt-snippet-wrap {
+  position: relative;
   display: flex;
   align-items: stretch;
   gap: 8px;
+  padding: 10px 12px;
   background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.05);
   border-radius: var(--radius-sm);
-  padding: 4px 4px 4px 12px;
 }
 
 .agent-prompt-snippet {
   flex: 1;
   font-family: var(--mono);
   font-size: 12px;
-  line-height: 1.55;
-  color: var(--black);
+  line-height: 1.6;
+  color: rgba(0,0,0,0.85);
   user-select: all;
   cursor: text;
-  align-self: center;
   word-break: break-word;
   white-space: normal;
+  align-self: center;
 }
+
+.agent-prompt-prose { color: rgba(0,0,0,0.78); }
+.agent-prompt-url { color: var(--accent); font-weight: 500; }
 
 .agent-prompt-copy {
   display: inline-flex;
@@ -1167,39 +1211,39 @@ input:focus-visible {
   font-size: 10px;
   padding: 6px 10px;
   border-radius: 5px;
-  border: none;
+  border: 1px solid var(--border);
   background: var(--white);
   color: rgba(0,0,0,0.65);
   cursor: pointer;
-  transition: color 0.15s, background 0.15s, box-shadow 0.15s;
+  transition: color 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   flex-shrink: 0;
-  align-self: center;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  align-self: flex-start;
 }
 
 .agent-prompt-copy:hover {
   color: var(--black);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-color: var(--black);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .agent-prompt-copy.copied {
   color: #15803d;
+  border-color: rgba(34, 197, 94, 0.3);
+  background: rgba(34, 197, 94, 0.06);
 }
 
-.agent-prompt-link {
+.agent-prompt-foot {
+  position: relative;
+  margin-top: 10px;
   font-family: var(--mono);
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: rgba(0,0,0,0.5);
-  text-decoration: none;
-  align-self: flex-start;
-  transition: color 0.15s;
+  letter-spacing: 0.05em;
+  color: rgba(0,0,0,0.4);
+  text-align: center;
 }
-
-.agent-prompt-link:hover { color: var(--accent); }
 
 /* ==============================
    SUBMIT DIALOG
