@@ -17,7 +17,9 @@ Projects are categorized as either **Ecosystem** (tools built for the Venice com
 
 ## Submit something
 
-**Easiest:** [Pick a submission form](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose) — projects, cookbooks, events, and builder spotlights each have their own template. Maintainers add it for you.
+**Easiest:** Click "Submit your work" on the [live site](https://builtwithvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
+
+You can also [pick a submission form](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and demos each have their own template.
 
 **Via pull request:** fork, add your entry to the relevant file under `src/data/`, open a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
