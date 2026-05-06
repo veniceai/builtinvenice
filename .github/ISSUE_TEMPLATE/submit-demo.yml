@@ -42,7 +42,7 @@ body:
     id: published-at
     attributes:
       label: Published date (YYYY-MM-DD)
-      placeholder: 2026-05-06
+      placeholder: "2026-05-06"
     validations:
       required: true
 
