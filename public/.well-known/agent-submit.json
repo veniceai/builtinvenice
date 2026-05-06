@@ -4,7 +4,7 @@
   "version": 1,
   "description": "Submit a community project to the Built with Venice directory. Submissions land as pull requests (preferred) or issues against nikshepsvn/builtwithvenice.",
   "repo": "https://github.com/nikshepsvn/builtwithvenice",
-  "skill": "https://builtwithvenice.com/agent-skill.md",
+  "skill": "https://builtwithvenice.ai/agent-skill.md",
   "issueTemplate": "https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+",
   "project": {
     "common": {

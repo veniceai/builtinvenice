@@ -1,39 +1,32 @@
+import { useState } from 'react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import Projects from './components/sections/Projects';
-import Cookbooks from './components/sections/Cookbooks';
-import Events from './components/sections/Events';
-import Spotlights from './components/sections/Spotlights';
-import { SUBMIT_CHOOSE_URL } from './constants';
+import Explore from './components/sections/Explore';
+import SubmitDialog from './components/SubmitDialog';
+import type { SubmissionType } from './submitSchemas';
 
 function App() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [initialKey, setInitialKey] = useState<SubmissionType['key'] | undefined>();
+
+  const open = (key?: SubmissionType['key']) => {
+    setInitialKey(key);
+    setDialogOpen(true);
+  };
+  const close = () => setDialogOpen(false);
+
   return (
     <div>
       <Header />
       <main className="main section-padding">
-        <Hero />
-        <Projects />
-        <Cookbooks />
-        <Events />
-        <Spotlights />
-
-        <section className="submit-callout">
-          <div className="scallop-divider" />
-          <p className="submit-callout-text">
-            Have something to share — a project, recipe, event, or video?
-          </p>
-          <a
-            href={SUBMIT_CHOOSE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="submit-cta"
-          >
-            Submit it &rarr;
-          </a>
-        </section>
+        <Hero onSubmit={() => open()} />
+        <Explore openSubmit={key => open(key)} />
       </main>
       <Footer />
+      {dialogOpen && (
+        <SubmitDialog onClose={close} initialKey={initialKey} />
+      )}
     </div>
   );
 }

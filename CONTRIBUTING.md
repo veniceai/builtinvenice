@@ -13,7 +13,7 @@ Pick the form that matches what you're submitting:
 - [**Project**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+) — website, GitHub repo, X account, or community token.
 - [**Cookbook / Recipe**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-cookbook.yml&title=%5BCookbook%5D+)
 - [**Event**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-event.yml&title=%5BEvent%5D+) — hackathon, meetup, workshop, or conference.
-- [**Builder Spotlight**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-spotlight.yml&title=%5BSpotlight%5D+)
+- [**Demo**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-demo.yml&title=%5BDemo%5D+) — short clip, screenshot, or post of something you made on Venice.
 
 Or [browse all submission forms](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose).
 
@@ -24,7 +24,7 @@ Or [browse all submission forms](https://github.com/nikshepsvn/builtwithvenice/i
    - Projects (website / repo / X account / token) → `src/data/projects.ts`
    - Cookbook recipes → `src/data/cookbooks.ts`
    - Events / hackathons → `src/data/events.ts`
-   - Builder spotlights → `src/data/spotlights.ts`
+   - Demos → `src/data/demos.ts`
 3. Open a pull request with one entry per PR.
 4. Sabrina or Josh reviews and merges.
 
@@ -137,9 +137,9 @@ Community tokens only. Venice's own official token is not accepted here.
 }
 ```
 
-## Adding a Cookbook / Event / Spotlight
+## Adding a Cookbook / Event / Demo
 
-Each has a simple schema — open the file (`src/data/cookbooks.ts`, `src/data/events.ts`, `src/data/spotlights.ts`) and follow the existing entries. Keep descriptions plain and short.
+Each has a simple schema — open the file (`src/data/cookbooks.ts`, `src/data/events.ts`, `src/data/demos.ts`) and follow the existing entries. Keep descriptions plain and short.
 
 ## Quality bar
 

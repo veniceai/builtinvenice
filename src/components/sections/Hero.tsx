@@ -1,8 +1,7 @@
-import { ExternalArrow } from '../icons';
-import { SUBMIT_URL } from '../../constants';
+import { ArrowIcon } from '../icons';
 import AgentPromptCard from '../AgentPromptCard';
 
-export default function Hero() {
+export default function Hero({ onSubmit }: { onSubmit: () => void }) {
   return (
     <section className="hero-section">
       <h1 className="hero-title">Built with Venice</h1>
@@ -10,14 +9,9 @@ export default function Hero() {
         From SDKs and research tools to bots and dashboards — see what the community
         is building on Venice AI.
       </p>
-      <a
-        href={SUBMIT_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="submit-cta"
-      >
-        Submit Your Project <ExternalArrow />
-      </a>
+      <button type="button" onClick={onSubmit} className="submit-cta">
+        Submit your work <ArrowIcon />
+      </button>
       <AgentPromptCard />
     </section>
   );

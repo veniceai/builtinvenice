@@ -1,43 +1,43 @@
 import { useState, useMemo } from 'react';
 import { events, type EventStatus } from '../../data';
-import SectionHeader from './SectionHeader';
+import Toolbar from './Toolbar';
 import EventCard from '../cards/EventCard';
 
-const statusFilters: { label: string; value: EventStatus | 'all' }[] = [
-  { label: 'All', value: 'all' },
+const statusOptions: { label: string; value: EventStatus | 'all' }[] = [
   { label: 'Upcoming', value: 'upcoming' },
   { label: 'Past', value: 'past' },
 ];
 
-export default function Events() {
-  const [activeStatus, setActiveStatus] = useState<EventStatus | 'all'>('upcoming');
+export default function Events({ onSubmit }: { onSubmit: () => void }) {
+  const [status, setStatus] = useState<EventStatus | 'all'>('all');
+  const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
-    const list = activeStatus === 'all'
-      ? events
-      : events.filter(e => e.status === activeStatus);
+    let list = status === 'all' ? events : events.filter(e => e.status === status);
+    if (search) {
+      const q = search.toLowerCase();
+      list = list.filter(e =>
+        e.title.toLowerCase().includes(q) ||
+        e.description.toLowerCase().includes(q) ||
+        e.location.toLowerCase().includes(q),
+      );
+    }
     return [...list].sort((a, b) => a.startDate.localeCompare(b.startDate));
-  }, [activeStatus]);
+  }, [status, search]);
 
   return (
-    <section className="events-section">
-      <SectionHeader label="Events & Hackathons" />
-      <p className="section-lede">Hackathons, meetups, workshops, and conferences for the Venice ecosystem.</p>
-
-      <div className="filters filter-inline">
-        <div className="filter-buttons-row">
-          {statusFilters.map(f => (
-            <button
-              key={f.value}
-              className={`filter-pill ${activeStatus === f.value ? 'active' : ''}`}
-              onClick={() => setActiveStatus(f.value)}
-              aria-pressed={activeStatus === f.value}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-      </div>
+    <>
+      <Toolbar
+        search={{ value: search, onChange: setSearch, placeholder: 'Search events…' }}
+        filter={{
+          options: statusOptions,
+          value: status,
+          onChange: setStatus,
+          clearValue: 'all',
+          ariaLabel: 'Filter by status',
+        }}
+        action={{ label: '+ Submit an event', onClick: onSubmit }}
+      />
 
       <div className="project-grid">
         {filtered.map(event => (
@@ -46,8 +46,8 @@ export default function Events() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="empty-state">No events in this view.</p>
+        <p className="empty-state">No events match your filters.</p>
       )}
-    </section>
+    </>
   );
 }

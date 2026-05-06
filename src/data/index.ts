@@ -31,6 +31,6 @@ export {
 } from './cookbooks';
 
 export {
-  spotlights,
-  type Spotlight,
-} from './spotlights';
+  demos,
+  type Demo,
+} from './demos';

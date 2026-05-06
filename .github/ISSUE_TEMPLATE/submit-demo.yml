@@ -1,0 +1,74 @@
+name: Submit a Demo
+description: Share a short clip, screenshot, or post of something you made on Venice
+title: "[Demo] "
+labels: ["submission", "demo"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      placeholder: e.g. openvenice running chat, image, and audio in one tab
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Demo URL
+      description: Link to where the demo lives — X post, Loom, asciinema, gallery image, etc.
+      placeholder: https://x.com/yourhandle/status/…
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: 1–2 plain sentences about what the demo shows. Avoid marketing copy.
+      placeholder: Describe what's in the demo...
+    validations:
+      required: true
+
+  - type: input
+    id: builder
+    attributes:
+      label: Your handle
+      description: GitHub or X handle for attribution.
+      placeholder: e.g. nikshepsvn
+    validations:
+      required: true
+
+  - type: input
+    id: published-at
+    attributes:
+      label: Published date (YYYY-MM-DD)
+      placeholder: 2026-05-06
+    validations:
+      required: true
+
+  - type: textarea
+    id: thumbnail
+    attributes:
+      label: Thumbnail (optional)
+      description: Drag and drop a screenshot or thumbnail here. Maintainers will add it to the site for you.
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated (1–4 short tags). Reuse existing tags where it makes sense.
+      placeholder: Frontend, Multimodal
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: quality
+    attributes:
+      label: Quality Checklist
+      options:
+        - label: The demo URL is publicly accessible.
+          required: true
+        - label: The demo is something you actually built or worked on.
+          required: true
+        - label: I understand that listing does not imply endorsement by Venice AI.
+          required: true

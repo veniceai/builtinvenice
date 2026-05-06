@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { projects, type Project } from '../../data';
-import SectionHeader from './SectionHeader';
+import { ChevronDownIcon } from '../icons';
+import Toolbar from './Toolbar';
 import RepoCard from '../cards/RepoCard';
 import WebsiteCard from '../cards/WebsiteCard';
 import XAccountCard from '../cards/XAccountCard';
@@ -15,26 +16,33 @@ function ProjectCard({ project }: { project: Project }) {
   }
 }
 
-const typeFilters: { label: string; value: Project['type'] | 'all' }[] = [
-  { label: 'All Types', value: 'all' },
+const typeOptions: { label: string; value: Project['type'] | 'all' }[] = [
   { label: 'Websites', value: 'Website' },
   { label: 'Repos', value: 'GitHub Repo' },
   { label: 'X Accounts', value: 'X Account' },
   { label: 'Tokens', value: 'Token' },
 ];
 
-const featured = projects.filter(p => p.featured);
-const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort();
+const POPULAR_TAG_COUNT = 8;
 
-export default function Projects() {
+const tagsByPopularity = (() => {
+  const counts = new Map<string, number>();
+  for (const p of projects) {
+    for (const t of p.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
+  }
+  return Array.from(counts.entries())
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([tag]) => tag);
+})();
+
+export default function Projects({ onSubmit }: { onSubmit: () => void }) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [activeType, setActiveType] = useState<Project['type'] | 'all'>('all');
   const [search, setSearch] = useState('');
+  const [tagsExpanded, setTagsExpanded] = useState(false);
 
   const filtered = useMemo(() => {
     return projects.filter(item => {
-      // Featured projects render in their own section; don't double-list them here.
-      if (item.featured) return false;
       if (activeType !== 'all' && item.type !== activeType) return false;
       if (activeTag && !item.tags.includes(activeTag)) return false;
       if (search) {
@@ -45,76 +53,71 @@ export default function Projects() {
     });
   }, [activeTag, activeType, search]);
 
+  const visibleTags = tagsExpanded
+    ? tagsByPopularity
+    : tagsByPopularity.slice(0, POPULAR_TAG_COUNT);
+  const hiddenTagCount = tagsByPopularity.length - POPULAR_TAG_COUNT;
+  const showActiveTagOutsideList = activeTag && !visibleTags.includes(activeTag);
+
   return (
     <>
-      {/* Featured */}
-      <section className="featured-section">
-        <SectionHeader label="Featured" />
-        <div className="featured-grid">
-          {featured.map(project => (
-            <ProjectCard key={project.url} project={project} />
-          ))}
-        </div>
-      </section>
+      <Toolbar
+        search={{ value: search, onChange: setSearch, placeholder: 'Search projects…' }}
+        filter={{
+          options: typeOptions,
+          value: activeType,
+          onChange: setActiveType,
+          clearValue: 'all',
+          ariaLabel: 'Filter by project type',
+        }}
+        action={{ label: '+ Submit a project', onClick: onSubmit }}
+      />
 
-      {/* All Projects */}
-      <section className="projects-section">
-        <SectionHeader label="Community Projects" />
-
-        <div className="filters">
-          <div className="filter-buttons-row">
-            {typeFilters.map(f => (
-              <button
-                key={f.value}
-                className={`filter-pill ${activeType === f.value ? 'active' : ''}`}
-                onClick={() => setActiveType(f.value)}
-                aria-pressed={activeType === f.value}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="filter-buttons-row filter-buttons-tags">
-            <button
-              className={`filter-pill ${!activeTag ? 'active' : ''}`}
-              onClick={() => setActiveTag(null)}
-              aria-pressed={activeTag === null}
-            >
-              All Tags
-            </button>
-            {allTags.map(tag => (
-              <button
-                key={tag}
-                className={`filter-pill ${activeTag === tag ? 'active' : ''}`}
-                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-                aria-pressed={activeTag === tag}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-
-          <input
-            type="search"
-            className="search-input"
-            placeholder="Search projects..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            aria-label="Search projects"
-          />
-        </div>
-
-        <div className="project-grid">
-          {filtered.map(project => (
-            <ProjectCard key={project.url} project={project} />
-          ))}
-        </div>
-
-        {filtered.length === 0 && (
-          <p className="empty-state">No projects match your filters.</p>
+      <div className="explore-tag-row" role="group" aria-label="Filter by tag">
+        <span className="explore-tag-label">Tags</span>
+        {visibleTags.map(tag => (
+          <button
+            type="button"
+            key={tag}
+            className={`tag-pill ${activeTag === tag ? 'active' : ''}`}
+            onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+            aria-pressed={activeTag === tag}
+          >
+            {tag}
+          </button>
+        ))}
+        {showActiveTagOutsideList && (
+          <button
+            type="button"
+            className="tag-pill active"
+            onClick={() => setActiveTag(null)}
+            aria-pressed
+          >
+            {activeTag}
+          </button>
         )}
-      </section>
+        {hiddenTagCount > 0 && (
+          <button
+            type="button"
+            className="tag-more"
+            onClick={() => setTagsExpanded(v => !v)}
+            aria-expanded={tagsExpanded}
+          >
+            {tagsExpanded ? 'Less' : `+${hiddenTagCount} more`}
+            <ChevronDownIcon />
+          </button>
+        )}
+      </div>
+
+      <div className="project-grid">
+        {filtered.map(project => (
+          <ProjectCard key={project.url} project={project} />
+        ))}
+      </div>
+
+      {filtered.length === 0 && (
+        <p className="empty-state">No projects match your filters.</p>
+      )}
     </>
   );
 }

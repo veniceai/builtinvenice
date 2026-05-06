@@ -1,0 +1,81 @@
+import { useState } from 'react';
+import type { SubmissionType } from '../../submitSchemas';
+import { projects, cookbooks, events, demos } from '../../data';
+import Projects from './Projects';
+import Cookbooks from './Cookbooks';
+import Events from './Events';
+import Demos from './Demos';
+
+type TabKey = SubmissionType['key'];
+
+interface TabConfig {
+  key: TabKey;
+  label: string;
+  count: number;
+  lede: string;
+}
+
+const tabs: TabConfig[] = [
+  {
+    key: 'project',
+    label: 'Projects',
+    count: projects.length,
+    lede: 'Tools, SDKs, X accounts, and community tokens built on Venice.',
+  },
+  {
+    key: 'cookbook',
+    label: 'Cookbooks',
+    count: cookbooks.length,
+    lede: 'Step-by-step recipes and tutorials for building on Venice.',
+  },
+  {
+    key: 'event',
+    label: 'Events',
+    count: events.length,
+    lede: 'Hackathons, meetups, workshops, and conferences for the Venice ecosystem.',
+  },
+  {
+    key: 'demo',
+    label: 'Demos',
+    count: demos.length,
+    lede: 'Short clips, screenshots, and posts of things people are making on Venice.',
+  },
+];
+
+interface Props {
+  openSubmit: (key: TabKey) => void;
+}
+
+export default function Explore({ openSubmit }: Props) {
+  const [tab, setTab] = useState<TabKey>('project');
+  const config = tabs.find(t => t.key === tab)!;
+
+  return (
+    <section className="explore-section">
+      <div className="explore-tabs" role="tablist" aria-label="Browse by type">
+        {tabs.map(t => (
+          <button
+            key={t.key}
+            role="tab"
+            type="button"
+            aria-selected={tab === t.key}
+            className={`explore-tab ${tab === t.key ? 'active' : ''}`}
+            onClick={() => setTab(t.key)}
+          >
+            <span className="explore-tab-label">{t.label}</span>
+            <span className="explore-tab-count">{t.count}</span>
+          </button>
+        ))}
+      </div>
+
+      <p className="explore-lede">{config.lede}</p>
+
+      <div className="explore-content" role="tabpanel">
+        {tab === 'project' && <Projects onSubmit={() => openSubmit('project')} />}
+        {tab === 'cookbook' && <Cookbooks onSubmit={() => openSubmit('cookbook')} />}
+        {tab === 'event' && <Events onSubmit={() => openSubmit('event')} />}
+        {tab === 'demo' && <Demos onSubmit={() => openSubmit('demo')} />}
+      </div>
+    </section>
+  );
+}

@@ -21,10 +21,10 @@ This skill tells an agent how to:
 Use this skill when the user asks something like:
 
 - "Submit my project to Built with Venice."
-- "Add [repo / site / X handle / token] to builtwithvenice.com."
+- "Add [repo / site / X handle / token] to builtwithvenice.ai."
 - "Add this to the Venice community directory."
 
-Do NOT use it to submit events, cookbooks, or spotlights — those have separate flows at <https://github.com/nikshepsvn/builtwithvenice>.
+Do NOT use it to submit events, cookbooks, or demos — those have separate flows at <https://github.com/nikshepsvn/builtwithvenice>.
 
 ---
 
@@ -133,7 +133,7 @@ If any check fails, stop and ask the user.
 The authoritative schema is in `src/data/projects.ts` in the repo. A machine-readable subset is at:
 
 ```
-https://builtwithvenice.com/.well-known/agent-submit.json
+https://builtwithvenice.ai/.well-known/agent-submit.json
 ```
 
 Version this skill against the `version` field in that manifest.

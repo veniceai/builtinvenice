@@ -6,10 +6,12 @@ Live at: https://venice-labs-production.up.railway.app
 
 ## What's here
 
-- **Community Projects** — Websites, GitHub repos, X accounts, and community tokens built by or for the Venice ecosystem. Filterable by type, tag, and free-text search. Each project can link multiple socials (X, Farcaster, Instagram, Telegram, Discord, YouTube, GitHub, website).
-- **Cookbook & Guides** — Community-written recipes for building on Venice, with a difficulty filter.
-- **Events & Hackathons** — Upcoming and past hackathons, meetups, workshops, and conferences.
-- **Builder Spotlights** — Short video interviews with people shipping on Venice.
+A single tabbed Explore section covers four content types:
+
+- **Projects** — Websites, GitHub repos, X accounts, and community tokens built by or for the Venice ecosystem. Filterable by type, tag, and free-text search. Each project can link multiple socials (X, Farcaster, Instagram, Telegram, Discord, YouTube, GitHub, website).
+- **Cookbooks** — Community-written recipes for building on Venice, filterable by difficulty.
+- **Events** — Upcoming and past hackathons, meetups, workshops, and conferences.
+- **Demos** — Short clips, screenshots, and posts of things people are making on Venice.
 
 Projects are categorized as either **Ecosystem** (tools built for the Venice community) or **Powered by Venice** (apps that use the Venice API).
 

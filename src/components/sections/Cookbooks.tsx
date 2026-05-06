@@ -1,44 +1,44 @@
 import { useState, useMemo } from 'react';
 import { cookbooks, type CookbookDifficulty } from '../../data';
-import SectionHeader from './SectionHeader';
+import Toolbar from './Toolbar';
 import CookbookCard from '../cards/CookbookCard';
 
-const difficultyFilters: { label: string; value: CookbookDifficulty | 'all' }[] = [
-  { label: 'All Levels', value: 'all' },
+const difficultyOptions: { label: string; value: CookbookDifficulty | 'all' }[] = [
   { label: 'Beginner', value: 'beginner' },
   { label: 'Intermediate', value: 'intermediate' },
   { label: 'Advanced', value: 'advanced' },
 ];
 
-export default function Cookbooks() {
-  const [activeDifficulty, setActiveDifficulty] = useState<CookbookDifficulty | 'all'>('all');
+export default function Cookbooks({ onSubmit }: { onSubmit: () => void }) {
+  const [difficulty, setDifficulty] = useState<CookbookDifficulty | 'all'>('all');
+  const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
-    const list = activeDifficulty === 'all'
+    let list = difficulty === 'all'
       ? cookbooks
-      : cookbooks.filter(c => c.difficulty === activeDifficulty);
+      : cookbooks.filter(c => c.difficulty === difficulty);
+    if (search) {
+      const q = search.toLowerCase();
+      list = list.filter(c =>
+        c.title.toLowerCase().includes(q) || c.description.toLowerCase().includes(q),
+      );
+    }
     return [...list].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-  }, [activeDifficulty]);
+  }, [difficulty, search]);
 
   return (
-    <section className="cookbooks-section">
-      <SectionHeader label="Cookbook & Guides" />
-      <p className="section-lede">Step-by-step recipes and tutorials for building on Venice, contributed by the community.</p>
-
-      <div className="filters filter-inline">
-        <div className="filter-buttons-row">
-          {difficultyFilters.map(f => (
-            <button
-              key={f.value}
-              className={`filter-pill ${activeDifficulty === f.value ? 'active' : ''}`}
-              onClick={() => setActiveDifficulty(f.value)}
-              aria-pressed={activeDifficulty === f.value}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-      </div>
+    <>
+      <Toolbar
+        search={{ value: search, onChange: setSearch, placeholder: 'Search recipes…' }}
+        filter={{
+          options: difficultyOptions,
+          value: difficulty,
+          onChange: setDifficulty,
+          clearValue: 'all',
+          ariaLabel: 'Filter by difficulty',
+        }}
+        action={{ label: '+ Submit a recipe', onClick: onSubmit }}
+      />
 
       <div className="project-grid">
         {filtered.map(cookbook => (
@@ -47,8 +47,8 @@ export default function Cookbooks() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="empty-state">No recipes at this difficulty yet.</p>
+        <p className="empty-state">No recipes match your filters.</p>
       )}
-    </section>
+    </>
   );
 }
