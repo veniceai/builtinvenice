@@ -4,7 +4,7 @@ title: "[Demo] "
 labels: ["submission", "demo"]
 body:
   - type: input
-    id: title
+    id: demo-title
     attributes:
       label: Title
       placeholder: e.g. openvenice running chat, image, and audio in one tab
@@ -12,7 +12,7 @@ body:
       required: true
 
   - type: input
-    id: url
+    id: demo-url
     attributes:
       label: Demo URL
       description: Link to where the demo lives — X post, Loom, asciinema, gallery image, etc.

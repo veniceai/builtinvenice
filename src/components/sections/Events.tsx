@@ -8,7 +8,7 @@ const statusOptions: { label: string; value: EventStatus | 'all' }[] = [
   { label: 'Past', value: 'past' },
 ];
 
-export default function Events({ onSubmit }: { onSubmit: () => void }) {
+export default function Events() {
   const [status, setStatus] = useState<EventStatus | 'all'>('all');
   const [search, setSearch] = useState('');
 
@@ -36,7 +36,6 @@ export default function Events({ onSubmit }: { onSubmit: () => void }) {
           clearValue: 'all',
           ariaLabel: 'Filter by status',
         }}
-        action={{ label: '+ Submit an event', onClick: onSubmit }}
       />
 
       <div className="project-grid">

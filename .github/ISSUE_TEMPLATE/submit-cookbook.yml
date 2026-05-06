@@ -4,7 +4,7 @@ title: "[Cookbook] "
 labels: ["submission", "cookbook"]
 body:
   - type: input
-    id: title
+    id: cookbook-title
     attributes:
       label: Title
       placeholder: e.g. Streaming chat completions with the Venice API
@@ -12,7 +12,7 @@ body:
       required: true
 
   - type: input
-    id: url
+    id: cookbook-url
     attributes:
       label: URL
       description: Link to the published recipe (Markdown file in a repo, blog post, or gist).

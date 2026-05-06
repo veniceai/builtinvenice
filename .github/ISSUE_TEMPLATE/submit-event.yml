@@ -4,7 +4,7 @@ title: "[Event] "
 labels: ["submission", "event"]
 body:
   - type: input
-    id: title
+    id: event-name
     attributes:
       label: Event name
       placeholder: e.g. Venice Private-AI Hackathon
@@ -12,7 +12,7 @@ body:
       required: true
 
   - type: input
-    id: url
+    id: event-url
     attributes:
       label: URL
       description: Canonical link (Luma, Eventbrite, conference site, etc.).

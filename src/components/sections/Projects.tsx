@@ -35,7 +35,7 @@ const tagsByPopularity = (() => {
     .map(([tag]) => tag);
 })();
 
-export default function Projects({ onSubmit }: { onSubmit: () => void }) {
+export default function Projects() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [activeType, setActiveType] = useState<Project['type'] | 'all'>('all');
   const [search, setSearch] = useState('');
@@ -70,7 +70,6 @@ export default function Projects({ onSubmit }: { onSubmit: () => void }) {
           clearValue: 'all',
           ariaLabel: 'Filter by project type',
         }}
-        action={{ label: '+ Submit a project', onClick: onSubmit }}
       />
 
       <div className="explore-tag-row" role="group" aria-label="Filter by tag">

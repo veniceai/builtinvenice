@@ -3,7 +3,7 @@ import { demos } from '../../data';
 import Toolbar from './Toolbar';
 import DemoCard from '../cards/DemoCard';
 
-export default function Demos({ onSubmit }: { onSubmit: () => void }) {
+export default function Demos() {
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
@@ -23,7 +23,6 @@ export default function Demos({ onSubmit }: { onSubmit: () => void }) {
     <>
       <Toolbar
         search={{ value: search, onChange: setSearch, placeholder: 'Search demos…' }}
-        action={{ label: '+ Submit a demo', onClick: onSubmit }}
       />
 
       <div className="project-grid">

@@ -42,11 +42,7 @@ const tabs: TabConfig[] = [
   },
 ];
 
-interface Props {
-  openSubmit: (key: TabKey) => void;
-}
-
-export default function Explore({ openSubmit }: Props) {
+export default function Explore() {
   const [tab, setTab] = useState<TabKey>('project');
   const config = tabs.find(t => t.key === tab)!;
 
@@ -71,10 +67,10 @@ export default function Explore({ openSubmit }: Props) {
       <p className="explore-lede">{config.lede}</p>
 
       <div className="explore-content" role="tabpanel">
-        {tab === 'project' && <Projects onSubmit={() => openSubmit('project')} />}
-        {tab === 'cookbook' && <Cookbooks onSubmit={() => openSubmit('cookbook')} />}
-        {tab === 'event' && <Events onSubmit={() => openSubmit('event')} />}
-        {tab === 'demo' && <Demos onSubmit={() => openSubmit('demo')} />}
+        {tab === 'project' && <Projects />}
+        {tab === 'cookbook' && <Cookbooks />}
+        {tab === 'event' && <Events />}
+        {tab === 'demo' && <Demos />}
       </div>
     </section>
   );

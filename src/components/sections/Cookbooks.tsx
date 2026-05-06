@@ -9,7 +9,7 @@ const difficultyOptions: { label: string; value: CookbookDifficulty | 'all' }[] 
   { label: 'Advanced', value: 'advanced' },
 ];
 
-export default function Cookbooks({ onSubmit }: { onSubmit: () => void }) {
+export default function Cookbooks() {
   const [difficulty, setDifficulty] = useState<CookbookDifficulty | 'all'>('all');
   const [search, setSearch] = useState('');
 
@@ -37,7 +37,6 @@ export default function Cookbooks({ onSubmit }: { onSubmit: () => void }) {
           clearValue: 'all',
           ariaLabel: 'Filter by difficulty',
         }}
-        action={{ label: '+ Submit a recipe', onClick: onSubmit }}
       />
 
       <div className="project-grid">
