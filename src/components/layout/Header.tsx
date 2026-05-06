@@ -12,11 +12,11 @@ export default function Header() {
             </button>
           </div>
           <nav className="nav-links">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/features">Features</a>
-            <a href="/pricing">Pricing</a>
-            <a href="/sign-in" className="sign-in">Sign in</a>
+            <a href="https://venice.ai">Home</a>
+            <a href="https://venice.ai/about">About</a>
+            <a href="https://venice.ai/features">Features</a>
+            <a href="https://venice.ai/pricing">Pricing</a>
+            <a href="https://venice.ai/sign-in" className="sign-in">Sign in</a>
           </nav>
         </div>
       </div>

@@ -100,7 +100,15 @@ Use this if the agent lacks permission to fork/PR.
    https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+<url-encoded-title>
    ```
 
-   Pre-fill what you can via query params (the template field IDs are stable: `title`, `url`, `type`, `category`, `description`, `tags`, `socials`).
+   Pre-fill what you can via query params. The template field IDs are stable — use these exact keys:
+
+   - `project-name`, `project-type`, `project-url`, `category`, `description`, `tags`, `submitted-by`
+   - GitHub repo extras: `github-owner`, `github-repo`, `language`, `stars`, `forks`
+   - X account extras: `x-handle`, `x-bio`, `x-followers`
+   - Token extras: `token-ticker`, `token-address`, `token-chain`, `token-market-cap`, `token-holders`
+   - `socials` (newline-separated `kind: url` pairs)
+   - `screenshot` (websites only)
+
 3. Return the issue URL so the user can review and submit.
 
 ---

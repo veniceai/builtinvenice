@@ -1,0 +1,112 @@
+name: Submit an Event
+description: Submit a hackathon, meetup, workshop, or conference for the Venice ecosystem
+title: "[Event] "
+labels: ["submission", "event"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Event name
+      placeholder: e.g. Venice Private-AI Hackathon
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Canonical link (Luma, Eventbrite, conference site, etc.).
+      placeholder: https://lu.ma/your-event
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: 1–2 plain sentences about the event. Avoid marketing copy.
+      placeholder: Describe the event...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - hackathon
+        - meetup
+        - conference
+        - workshop
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - upcoming
+        - live
+        - past
+    validations:
+      required: true
+
+  - type: input
+    id: start-date
+    attributes:
+      label: Start date (YYYY-MM-DD)
+      placeholder: 2026-05-10
+    validations:
+      required: true
+
+  - type: input
+    id: end-date
+    attributes:
+      label: End date (YYYY-MM-DD, optional)
+      description: Only fill in if the event spans multiple days.
+      placeholder: 2026-05-12
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: City + country, or "Online".
+      placeholder: e.g. San Francisco, CA  /  Online
+    validations:
+      required: true
+
+  - type: input
+    id: host
+    attributes:
+      label: Host
+      description: Organizer name or handle.
+      placeholder: e.g. Venice AI, @nikshepsvn
+    validations:
+      required: true
+
+  - type: input
+    id: prize
+    attributes:
+      label: Prize (optional)
+      description: Hackathons only. E.g. "$50,000 in credits + $VVV".
+      placeholder: e.g. $15,000 in credits
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated (1–4 short tags). Reuse existing tags where it makes sense.
+      placeholder: Hackathon, Online
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: quality
+    attributes:
+      label: Quality Checklist
+      options:
+        - label: The event is publicly accessible (registration link works).
+          required: true
+        - label: I understand that listing does not imply endorsement by Venice AI.
+          required: true

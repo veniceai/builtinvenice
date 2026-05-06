@@ -1,25 +1,29 @@
 # Built with Venice
 
-Community showcase of tools, SDKs, and integrations built on the Venice AI ecosystem.
+Community showcase of tools, SDKs, content, and builders in the Venice AI ecosystem.
 
-Live at: https://builtwithvenice.up.railway.app
+Live at: https://venice-labs-production.up.railway.app
 
 ## What's here
 
-- **Community Projects** — GitHub repos and websites built by the Venice community, categorized as "Ecosystem" (built for the community) or "Powered by Venice" (uses the API)
-- **Cookbook & Guides** — Technical content about building with Venice (coming soon)
-- **Spotlights** — Video interviews with community builders (coming soon)
-- **Events & Partners** — Hackathons, meetups, and collaborators (coming soon)
+- **Community Projects** — Websites, GitHub repos, X accounts, and community tokens built by or for the Venice ecosystem. Filterable by type, tag, and free-text search. Each project can link multiple socials (X, Farcaster, Instagram, Telegram, Discord, YouTube, GitHub, website).
+- **Cookbook & Guides** — Community-written recipes for building on Venice, with a difficulty filter.
+- **Events & Hackathons** — Upcoming and past hackathons, meetups, workshops, and conferences.
+- **Builder Spotlights** — Short video interviews with people shipping on Venice.
 
-## Submit a project
+Projects are categorized as either **Ecosystem** (tools built for the Venice community) or **Powered by Venice** (apps that use the Venice API).
 
-**Easiest:** [Open a submission form](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+) — fill it out and we'll add it.
+## Submit something
 
-**Or via PR:** Fork this repo, add your entry to `src/data/projects.ts`, and open a pull request. See [CONTRIBUTING.md](./CONTRIBUTING.md) for full guidelines.
+**Easiest:** [Pick a submission form](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose) — projects, cookbooks, events, and builder spotlights each have their own template. Maintainers add it for you.
+
+**Via pull request:** fork, add your entry to the relevant file under `src/data/`, open a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+**Via AI agent:** copy the prompt from the hero on the live site — it points your agent at [`/agent-skill.md`](./public/agent-skill.md), which walks it through the schema, validation, and PR flow.
 
 ### Quality bar
 
-Projects must be publicly accessible and offer something beyond the base Venice platform. SDKs, integrations, tools, dashboards — yes. Bare wrappers with no added value — no.
+Projects must be publicly accessible and offer something beyond the base Venice platform, or be a community asset (X account, community token, cookbook, event) that complements it. Bare API wrappers and marketing-only submissions are declined.
 
 ## Development
 
@@ -34,6 +38,10 @@ npm run dev
 npm run build
 railway up
 ```
+
+## For maintainers
+
+An agent-readable triage skill lives at [`/admin-skill.md`](./public/admin-skill.md). Point Claude Code (or any agent with `gh` access) at it to review open issues and PRs — it proposes actions and drafts replies, and waits for confirmation before running any `gh` command.
 
 ## Stack
 

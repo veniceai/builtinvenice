@@ -291,3 +291,17 @@ export const chainColors: Record<TokenChain, string> = {
   base: '#0052FF',
   ethereum: '#627EEA',
 };
+
+export const socialLabels: Record<SocialKind, string> = {
+  x: 'X',
+  github: 'GitHub',
+  website: 'Website',
+  farcaster: 'Farcaster',
+  warpcast: 'Warpcast',
+  instagram: 'Instagram',
+  telegram: 'Telegram',
+  discord: 'Discord',
+  youtube: 'YouTube',
+  tiktok: 'TikTok',
+  token: 'Token',
+};

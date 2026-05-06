@@ -1,5 +1,5 @@
-import { SocialIcon, socialLabels } from '../icons';
-import type { Social } from '../../data';
+import { SocialIcon } from '../icons';
+import { socialLabels, type Social } from '../../data';
 
 export default function SocialsRow({ socials }: { socials?: Social[] }) {
   if (!socials?.length) return null;

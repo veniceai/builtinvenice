@@ -1,0 +1,100 @@
+name: Submit a Cookbook / Recipe
+description: Submit a tutorial, recipe, or guide for building on Venice
+title: "[Cookbook] "
+labels: ["submission", "cookbook"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      placeholder: e.g. Streaming chat completions with the Venice API
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Link to the published recipe (Markdown file in a repo, blog post, or gist).
+      placeholder: https://github.com/owner/repo/blob/main/cookbook/recipe.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: 1–2 plain sentences about what the recipe teaches. Avoid marketing language.
+      placeholder: Describe the recipe...
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Author handle
+      description: GitHub or X handle for attribution.
+      placeholder: e.g. nikshepsvn
+    validations:
+      required: true
+
+  - type: input
+    id: author-url
+    attributes:
+      label: Author URL (optional)
+      placeholder: https://x.com/yourhandle
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty
+      options:
+        - beginner
+        - intermediate
+        - advanced
+    validations:
+      required: true
+
+  - type: input
+    id: read-time
+    attributes:
+      label: Read time
+      description: Estimated reading time, e.g. "8 min".
+      placeholder: e.g. 10 min
+    validations:
+      required: true
+
+  - type: input
+    id: language
+    attributes:
+      label: Primary language (optional)
+      placeholder: e.g. TypeScript, Python
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated (1–4 short tags). Reuse existing tags where it makes sense.
+      placeholder: Streaming, Chat, Tutorial
+    validations:
+      required: true
+
+  - type: input
+    id: published-at
+    attributes:
+      label: Published date (YYYY-MM-DD)
+      placeholder: 2026-05-06
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: quality
+    attributes:
+      label: Quality Checklist
+      options:
+        - label: The recipe is publicly accessible.
+          required: true
+        - label: It teaches something concrete about building on Venice (not a marketing post).
+          required: true
+        - label: I understand that listing does not imply endorsement by Venice AI.
+          required: true

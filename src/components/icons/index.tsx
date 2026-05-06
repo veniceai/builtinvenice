@@ -201,16 +201,3 @@ export function SocialIcon({ kind, size = 14 }: { kind: SocialKind; size?: numbe
   return _exhaustive;
 }
 
-export const socialLabels: Record<SocialKind, string> = {
-  x: 'X',
-  github: 'GitHub',
-  website: 'Website',
-  farcaster: 'Farcaster',
-  warpcast: 'Warpcast',
-  instagram: 'Instagram',
-  telegram: 'Telegram',
-  discord: 'Discord',
-  youtube: 'YouTube',
-  tiktok: 'TikTok',
-  token: 'Token',
-};

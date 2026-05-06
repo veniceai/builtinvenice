@@ -5,7 +5,7 @@ import Projects from './components/sections/Projects';
 import Cookbooks from './components/sections/Cookbooks';
 import Events from './components/sections/Events';
 import Spotlights from './components/sections/Spotlights';
-import { SUBMIT_URL } from './constants';
+import { SUBMIT_CHOOSE_URL } from './constants';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             Have something to share — a project, recipe, event, or video?
           </p>
           <a
-            href={SUBMIT_URL}
+            href={SUBMIT_CHOOSE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="submit-cta"

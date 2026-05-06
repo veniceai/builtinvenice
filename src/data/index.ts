@@ -4,6 +4,7 @@ export {
   langColors,
   chainLabels,
   chainColors,
+  socialLabels,
   type Project,
   type WebsiteProject,
   type RepoProject,

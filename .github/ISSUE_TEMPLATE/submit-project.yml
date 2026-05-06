@@ -7,7 +7,7 @@ body:
     id: project-name
     attributes:
       label: Project Name
-      placeholder: e.g. VeniceStats
+      placeholder: e.g. VeniceStats, @venicebuilds, $DOGEDAO
     validations:
       required: true
 
@@ -18,6 +18,8 @@ body:
       options:
         - Website
         - GitHub Repo
+        - X Account
+        - Token
     validations:
       required: true
 
@@ -25,29 +27,16 @@ body:
     id: project-url
     attributes:
       label: Project URL
-      placeholder: https://myproject.com or https://github.com/owner/repo
+      description: Canonical link for the project.
+      placeholder: https://myproject.com  /  https://github.com/owner/repo  /  https://x.com/handle  /  https://dexscreener.com/…
     validations:
       required: true
-
-  - type: input
-    id: github-owner
-    attributes:
-      label: GitHub Owner (for repos only)
-      description: The owner portion of github.com/owner/repo
-      placeholder: e.g. nikshepsvn
-
-  - type: input
-    id: github-repo
-    attributes:
-      label: GitHub Repo Name (for repos only)
-      description: The repo portion of github.com/owner/repo
-      placeholder: e.g. openvenice
 
   - type: dropdown
     id: category
     attributes:
       label: Category
-      description: "Ecosystem = tools/SDKs built for the Venice community (e.g. dashboards, CLIs, libraries). Powered by Venice = apps that use the Venice API (e.g. chatbots, research tools)."
+      description: "Ecosystem = tools, SDKs, content, or assets maintained for the Venice community. Powered by Venice = apps that use the Venice API."
       options:
         - "Ecosystem (built for the Venice community)"
         - "Powered by Venice (uses the Venice API)"
@@ -58,7 +47,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: 1-2 sentences about what the project does
+      description: 1–2 plain sentences about what the project does. Avoid marketing language.
       placeholder: Describe your project...
     validations:
       required: true
@@ -67,37 +56,138 @@ body:
     id: tags
     attributes:
       label: Tags
-      description: Comma-separated (e.g. SDK, Python, Analytics)
-      placeholder: Tag1, Tag2, Tag3
+      description: Comma-separated (1–4 short tags). Reuse existing tags where it makes sense.
+      placeholder: SDK, TypeScript, Analytics
     validations:
       required: true
-
-  - type: input
-    id: language
-    attributes:
-      label: Primary Language (for GitHub repos)
-      placeholder: e.g. TypeScript, Python
 
   - type: input
     id: submitted-by
     attributes:
       label: Your Name / Handle
-      placeholder: e.g. @username
+      placeholder: e.g. @nikshepsvn
+
+  # ── GitHub Repo fields ────────────────────────────────
+  - type: input
+    id: github-owner
+    attributes:
+      label: GitHub Owner (repos only)
+      description: The owner portion of github.com/owner/repo.
+      placeholder: e.g. nikshepsvn
+
+  - type: input
+    id: github-repo
+    attributes:
+      label: GitHub Repo Name (repos only)
+      description: The repo portion of github.com/owner/repo.
+      placeholder: e.g. openvenice
+
+  - type: input
+    id: language
+    attributes:
+      label: Primary Language (repos only)
+      placeholder: e.g. TypeScript, Python
+
+  - type: input
+    id: stars
+    attributes:
+      label: Stars (repos only, optional)
+      description: Leave blank if you don't know — maintainers will fill it in.
+      placeholder: e.g. 42
+
+  - type: input
+    id: forks
+    attributes:
+      label: Forks (repos only, optional)
+      placeholder: e.g. 5
+
+  # ── X Account fields ──────────────────────────────────
+  - type: input
+    id: x-handle
+    attributes:
+      label: X Handle (X accounts only)
+      description: Without the "@".
+      placeholder: venicebuilds
+
+  - type: input
+    id: x-bio
+    attributes:
+      label: Short bio (X accounts only)
+      placeholder: One-line description of the account.
+
+  - type: input
+    id: x-followers
+    attributes:
+      label: Followers (X accounts only, optional)
+      description: Approximate follower count. Leave blank if you don't know.
+      placeholder: e.g. 4200
+
+  # ── Token fields ──────────────────────────────────────
+  - type: input
+    id: token-ticker
+    attributes:
+      label: Ticker (tokens only)
+      placeholder: e.g. DOGEDAO
+
+  - type: input
+    id: token-address
+    attributes:
+      label: Contract Address (tokens only)
+      placeholder: e.g. 0x… on Base, or Solana base58 address
+
+  - type: dropdown
+    id: token-chain
+    attributes:
+      label: Chain (tokens only)
+      options:
+        - "(not a token)"
+        - Solana
+        - Base
+        - Ethereum
+
+  - type: input
+    id: token-market-cap
+    attributes:
+      label: Market Cap (tokens only, optional)
+      description: In USD. Leave blank if you don't know.
+      placeholder: e.g. 2400000
+
+  - type: input
+    id: token-holders
+    attributes:
+      label: Holders (tokens only, optional)
+      placeholder: e.g. 1820
+
+  # ── Socials + preview ─────────────────────────────────
+  - type: textarea
+    id: socials
+    attributes:
+      label: Connected socials (optional)
+      description: |
+        One per line, in the form `kind: url`. Supported kinds:
+        x, github, website, farcaster, warpcast, instagram, telegram, discord, youtube, tiktok, token.
+      placeholder: |
+        x: https://x.com/yourproject
+        farcaster: https://warpcast.com/yourproject
+        telegram: https://t.me/yourproject
 
   - type: textarea
     id: screenshot
     attributes:
-      label: Screenshot (for websites)
-      description: Drag and drop a screenshot here. The maintainers will add it to the site for you.
+      label: Screenshot (websites only)
+      description: Drag and drop a screenshot here. Maintainers will add it to the site for you.
 
+  # ── Quality checklist ─────────────────────────────────
   - type: checkboxes
     id: quality
     attributes:
       label: Quality Checklist
       options:
-        - label: This project is publicly accessible
+        - label: This project is publicly accessible.
           required: true
-        - label: This project offers functionality beyond the base Venice platform
+        - label: This project offers functionality beyond the base Venice platform, OR is a community asset (X account, community token) that complements it.
           required: true
-        - label: I understand that listing does not imply endorsement by Venice AI
+        - label: If this is a token, it is **not** Venice's own official token. This directory is community-only.
+          required: true
+        - label: I understand that listing does not imply endorsement by Venice AI.
           required: true
