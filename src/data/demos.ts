@@ -34,15 +34,6 @@ export const demos: Demo[] = [
     featured: true,
   },
   {
-    title: "Vigil — private guardian for elderly crypto wallets",
-    builder: "drewmanley16",
-    description: "Synthesis-built agent: every outbound tx is privately analyzed by Venice (llama-3.3-70b, zero retention). Suspicious transfers held in escrow until a family guardian approves on Telegram.",
-    url: "https://vigil-guardian.vercel.app/demo",
-    thumbnail: "/preview-vigil.png",
-    publishedAt: "2026-03-20",
-    tags: ["Agent", "Privacy", "On-chain"],
-  },
-  {
     title: "VeniceGuard — privacy-preserving multimodal AI",
     builder: "decentrathai",
     description: "Open Agents 2026 submission. Upload a medical prescription → Venice vision extracts data → reasoning summarises → TTS reads results. Original image never stored.",
