@@ -659,9 +659,7 @@ input:focus-visible {
 /* ==============================
    WEBSITE CARD — Image preview
    ============================== */
-.website-card .card-body {
-  border-left: 3px solid var(--gold);
-}
+/* per-card border accents removed — thumbnails + badges carry the signal */
 .card-preview {
   position: relative;
   aspect-ratio: 16/9;
@@ -728,9 +726,6 @@ input:focus-visible {
 /* ==============================
    REPO CARD — Left accent
    ============================== */
-.repo-card .card-body {
-  border-left: 3px solid var(--sea-dark);
-}
 
 .repo-meta {
   display: flex;
@@ -862,9 +857,6 @@ input:focus-visible {
 /* ==============================
    X ACCOUNT CARD
    ============================== */
-.x-account-card .card-body {
-  border-left: 3px solid var(--black);
-}
 
 .x-bio {
   font-size: 13px;
@@ -880,9 +872,6 @@ input:focus-visible {
 /* ==============================
    TOKEN CARD
    ============================== */
-.token-card .card-body {
-  border-left: 3px solid var(--accent);
-}
 
 .token-chain-row {
   display: flex;
@@ -936,14 +925,6 @@ input:focus-visible {
    EVENTS SECTION
    ============================== */
 /* Event card */
-.event-card .card-body {
-  border-left: 3px solid var(--sea-dark);
-}
-
-.event-card.event-hackathon .card-body { border-left-color: var(--accent); }
-.event-card.event-workshop .card-body { border-left-color: var(--gold); }
-.event-card.event-conference .card-body { border-left-color: var(--sea-dark); }
-.event-card.event-meetup .card-body { border-left-color: #6b7280; }
 
 .event-card.status-past {
   opacity: 0.7;
@@ -1008,13 +989,6 @@ input:focus-visible {
 /* ==============================
    COOKBOOK CARD
    ============================== */
-.cookbook-card .card-body {
-  border-left: 3px solid var(--gold);
-}
-
-.cookbook-card.difficulty-beginner .card-body { border-left-color: #22c55e; }
-.cookbook-card.difficulty-intermediate .card-body { border-left-color: var(--gold); }
-.cookbook-card.difficulty-advanced .card-body { border-left-color: var(--accent); }
 
 .difficulty-badge {
   font-size: 10px;
@@ -1045,9 +1019,6 @@ input:focus-visible {
 /* ==============================
    DEMO CARD
    ============================== */
-.demo-card .card-body {
-  border-left: 3px solid var(--accent);
-}
 
 .demo-thumb {
   position: relative;
