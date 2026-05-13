@@ -4,7 +4,9 @@ import AgentPromptCard from '../AgentPromptCard';
 export default function Hero({ onSubmit }: { onSubmit: () => void }) {
   return (
     <section className="hero-section">
-      <h1 className="hero-title">Built with Venice</h1>
+      <h1 className="hero-title">
+        Built with <span className="hero-title-name">Venice</span>
+      </h1>
       <p className="hero-subtitle">
         From SDKs and research tools to bots and dashboards — see what the community
         is building on Venice AI.

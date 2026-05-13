@@ -234,27 +234,35 @@ input:focus-visible {
    ============================== */
 .hero-section {
   text-align: center;
-  margin-top: 56px;
+  margin-top: 64px;
   margin-bottom: 56px;
 }
 
 .hero-title {
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 300;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.038em;
   color: var(--black);
-  margin-bottom: 14px;
-  line-height: 1.1;
+  margin-bottom: 16px;
+  line-height: 1.04;
+}
+
+.hero-title-name {
+  font-family: 'Source Serif Pro', 'Charter', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--sea-dark);
+  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--black);
-  opacity: 0.5;
-  max-width: 480px;
+  opacity: 0.58;
+  max-width: 460px;
   margin: 0 auto;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 /* ==============================
@@ -788,19 +796,27 @@ input:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 28px;
-  padding: 12px 28px;
+  margin-top: 32px;
+  padding: 13px 26px;
   background: var(--accent);
   color: var(--white);
   border-radius: var(--radius-md);
   font-size: 14px;
   font-weight: 500;
-  transition: opacity 0.2s, transform 0.2s;
+  letter-spacing: 0.005em;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 4px 12px rgba(221,51,0,0.18);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .submit-cta:hover {
-  opacity: 0.85;
+  background: #c12d00;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 22px rgba(221,51,0,0.28);
   transform: translateY(-1px);
+}
+
+.submit-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 3px 8px rgba(221,51,0,0.18);
 }
 
 
