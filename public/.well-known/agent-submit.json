@@ -34,12 +34,14 @@
           },
           "required": ["kind", "url"]
         }
+      },
+      "thumbnail": {
+        "type": "string",
+        "description": "Optional 16:9 preview image. Local path (e.g. /preview-foo.png in public/) or absolute URL. Applies to every project type. GitHub Repo entries auto-default to https://opengraph.githubassets.com/1/<owner>/<repo>."
       }
     },
     "byType": {
-      "Website": {
-        "preview": { "type": "string", "description": "Path to preview image in public/, e.g. /preview-foo.png" }
-      },
+      "Website": {},
       "GitHub Repo": {
         "owner": { "type": "string", "required": true },
         "repo": { "type": "string", "required": true },

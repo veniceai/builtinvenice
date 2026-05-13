@@ -61,13 +61,15 @@ Valid `kind` values: `x, github, website, farcaster, warpcast, instagram, telegr
   url: "https://myproject.com",
   tags: ["Tag1", "Tag2"],
   category: "powered-by",   // or "ecosystem"
-  preview: "/preview-myproject.png",   // optional — add a 1200x750 PNG to public/
+  thumbnail: "/preview-myproject.png",   // optional 16:9 — add a 1200×675 PNG to public/
   submittedBy: "your-handle",
   socials: [
     { kind: 'x', url: 'https://x.com/yourproject' },
   ],
 }
 ```
+
+`thumbnail` is available on every project type (Website, GitHub Repo, X Account, Token). For GitHub Repo entries the field is auto-defaulted to the `opengraph.githubassets.com` OG image, so you only need to set it when the OG image looks weak.
 
 ## Adding a GitHub Repo
 

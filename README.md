@@ -11,7 +11,7 @@ A single tabbed Explore section covers four content types:
 - **Projects** — Websites, GitHub repos, X accounts, and community tokens built by or for the Venice ecosystem. Filterable by type, tag, and free-text search. Each project can link multiple socials (X, Farcaster, Instagram, Telegram, Discord, YouTube, GitHub, website).
 - **Cookbooks** — Community-written recipes for building on Venice, filterable by difficulty.
 - **Events** — Upcoming and past hackathons, meetups, workshops, and conferences.
-- **Demos** — Short clips, screenshots, and posts of things people are making on Venice.
+- **Watch** — Videos, interviews, and recaps about Venice and the projects built on it. (Internal data file: `src/data/demos.ts`.)
 
 Projects are categorized as either **Ecosystem** (tools built for the Venice community) or **Powered by Venice** (apps that use the Venice API).
 
@@ -19,7 +19,7 @@ Projects are categorized as either **Ecosystem** (tools built for the Venice com
 
 **Easiest:** Click "Submit your work" on the [live site](https://builtwithvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
 
-You can also [pick a submission form](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and demos each have their own template.
+You can also [pick a submission form](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and videos (demos) each have their own template.
 
 **Via pull request:** fork, add your entry to the relevant file under `src/data/`, open a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 

@@ -42,11 +42,12 @@ Common to every project type:
 | `tags`          | yes      | 1–4 short tags. Title Case. Reuse existing tags where possible.       |
 | `submittedBy`   | yes      | GitHub or X handle of the submitter.                                  |
 | `socials`       | no       | Array of `{ kind, url }`. See `SocialKind` below.                     |
+| `thumbnail`     | no       | 16:9 preview image. Local path (e.g. `/preview-foo.png` in `public/`) or absolute URL. Applies to every project type. For GitHub Repo entries the auto-default is `https://opengraph.githubassets.com/1/<owner>/<repo>` — leave blank to use it. |
 | `featured`      | no       | **Do not set.** Maintainers choose featured projects.                 |
 
 Type-specific extras:
 
-- `Website` → `preview?: "/filename.png"` (path in `public/`).
+- `Website` → no extra required fields (use `thumbnail` for the preview image).
 - `GitHub Repo` → `owner`, `repo`; `stars?`, `forks?`, `language?` (leave empty unless you know them).
 - `X Account` → `handle` (no `@`), `followers?`, `bio?`.
 - `Token` → `ticker`, `address`, `chain: "solana" | "base" | "ethereum"`, `marketCap?`, `holders?`. Reject Venice's own official token; this directory is community-only.
