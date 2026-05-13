@@ -111,31 +111,33 @@ body {
   line-height: 1.5;
 }
 
-/* Page-edge frame — thick orange border running along top + sides of the
-   viewport. Open at the bottom so it doesn't fight the footer. */
+/* Page-edge frame — double-line orange treatment on top + sides.
+   Open at the bottom so it doesn't fight the footer. */
 .page-frame {
   position: relative;
   min-height: 100vh;
-  border-top: 6px solid var(--accent);
-  border-left: 6px solid var(--accent);
-  border-right: 6px solid var(--accent);
+  border-top: 7px solid var(--accent);
+  border-left: 7px solid var(--accent);
+  border-right: 7px solid var(--accent);
 }
-/* Top-center mark — small filled diamond punctuating the top edge */
+/* Inner echo — thin parallel line offset inside the thick band */
 .page-frame::before {
   content: "";
   position: absolute;
-  top: -12px;
-  left: 50%;
-  width: 14px;
-  height: 14px;
-  background: var(--accent);
-  transform: translateX(-50%) rotate(45deg);
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  border-top: 1px solid var(--accent);
+  border-left: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  opacity: 0.55;
   pointer-events: none;
 }
 
 @media (max-width: 720px) {
   .page-frame { border-width: 4px; }
-  .page-frame::before { top: -9px; width: 10px; height: 10px; }
+  .page-frame::before { top: 8px; left: 8px; right: 8px; }
 }
 
 img { display: block; max-width: 100%; }
