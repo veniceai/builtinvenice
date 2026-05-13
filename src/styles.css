@@ -236,7 +236,7 @@ input:focus-visible {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
   gap: 72px;
-  align-items: center;
+  align-items: stretch;
   text-align: left;
   margin-top: 80px;
   margin-bottom: 72px;
@@ -246,12 +246,14 @@ input:focus-visible {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
 }
 .hero-right {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: stretch;
 }
 
@@ -1196,7 +1198,7 @@ input:focus-visible {
   position: relative;
   max-width: 100%;
   margin: 0;
-  padding: 14px 16px 12px;
+  padding: 22px 22px 18px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
