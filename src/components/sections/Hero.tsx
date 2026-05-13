@@ -8,8 +8,8 @@ export default function Hero({ onSubmit }: { onSubmit: () => void }) {
         Built with <span className="hero-title-name">Venice</span>
       </h1>
       <p className="hero-subtitle">
-        SDKs, research tools, bots, dashboards — what the community is
-        shipping on Venice AI.
+        SDKs, agents, dashboards, and demos — what the community is
+        shipping on Venice.
       </p>
       <button type="button" onClick={onSubmit} className="submit-cta">
         Submit your work <ArrowIcon />
