@@ -7,6 +7,16 @@ export default function RepoCard({ project }: { project: RepoProject }) {
 
   return (
     <article className="project-card repo-card">
+      {project.thumbnail && (
+        <div className="card-preview">
+          <img src={project.thumbnail} alt={`${project.title} preview`} loading="lazy" />
+          <div className="card-preview-overlay">
+            <span className="card-preview-cta">
+              View on GitHub <ExternalArrow className="external-arrow" />
+            </span>
+          </div>
+        </div>
+      )}
       <div className="card-body">
         <div className="card-type-row">
           <span className="card-type-label"><GitHubIcon /> {project.owner}/{project.repo}</span>

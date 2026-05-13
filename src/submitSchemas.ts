@@ -1,7 +1,7 @@
 // Schema-driven definitions for the in-app submit form. Field `id` must match
 // the GitHub issue form field ID so URL prefill works on submit.
 
-export type FieldType = 'text' | 'textarea' | 'select' | 'date';
+export type FieldType = 'text' | 'textarea' | 'select' | 'date' | 'image';
 
 export interface FieldConfig {
   id: string;
@@ -90,6 +90,12 @@ export const submissionTypes: SubmissionType[] = [
         type: 'textarea',
         description: 'One per line, kind: url. Kinds: x, github, website, farcaster, warpcast, instagram, telegram, discord, youtube, tiktok, token.',
         placeholder: 'x: https://x.com/yourproject\nfarcaster: https://warpcast.com/yourproject',
+      },
+      {
+        id: 'screenshot',
+        label: 'Thumbnail (optional)',
+        type: 'image',
+        description: 'Drop an image; we crop it to 16:9 and upload it. The URL is auto-filled into the GitHub issue.',
       },
     ],
   },

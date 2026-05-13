@@ -1,6 +1,24 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { submissionTypes, buildIssueUrl, type SubmissionType, type FieldConfig } from '../submitSchemas';
 import { REPO_URL } from '../constants';
+import ImageField from './ImageField';
+
+async function uploadThumbnail(blob: Blob): Promise<string> {
+  const apiKey = import.meta.env.VITE_IMGBB_KEY;
+  if (!apiKey) {
+    throw new Error('Thumbnail upload not configured (VITE_IMGBB_KEY missing)');
+  }
+  const formData = new FormData();
+  formData.append('image', blob);
+  const res = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
+    method: 'POST',
+    body: formData,
+  });
+  if (!res.ok) throw new Error(`Upload failed (HTTP ${res.status})`);
+  const data = await res.json();
+  if (!data?.success || !data.data?.url) throw new Error('Unexpected upload response');
+  return data.data.url as string;
+}
 
 interface Props {
   onClose: () => void;
@@ -18,6 +36,9 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
   );
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [imageBlob, setImageBlob] = useState<Blob | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstFocusableRef = useRef<HTMLElement | null>(null);
@@ -101,10 +122,39 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
     return true;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!selected) return;
     if (!validate()) return;
+
+    let finalValues = values;
+    if (imageBlob) {
+      setUploading(true);
+      setUploadError(null);
+      try {
+        const thumbnailUrl = await uploadThumbnail(imageBlob);
+        finalValues = { ...values, screenshot: `![thumbnail](${thumbnailUrl})` };
+      } catch (err) {
+        setUploadError(
+          err instanceof Error
+            ? `${err.message}. Submit without thumbnail, or retry.`
+            : 'Upload failed. Submit without thumbnail, or retry.',
+        );
+        setUploading(false);
+        return;
+      }
+      setUploading(false);
+    }
+
+    const url = buildIssueUrl(REPO_URL, selected, finalValues);
+    window.open(url, '_blank', 'noopener,noreferrer');
+    onClose();
+  };
+
+  const submitWithoutImage = () => {
+    if (!selected) return;
+    setImageBlob(null);
+    setUploadError(null);
     const url = buildIssueUrl(REPO_URL, selected, values);
     window.open(url, '_blank', 'noopener,noreferrer');
     onClose();
@@ -180,30 +230,51 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
           <form className="dialog-body submit-form" onSubmit={handleSubmit} noValidate>
             <p className="dialog-lede">{selected.blurb}</p>
             <div className="submit-fields">
-              {visibleFields.map((field, i) => (
-                <Field
-                  key={field.id}
-                  field={field}
-                  value={values[field.id] ?? ''}
-                  error={errors[field.id]}
-                  onChange={v => setValue(field.id, v)}
-                  inputRef={el => {
-                    if (i === 0) firstFocusableRef.current = el;
-                  }}
-                />
-              ))}
+              {visibleFields.map((field, i) => {
+                if (field.type === 'image') {
+                  return (
+                    <ImageField
+                      key={field.id}
+                      id={field.id}
+                      label={field.label}
+                      description={field.description}
+                      onBlobChange={setImageBlob}
+                    />
+                  );
+                }
+                return (
+                  <Field
+                    key={field.id}
+                    field={field}
+                    value={values[field.id] ?? ''}
+                    error={errors[field.id]}
+                    onChange={v => setValue(field.id, v)}
+                    inputRef={el => {
+                      if (i === 0) firstFocusableRef.current = el;
+                    }}
+                  />
+                );
+              })}
             </div>
 
             <div className="submit-actions">
               <p className="submit-actions-note">
                 You'll review and submit on GitHub. Maintainers add it to the site.
               </p>
+              {uploadError && (
+                <div className="upload-error">
+                  <p>{uploadError}</p>
+                  <button type="button" className="btn-secondary" onClick={submitWithoutImage}>
+                    Submit without thumbnail
+                  </button>
+                </div>
+              )}
               <div className="submit-actions-buttons">
                 <button type="button" className="btn-secondary" onClick={onClose}>
                   Cancel
                 </button>
-                <button type="submit" className="btn-primary">
-                  Open prefilled issue →
+                <button type="submit" className="btn-primary" disabled={uploading}>
+                  {uploading ? 'Uploading thumbnail…' : 'Open prefilled issue →'}
                 </button>
               </div>
             </div>

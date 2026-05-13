@@ -30,11 +30,12 @@ interface BaseProject {
   submittedBy?: string;
   featured?: true;
   socials?: Social[];
+  /** 16:9 thumbnail. Local path (e.g. /preview-foo.png) or absolute URL. */
+  thumbnail?: string;
 }
 
 export interface WebsiteProject extends BaseProject {
   type: 'Website';
-  preview?: string;
 }
 
 export interface RepoProject extends BaseProject {
@@ -104,7 +105,7 @@ const RAW_PROJECTS: Project[] = [
     url: "https://venicestats.com",
     tags: ["Analytics", "Dashboard", "VVV"],
     category: "ecosystem",
-    preview: "/preview-venicestats.png",
+    thumbnail: "/preview-venicestats.png",
     featured: true,
     socials: [
       { kind: 'github', url: 'https://github.com/venicestats' },
@@ -411,8 +412,10 @@ const RAW_PROJECTS: Project[] = [
 
 export const projects: Project[] = RAW_PROJECTS.map((p) => {
   if (p.type === 'GitHub Repo') {
-    const stats = STATS[`${p.owner}/${p.repo}`];
-    if (stats) return { ...p, ...stats };
+    const stats = STATS[`${p.owner}/${p.repo}`] ?? {};
+    const thumbnail =
+      p.thumbnail ?? `https://opengraph.githubassets.com/1/${p.owner}/${p.repo}`;
+    return { ...p, ...stats, thumbnail };
   }
   return p;
 });

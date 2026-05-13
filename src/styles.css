@@ -1719,6 +1719,80 @@ input:focus-visible {
 }
 
 /* ==============================
+   IMAGE FIELD — drop zone + crop
+   ============================== */
+.image-field input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.image-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle, rgba(0,0,0,0.02));
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  text-align: center;
+}
+.image-drop:hover,
+.image-drop:focus-within {
+  border-color: var(--accent, currentColor);
+  background: rgba(0,0,0,0.04);
+}
+.image-drop-cta {
+  font-size: 14px;
+  font-weight: 500;
+}
+.image-drop-hint {
+  font-size: 12px;
+  opacity: 0.6;
+  letter-spacing: 0.01em;
+}
+
+.image-crop-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.image-crop-wrapper .ReactCrop {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #1a1a1a;
+}
+.image-crop-wrapper img {
+  display: block;
+  max-width: 100%;
+  max-height: 360px;
+}
+.image-remove {
+  align-self: flex-start;
+}
+
+.upload-error {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #c53030;
+  border-radius: var(--radius-sm);
+  background: rgba(197, 48, 48, 0.06);
+  color: #c53030;
+  font-size: 13px;
+}
+.upload-error p { margin: 0; }
+
+/* ==============================
    RESPONSIVE — Small mobile (≤400px)
    ============================== */
 @media (max-width: 400px) {

@@ -174,8 +174,8 @@ body:
   - type: textarea
     id: screenshot
     attributes:
-      label: Screenshot (websites only)
-      description: Drag and drop a screenshot here. Maintainers will add it to the site for you.
+      label: Thumbnail (optional)
+      description: Auto-filled if you submitted via the form. Otherwise drag a 16:9 image here for maintainers to use.
 
   # ── Quality checklist ─────────────────────────────────
   - type: checkboxes

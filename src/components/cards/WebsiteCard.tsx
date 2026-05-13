@@ -5,9 +5,9 @@ import SocialsRow from './SocialsRow';
 export default function WebsiteCard({ project }: { project: WebsiteProject }) {
   return (
     <article className="project-card website-card">
-      {project.preview ? (
+      {project.thumbnail ? (
         <div className="card-preview">
-          <img src={project.preview} alt={`${project.title} preview`} />
+          <img src={project.thumbnail} alt={`${project.title} preview`} />
           <div className="card-preview-overlay">
             <span className="card-preview-cta">
               Visit Site <ExternalArrow className="external-arrow" />
