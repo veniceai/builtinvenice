@@ -47,7 +47,7 @@ export default function Explore() {
   const config = tabs.find(t => t.key === tab)!;
 
   return (
-    <section className="explore-section">
+    <section id="explore" className="explore-section">
       <div className="explore-tabs" role="tablist" aria-label="Browse by type">
         {tabs.map(t => (
           <button
