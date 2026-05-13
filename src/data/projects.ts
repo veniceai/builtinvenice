@@ -92,6 +92,7 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "drdeeks/venice-reply-composer": { stars: 0, forks: 0, language: "TypeScript" },
   "jordanurbs/venice-video-mcp": { stars: 0, forks: 0, language: "TypeScript" },
   "zzmrl/aiva": { stars: 0, forks: 0, language: "TypeScript" },
+  "karthiksai109/healthguard": { stars: 0, forks: 2, language: "Python" },
 };
 
 const RAW_PROJECTS: Project[] = [
@@ -394,6 +395,17 @@ const RAW_PROJECTS: Project[] = [
     owner: "zzmrl",
     repo: "aiva",
     submittedBy: "zzmrl",
+  },
+  {
+    title: "HealthGuard",
+    description: "1st place at Akash × Venice Open Agents 2026. Decentralized AI health agent — Venice STT/vision/TTS run on Akash compute, 60s TTL on raw media, AES-256-GCM at rest, Telegram alerts.",
+    type: "GitHub Repo",
+    url: "https://github.com/karthiksai109/healthguard",
+    tags: ["Health", "Multimodal", "Hackathon"],
+    category: "powered-by",
+    owner: "karthiksai109",
+    repo: "healthguard",
+    submittedBy: "karthiksai109",
   },
 ];
 

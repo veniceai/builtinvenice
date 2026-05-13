@@ -22,7 +22,7 @@ export default function Demos() {
   return (
     <>
       <Toolbar
-        search={{ value: search, onChange: setSearch, placeholder: 'Search demos…' }}
+        search={{ value: search, onChange: setSearch, placeholder: 'Search videos…' }}
       />
 
       <div className="project-grid">
@@ -32,7 +32,7 @@ export default function Demos() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="empty-state">No demos match your search.</p>
+        <p className="empty-state">Nothing matches your search.</p>
       )}
     </>
   );

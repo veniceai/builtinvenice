@@ -36,9 +36,9 @@ const tabs: TabConfig[] = [
   },
   {
     key: 'demo',
-    label: 'Demos',
+    label: 'Watch',
     count: demos.length,
-    lede: 'Short clips, screenshots, and posts of things people are making on Venice.',
+    lede: 'Videos, interviews, and recaps about Venice and the projects built on it.',
   },
 ];
 

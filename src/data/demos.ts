@@ -1,5 +1,5 @@
-// Short examples of things people made on Venice — a live deployment,
-// a hackathon submission video, an X post, a gallery image. The visual is the point.
+// Watch — videos, posts, recaps, and gallery content about Venice.
+// Live deployments belong in Projects; this tab is for media you watch or read.
 
 export interface Demo {
   title: string;
@@ -14,44 +14,6 @@ export interface Demo {
 
 export const demos: Demo[] = [
   {
-    title: "VeniceStats — live VVV/DIEM analytics dashboard",
-    builder: "venicestats",
-    description: "Live dashboard tracking VVV staking, the Venetians leaderboard, DIEM minting curves, and on-chain Venice metrics. No login required.",
-    url: "https://venicestats.com",
-    thumbnail: "/preview-venicestats.png",
-    publishedAt: "2026-03-19",
-    tags: ["Dashboard", "VVV", "Analytics"],
-    featured: true,
-  },
-  {
-    title: "ARVI — autonomous environmental sensor agent",
-    builder: "ValenteCreativo",
-    description: "Live agent running every hour: real Open-Meteo weather data → Venice analysis → anomaly detection → on-chain alerts on Base via ARVIAgent (ERC-8004 identity).",
-    url: "https://arvi-eight.vercel.app",
-    thumbnail: "/preview-arvi.png",
-    publishedAt: "2026-03-21",
-    tags: ["Agent", "On-chain", "Privacy"],
-    featured: true,
-  },
-  {
-    title: "VeniceGuard — privacy-preserving multimodal AI",
-    builder: "decentrathai",
-    description: "Open Agents 2026 submission. Upload a medical prescription → Venice vision extracts data → reasoning summarises → TTS reads results. Original image never stored.",
-    url: "https://devpost.com/software/veniceguard",
-    thumbnail: "/preview-veniceguard.png",
-    publishedAt: "2026-02-25",
-    tags: ["Multimodal", "Privacy", "Hackathon"],
-  },
-  {
-    title: "HealthGuard — 1st place at Akash × Venice Open Agents",
-    builder: "karthiksai109",
-    description: "Decentralized AI health agent — Venice STT, vision, TTS, and chat run on Akash compute. 60-second TTL on raw media, AES-256-GCM at rest, Telegram alerts.",
-    url: "https://github.com/karthiksai109/healthguard",
-    thumbnail: "https://opengraph.githubassets.com/1/karthiksai109/healthguard",
-    publishedAt: "2026-03-03",
-    tags: ["Health", "Multimodal", "Hackathon"],
-  },
-  {
     title: "Venice intro — decentralized, privacy-first AI",
     builder: "Venice.ai",
     description: "Overview video walking through Venice's privacy architecture, open-source model lineup, and uncensored tooling.",
@@ -59,5 +21,15 @@ export const demos: Demo[] = [
     thumbnail: "https://img.youtube.com/vi/2DFOQ_YrMpU/hqdefault.jpg",
     publishedAt: "2024-09-03",
     tags: ["Overview", "Video"],
+    featured: true,
+  },
+  {
+    title: "Erik Voorhees on Bitcoin & AI — What Bitcoin Did",
+    builder: "Peter McCormack",
+    description: "Long-form interview with Venice founder Erik Voorhees on permissionless AI, decentralized GPU infrastructure, and why private inference matters.",
+    url: "https://www.youtube.com/watch?v=Vr3wFGoowUk",
+    thumbnail: "https://img.youtube.com/vi/Vr3wFGoowUk/hqdefault.jpg",
+    publishedAt: "2024-06-12",
+    tags: ["Interview", "Podcast"],
   },
 ];
