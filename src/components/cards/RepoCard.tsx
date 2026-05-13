@@ -2,9 +2,6 @@ import { GitHubIcon, ExternalArrow } from '../icons';
 import { categoryLabels, type RepoProject } from '../../data';
 import SocialsRow from './SocialsRow';
 
-// Repo cards always run slim: the thumbnail (auto GitHub OG or a custom
-// screenshot) carries the visual weight, the body only adds what the
-// thumbnail can't — tags, socials, and the submitter credit.
 export default function RepoCard({ project }: { project: RepoProject }) {
   return (
     <article className="project-card repo-card">
@@ -18,7 +15,7 @@ export default function RepoCard({ project }: { project: RepoProject }) {
           </div>
         </div>
       )}
-      <div className="card-body card-body-slim">
+      <div className="card-body">
         <div className="card-type-row">
           <span className="card-type-label">
             <GitHubIcon /> {project.owner}/{project.repo}
@@ -30,6 +27,8 @@ export default function RepoCard({ project }: { project: RepoProject }) {
             <ExternalArrow className="external-arrow" />
           </span>
         </div>
+        <h3 className="project-card-title">{project.title}</h3>
+        <p className="project-card-desc">{project.description}</p>
         <div className="project-card-tags">
           {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
         </div>
