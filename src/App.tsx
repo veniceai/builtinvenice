@@ -8,7 +8,7 @@ function App() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
-    <div>
+    <div className="page-frame">
       <main className="main section-padding">
         <Hero onSubmit={() => setDialogOpen(true)} />
         <Explore />

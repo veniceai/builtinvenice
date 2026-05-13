@@ -111,6 +111,33 @@ body {
   line-height: 1.5;
 }
 
+/* Page-edge frame — thick orange border running along top + sides of the
+   viewport. Open at the bottom so it doesn't fight the footer. */
+.page-frame {
+  position: relative;
+  min-height: 100vh;
+  border-top: 6px solid var(--accent);
+  border-left: 6px solid var(--accent);
+  border-right: 6px solid var(--accent);
+}
+/* Top-center mark — small filled diamond punctuating the top edge */
+.page-frame::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  transform: translateX(-50%) rotate(45deg);
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .page-frame { border-width: 4px; }
+  .page-frame::before { top: -9px; width: 10px; height: 10px; }
+}
+
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; background: none; border: none; color: inherit; }
@@ -233,52 +260,9 @@ input:focus-visible {
    HERO
    ============================== */
 .hero-section {
-  position: relative;
   text-align: center;
-  max-width: 760px;
-  margin: 56px auto 64px;
-  padding: 60px 56px 64px;
-  border-top: 5px solid var(--accent);
-  border-left: 5px solid var(--accent);
-  border-right: 5px solid var(--accent);
-}
-
-/* Inner echo — thin parallel frame inside the thick border */
-.hero-section::before {
-  content: "";
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  bottom: 0;
-  border-top: 1px solid var(--accent);
-  border-left: 1px solid var(--accent);
-  border-right: 1px solid var(--accent);
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-/* Top-center mark — small orange diamond breaking the border */
-.hero-section::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  width: 12px;
-  height: 12px;
-  background: var(--accent);
-  transform: translateX(-50%) rotate(45deg);
-}
-
-.hero-section > * { position: relative; }
-
-@media (max-width: 720px) {
-  .hero-section {
-    padding: 36px 24px 40px;
-    border-width: 3px;
-  }
-  .hero-section::before { top: 8px; left: 8px; right: 8px; }
-  .hero-section::after { width: 8px; height: 8px; top: -7px; }
+  max-width: 640px;
+  margin: 72px auto 64px;
 }
 
 .hero-title {
