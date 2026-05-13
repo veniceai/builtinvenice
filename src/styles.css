@@ -597,6 +597,14 @@ input:focus-visible {
   flex: 1;
 }
 
+/* Slim body — used when the thumbnail already conveys title/desc/stats
+   (e.g., the auto GitHub OG image). Tighter vertical rhythm. */
+.card-body-slim {
+  padding: 14px 20px 16px;
+  gap: 10px;
+}
+.card-body-slim .project-card-tags { margin-top: 0; }
+
 .card-type-row {
   display: flex;
   align-items: center;
