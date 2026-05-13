@@ -37,6 +37,20 @@ function formatDate(iso: string, end?: string) {
 export default function EventCard({ event }: { event: VeniceEvent }) {
   return (
     <article className={`project-card event-card event-${event.kind} status-${event.status}`}>
+      {event.thumbnail ? (
+        <div className="card-preview">
+          <img src={event.thumbnail} alt={`${event.title} preview`} loading="lazy" />
+          <div className="card-preview-overlay">
+            <span className="card-preview-cta">
+              View event <ExternalArrow className="external-arrow" />
+            </span>
+          </div>
+        </div>
+      ) : (
+        <div className="card-preview card-preview-placeholder">
+          <CalendarIcon size={32} />
+        </div>
+      )}
       <div className="card-body">
         <div className="card-type-row">
           <span className="card-type-label">

@@ -6,6 +6,20 @@ export default function CookbookCard({ cookbook }: { cookbook: Cookbook }) {
 
   return (
     <article className={`project-card cookbook-card difficulty-${cookbook.difficulty}`}>
+      {cookbook.thumbnail ? (
+        <div className="card-preview">
+          <img src={cookbook.thumbnail} alt={`${cookbook.title} preview`} loading="lazy" />
+          <div className="card-preview-overlay">
+            <span className="card-preview-cta">
+              Read recipe <ExternalArrow className="external-arrow" />
+            </span>
+          </div>
+        </div>
+      ) : (
+        <div className="card-preview card-preview-placeholder">
+          <BookIcon size={32} />
+        </div>
+      )}
       <div className="card-body">
         <div className="card-type-row">
           <span className="card-type-label"><BookIcon /> Recipe</span>

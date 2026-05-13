@@ -257,6 +257,7 @@ const RAW_PROJECTS: Project[] = [
     repo: "openvenice",
     submittedBy: "nikshepsvn",
     featured: true,
+    thumbnail: "/preview-openvenice.png",
     socials: [
       { kind: 'x', url: 'https://x.com/nikshepsvn' },
     ],

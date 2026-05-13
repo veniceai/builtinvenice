@@ -12,6 +12,7 @@ export interface Cookbook {
   tags: string[];
   publishedAt: string;
   featured?: true;
+  thumbnail?: string;
 }
 
 export const cookbooks: Cookbook[] = [
@@ -27,17 +28,19 @@ export const cookbooks: Cookbook[] = [
     tags: ["Getting Started", "API", "Tutorial"],
     publishedAt: "2026-04-01",
     featured: true,
+    thumbnail: "/preview-venice-quickstart.png",
   },
   {
     title: "Migrate an OpenAI app to Venice",
     description: "Drop-in migration guide — change the base URL, keep the SDK, and pick a Venice model. Notes on system-prompt behaviour and response-header differences.",
-    url: "https://docs.venice.ai/guides/migrating-from-openai",
+    url: "https://docs.venice.ai/guides/getting-started/openai-migration",
     author: "Venice.ai",
     authorUrl: "https://venice.ai",
     difficulty: "beginner",
     readTime: "8 min",
     tags: ["Migration", "OpenAI Compatibility"],
     publishedAt: "2026-04-01",
+    thumbnail: "/preview-venice-migrate-openai.png",
   },
   {
     title: "Build a LangChain app on Venice",
@@ -51,6 +54,7 @@ export const cookbooks: Cookbook[] = [
     tags: ["LangChain", "RAG", "Agents"],
     publishedAt: "2026-04-01",
     featured: true,
+    thumbnail: "/preview-venice-langchain.png",
   },
   {
     title: "Multi-agent crews with CrewAI + Venice",
@@ -63,6 +67,7 @@ export const cookbooks: Cookbook[] = [
     language: "Python",
     tags: ["CrewAI", "Multi-Agent", "Agents"],
     publishedAt: "2026-04-01",
+    thumbnail: "/preview-venice-crewai.png",
   },
   {
     title: "Next.js + Venice via the Vercel AI SDK",
@@ -75,6 +80,7 @@ export const cookbooks: Cookbook[] = [
     language: "TypeScript",
     tags: ["Next.js", "Vercel AI SDK", "Streaming"],
     publishedAt: "2026-04-01",
+    thumbnail: "/preview-venice-vercel-ai-sdk.png",
   },
   {
     title: "Route Claude Code through Venice",
@@ -86,6 +92,7 @@ export const cookbooks: Cookbook[] = [
     readTime: "12 min",
     tags: ["Claude Code", "CLI", "Routing"],
     publishedAt: "2026-04-01",
+    thumbnail: "/preview-venice-claude-code.png",
   },
   {
     title: "Cursor + Venice for private coding",
@@ -97,6 +104,7 @@ export const cookbooks: Cookbook[] = [
     readTime: "8 min",
     tags: ["Cursor", "Coding", "Setup"],
     publishedAt: "2025-02-21",
+    thumbnail: "/preview-venice-cursor.png",
   },
   {
     title: "Use Venice with Cline in VSCode",
@@ -108,6 +116,7 @@ export const cookbooks: Cookbook[] = [
     readTime: "7 min",
     tags: ["Cline", "VSCode", "Setup"],
     publishedAt: "2025-02-20",
+    thumbnail: "/preview-venice-cline.png",
   },
   {
     title: "Roo Code + Venice in VSCode",
@@ -119,6 +128,7 @@ export const cookbooks: Cookbook[] = [
     readTime: "7 min",
     tags: ["Roo Code", "VSCode", "Setup"],
     publishedAt: "2025-02-24",
+    thumbnail: "/preview-venice-roo.png",
   },
   // ── Community guides ────────────────────────────────────
   {
@@ -132,6 +142,7 @@ export const cookbooks: Cookbook[] = [
     language: "TypeScript",
     tags: ["SDK", "Tutorial", "TypeScript"],
     publishedAt: "2026-03-25",
+    thumbnail: "/preview-venice-dev-tools-guide.png",
   },
 ];
 
