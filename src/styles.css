@@ -109,7 +109,7 @@ html {
   background: var(--accent);
   /* Firefox scrollbar styling */
   scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
+  scrollbar-color: var(--black) transparent;
 }
 
 body {
@@ -130,13 +130,13 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: var(--black);
   border-radius: 999px;
   border: 2px solid var(--bg);
   background-clip: padding-box;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c12d00;
+  background: #2a2a2a;
   background-clip: padding-box;
 }
 ::-webkit-scrollbar-corner {
