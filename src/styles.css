@@ -257,6 +257,105 @@ input:focus-visible {
   line-height: 1.65;
 }
 
+.hero-stats {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 22px;
+  font-family: 'DM Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0.75;
+}
+.hero-stats strong {
+  font-weight: 600;
+  color: var(--black);
+  opacity: 1;
+  font-size: 13px;
+  margin-right: 4px;
+}
+.hero-stats-sep { opacity: 0.35; }
+
+.hero-cta-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-explore-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.55;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.hero-explore-link:hover { opacity: 1; }
+
+.hero-featured {
+  margin-top: 56px;
+}
+.hero-featured-label {
+  display: block;
+  margin-bottom: 16px;
+  font-family: 'DM Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+.hero-featured-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.hero-featured-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-align: left;
+}
+.hero-featured-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+  border-color: var(--gold);
+}
+.hero-featured-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #1a1a1a;
+  border-bottom: 1px solid var(--border);
+}
+.hero-featured-card-title {
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 720px) {
+  .hero-featured-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 /* ==============================
    EXPLORE — Tabs + Toolbar
    ============================== */
