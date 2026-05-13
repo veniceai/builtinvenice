@@ -32,10 +32,12 @@ export default function RepoCard({ project }: { project: RepoProject }) {
         <div className="project-card-tags">
           {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
         </div>
-        <SocialsRow socials={project.socials} />
-        {project.submittedBy && (
-          <div className="repo-meta">
-            <span className="repo-meta-item submitted-by">by {project.submittedBy}</span>
+        {(project.socials?.length || project.submittedBy) && (
+          <div className="card-footer">
+            <SocialsRow socials={project.socials} />
+            {project.submittedBy && (
+              <span className="submitted-by">by {project.submittedBy}</span>
+            )}
           </div>
         )}
       </div>

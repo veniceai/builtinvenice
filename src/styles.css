@@ -737,6 +737,26 @@ input:focus-visible {
   border-top: 1px solid var(--border);
 }
 
+/* Unified footer row — socials on the left, "by X" on the right.
+   Always carries the top divider so cards have a consistent close. */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  min-height: 30px;
+}
+.card-footer .socials-row { margin-top: 0; }
+.card-footer .submitted-by {
+  font-size: 12px;
+  opacity: 0.55;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
 .repo-meta-item {
   display: flex;
   align-items: center;

@@ -31,9 +31,13 @@ export default function WebsiteCard({ project }: { project: WebsiteProject }) {
         <div className="project-card-tags">
           {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
         </div>
-        <SocialsRow socials={project.socials} />
-        {project.submittedBy && (
-          <p className="submitted-by">by {project.submittedBy}</p>
+        {(project.socials?.length || project.submittedBy) && (
+          <div className="card-footer">
+            <SocialsRow socials={project.socials} />
+            {project.submittedBy && (
+              <span className="submitted-by">by {project.submittedBy}</span>
+            )}
+          </div>
         )}
       </div>
       <a
