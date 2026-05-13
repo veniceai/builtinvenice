@@ -103,12 +103,19 @@
   --radius-lg: 12px;
 }
 
+/* Paint html with the frame color so macOS elastic-scroll past the top
+   reveals orange (continuous with the border) instead of a cream gap. */
+html {
+  background: var(--accent);
+}
+
 body {
   background: var(--bg);
   color: var(--black);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
+  overscroll-behavior-y: none;
 }
 
 /* Page-edge frame — double-line orange treatment on top + sides.
