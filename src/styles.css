@@ -107,6 +107,9 @@
    reveals orange (continuous with the border) instead of a cream gap. */
 html {
   background: var(--accent);
+  /* Firefox scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
 }
 
 body {
@@ -116,6 +119,28 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
   overscroll-behavior-y: none;
+}
+
+/* Webkit scrollbar — matches the orange frame */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c12d00;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* Page-edge frame — double-line orange treatment on top + sides.
