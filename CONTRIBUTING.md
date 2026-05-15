@@ -69,7 +69,7 @@ Valid `kind` values: `x, github, website, farcaster, warpcast, instagram, telegr
 }
 ```
 
-`thumbnail` is available on every project type (Website, GitHub Repo, X Account, Token). For GitHub Repo entries the field is auto-defaulted to the `opengraph.githubassets.com` OG image, so you only need to set it when the OG image looks weak.
+`thumbnail` is available on every project type (Website, GitHub Repo, X Account, Token). For GitHub Repo entries, leave it blank — the maintainer runs `npm run refresh-projects` after merging which pre-bakes the repo's GitHub OG image into `public/repo-previews/<owner>-<repo>.png`. RepoCard falls back to the owner avatar at runtime if that file is missing. You only need to set `thumbnail` explicitly when the OG image looks weak and you want a hand-captured screenshot instead.
 
 ## Adding a GitHub Repo
 

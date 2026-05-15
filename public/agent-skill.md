@@ -42,7 +42,7 @@ Common to every project type:
 | `tags`          | yes      | 1–4 short tags. Title Case. Reuse existing tags where possible.       |
 | `submittedBy`   | yes      | GitHub or X handle of the submitter.                                  |
 | `socials`       | no       | Array of `{ kind, url }`. See `SocialKind` below.                     |
-| `thumbnail`     | no       | 16:9 preview image. Local path (e.g. `/preview-foo.png` in `public/`) or absolute URL. Applies to every project type. For GitHub Repo entries the auto-default is `https://opengraph.githubassets.com/1/<owner>/<repo>` — leave blank to use it. |
+| `thumbnail`     | no       | 16:9 preview image. Local path (e.g. `/preview-foo.png` in `public/`) or absolute URL. Applies to every project type. For GitHub Repo entries, leave blank — the maintainer runs `npm run refresh-projects` which pre-bakes the GitHub OG image into `public/repo-previews/<owner>-<repo>.png`, and the card falls back to `https://github.com/<owner>.png` (the owner avatar) at runtime if that file 404s. |
 | `featured`      | no       | **Do not set.** Maintainers choose featured projects.                 |
 
 Type-specific extras:
