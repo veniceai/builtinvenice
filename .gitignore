@@ -25,4 +25,5 @@ dist-ssr
 *.sw?
 *.png
 !public/preview-*.png
+!public/repo-previews/*.png
 .playwright-mcp/

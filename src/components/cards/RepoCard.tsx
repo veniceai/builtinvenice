@@ -7,7 +7,16 @@ export default function RepoCard({ project }: { project: RepoProject }) {
     <article className="project-card repo-card">
       {project.thumbnail && (
         <div className="card-preview">
-          <img src={project.thumbnail} alt={`${project.title} preview`} loading="lazy" />
+          <img
+            src={project.thumbnail}
+            alt={`${project.title} preview`}
+            loading="lazy"
+            onError={(e) => {
+              const img = e.currentTarget;
+              const avatar = `https://github.com/${project.owner}.png`;
+              if (img.src !== avatar) img.src = avatar;
+            }}
+          />
           <div className="card-preview-overlay">
             <span className="card-preview-cta">
               View on GitHub <ExternalArrow className="external-arrow" />

@@ -68,14 +68,14 @@ export type Project = WebsiteProject | RepoProject | XAccountProject | TokenProj
 // Live GitHub stats — refresh via `npm run refresh-projects`.
 // Keep entries on a single line so the refresh script's regex can rewrite them.
 const STATS: Record<string, { stars: number; forks: number; language: string }> = {
-  "nikshepsvn/openvenice": { stars: 44, forks: 9, language: "TypeScript" },
+  "nikshepsvn/openvenice": { stars: 45, forks: 9, language: "TypeScript" },
   "georgeglarson/deep-research-privacy": { stars: 37, forks: 4, language: "TypeScript" },
   "ar-jan/llm-venice": { stars: 24, forks: 5, language: "Python" },
   "georgeglarson/venice-dev-tools": { stars: 14, forks: 2, language: "TypeScript" },
   "sethbang/venice-ai": { stars: 13, forks: 4, language: "Python" },
   "grasponcrypto/venice_ai": { stars: 13, forks: 3, language: "Python" },
   "13rac1/teep": { stars: 9, forks: 3, language: "Go" },
-  "georgeglarson/venice-ai-php": { stars: 7, forks: 3, language: "PHP" },
+  "georgeglarson/venice-ai-php": { stars: 7, forks: 2, language: "HTML" },
   "DraconicDragon/ComfyUI-Venice-API": { stars: 6, forks: 1, language: "Python" },
   "KaffeMedFika/YouTube-Transcript-Summarizer": { stars: 6, forks: 0, language: "JavaScript" },
   "mars-llm/claude-venice": { stars: 5, forks: 0, language: "Shell" },
@@ -92,7 +92,7 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "decentrathai/veniceguard": { stars: 0, forks: 0, language: "HTML" },
   "drdeeks/venice-reply-composer": { stars: 0, forks: 0, language: "TypeScript" },
   "jordanurbs/venice-video-mcp": { stars: 0, forks: 0, language: "TypeScript" },
-  "zzmrl/aiva": { stars: 0, forks: 0, language: "TypeScript" },
+  "zzmrl/aiva": { stars: 0, forks: 1, language: "TypeScript" },
   "karthiksai109/healthguard": { stars: 0, forks: 2, language: "Python" },
 };
 
@@ -414,8 +414,11 @@ const RAW_PROJECTS: Project[] = [
 export const projects: Project[] = RAW_PROJECTS.map((p) => {
   if (p.type === 'GitHub Repo') {
     const stats = STATS[`${p.owner}/${p.repo}`] ?? {};
+    // Pre-baked by `npm run refresh-projects`. Falls back to the owner avatar
+    // via onError in RepoCard if the local file is missing (e.g. fresh repo
+    // added before the script has run).
     const thumbnail =
-      p.thumbnail ?? `https://opengraph.githubassets.com/1/${p.owner}/${p.repo}`;
+      p.thumbnail ?? `/repo-previews/${p.owner}-${p.repo}.png`;
     return { ...p, ...stats, thumbnail };
   }
   return p;
