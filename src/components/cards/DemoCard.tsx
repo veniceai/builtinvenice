@@ -7,7 +7,7 @@ export default function DemoCard({ demo }: { demo: Demo }) {
     <article className="project-card demo-card">
       <div className="demo-thumb">
         {demo.thumbnail ? (
-          <img src={demo.thumbnail} alt={`${demo.title} preview`} />
+          <img src={demo.thumbnail} alt={`${demo.title} preview`} loading="lazy" />
         ) : (
           <div className="demo-thumb-placeholder" aria-hidden="true">
             <span className="demo-thumb-initial">{demo.builder.charAt(0).toUpperCase()}</span>

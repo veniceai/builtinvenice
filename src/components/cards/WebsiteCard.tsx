@@ -8,7 +8,7 @@ export default function WebsiteCard({ project }: { project: WebsiteProject }) {
     <article className="project-card website-card">
       {project.thumbnail ? (
         <div className="card-preview">
-          <img src={project.thumbnail} alt={`${project.title} preview`} />
+          <img src={project.thumbnail} alt={`${project.title} preview`} loading="lazy" />
           <div className="card-preview-overlay">
             <span className="card-preview-cta">
               Visit Site <ExternalArrow className="external-arrow" />
