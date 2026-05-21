@@ -3,21 +3,35 @@ import { submissionTypes, buildIssueUrl, type SubmissionType, type FieldConfig }
 import { REPO_URL } from '../constants';
 import ImageField from './ImageField';
 
+const UPLOAD_TIMEOUT_MS = 30_000;
+
 async function uploadThumbnail(blob: Blob): Promise<string> {
   const apiKey = import.meta.env.VITE_IMGBB_KEY;
   if (!apiKey) {
     throw new Error('Thumbnail upload not configured (VITE_IMGBB_KEY missing)');
   }
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), UPLOAD_TIMEOUT_MS);
   const formData = new FormData();
   formData.append('image', blob);
-  const res = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
-    method: 'POST',
-    body: formData,
-  });
-  if (!res.ok) throw new Error(`Upload failed (HTTP ${res.status})`);
-  const data = await res.json();
-  if (!data?.success || !data.data?.url) throw new Error('Unexpected upload response');
-  return data.data.url as string;
+  try {
+    const res = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
+      method: 'POST',
+      body: formData,
+      signal: ctrl.signal,
+    });
+    if (!res.ok) throw new Error(`Upload failed (HTTP ${res.status})`);
+    const data = await res.json();
+    if (!data?.success || !data.data?.url) throw new Error('Unexpected upload response');
+    return data.data.url as string;
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      throw new Error('Upload timed out after 30 s');
+    }
+    throw err;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 interface Props {
