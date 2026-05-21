@@ -184,25 +184,6 @@ input:focus-visible {
 
 .venice-icon:hover { opacity: 0.85; }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-left: auto;
-  padding: 0 18px 0 24px;
-}
-
-.nav-links a {
-  font-size: 15px;
-  font-weight: 400;
-  white-space: nowrap;
-  color: var(--black);
-  transition: opacity 0.15s;
-}
-
-.nav-links a:hover { opacity: 0.5; }
-.nav-links .sign-in { color: var(--accent); font-weight: 500; }
-.nav-links .chevron { font-size: 9px; opacity: 0.4; margin-left: 2px; }
 
 /* ==============================
    MAIN LAYOUT
@@ -933,17 +914,6 @@ input:focus-visible {
   letter-spacing: 0.02em;
 }
 
-/* ==============================
-   SECTION LEDE (intro text)
-   ============================== */
-.section-lede {
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.5;
-  max-width: 560px;
-  margin: 16px auto 0;
-  line-height: 1.6;
-}
 
 /* ==============================
    EVENTS SECTION
@@ -1682,14 +1652,8 @@ input:focus-visible {
     width: 100%;
   }
 
-  /* Splash */
-  .splash-logo { width: 44px; }
-  .splash-title { font-size: 24px; }
-
   /* Agent prompt card */
   .agent-prompt-card { margin-top: 24px; }
-  .agent-prompt-body { font-size: 12px; padding: 12px; }
-  .agent-prompt-header { padding: 9px 10px; }
   .agent-prompt-foot { padding: 9px 10px; }
 
   /* Submit dialog — full screen on mobile */
