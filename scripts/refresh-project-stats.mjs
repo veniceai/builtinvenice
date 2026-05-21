@@ -25,6 +25,14 @@ const headers = {
 };
 if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 
+const FETCH_TIMEOUT_MS = 15_000;
+
+function fetchWithTimeout(url, options = {}) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
+  return fetch(url, { ...options, signal: ctrl.signal }).finally(() => clearTimeout(timer));
+}
+
 const PREVIEW_DIR = resolve('public/repo-previews');
 mkdirSync(PREVIEW_DIR, { recursive: true });
 
@@ -34,7 +42,7 @@ const fetchPreview = async (repo) => {
   // GitHub's OG renderer occasionally 5xx's or times out; retry once.
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const res = await fetch(`https://opengraph.githubassets.com/1/${repo}`, {
+      const res = await fetchWithTimeout(`https://opengraph.githubassets.com/1/${repo}`, {
         headers: { 'User-Agent': 'venice-media-refresh' },
       });
       if (!res.ok) {
@@ -62,7 +70,7 @@ let previews = 0;
 for (const repo of repos) {
   process.stdout.write(`  ${repo.padEnd(48)} `);
   try {
-    const res = await fetch(`https://api.github.com/repos/${repo}`, { headers });
+    const res = await fetchWithTimeout(`https://api.github.com/repos/${repo}`, { headers });
     if (!res.ok) {
       console.log(`skip (HTTP ${res.status})`);
       continue;
