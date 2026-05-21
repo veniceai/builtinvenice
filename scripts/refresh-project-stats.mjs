@@ -5,7 +5,7 @@
 // site doesn't depend on opengraph.githubassets.com at runtime (it's flaky on cold caches).
 // Run via `npm run refresh-projects`. Set GITHUB_TOKEN to avoid the 60-req/hour anon limit.
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const FILE = resolve('src/data/projects.ts');
@@ -104,5 +104,3 @@ console.log(`Pre-baked ${previews}/${repos.length} preview images to ${PREVIEW_D
 if (previews < repos.length) {
   console.log('(missing previews fall back to the owner avatar at runtime)');
 }
-// suppress unused-import warning when previews already exist
-void existsSync;
