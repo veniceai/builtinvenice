@@ -62,14 +62,14 @@
       },
       "Token": {
         "type": "object",
+        "description": "Community tokens only. Do not accept Venice's own official $VVV token.",
         "required": ["ticker", "address", "chain"],
         "properties": {
           "ticker":    { "type": "string" },
           "address":   { "type": "string" },
           "chain":     { "enum": ["solana", "base", "ethereum"] },
           "marketCap": { "type": "number" },
-          "holders":   { "type": "integer" },
-          "rejectIf":  "Entry represents Venice's own official token ($VVV). This directory is community-only."
+          "holders":   { "type": "integer" }
         }
       }
     }
