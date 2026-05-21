@@ -23,16 +23,24 @@ interface Props {
 
 const ASPECT = 16 / 9;
 const OUTPUT_WIDTH = 1200; // produces 1200×675 PNG
+const MAX_FILE_BYTES = 20 * 1024 * 1024; // 20 MB
 
 export default function ImageField({ id, label, description, onBlobChange }: Props) {
   const [imgSrc, setImgSrc] = useState<string>('');
   const [crop, setCrop] = useState<Crop>();
   const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
+  const [sizeError, setSizeError] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
   const onFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !file.type.startsWith('image/')) return;
+    if (file.size > MAX_FILE_BYTES) {
+      setSizeError(`Image too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Max 20 MB.`);
+      e.target.value = '';
+      return;
+    }
+    setSizeError(null);
     const reader = new FileReader();
     reader.onload = () => setImgSrc(reader.result?.toString() ?? '');
     reader.readAsDataURL(file);
@@ -53,6 +61,7 @@ export default function ImageField({ id, label, description, onBlobChange }: Pro
     setImgSrc('');
     setCrop(undefined);
     setCompletedCrop(undefined);
+    setSizeError(null);
     onBlobChange(null);
   }, [onBlobChange]);
 
@@ -103,7 +112,8 @@ export default function ImageField({ id, label, description, onBlobChange }: Pro
             aria-describedby={descId}
           />
           <span className="image-drop-cta">Drop an image or click to browse</span>
-          <span className="image-drop-hint">16:9 · cropped client-side · 1200×675 PNG</span>
+          <span className="image-drop-hint">16:9 · cropped client-side · 1200×675 PNG · max 20 MB</span>
+          {sizeError && <span className="form-error">{sizeError}</span>}
         </label>
       ) : (
         <div className="image-crop-wrapper">
