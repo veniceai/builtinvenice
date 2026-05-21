@@ -153,6 +153,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
 
   const submitWithoutImage = () => {
     if (!selected) return;
+    if (!validate()) return;
     setImageBlob(null);
     setUploadError(null);
     const url = buildIssueUrl(REPO_URL, selected, values);
