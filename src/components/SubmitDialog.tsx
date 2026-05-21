@@ -186,6 +186,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
               onClick={() => {
                 setSelectedKey(null);
                 setErrors({});
+                setImageBlob(null);
               }}
               aria-label="Back to submission types"
             >
