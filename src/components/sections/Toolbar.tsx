@@ -21,14 +21,13 @@ export interface SearchControl {
   placeholder?: string;
 }
 
-interface Props {
+interface Props<V extends string = string> {
   search?: SearchControl;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  filter?: FilterControl<any>;
+  filter?: FilterControl<V>;
   action?: { label: string; onClick: () => void };
 }
 
-export default function Toolbar({ search, filter, action }: Props) {
+export default function Toolbar<V extends string = string>({ search, filter, action }: Props<V>) {
   return (
     <div className="explore-toolbar">
       {search && (
