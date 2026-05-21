@@ -1,6 +1,7 @@
 import { GitHubIcon, ExternalArrow } from '../icons';
 import { categoryLabels, type RepoProject } from '../../data';
 import SocialsRow from './SocialsRow';
+import { safeUrl } from '../../utils/safeUrl';
 
 export default function RepoCard({ project }: { project: RepoProject }) {
   return (
@@ -51,7 +52,7 @@ export default function RepoCard({ project }: { project: RepoProject }) {
         )}
       </div>
       <a
-        href={project.url}
+        href={safeUrl(project.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"

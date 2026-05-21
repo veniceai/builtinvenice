@@ -1,6 +1,7 @@
 import { CoinIcon, UsersIcon, ExternalArrow } from '../icons';
 import { categoryLabels, chainLabels, chainColors, type TokenProject } from '../../data';
 import SocialsRow from './SocialsRow';
+import { safeUrl } from '../../utils/safeUrl';
 
 function formatMarketCap(n: number) {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(2)}B`;
@@ -53,7 +54,7 @@ export default function TokenCard({ project }: { project: TokenProject }) {
         </div>
       </div>
       <a
-        href={project.url}
+        href={safeUrl(project.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"

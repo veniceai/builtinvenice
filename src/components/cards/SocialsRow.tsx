@@ -1,5 +1,6 @@
 import { SocialIcon } from '../icons';
 import { socialLabels, type Social } from '../../data';
+import { safeUrl } from '../../utils/safeUrl';
 
 export default function SocialsRow({ socials }: { socials?: Social[] }) {
   if (!socials?.length) return null;
@@ -9,7 +10,7 @@ export default function SocialsRow({ socials }: { socials?: Social[] }) {
       {socials.map(s => (
         <a
           key={`${s.kind}-${s.url}`}
-          href={s.url}
+          href={safeUrl(s.url)}
           target="_blank"
           rel="noopener noreferrer"
           className="social-chip"

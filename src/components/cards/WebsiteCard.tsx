@@ -1,6 +1,7 @@
 import { GlobeIcon, ExternalArrow } from '../icons';
 import { categoryLabels, type WebsiteProject } from '../../data';
 import SocialsRow from './SocialsRow';
+import { safeUrl } from '../../utils/safeUrl';
 
 export default function WebsiteCard({ project }: { project: WebsiteProject }) {
   return (
@@ -41,7 +42,7 @@ export default function WebsiteCard({ project }: { project: WebsiteProject }) {
         )}
       </div>
       <a
-        href={project.url}
+        href={safeUrl(project.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"

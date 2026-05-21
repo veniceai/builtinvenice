@@ -1,5 +1,6 @@
 import { ExternalArrow } from '../icons';
 import type { Demo } from '../../data';
+import { safeUrl } from '../../utils/safeUrl';
 
 export default function DemoCard({ demo }: { demo: Demo }) {
   return (
@@ -27,7 +28,7 @@ export default function DemoCard({ demo }: { demo: Demo }) {
         <p className="submitted-by">by {demo.builder}</p>
       </div>
       <a
-        href={demo.url}
+        href={safeUrl(demo.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"
