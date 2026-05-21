@@ -58,21 +58,25 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
   const firstFocusableRef = useRef<HTMLElement | null>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
 
-  // Focus management + body scroll lock.
+  // Capture the trigger element and lock scroll once on mount; restore on unmount.
+  // Kept separate from the step-focus effect so navigating between steps doesn't
+  // briefly return focus to the page trigger.
   useEffect(() => {
     previouslyFocused.current = document.activeElement as HTMLElement;
     document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+      previouslyFocused.current?.focus?.();
+    };
+  }, []);
 
+  // Move focus to the first interactive element whenever the active step changes.
+  useEffect(() => {
     const t = window.setTimeout(() => {
       const target = firstFocusableRef.current ?? dialogRef.current;
       target?.focus();
     }, 0);
-
-    return () => {
-      window.clearTimeout(t);
-      document.body.style.overflow = '';
-      previouslyFocused.current?.focus?.();
-    };
+    return () => window.clearTimeout(t);
   }, [selectedKey]);
 
   // Esc to close + focus trap.
