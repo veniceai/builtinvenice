@@ -40,7 +40,7 @@ export default function Events() {
 
       <div className="project-grid">
         {filtered.map(event => (
-          <EventCard key={event.url} event={event} />
+          <EventCard key={`${event.startDate}:${event.url}`} event={event} />
         ))}
       </div>
 
