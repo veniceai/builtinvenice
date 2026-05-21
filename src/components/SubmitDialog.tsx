@@ -133,7 +133,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
       setUploadError(null);
       try {
         const thumbnailUrl = await uploadThumbnail(imageBlob);
-        finalValues = { ...values, screenshot: `![thumbnail](${thumbnailUrl})` };
+        finalValues = { ...values, screenshot: `![thumbnail](${encodeURI(thumbnailUrl)})` };
       } catch (err) {
         setUploadError(
           err instanceof Error
