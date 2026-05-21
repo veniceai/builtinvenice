@@ -157,6 +157,11 @@ input:focus-visible {
   height: 46px;
 }
 
+.ask-anything:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .ask-anything::placeholder { color: rgba(0,0,0,0.35); }
 
 .venice-icon {
