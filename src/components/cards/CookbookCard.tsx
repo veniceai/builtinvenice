@@ -1,5 +1,6 @@
 import { BookIcon, ClockIcon, ExternalArrow } from '../icons';
 import { difficultyLabels, langColors, type Cookbook } from '../../data';
+import { safeUrl } from '../../utils/safeUrl';
 
 export default function CookbookCard({ cookbook }: { cookbook: Cookbook }) {
   const langColor = cookbook.language ? langColors[cookbook.language] ?? '#888' : null;
@@ -47,7 +48,7 @@ export default function CookbookCard({ cookbook }: { cookbook: Cookbook }) {
         </div>
       </div>
       <a
-        href={cookbook.url}
+        href={safeUrl(cookbook.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"

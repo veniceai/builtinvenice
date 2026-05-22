@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AGENT_SKILL_URL, AGENT_SKILL_CANONICAL } from '../constants';
 import { SparkleIcon } from './icons';
 
@@ -23,12 +23,16 @@ function CheckIcon() {
 
 export default function AgentPromptCard() {
   const [copied, setCopied] = useState(false);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => { if (resetTimer.current) clearTimeout(resetTimer.current); }, []);
 
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(PROMPT);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1600);
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => setCopied(false), 1600);
     } catch {
       /* noop — user can still select manually */
     }

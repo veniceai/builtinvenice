@@ -1,5 +1,6 @@
 import { CalendarIcon, MapPinIcon, TrophyIcon, ExternalArrow } from '../icons';
 import type { VeniceEvent, EventKind, EventStatus } from '../../data';
+import { safeUrl } from '../../utils/safeUrl';
 
 const kindLabels: Record<EventKind, string> = {
   hackathon: 'Hackathon',
@@ -84,7 +85,7 @@ export default function EventCard({ event }: { event: VeniceEvent }) {
         <p className="submitted-by event-host">hosted by {event.host}</p>
       </div>
       <a
-        href={event.url}
+        href={safeUrl(event.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"

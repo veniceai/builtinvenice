@@ -1,13 +1,14 @@
 import { GlobeIcon, ExternalArrow } from '../icons';
 import { categoryLabels, type WebsiteProject } from '../../data';
 import SocialsRow from './SocialsRow';
+import { safeUrl } from '../../utils/safeUrl';
 
 export default function WebsiteCard({ project }: { project: WebsiteProject }) {
   return (
     <article className="project-card website-card">
       {project.thumbnail ? (
         <div className="card-preview">
-          <img src={project.thumbnail} alt={`${project.title} preview`} />
+          <img src={project.thumbnail} alt={`${project.title} preview`} loading="lazy" />
           <div className="card-preview-overlay">
             <span className="card-preview-cta">
               Visit Site <ExternalArrow className="external-arrow" />
@@ -41,7 +42,7 @@ export default function WebsiteCard({ project }: { project: WebsiteProject }) {
         )}
       </div>
       <a
-        href={project.url}
+        href={safeUrl(project.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"

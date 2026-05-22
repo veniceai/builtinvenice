@@ -1,12 +1,13 @@
 import { ExternalArrow } from '../icons';
 import type { Demo } from '../../data';
+import { safeUrl } from '../../utils/safeUrl';
 
 export default function DemoCard({ demo }: { demo: Demo }) {
   return (
     <article className="project-card demo-card">
       <div className="demo-thumb">
         {demo.thumbnail ? (
-          <img src={demo.thumbnail} alt={`${demo.title} preview`} />
+          <img src={demo.thumbnail} alt={`${demo.title} preview`} loading="lazy" />
         ) : (
           <div className="demo-thumb-placeholder" aria-hidden="true">
             <span className="demo-thumb-initial">{demo.builder.charAt(0).toUpperCase()}</span>
@@ -27,7 +28,7 @@ export default function DemoCard({ demo }: { demo: Demo }) {
         <p className="submitted-by">by {demo.builder}</p>
       </div>
       <a
-        href={demo.url}
+        href={safeUrl(demo.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"

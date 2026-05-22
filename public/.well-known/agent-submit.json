@@ -8,59 +8,69 @@
   "issueTemplate": "https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+",
   "project": {
     "common": {
-      "title": { "type": "string", "maxLength": 40, "required": true },
-      "description": { "type": "string", "maxLength": 220, "required": true },
-      "url": { "type": "string", "format": "uri", "required": true },
-      "type": {
-        "enum": ["Website", "GitHub Repo", "X Account", "Token"],
-        "required": true
-      },
-      "category": {
-        "enum": ["ecosystem", "powered-by"],
-        "required": true,
-        "description": "ecosystem = maintained by/with Venice. powered-by = built on Venice."
-      },
-      "tags": { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 4, "required": true },
-      "submittedBy": { "type": "string", "required": true },
-      "socials": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "enum": ["x", "github", "website", "farcaster", "warpcast", "instagram", "telegram", "discord", "youtube", "tiktok", "token"]
-            },
-            "url": { "type": "string", "format": "uri" }
-          },
-          "required": ["kind", "url"]
+      "type": "object",
+      "required": ["title", "description", "url", "type", "category", "tags", "submittedBy"],
+      "properties": {
+        "title":       { "type": "string", "maxLength": 40 },
+        "description": { "type": "string", "maxLength": 220 },
+        "url":         { "type": "string", "format": "uri", "pattern": "^https://" },
+        "type":        { "enum": ["Website", "GitHub Repo", "X Account", "Token"] },
+        "category": {
+          "enum": ["ecosystem", "powered-by"],
+          "description": "ecosystem = maintained by/with Venice. powered-by = built on Venice."
+        },
+        "tags":        { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 4 },
+        "submittedBy": { "type": "string" },
+        "socials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "url"],
+            "properties": {
+              "kind": { "enum": ["x", "github", "website", "farcaster", "warpcast", "instagram", "telegram", "discord", "youtube", "tiktok", "token"] },
+              "url":  { "type": "string", "format": "uri", "pattern": "^https://" }
+            }
+          }
+        },
+        "thumbnail": {
+          "type": "string",
+          "description": "Optional 16:9 preview image. Local path (e.g. /preview-foo.png in public/) or absolute https:// URL. GitHub Repo entries auto-default to https://opengraph.githubassets.com/1/<owner>/<repo>."
         }
-      },
-      "thumbnail": {
-        "type": "string",
-        "description": "Optional 16:9 preview image. Local path (e.g. /preview-foo.png in public/) or absolute URL. Applies to every project type. GitHub Repo entries auto-default to https://opengraph.githubassets.com/1/<owner>/<repo>."
       }
     },
     "byType": {
-      "Website": {},
+      "Website": { "type": "object" },
       "GitHub Repo": {
-        "owner": { "type": "string", "required": true },
-        "repo": { "type": "string", "required": true },
-        "stars": { "type": "integer" },
-        "forks": { "type": "integer" },
-        "language": { "type": "string" }
+        "type": "object",
+        "required": ["owner", "repo"],
+        "properties": {
+          "owner":    { "type": "string" },
+          "repo":     { "type": "string" },
+          "stars":    { "type": "integer" },
+          "forks":    { "type": "integer" },
+          "language": { "type": "string" }
+        }
       },
       "X Account": {
-        "handle": { "type": "string", "description": "without @", "required": true },
-        "followers": { "type": "integer" },
-        "bio": { "type": "string" }
+        "type": "object",
+        "required": ["handle"],
+        "properties": {
+          "handle":    { "type": "string", "description": "without @" },
+          "followers": { "type": "integer" },
+          "bio":       { "type": "string" }
+        }
       },
       "Token": {
-        "ticker": { "type": "string", "required": true },
-        "address": { "type": "string", "required": true },
-        "chain": { "enum": ["solana", "base", "ethereum"], "required": true },
-        "marketCap": { "type": "number" },
-        "holders": { "type": "integer" },
-        "rejectIf": "Entry represents Venice's own official token ($VVV). This directory is community-only."
+        "type": "object",
+        "description": "Community tokens only. Do not accept Venice's own official $VVV token.",
+        "required": ["ticker", "address", "chain"],
+        "properties": {
+          "ticker":    { "type": "string" },
+          "address":   { "type": "string" },
+          "chain":     { "enum": ["solana", "base", "ethereum"] },
+          "marketCap": { "type": "number" },
+          "holders":   { "type": "integer" }
+        }
       }
     }
   },

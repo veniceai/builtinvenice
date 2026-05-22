@@ -52,9 +52,11 @@ export default function Explore() {
         {tabs.map(t => (
           <button
             key={t.key}
+            id={`tab-${t.key}`}
             role="tab"
             type="button"
             aria-selected={tab === t.key}
+            aria-controls={`panel-${t.key}`}
             className={`explore-tab ${tab === t.key ? 'active' : ''}`}
             onClick={() => setTab(t.key)}
           >
@@ -66,7 +68,12 @@ export default function Explore() {
 
       <p className="explore-lede">{config.lede}</p>
 
-      <div className="explore-content" role="tabpanel">
+      <div
+        id={`panel-${tab}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${tab}`}
+        className="explore-content"
+      >
         {tab === 'project' && <Projects />}
         {tab === 'cookbook' && <Cookbooks />}
         {tab === 'event' && <Events />}

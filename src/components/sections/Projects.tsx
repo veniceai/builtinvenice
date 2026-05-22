@@ -110,7 +110,7 @@ export default function Projects() {
 
       <div className="project-grid">
         {filtered.map(project => (
-          <ProjectCard key={project.url} project={project} />
+          <ProjectCard key={`${project.type}:${project.url}`} project={project} />
         ))}
       </div>
 

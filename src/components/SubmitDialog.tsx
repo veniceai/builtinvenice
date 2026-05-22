@@ -3,21 +3,35 @@ import { submissionTypes, buildIssueUrl, type SubmissionType, type FieldConfig }
 import { REPO_URL } from '../constants';
 import ImageField from './ImageField';
 
+const UPLOAD_TIMEOUT_MS = 30_000;
+
 async function uploadThumbnail(blob: Blob): Promise<string> {
   const apiKey = import.meta.env.VITE_IMGBB_KEY;
   if (!apiKey) {
     throw new Error('Thumbnail upload not configured (VITE_IMGBB_KEY missing)');
   }
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), UPLOAD_TIMEOUT_MS);
   const formData = new FormData();
   formData.append('image', blob);
-  const res = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
-    method: 'POST',
-    body: formData,
-  });
-  if (!res.ok) throw new Error(`Upload failed (HTTP ${res.status})`);
-  const data = await res.json();
-  if (!data?.success || !data.data?.url) throw new Error('Unexpected upload response');
-  return data.data.url as string;
+  try {
+    const res = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
+      method: 'POST',
+      body: formData,
+      signal: ctrl.signal,
+    });
+    if (!res.ok) throw new Error(`Upload failed (HTTP ${res.status})`);
+    const data = await res.json();
+    if (!data?.success || !data.data?.url) throw new Error('Unexpected upload response');
+    return data.data.url as string;
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      throw new Error('Upload timed out after 30 s');
+    }
+    throw err;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 interface Props {
@@ -44,21 +58,25 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
   const firstFocusableRef = useRef<HTMLElement | null>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
 
-  // Focus management + body scroll lock.
+  // Capture the trigger element and lock scroll once on mount; restore on unmount.
+  // Kept separate from the step-focus effect so navigating between steps doesn't
+  // briefly return focus to the page trigger.
   useEffect(() => {
     previouslyFocused.current = document.activeElement as HTMLElement;
     document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+      previouslyFocused.current?.focus?.();
+    };
+  }, []);
 
+  // Move focus to the first interactive element whenever the active step changes.
+  useEffect(() => {
     const t = window.setTimeout(() => {
       const target = firstFocusableRef.current ?? dialogRef.current;
       target?.focus();
     }, 0);
-
-    return () => {
-      window.clearTimeout(t);
-      document.body.style.overflow = '';
-      previouslyFocused.current?.focus?.();
-    };
+    return () => window.clearTimeout(t);
   }, [selectedKey]);
 
   // Esc to close + focus trap.
@@ -133,7 +151,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
       setUploadError(null);
       try {
         const thumbnailUrl = await uploadThumbnail(imageBlob);
-        finalValues = { ...values, screenshot: `![thumbnail](${thumbnailUrl})` };
+        finalValues = { ...values, screenshot: `![thumbnail](${encodeURI(thumbnailUrl)})` };
       } catch (err) {
         setUploadError(
           err instanceof Error
@@ -153,6 +171,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
 
   const submitWithoutImage = () => {
     if (!selected) return;
+    if (!validate()) return;
     setImageBlob(null);
     setUploadError(null);
     const url = buildIssueUrl(REPO_URL, selected, values);
@@ -185,6 +204,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
               onClick={() => {
                 setSelectedKey(null);
                 setErrors({});
+                setImageBlob(null);
               }}
               aria-label="Back to submission types"
             >

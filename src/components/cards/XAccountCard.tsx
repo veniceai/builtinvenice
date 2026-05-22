@@ -1,6 +1,7 @@
 import { XIcon, UsersIcon, ExternalArrow } from '../icons';
 import { categoryLabels, type XAccountProject } from '../../data';
 import SocialsRow from './SocialsRow';
+import { safeUrl } from '../../utils/safeUrl';
 
 function formatFollowers(n: number) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
@@ -38,7 +39,7 @@ export default function XAccountCard({ project }: { project: XAccountProject }) 
         </div>
       </div>
       <a
-        href={project.url}
+        href={safeUrl(project.url)}
         target="_blank"
         rel="noopener noreferrer"
         className="card-stretched-link"
