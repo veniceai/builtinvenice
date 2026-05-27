@@ -236,7 +236,7 @@ input:focus-visible {
 .hero-title-name {
   font-family: inherit;
   font-weight: 400;
-  color: var(--sea-dark);
+  color: var(--primary);
   letter-spacing: -0.022em;
 }
 
