@@ -122,6 +122,30 @@ body {
   min-height: 100vh;
 }
 
+@keyframes pageElementIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes headerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; background: none; border: none; color: inherit; }
@@ -142,6 +166,7 @@ input:focus-visible {
   z-index: 50;
   background: transparent;
   border-bottom: 1px solid transparent;
+  animation: headerIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
   transition: background 0.2s ease, border-color 0.2s ease,
               backdrop-filter 0.2s ease, -webkit-backdrop-filter 0.2s ease;
 }
@@ -231,6 +256,7 @@ input:focus-visible {
   color: var(--black);
   margin-bottom: 18px;
   line-height: 1.04;
+  animation: pageElementIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
 }
 
 .hero-title-name {
@@ -248,6 +274,7 @@ input:focus-visible {
   max-width: 520px;
   margin: 0 auto;
   line-height: 1.55;
+  animation: pageElementIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 
 /* ==============================
@@ -266,6 +293,7 @@ input:focus-visible {
   max-width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
+  animation: pageElementIn 0.54s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
 }
 .explore-tabs::-webkit-scrollbar { display: none; }
 
@@ -319,6 +347,7 @@ input:focus-visible {
   margin: 14px auto 0;
   max-width: 560px;
   line-height: 1.55;
+  animation: pageElementIn 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both;
 }
 
 .explore-content { margin-top: 24px; }
@@ -329,6 +358,7 @@ input:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
+  animation: pageElementIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
 }
 
 .toolbar-search {
@@ -496,7 +526,19 @@ input:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .filter-popover { animation: none; }
+  .site-header,
+  .hero-title,
+  .hero-subtitle,
+  .submit-cta,
+  .agent-prompt-card,
+  .explore-tabs,
+  .explore-lede,
+  .explore-toolbar,
+  .explore-tag-row,
+  .project-card,
+  .filter-popover {
+    animation: none;
+  }
 }
 
 .toolbar-action {
@@ -536,6 +578,7 @@ input:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+  animation: pageElementIn 0.48s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
 }
 
 .tag-pill {
@@ -639,7 +682,16 @@ input:focus-visible {
   cursor: pointer;
   text-decoration: none;
   color: var(--black);
+  animation: pageElementIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+.project-grid .project-card:nth-child(1) { animation-delay: 0.52s; }
+.project-grid .project-card:nth-child(2) { animation-delay: 0.56s; }
+.project-grid .project-card:nth-child(3) { animation-delay: 0.6s; }
+.project-grid .project-card:nth-child(4) { animation-delay: 0.64s; }
+.project-grid .project-card:nth-child(5) { animation-delay: 0.68s; }
+.project-grid .project-card:nth-child(6) { animation-delay: 0.72s; }
+.project-grid .project-card:nth-child(n+7) { animation-delay: 0.76s; }
 
 /* Stretched-link pattern:
    - Link sits LAST in DOM so Tab reaches inner interactive chips first.
@@ -878,6 +930,7 @@ input:focus-visible {
   font-weight: 500;
   letter-spacing: 0.005em;
   box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset;
+  animation: pageElementIn 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -1191,6 +1244,7 @@ input:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   text-align: left;
+  animation: pageElementIn 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.26s both;
   transition: border-color 0.2s, box-shadow 0.2s;
   overflow: hidden;
 }
