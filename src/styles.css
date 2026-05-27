@@ -1,6 +1,46 @@
 /* ==============================
    RESET
    ============================== */
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/Aeonik-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/Aeonik-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/aeonik-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/Aeonik-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Regular-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -18,7 +58,8 @@
   --img-border: #4f4f4f;
   --gold: #BEA989;
   --mono: 'DM Mono', 'SF Mono', 'Fira Code', monospace;
-  --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sans: 'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --heading: 'Canela', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 12px;
@@ -207,8 +248,9 @@ input:focus-visible {
 }
 
 .hero-title {
+  font-family: var(--heading);
   font-size: clamp(44px, 5.6vw, 68px);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: -0.038em;
   color: var(--black);
   margin-bottom: 18px;
@@ -216,8 +258,7 @@ input:focus-visible {
 }
 
 .hero-title-name {
-  font-family: 'Source Serif Pro', 'Charter', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
-  font-style: italic;
+  font-family: inherit;
   font-weight: 400;
   color: var(--sea-dark);
   letter-spacing: -0.022em;
