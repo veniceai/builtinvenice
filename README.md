@@ -31,10 +31,23 @@ Projects must be publicly accessible and offer something beyond the base Venice 
 
 ## Development
 
-```bash
-npm install
-npm run dev
-```
+Private `@veniceai/*` packages are hosted on GitHub Packages. Before installing:
+
+1. Create a [classic PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) with the `read:packages` scope.
+2. Export it in your shell (or add it to your `.envrc` / shell rc file):
+
+   ```bash
+   export VENICE_PACKAGE_REGISTRY_READ="<YOUR_PERSONAL_ACCESS_TOKEN>"
+   ```
+
+3. Install and run:
+
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+The token is read from the shell environment by `.npmrc` at install time — it is not loaded from `.env`.
 
 ## Build & Deploy
 
