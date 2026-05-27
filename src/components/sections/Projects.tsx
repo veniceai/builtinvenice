@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { projects, type Project } from '../../data';
 import { ChevronDownIcon } from '../icons';
 import Toolbar from './Toolbar';
@@ -40,6 +40,9 @@ export default function Projects() {
   const [activeType, setActiveType] = useState<Project['type'] | 'all'>('all');
   const [search, setSearch] = useState('');
   const [tagsExpanded, setTagsExpanded] = useState(false);
+  const [collapsedTagCount, setCollapsedTagCount] = useState(POPULAR_TAG_COUNT);
+  const tagRowRef = useRef<HTMLDivElement>(null);
+  const tagMeasureRef = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
     return projects.filter(item => {
@@ -53,10 +56,49 @@ export default function Projects() {
     });
   }, [activeTag, activeType, search]);
 
+  useLayoutEffect(() => {
+    const row = tagRowRef.current;
+    const measure = tagMeasureRef.current;
+    if (!row || !measure) return;
+
+    const measureCollapsedTags = () => {
+      const rowWidth = row.clientWidth;
+      const rowStyles = window.getComputedStyle(row);
+      const gap = parseFloat(rowStyles.columnGap || rowStyles.gap) || 0;
+      const tagNodes = Array.from(measure.querySelectorAll<HTMLElement>('[data-tag-measure]'));
+      const moreNode = measure.querySelector<HTMLElement>('[data-more-measure]');
+      if (!rowWidth || !tagNodes.length || !moreNode) return;
+
+      let usedWidth = moreNode.offsetWidth;
+      let nextCount = 0;
+
+      for (const tagNode of tagNodes) {
+        const nextWidth = usedWidth + tagNode.offsetWidth + gap;
+        if (nextWidth > rowWidth) break;
+        usedWidth = nextWidth;
+        nextCount += 1;
+      }
+
+      setCollapsedTagCount(Math.max(1, nextCount));
+    };
+
+    measureCollapsedTags();
+
+    const resizeObserver = new ResizeObserver(measureCollapsedTags);
+    resizeObserver.observe(row);
+    window.addEventListener('resize', measureCollapsedTags);
+    document.fonts?.ready.then(measureCollapsedTags).catch(() => {});
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', measureCollapsedTags);
+    };
+  }, []);
+
   const visibleTags = tagsExpanded
     ? tagsByPopularity
-    : tagsByPopularity.slice(0, POPULAR_TAG_COUNT);
-  const hiddenTagCount = tagsByPopularity.length - POPULAR_TAG_COUNT;
+    : tagsByPopularity.slice(0, collapsedTagCount);
+  const hiddenTagCount = tagsByPopularity.length - collapsedTagCount;
   const showActiveTagOutsideList = activeTag && !visibleTags.includes(activeTag);
 
   return (
@@ -72,8 +114,12 @@ export default function Projects() {
         }}
       />
 
-      <div className="explore-tag-row" role="group" aria-label="Filter by tag">
-        <span className="explore-tag-label">Tags</span>
+      <div
+        ref={tagRowRef}
+        className={`explore-tag-row ${tagsExpanded ? 'is-expanded' : 'is-collapsed'}`}
+        role="group"
+        aria-label="Filter by tag"
+      >
         {visibleTags.map(tag => (
           <button
             type="button"
@@ -106,6 +152,18 @@ export default function Projects() {
             <ChevronDownIcon />
           </button>
         )}
+      </div>
+
+      <div className="explore-tag-measure" ref={tagMeasureRef} aria-hidden="true">
+        {tagsByPopularity.map(tag => (
+          <span key={tag} className="tag-pill" data-tag-measure>
+            {tag}
+          </span>
+        ))}
+        <span className="tag-more" data-more-measure>
+          +99 more
+          <ChevronDownIcon />
+        </span>
       </div>
 
       <div className="project-grid">
