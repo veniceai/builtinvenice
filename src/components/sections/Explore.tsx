@@ -36,7 +36,7 @@ const tabs: TabConfig[] = [
   },
   {
     key: 'demo',
-    label: 'Watch',
+    label: 'Demos',
     count: demos.length,
     lede: 'Videos, interviews, and recaps about Venice and the projects built on it.',
   },

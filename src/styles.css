@@ -384,6 +384,26 @@ input:focus-visible {
 }
 .toolbar-search-clear:hover { background: rgba(0,0,0,0.06); color: var(--black); }
 
+.toolbar-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 4px 8px 4px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05);
+  color: rgba(0,0,0,0.68);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.toolbar-filter-chip:hover {
+  background: rgba(0,0,0,0.08);
+  color: var(--black);
+}
+
 /* Filter popover (icon-button + menu) */
 .filter-popover-wrapper {
   position: relative;
@@ -857,19 +877,19 @@ input:focus-visible {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.005em;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 4px 12px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.18);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset;
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .submit-cta:hover {
   background: var(--primary-hover);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 22px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.28);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset;
   transform: translateY(-1px);
 }
 
 .submit-cta:active {
   transform: translateY(0);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 3px 8px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.18);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset;
 }
 
 

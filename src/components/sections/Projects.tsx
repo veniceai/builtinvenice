@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { projects, type Project } from '../../data';
 import { ChevronDownIcon } from '../icons';
 import Toolbar from './Toolbar';
@@ -25,15 +25,15 @@ const typeOptions: { label: string; value: Project['type'] | 'all' }[] = [
 
 const POPULAR_TAG_COUNT = 8;
 
-const tagsByPopularity = (() => {
+function getTagsByPopularity(items: Project[]) {
   const counts = new Map<string, number>();
-  for (const p of projects) {
+  for (const p of items) {
     for (const t of p.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
   }
   return Array.from(counts.entries())
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([tag]) => tag);
-})();
+}
 
 export default function Projects() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -55,6 +55,25 @@ export default function Projects() {
       return true;
     });
   }, [activeTag, activeType, search]);
+
+  const tagCandidates = useMemo(() => {
+    return projects.filter(item => {
+      if (activeType !== 'all' && item.type !== activeType) return false;
+      if (search) {
+        const q = search.toLowerCase();
+        return item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q);
+      }
+      return true;
+    });
+  }, [activeType, search]);
+
+  const tagsByPopularity = useMemo(() => getTagsByPopularity(tagCandidates), [tagCandidates]);
+
+  useEffect(() => {
+    if (activeTag && !tagsByPopularity.includes(activeTag)) {
+      setActiveTag(null);
+    }
+  }, [activeTag, tagsByPopularity]);
 
   useLayoutEffect(function setupTagRowMeasurement() {
     const row = tagRowRef.current;
@@ -95,7 +114,7 @@ export default function Projects() {
       resizeObserver.disconnect();
       window.removeEventListener('resize', measureCollapsedTags);
     };
-  }, []);
+  }, [tagsByPopularity]);
 
   const visibleTags = tagsExpanded
     ? tagsByPopularity

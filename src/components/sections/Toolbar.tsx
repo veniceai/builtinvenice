@@ -31,6 +31,13 @@ interface Props<V extends string = string> {
 }
 
 export default function Toolbar<V extends string = string>({ search, filter, action }: Props<V>) {
+  const activeFilter = filter && filter.clearValue !== undefined && filter.value !== filter.clearValue
+    ? {
+        label: filter.options.find(opt => opt.value === filter.value)?.label,
+        clearValue: filter.clearValue,
+      }
+    : undefined;
+
   return (
     <div className="explore-toolbar">
       {search && (
@@ -43,6 +50,17 @@ export default function Toolbar<V extends string = string>({ search, filter, act
             placeholder={search.placeholder ?? 'Search…'}
             aria-label={search.placeholder ?? 'Search'}
           />
+          {activeFilter && (
+            <button
+              type="button"
+              className="toolbar-filter-chip"
+              onClick={() => filter?.onChange(activeFilter.clearValue)}
+              aria-label={`Clear ${activeFilter.label ?? 'active'} filter`}
+            >
+              <span>{activeFilter.label}</span>
+              <span aria-hidden="true">×</span>
+            </button>
+          )}
           {search.value && (
             <button
               type="button"
