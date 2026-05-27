@@ -1,4 +1,4 @@
-# Contributing to Built with Venice
+# Contributing to Built on Venice
 
 A community-curated showcase of projects, tools, and content built on the Venice AI ecosystem.
 
@@ -170,4 +170,4 @@ We will not accept:
 
 ## Disclaimer
 
-Listing on Built with Venice does not imply endorsement by Venice AI, Inc.
+Listing on Built on Venice does not imply endorsement by Venice AI, Inc.

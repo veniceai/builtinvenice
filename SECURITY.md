@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-If you've found a security issue in this repository or in the live site at https://builtwithvenice.ai, please **do not open a public GitHub issue**.
+If you've found a security issue in this repository or in the live site at https://builtonvenice.ai, please **do not open a public GitHub issue**.
 
 Report it through the Venice AI bug bounty program: https://venice.ai/bug-bounty
 

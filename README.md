@@ -1,8 +1,8 @@
-# Built with Venice
+# Built on Venice
 
 Community showcase of tools, SDKs, content, and builders in the Venice AI ecosystem.
 
-Live at: https://builtwithvenice.ai
+Live at: https://builtonvenice.ai
 
 ## What's here
 
@@ -19,7 +19,7 @@ Projects are categorized as either **Ecosystem** (tools built for the Venice com
 
 You don't need to clone the repo or run anything locally to submit — every option below works from the browser or by editing a single file.
 
-**Easiest:** Click "Submit your work" on the [live site](https://builtwithvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
+**Easiest:** Click "Submit your work" on the [live site](https://builtonvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
 
 You can also [pick a submission form](https://github.com/veniceai/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and videos (demos) each have their own template.
 

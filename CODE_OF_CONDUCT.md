@@ -1,6 +1,6 @@
 # Code of Conduct
 
-Built with Venice is a community showcase. The goal is to make it a welcoming, useful resource for everyone building in the Venice AI ecosystem.
+Built on Venice is a community showcase. The goal is to make it a welcoming, useful resource for everyone building in the Venice AI ecosystem.
 
 ## Expected behavior
 
