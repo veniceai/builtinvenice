@@ -7,7 +7,7 @@ body:
     id: event-name
     attributes:
       label: Event name
-      placeholder: e.g. Venice Private-AI Hackathon
+      placeholder: e.g. Community AI Hackathon
     validations:
       required: true
 
@@ -56,7 +56,7 @@ body:
     id: start-date
     attributes:
       label: Start date (YYYY-MM-DD)
-      placeholder: "2026-05-10"
+      placeholder: "YYYY-MM-DD"
     validations:
       required: true
 
@@ -65,7 +65,7 @@ body:
     attributes:
       label: End date (YYYY-MM-DD, optional)
       description: Only fill in if the event spans multiple days.
-      placeholder: "2026-05-12"
+      placeholder: "YYYY-MM-DD"
 
   - type: input
     id: location
@@ -81,7 +81,7 @@ body:
     attributes:
       label: Host
       description: Organizer name or handle.
-      placeholder: e.g. Venice AI, @nikshepsvn
+      placeholder: e.g. Organizer Name, @yourhandle
     validations:
       required: true
 
@@ -89,7 +89,7 @@ body:
     id: prize
     attributes:
       label: Prize (optional)
-      description: Hackathons only. E.g. "$50,000 in credits + $VVV".
+      description: Hackathons only. Include prize details if applicable.
       placeholder: e.g. $15,000 in credits
 
   - type: input

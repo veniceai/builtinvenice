@@ -7,7 +7,7 @@ body:
     id: cookbook-title
     attributes:
       label: Title
-      placeholder: e.g. Streaming chat completions with the Venice API
+      placeholder: e.g. Building a chat app with the Venice API
     validations:
       required: true
 
@@ -34,7 +34,7 @@ body:
     attributes:
       label: Author handle
       description: GitHub or X handle for attribution.
-      placeholder: e.g. nikshepsvn
+      placeholder: e.g. yourhandle
     validations:
       required: true
 
@@ -83,7 +83,7 @@ body:
     id: published-at
     attributes:
       label: Published date (YYYY-MM-DD)
-      placeholder: "2026-05-06"
+      placeholder: "YYYY-MM-DD"
     validations:
       required: true
 

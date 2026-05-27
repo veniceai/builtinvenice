@@ -7,7 +7,7 @@ body:
     id: demo-title
     attributes:
       label: Title
-      placeholder: e.g. openvenice running chat, image, and audio in one tab
+      placeholder: e.g. Multimodal demo running in one tab
     validations:
       required: true
 
@@ -34,7 +34,7 @@ body:
     attributes:
       label: Your handle
       description: GitHub or X handle for attribution.
-      placeholder: e.g. nikshepsvn
+      placeholder: e.g. yourhandle
     validations:
       required: true
 
@@ -42,7 +42,7 @@ body:
     id: published-at
     attributes:
       label: Published date (YYYY-MM-DD)
-      placeholder: "2026-05-06"
+      placeholder: "YYYY-MM-DD"
     validations:
       required: true
 

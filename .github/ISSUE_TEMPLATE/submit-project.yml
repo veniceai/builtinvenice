@@ -1,5 +1,5 @@
 name: Submit a Project
-description: Submit your project to be featured on Built with Venice
+description: Submit your project to be featured on Built on Venice
 title: "[Project] "
 labels: ["submission"]
 body:
@@ -7,7 +7,7 @@ body:
     id: project-name
     attributes:
       label: Project Name
-      placeholder: e.g. VeniceStats, @venicebuilds, $DOGEDAO
+      placeholder: e.g. Your Project, @yourhandle, project-name
     validations:
       required: true
 
@@ -19,7 +19,6 @@ body:
         - Website
         - GitHub Repo
         - X Account
-        - Token
     validations:
       required: true
 
@@ -28,7 +27,7 @@ body:
     attributes:
       label: Project URL
       description: Canonical link for the project.
-      placeholder: https://myproject.com  /  https://github.com/owner/repo  /  https://x.com/handle  /  https://dexscreener.com/…
+      placeholder: https://myproject.com  /  https://github.com/owner/repo  /  https://x.com/handle
     validations:
       required: true
 
@@ -65,7 +64,7 @@ body:
     id: submitted-by
     attributes:
       label: Your Name / Handle
-      placeholder: e.g. @nikshepsvn
+      placeholder: e.g. @yourhandle
 
   # ── GitHub Repo fields ────────────────────────────────
   - type: input
@@ -73,14 +72,14 @@ body:
     attributes:
       label: GitHub Owner (repos only)
       description: The owner portion of github.com/owner/repo.
-      placeholder: e.g. nikshepsvn
+      placeholder: e.g. yourhandle
 
   - type: input
     id: github-repo
     attributes:
       label: GitHub Repo Name (repos only)
       description: The repo portion of github.com/owner/repo.
-      placeholder: e.g. openvenice
+      placeholder: e.g. repo-name
 
   - type: input
     id: language
@@ -107,7 +106,7 @@ body:
     attributes:
       label: X Handle (X accounts only)
       description: Without the "@".
-      placeholder: venicebuilds
+      placeholder: yourhandle
 
   - type: input
     id: x-bio
@@ -122,42 +121,6 @@ body:
       description: Approximate follower count. Leave blank if you don't know.
       placeholder: e.g. 4200
 
-  # ── Token fields ──────────────────────────────────────
-  - type: input
-    id: token-ticker
-    attributes:
-      label: Ticker (tokens only)
-      placeholder: e.g. DOGEDAO
-
-  - type: input
-    id: token-address
-    attributes:
-      label: Contract Address (tokens only)
-      placeholder: e.g. 0x… on Base, or Solana base58 address
-
-  - type: dropdown
-    id: token-chain
-    attributes:
-      label: Chain (tokens only)
-      options:
-        - "(not a token)"
-        - Solana
-        - Base
-        - Ethereum
-
-  - type: input
-    id: token-market-cap
-    attributes:
-      label: Market Cap (tokens only, optional)
-      description: In USD. Leave blank if you don't know.
-      placeholder: e.g. 2400000
-
-  - type: input
-    id: token-holders
-    attributes:
-      label: Holders (tokens only, optional)
-      placeholder: e.g. 1820
-
   # ── Socials + preview ─────────────────────────────────
   - type: textarea
     id: socials
@@ -165,7 +128,7 @@ body:
       label: Connected socials (optional)
       description: |
         One per line, in the form `kind: url`. Supported kinds:
-        x, github, website, farcaster, warpcast, instagram, telegram, discord, youtube, tiktok, token.
+        x, github, website, farcaster, warpcast, instagram, telegram, discord, youtube, tiktok.
       placeholder: |
         x: https://x.com/yourproject
         farcaster: https://warpcast.com/yourproject
@@ -185,9 +148,7 @@ body:
       options:
         - label: This project is publicly accessible.
           required: true
-        - label: This project offers functionality beyond the base Venice platform, OR is a community asset (X account, community token) that complements it.
-          required: true
-        - label: If this is a token, it is **not** Venice's own official token. This directory is community-only.
+        - label: This project offers functionality beyond the base Venice platform, OR is a community asset (X account) that complements it.
           required: true
         - label: I understand that listing does not imply endorsement by Venice AI.
           required: true
