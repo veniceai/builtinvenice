@@ -20,7 +20,7 @@ const tabs: TabConfig[] = [
     key: 'project',
     label: 'Projects',
     count: projects.length,
-    lede: 'Tools, SDKs, X accounts, and community tokens built on Venice.',
+    lede: 'Tools, SDKs, X accounts, and community projects built on Venice.',
   },
   {
     key: 'cookbook',

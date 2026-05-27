@@ -1410,18 +1410,21 @@ input:focus-visible {
 }
 
 .dialog-back {
-  font-family: var(--mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.04);
-  transition: background 0.15s;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: rgba(0,0,0,0.72);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
   flex-shrink: 0;
 }
 
-.dialog-back:hover { background: rgba(0,0,0,0.08); }
+.dialog-back:hover {
+  background: rgba(0,0,0,0.06);
+  color: var(--black);
+}
 
 .dialog-title {
   flex: 1;
@@ -1533,7 +1536,7 @@ input:focus-visible {
 }
 
 .form-required {
-  color: var(--accent);
+  color: #c53030;
   margin-left: 1px;
 }
 
@@ -1595,12 +1598,21 @@ input:focus-visible {
 }
 
 .submit-actions {
+  position: sticky;
+  bottom: -22px;
   margin-top: 22px;
-  padding-top: 18px;
+  margin-left: -22px;
+  margin-right: -22px;
+  margin-bottom: -22px;
+  padding: 16px 22px 18px;
+  background: color-mix(in srgb, var(--white) 92%, transparent);
   border-top: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   gap: 12px;
+  z-index: 2;
 }
 
 .submit-actions-note {
@@ -1827,6 +1839,13 @@ input:focus-visible {
   .dialog-title { font-size: 15px; }
   .dialog-body { padding: 18px 16px 24px; }
   .type-grid { grid-template-columns: 1fr; }
+  .submit-actions {
+    bottom: -24px;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: -24px;
+    padding: 14px 16px calc(16px + env(safe-area-inset-bottom));
+  }
   .submit-actions-buttons { flex-direction: column-reverse; }
   .btn-primary, .btn-secondary { width: 100%; }
 

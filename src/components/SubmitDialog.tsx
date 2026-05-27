@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { submissionTypes, buildIssueUrl, type SubmissionType, type FieldConfig } from '../submitSchemas';
 import { REPO_URL } from '../constants';
 import ImageField from './ImageField';
+import { ArrowLeftIcon } from './icons';
 
 const UPLOAD_TIMEOUT_MS = 30_000;
 
@@ -208,7 +209,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
               }}
               aria-label="Back to submission types"
             >
-              ← Back
+              <ArrowLeftIcon />
             </button>
           )}
           <h2 id={titleId} className="dialog-title">
