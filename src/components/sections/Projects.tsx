@@ -56,7 +56,7 @@ export default function Projects() {
     });
   }, [activeTag, activeType, search]);
 
-  useLayoutEffect(() => {
+  useLayoutEffect(function setupTagRowMeasurement() {
     const row = tagRowRef.current;
     const measure = tagMeasureRef.current;
     if (!row || !measure) return;
@@ -87,7 +87,9 @@ export default function Projects() {
     const resizeObserver = new ResizeObserver(measureCollapsedTags);
     resizeObserver.observe(row);
     window.addEventListener('resize', measureCollapsedTags);
-    document.fonts?.ready.then(measureCollapsedTags).catch(() => {});
+    document.fonts?.ready.then(measureCollapsedTags).catch((error) => {
+      console.warn('Font loading check failed, tag measurements may be inaccurate:', error);
+    });
 
     return () => {
       resizeObserver.disconnect();
