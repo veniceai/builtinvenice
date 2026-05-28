@@ -34,12 +34,12 @@ export default function OfficialResources() {
                 <span className="card-type-label">
                   <GitHubIcon /> {repo.slug}
                 </span>
-                <span className="card-row-right">
-                  <span className="official-badge">Official</span>
-                  <ExternalArrow className="external-arrow" />
-                </span>
+                <ExternalArrow className="external-arrow" />
               </div>
-              <h3 className="project-card-title">{repo.title}</h3>
+              <div className="official-repo-title-row">
+                <h3 className="project-card-title">{repo.title}</h3>
+                <span className="official-badge">Official</span>
+              </div>
               <p className="project-card-desc">{repo.description}</p>
             </div>
             <a

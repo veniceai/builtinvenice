@@ -1,12 +1,12 @@
 ---
 name: submit-builtonvenice-project
-description: Submit a community project (website, GitHub repo, or X account) to the Built on Venice directory on behalf of the user, via a GitHub pull request (preferred) or issue against veniceai/builtwithvenice.
+description: Submit a community project (website, GitHub repo, or X account) to the Built in Venice directory on behalf of the user, via a GitHub pull request (preferred) or issue against veniceai/builtwithvenice.
 version: 2
 ---
 
-# Built on Venice -- agent submission skill
+# Built in Venice -- agent submission skill
 
-Built on Venice (live at <https://builtonvenice.ai>) is a community-maintained directory of projects built on or around the Venice.ai API. It is an open-source site; there is no write API. Submissions are accepted as **GitHub pull requests** against `veniceai/builtwithvenice` or, as a fallback, **GitHub issues** using the project-submission template.
+Built in Venice (live at <https://builtonvenice.ai>) is a community-maintained directory of projects built on or around the Venice.ai API. It is an open-source site; there is no write API. Submissions are accepted as **GitHub pull requests** against `veniceai/builtwithvenice` or, as a fallback, **GitHub issues** using the project-submission template.
 
 This skill tells an agent how to:
 
@@ -35,7 +35,7 @@ If you discover during validation that something the user said is wrong or thin 
 
 Use this skill when the user asks something like:
 
-- "Submit my project to Built on Venice."
+- "Submit my project to Built in Venice."
 - "Add [repo / site / X handle] to builtonvenice.ai."
 - "Add this to the Venice community directory."
 

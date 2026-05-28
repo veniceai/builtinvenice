@@ -21,7 +21,7 @@ export default function Header({ onSubmit }: Props) {
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="site-header-inner">
-        <a className="site-header-logo" href="/" aria-label="Built on Venice — home">
+        <a className="site-header-logo" href="/" aria-label="Built in Venice — home">
           <svg
             viewBox="0 0 80 45"
             xmlns="http://www.w3.org/2000/svg"

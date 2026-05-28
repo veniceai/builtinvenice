@@ -23,3 +23,14 @@ describe('styles font setup', () => {
     expect(styles).toContain(".hero-title-name {\n  font-family: inherit;");
   });
 });
+
+describe('card label styles', () => {
+  it('keeps icons visible when long labels truncate', () => {
+    expect(styles).toContain(".card-type-label svg {\n  flex-shrink: 0;\n}");
+  });
+
+  it('aligns the official badge beside the repo title', () => {
+    expect(styles).toContain(".official-repo-title-row {\n  display: flex;");
+    expect(styles).toContain("justify-content: space-between;");
+  });
+});
