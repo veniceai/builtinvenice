@@ -25,10 +25,9 @@ export default function Footer() {
         </div>
         <div className="footer-links-group">
           <span className="footer-links-heading">Community</span>
-          <a href="https://discord.gg/venice" target="_blank" rel="noopener noreferrer">Discord</a>
-          <a href="https://x.com/venicedotai" target="_blank" rel="noopener noreferrer">X / Twitter</a>
-          <a href="https://reddit.com/r/VeniceAI" target="_blank" rel="noopener noreferrer">Reddit</a>
-          <a href="https://t.me/venice_ai" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://discord.gg/askvenice" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href="https://x.com/AskVenice" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          <a href="https://www.reddit.com/r/VeniceAI" target="_blank" rel="noopener noreferrer">Reddit</a>
         </div>
       </div>
       <p className="footer-disclaimer">
