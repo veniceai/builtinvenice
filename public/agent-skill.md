@@ -1,12 +1,12 @@
 ---
 name: submit-builtwithvenice-project
-description: Submit a community project (website, GitHub repo, X account, or token) to the Built with Venice directory on behalf of the user, via a GitHub pull request or issue against nikshepsvn/builtwithvenice.
+description: Submit a community project (website, GitHub repo, X account, or token) to the Built on Venice directory on behalf of the user, via a GitHub pull request or issue against veniceai/builtwithvenice.
 version: 1
 ---
 
-# Built with Venice — agent submission skill
+# Built on Venice — agent submission skill
 
-Built with Venice is a community-maintained directory of projects built on or around the Venice.ai API. It is an open-source site; there is no write API. Submissions are accepted as **GitHub pull requests** against `nikshepsvn/builtwithvenice` or, as a fallback, **GitHub issues** using the project-submission template.
+Built on Venice is a community-maintained directory of projects built on or around the Venice.ai API. It is an open-source site; there is no write API. Submissions are accepted as **GitHub pull requests** against `veniceai/builtwithvenice` or, as a fallback, **GitHub issues** using the project-submission template.
 
 This skill tells an agent how to:
 
@@ -20,11 +20,11 @@ This skill tells an agent how to:
 
 Use this skill when the user asks something like:
 
-- "Submit my project to Built with Venice."
-- "Add [repo / site / X handle / token] to builtwithvenice.ai."
+- "Submit my project to Built on Venice."
+- "Add [repo / site / X handle / token] to builtonvenice.ai."
 - "Add this to the Venice community directory."
 
-Do NOT use it to submit events, cookbooks, or demos — those have separate flows at <https://github.com/nikshepsvn/builtwithvenice>.
+Do NOT use it to submit events, cookbooks, or demos — those have separate flows at <https://github.com/veniceai/builtwithvenice>.
 
 ---
 
@@ -60,7 +60,7 @@ Type-specific extras:
 
 Use this when the agent has write access via `gh` or a GitHub API token.
 
-1. Fork `nikshepsvn/builtwithvenice` (or reuse an existing fork).
+1. Fork `veniceai/builtwithvenice` (or reuse an existing fork).
 2. Create a branch: `submit/<short-kebab-title>`.
 3. Read `src/data/projects.ts`. Insert the new entry into the correct section (ecosystem or powered-by), near similar entries. Keep formatting consistent with surrounding code.
 4. Open a PR with:
@@ -98,7 +98,7 @@ Use this if the agent lacks permission to fork/PR.
 2. Open an issue at:
 
    ```
-   https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+<url-encoded-title>
+   https://github.com/veniceai/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+<url-encoded-title>
    ```
 
    Pre-fill what you can via query params. The template field IDs are stable — use these exact keys:
@@ -134,7 +134,7 @@ If any check fails, stop and ask the user.
 The authoritative schema is in `src/data/projects.ts` in the repo. A machine-readable subset is at:
 
 ```
-https://builtwithvenice.ai/.well-known/agent-submit.json
+https://builtonvenice.ai/.well-known/agent-submit.json
 ```
 
 Version this skill against the `version` field in that manifest.
