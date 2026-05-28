@@ -68,9 +68,10 @@ export type Project = WebsiteProject | RepoProject | XAccountProject | TokenProj
 // Live GitHub stats — refresh via `npm run refresh-projects`.
 // Keep entries on a single line so the refresh script's regex can rewrite them.
 const STATS: Record<string, { stars: number; forks: number; language: string }> = {
-  "nikshepsvn/openvenice": { stars: 45, forks: 9, language: "TypeScript" },
-  "georgeglarson/deep-research-privacy": { stars: 37, forks: 4, language: "TypeScript" },
+  "nikshepsvn/openvenice": { stars: 46, forks: 9, language: "TypeScript" },
+  "georgeglarson/deep-research-privacy": { stars: 38, forks: 4, language: "TypeScript" },
   "ar-jan/llm-venice": { stars: 24, forks: 5, language: "Python" },
+  "lorenzovenice/nanoclaw-venice": { stars: 19, forks: 4, language: "TypeScript" },
   "georgeglarson/venice-dev-tools": { stars: 14, forks: 2, language: "TypeScript" },
   "sethbang/venice-ai": { stars: 13, forks: 4, language: "Python" },
   "grasponcrypto/venice_ai": { stars: 13, forks: 3, language: "Python" },
@@ -78,8 +79,9 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "georgeglarson/venice-ai-php": { stars: 7, forks: 2, language: "HTML" },
   "DraconicDragon/ComfyUI-Venice-API": { stars: 6, forks: 1, language: "Python" },
   "KaffeMedFika/YouTube-Transcript-Summarizer": { stars: 6, forks: 0, language: "JavaScript" },
+  "tunnckoCore/pi-venice": { stars: 7, forks: 2, language: "TypeScript" },
   "mars-llm/claude-venice": { stars: 5, forks: 0, language: "Shell" },
-  "georgeglarson/venicecode": { stars: 5, forks: 0, language: "TypeScript" },
+  "georgeglarson/venicecode": { stars: 6, forks: 0, language: "TypeScript" },
   "jooray/venice-e2ee-proxy": { stars: 5, forks: 3, language: "TypeScript" },
   "jooray/video-summarizer": { stars: 4, forks: 0, language: "Python" },
   "presstab/venice_discobot": { stars: 4, forks: 1, language: "Python" },
@@ -87,11 +89,11 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "actuallyrizzn/Venice-AI-SDK": { stars: 2, forks: 0, language: "Python" },
   "balresch/veniceresch": { stars: 1, forks: 0, language: "Python" },
   "michaellucasnzl/venice-ai-api-sdk": { stars: 1, forks: 0, language: "C#" },
-  "venicestats/venicestats-mcp": { stars: 1, forks: 0, language: "TypeScript" },
+  "venicestats/venicestats-mcp": { stars: 1, forks: 1, language: "TypeScript" },
   "ValenteCreativo/ARVI": { stars: 1, forks: 0, language: "TypeScript" },
   "decentrathai/veniceguard": { stars: 0, forks: 0, language: "HTML" },
   "drdeeks/venice-reply-composer": { stars: 0, forks: 0, language: "TypeScript" },
-  "jordanurbs/venice-video-mcp": { stars: 0, forks: 0, language: "TypeScript" },
+  "jordanurbs/venice-video-mcp": { stars: 1, forks: 0, language: "TypeScript" },
   "zzmrl/aiva": { stars: 0, forks: 1, language: "TypeScript" },
   "karthiksai109/healthguard": { stars: 0, forks: 2, language: "Python" },
 };
@@ -310,6 +312,25 @@ const RAW_PROJECTS: Project[] = [
     repo: "venice-ai-api-sdk",
     submittedBy: "michaellucasnzl",
   },
+  {
+    title: "pi-venice",
+    description: "Venice extension for the Pi Coding Agent — wires Venice models into the Pi CLI so you can run Pi against Venice's OpenAI-compatible endpoint.",
+    type: "GitHub Repo",
+    url: "https://github.com/tunnckoCore/pi-venice",
+    tags: ["Developer Tools", "CLI", "Extension"],
+    category: "ecosystem",
+    owner: "tunnckoCore",
+    repo: "pi-venice",
+    submittedBy: "tunnckoCore",
+  },
+  {
+    title: "VVVKernel",
+    description: "Inference kernel that wires Venice models into seven role-specific expert agents, exposed via an MCP server and an HTTP REST API. Includes optional x402 micropayment metering on Base. Hosted off-GitHub; the x402 wallet flow is unaudited — review before connecting funds.",
+    type: "Website",
+    url: "https://gitlawb.com/node/repos/z6Mkw3V6/vvvkernel",
+    tags: ["MCP", "Inference", "x402"],
+    category: "ecosystem",
+  },
 
   // ── Powered by Venice ───────────────────────────────────
   {
@@ -410,6 +431,17 @@ const RAW_PROJECTS: Project[] = [
     owner: "zzmrl",
     repo: "aiva",
     submittedBy: "zzmrl",
+  },
+  {
+    title: "nanoclaw-venice",
+    description: "Personal AI assistant built on Venice — fork of NanoClaw with Telegram and WhatsApp messaging support.",
+    type: "GitHub Repo",
+    url: "https://github.com/lorenzovenice/nanoclaw-venice",
+    tags: ["Assistant", "Telegram", "WhatsApp"],
+    category: "powered-by",
+    owner: "lorenzovenice",
+    repo: "nanoclaw-venice",
+    submittedBy: "lorenzovenice",
   },
 ];
 
