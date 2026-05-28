@@ -1,5 +1,17 @@
 import { z } from 'zod';
 
+// YAML parsers (including @modyfi/vite-plugin-yaml) deserialise bare ISO dates
+// like `2026-06-29` as JS Date objects.  This helper coerces them to YYYY-MM-DD
+// strings so the rest of the app always sees plain strings.
+const dateString = z.preprocess(
+  (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v),
+  z.string(),
+);
+const optionalDateString = z.preprocess(
+  (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v),
+  z.string().optional(),
+);
+
 // ── Shared ──────────────────────────────────────────────
 export const socialKinds = [
   'x', 'github', 'website', 'farcaster', 'instagram',
@@ -68,8 +80,8 @@ export const eventSchema = z.object({
   url: z.url(),
   kind: z.enum(['hackathon', 'meetup', 'conference', 'workshop']),
   status: z.enum(['upcoming', 'live', 'past']),
-  startDate: z.string(),
-  endDate: z.string().optional(),
+  startDate: dateString,
+  endDate: optionalDateString,
   location: z.string(),
   host: z.string(),
   prize: z.string().optional(),
@@ -89,7 +101,7 @@ export const cookbookSchema = z.object({
   readTime: z.string(),
   language: z.string().optional(),
   tags: z.array(z.string()),
-  publishedAt: z.string(),
+  publishedAt: dateString,
   featured: z.literal(true).optional(),
   thumbnail: z.string().optional(),
 });
@@ -101,7 +113,7 @@ export const mediaSchema = z.object({
   description: z.string(),
   url: z.url(),
   thumbnail: z.string().optional(),
-  publishedAt: z.string(),
+  publishedAt: dateString,
   tags: z.array(z.string()),
   featured: z.literal(true).optional(),
 });
