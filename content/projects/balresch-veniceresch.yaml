@@ -1,0 +1,15 @@
+title: veniceresch
+description: Typed, async-first Python SDK for the Venice.ai API.
+type: GitHub Repo
+url: https://github.com/balresch/veniceresch
+tags:
+  - SDK
+  - Python
+  - Async
+category: ecosystem
+owner: balresch
+repo: veniceresch
+submittedBy: balresch
+stars: 1
+forks: 0
+language: Python

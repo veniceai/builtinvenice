@@ -1,0 +1,15 @@
+title: Liquid Protocol
+description: Token launcher on Base built on Uniswap V4 — supports pairing new
+  community token launches against VVV or DIEM with locked liquidity and MEV
+  protection.
+type: Website
+url: https://liquidprotocol.org
+tags:
+  - VVV
+  - DIEM
+  - Launchpad
+category: ecosystem
+thumbnail: https://i.ibb.co/HTRYYy3L/liquid-protocol-og.png
+socials:
+  - kind: x
+    url: https://x.com/liquid_launcher

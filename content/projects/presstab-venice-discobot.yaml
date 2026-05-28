@@ -1,0 +1,15 @@
+title: venice_discobot
+description: Modular Discord bot powered by Venice AI for private, uncensored
+  Q&A in your server.
+type: GitHub Repo
+url: https://github.com/presstab/venice_discobot
+tags:
+  - Bot
+  - Discord
+category: powered-by
+owner: presstab
+repo: venice_discobot
+submittedBy: presstab
+stars: 4
+forks: 1
+language: Python

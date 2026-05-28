@@ -1,0 +1,14 @@
+title: Migrate an OpenAI app to Venice
+description: Drop-in migration guide — change the base URL, keep the SDK, and
+  pick a Venice model. Notes on system-prompt behaviour and response-header
+  differences.
+url: https://docs.venice.ai/guides/getting-started/openai-migration
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: beginner
+readTime: 8 min
+tags:
+  - Migration
+  - OpenAI Compatibility
+publishedAt: 2026-04-01
+thumbnail: /preview-venice-migrate-openai.png

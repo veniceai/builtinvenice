@@ -1,0 +1,17 @@
+title: teep
+description: Verify that AI providers can't read your prompts — TEE attestation
+  and end-to-end encryption verifier for Venice and other privacy-claim
+  providers.
+type: GitHub Repo
+url: https://github.com/13rac1/teep
+tags:
+  - Privacy
+  - TEE
+  - Security
+category: ecosystem
+owner: 13rac1
+repo: teep
+submittedBy: 13rac1
+stars: 9
+forks: 3
+language: Go

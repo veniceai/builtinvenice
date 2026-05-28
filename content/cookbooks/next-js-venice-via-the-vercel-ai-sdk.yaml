@@ -1,0 +1,15 @@
+title: Next.js + Venice via the Vercel AI SDK
+description: Stream chat completions, do tool calls, and switch models in a
+  Next.js App Router project. Uses `createOpenAI` with Venice as the base URL.
+url: https://docs.venice.ai/guides/integrations/vercel-ai-sdk
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: intermediate
+readTime: 12 min
+language: TypeScript
+tags:
+  - Next.js
+  - Vercel AI SDK
+  - Streaming
+publishedAt: 2026-04-01
+thumbnail: /preview-venice-vercel-ai-sdk.png

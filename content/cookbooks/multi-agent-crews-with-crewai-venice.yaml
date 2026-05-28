@@ -1,0 +1,16 @@
+title: Multi-agent crews with CrewAI + Venice
+description: Wire Venice as a CrewAI LLM provider, run multi-agent
+  product-analysis crews, mix smart / fast / uncensored models per role, and use
+  built-in web search.
+url: https://docs.venice.ai/guides/integrations/crewai
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: intermediate
+readTime: 14 min
+language: Python
+tags:
+  - CrewAI
+  - Multi-Agent
+  - Agents
+publishedAt: 2026-04-01
+thumbnail: /preview-venice-crewai.png

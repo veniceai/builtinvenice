@@ -1,0 +1,16 @@
+title: Getting Started with the Venice AI SDK (venice-dev-tools)
+description: Community walkthrough of the @venice-dev-tools TypeScript packages
+  — install, instantiate a client, stream chat, generate images, and tune
+  retries/rate limits.
+url: https://georgeglarson.github.io/venice-dev-tools/guides/getting-started.html
+author: georgeglarson
+authorUrl: https://github.com/georgeglarson
+difficulty: beginner
+readTime: 12 min
+language: TypeScript
+tags:
+  - SDK
+  - Tutorial
+  - TypeScript
+publishedAt: 2026-03-25
+thumbnail: /preview-venice-dev-tools-guide.png

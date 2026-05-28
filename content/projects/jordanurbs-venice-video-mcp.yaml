@@ -1,0 +1,16 @@
+title: venice-video-mcp
+description: Token-lean MCP server for end-to-end edited videos — 6 verb tools
+  and companion skills for consistency-first Venice video creation.
+type: GitHub Repo
+url: https://github.com/jordanurbs/venice-video-mcp
+tags:
+  - MCP
+  - Video
+  - Developer Tools
+category: ecosystem
+owner: jordanurbs
+repo: venice-video-mcp
+submittedBy: jordanurbs
+stars: 1
+forks: 0
+language: TypeScript

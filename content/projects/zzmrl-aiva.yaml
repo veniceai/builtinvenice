@@ -1,0 +1,16 @@
+title: aiva
+description: Virtual assistant that handles phone calls and SMS via Twilio
+  webhooks, with conversational responses through Venice AI.
+type: GitHub Repo
+url: https://github.com/zzmrl/aiva
+tags:
+  - Voice
+  - SMS
+  - Agent
+category: powered-by
+owner: zzmrl
+repo: aiva
+submittedBy: zzmrl
+stars: 0
+forks: 1
+language: TypeScript

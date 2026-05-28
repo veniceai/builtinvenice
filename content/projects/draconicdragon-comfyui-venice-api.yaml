@@ -1,0 +1,16 @@
+title: ComfyUI-Venice-API
+description: Custom ComfyUI nodes for Venice — image generation, editing,
+  upscale, enhance, text, and TTS in visual workflows.
+type: GitHub Repo
+url: https://github.com/DraconicDragon/ComfyUI-Venice-API
+tags:
+  - ComfyUI
+  - Image Generation
+  - Workflow
+category: powered-by
+owner: DraconicDragon
+repo: ComfyUI-Venice-API
+submittedBy: DraconicDragon
+stars: 6
+forks: 1
+language: Python

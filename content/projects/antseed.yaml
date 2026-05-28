@@ -1,0 +1,19 @@
+title: AntSeed
+description: Peer-to-peer marketplace for AI inference with on-chain USDC
+  settlement on Base. Runs a DIEM staking pool that proxies into Venice; pool
+  revenue from served Venice requests streams back to DIEM stakers.
+type: Website
+url: https://antseed.com
+tags:
+  - Inference
+  - Marketplace
+  - DIEM
+category: ecosystem
+thumbnail: https://i.ibb.co/v46tw9fK/antseed-og.jpg
+socials:
+  - kind: x
+    url: https://x.com/antseedai
+  - kind: github
+    url: https://github.com/antseed
+  - kind: telegram
+    url: https://t.me/antseed

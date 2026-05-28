@@ -1,0 +1,16 @@
+title: venice-ai-api-sdk (.NET)
+description: Community .NET SDK for Venice — typed access to chat, image, video,
+  TTS, and embeddings. Published on NuGet.
+type: GitHub Repo
+url: https://github.com/michaellucasnzl/venice-ai-api-sdk
+tags:
+  - SDK
+  - .NET
+  - C#
+category: ecosystem
+owner: michaellucasnzl
+repo: venice-ai-api-sdk
+submittedBy: michaellucasnzl
+stars: 1
+forks: 0
+language: C#

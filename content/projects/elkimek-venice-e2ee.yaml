@@ -1,0 +1,16 @@
+title: venice-e2ee
+description: End-to-end encryption library for Venice — ECDH secp256k1,
+  AES-256-GCM, and TEE attestation verification.
+type: GitHub Repo
+url: https://github.com/elkimek/venice-e2ee
+tags:
+  - Privacy
+  - Encryption
+  - Library
+category: ecosystem
+owner: elkimek
+repo: venice-e2ee
+submittedBy: elkimek
+stars: 3
+forks: 1
+language: TypeScript

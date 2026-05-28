@@ -1,0 +1,17 @@
+title: Build a LangChain app on Venice
+description: Use ChatOpenAI and OpenAIEmbeddings with Venice's base URL to build
+  chains, RAG pipelines, and function-calling agents. Includes a working RAG
+  snippet.
+url: https://docs.venice.ai/guides/integrations/langchain
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: intermediate
+readTime: 15 min
+language: Python
+tags:
+  - LangChain
+  - RAG
+  - Agents
+publishedAt: 2026-04-01
+featured: true
+thumbnail: /preview-venice-langchain.png

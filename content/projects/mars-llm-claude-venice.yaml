@@ -1,0 +1,16 @@
+title: claude-venice
+description: Community config that routes Claude Code through Venice via
+  claude-code-router, with cc-mirror support.
+type: GitHub Repo
+url: https://github.com/mars-llm/claude-venice
+tags:
+  - Developer Tools
+  - Privacy
+  - CLI
+category: powered-by
+owner: mars-llm
+repo: claude-venice
+submittedBy: mars-llm
+stars: 5
+forks: 0
+language: Shell

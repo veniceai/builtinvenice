@@ -1,0 +1,16 @@
+title: "Quickstart: your first Venice API request"
+description: From API key to a streaming chat completion — covers env setup, the
+  OpenAI SDK shim, model selection, and `venice_parameters` like
+  `enable_web_search`.
+url: https://docs.venice.ai/overview/getting-started
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: beginner
+readTime: 10 min
+tags:
+  - Getting Started
+  - API
+  - Tutorial
+publishedAt: 2026-04-01
+featured: true
+thumbnail: /preview-venice-quickstart.png

@@ -1,0 +1,15 @@
+title: venicestats-mcp
+description: MCP server exposing live VeniceStats (VVV/DIEM) analytics to LLMs and agents.
+type: GitHub Repo
+url: https://github.com/venicestats/venicestats-mcp
+tags:
+  - MCP
+  - Analytics
+  - VVV
+category: ecosystem
+owner: venicestats
+repo: venicestats-mcp
+submittedBy: venicestats
+stars: 1
+forks: 1
+language: TypeScript
