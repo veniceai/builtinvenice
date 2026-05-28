@@ -69,10 +69,6 @@ Private `@veniceai/*` packages are hosted on GitHub Packages. Before installing:
 
 The site is hosted on Cloudflare Pages and deploys automatically from `main`. Build command is `npm run build`; output directory is `dist`. The `VENICE_PACKAGE_REGISTRY_READ` token must be set as a Pages environment variable so `@veniceai/*` packages install at build time.
 
-## For maintainers
-
-An agent-readable triage skill lives at [`/admin-skill.md`](./public/admin-skill.md). Point Claude Code (or any agent with `gh` access) at it to review open issues and PRs — it proposes actions and drafts replies, and waits for confirmation before running any `gh` command.
-
 ## Stack
 
 React 19 / TypeScript / Vite / Pure CSS (DM Sans + DM Mono) / Cloudflare Pages

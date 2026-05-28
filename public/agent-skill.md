@@ -132,10 +132,11 @@ The template-prefill URL only works in a browser. To create the issue directly v
 ```
 gh issue create --repo veniceai/builtwithvenice \
   --title "[Project] <title>" \
-  --body-file <body-file>
+  --body-file <body-file> \
+  --label submission
 ```
 
-**Do NOT pass `--label submission`.** The template declares that label but the `submission` label doesn't exist on the repo, so `gh issue create --label submission` errors out. Maintainers will label after triage.
+The `submission` label matches the template's declared label and is what maintainers filter on for triage. If `gh` errors with "label not found", drop the `--label` flag and continue -- the issue is still created and maintainers can label it.
 
 #### Issue body skeleton
 
