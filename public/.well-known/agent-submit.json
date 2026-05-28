@@ -1,11 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "name": "builtwithvenice-submit",
-  "version": 1,
-  "description": "Submit a community project to the Built with Venice directory. Submissions land as pull requests (preferred) or issues against nikshepsvn/builtwithvenice.",
-  "repo": "https://github.com/nikshepsvn/builtwithvenice",
-  "skill": "https://builtwithvenice.ai/agent-skill.md",
-  "issueTemplate": "https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+",
+  "name": "builtonvenice-submit",
+  "version": 2,
+  "description": "Submit a community project to the Built on Venice directory. Submissions land as pull requests (preferred) or issues against veniceai/builtwithvenice.",
+  "repo": "https://github.com/veniceai/builtwithvenice",
+  "site": "https://builtonvenice.ai",
+  "skill": "https://builtonvenice.ai/agent-skill.md",
+  "issueTemplate": "https://github.com/veniceai/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+",
+  "issuePicker": "https://github.com/veniceai/builtwithvenice/issues/new/choose",
   "project": {
     "common": {
       "type": "object",
@@ -14,13 +16,13 @@
         "title":       { "type": "string", "maxLength": 40 },
         "description": { "type": "string", "maxLength": 220 },
         "url":         { "type": "string", "format": "uri", "pattern": "^https://" },
-        "type":        { "enum": ["Website", "GitHub Repo", "X Account", "Token"] },
+        "type":        { "enum": ["Website", "GitHub Repo", "X Account"] },
         "category": {
           "enum": ["ecosystem", "powered-by"],
           "description": "ecosystem = maintained by/with Venice. powered-by = built on Venice."
         },
         "tags":        { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 4 },
-        "submittedBy": { "type": "string" },
+        "submittedBy": { "type": "string", "description": "GitHub or X handle, without the @." },
         "socials": {
           "type": "array",
           "items": {
@@ -34,7 +36,7 @@
         },
         "thumbnail": {
           "type": "string",
-          "description": "Optional 16:9 preview image. Local path (e.g. /preview-foo.png in public/) or absolute https:// URL. GitHub Repo entries auto-default to https://opengraph.githubassets.com/1/<owner>/<repo>."
+          "description": "Optional 16:9 preview image. Local path (e.g. /preview-foo.png in public/) or absolute https:// URL. GitHub Repo entries auto-default to /repo-previews/<owner>-<repo>.png, pre-baked by `npm run refresh-projects`; the card falls back to https://github.com/<owner>.png if that file is missing."
         }
       }
     },
@@ -58,18 +60,6 @@
           "handle":    { "type": "string", "description": "without @" },
           "followers": { "type": "integer" },
           "bio":       { "type": "string" }
-        }
-      },
-      "Token": {
-        "type": "object",
-        "description": "Community tokens only. Do not accept Venice's own official $VVV token.",
-        "required": ["ticker", "address", "chain"],
-        "properties": {
-          "ticker":    { "type": "string" },
-          "address":   { "type": "string" },
-          "chain":     { "enum": ["solana", "base", "ethereum"] },
-          "marketCap": { "type": "number" },
-          "holders":   { "type": "integer" }
         }
       }
     }
