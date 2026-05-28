@@ -18,7 +18,7 @@ export const socialKinds = [
   'telegram', 'discord', 'youtube', 'tiktok', 'warpcast', 'token',
 ] as const;
 
-export const socialSchema = z.object({
+export const socialSchema = z.strictObject({
   kind: z.enum(socialKinds),
   url: z.url(),
   label: z.string().optional(),
@@ -26,6 +26,11 @@ export const socialSchema = z.object({
 
 const projectCategory = z.enum(['ecosystem', 'powered-by']);
 const tokenChain = z.enum(['solana', 'base', 'ethereum']);
+
+// GitHub owner/repo path segments. Constrained to a safe charset (no slashes or
+// path separators) so they can't traverse outside the preview dir or escape the
+// GitHub API path when interpolated into URLs/filesystem paths downstream.
+const ghSegment = z.string().regex(/^[A-Za-z0-9._-]+$/, 'invalid GitHub owner/repo segment');
 
 const baseProject = {
   title: z.string(),
@@ -39,31 +44,31 @@ const baseProject = {
   thumbnail: z.string().optional(),
 };
 
-export const websiteProjectSchema = z.object({ ...baseProject, type: z.literal('Website') });
-export const repoProjectSchema = z.object({
+export const websiteProjectSchema = z.strictObject({ ...baseProject, type: z.literal('Website') });
+export const repoProjectSchema = z.strictObject({
   ...baseProject,
   type: z.literal('GitHub Repo'),
-  owner: z.string(),
-  repo: z.string(),
-  stars: z.number().int().optional(),
-  forks: z.number().int().optional(),
+  owner: ghSegment,
+  repo: ghSegment,
+  stars: z.number().int().nonnegative().optional(),
+  forks: z.number().int().nonnegative().optional(),
   language: z.string().optional(),
 });
-export const xAccountProjectSchema = z.object({
+export const xAccountProjectSchema = z.strictObject({
   ...baseProject,
   type: z.literal('X Account'),
   handle: z.string(),
-  followers: z.number().int().optional(),
+  followers: z.number().int().nonnegative().optional(),
   bio: z.string().optional(),
 });
-export const tokenProjectSchema = z.object({
+export const tokenProjectSchema = z.strictObject({
   ...baseProject,
   type: z.literal('Token'),
   ticker: z.string(),
   address: z.string(),
   chain: tokenChain,
-  marketCap: z.number().optional(),
-  holders: z.number().int().optional(),
+  marketCap: z.number().nonnegative().optional(),
+  holders: z.number().int().nonnegative().optional(),
 });
 
 export const projectSchema = z.discriminatedUnion('type', [
@@ -74,7 +79,7 @@ export const projectSchema = z.discriminatedUnion('type', [
 ]);
 
 // ── Events ──────────────────────────────────────────────
-export const eventSchema = z.object({
+export const eventSchema = z.strictObject({
   title: z.string(),
   description: z.string(),
   url: z.url(),
@@ -91,7 +96,7 @@ export const eventSchema = z.object({
 });
 
 // ── Cookbooks ───────────────────────────────────────────
-export const cookbookSchema = z.object({
+export const cookbookSchema = z.strictObject({
   title: z.string(),
   description: z.string(),
   url: z.url(),
@@ -107,7 +112,7 @@ export const cookbookSchema = z.object({
 });
 
 // ── Media ───────────────────────────────────────────────
-export const mediaSchema = z.object({
+export const mediaSchema = z.strictObject({
   title: z.string(),
   builder: z.string(),
   description: z.string(),
@@ -123,15 +128,15 @@ const officialBase = {
   title: z.string(),
   description: z.string(),
   url: z.url(),
-  order: z.number().int(),
+  order: z.number().int().nonnegative(),
 };
-export const officialRepoSchema = z.object({
+export const officialRepoSchema = z.strictObject({
   ...officialBase,
   kind: z.literal('Repository'),
   slug: z.string(),
 });
-export const officialDocsSchema = z.object({ ...officialBase, kind: z.literal('Docs') });
-export const officialPricingSchema = z.object({ ...officialBase, kind: z.literal('Pricing') });
+export const officialDocsSchema = z.strictObject({ ...officialBase, kind: z.literal('Docs') });
+export const officialPricingSchema = z.strictObject({ ...officialBase, kind: z.literal('Pricing') });
 export const officialResourceSchema = z.discriminatedUnion('kind', [
   officialRepoSchema,
   officialDocsSchema,

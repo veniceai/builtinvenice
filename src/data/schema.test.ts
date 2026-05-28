@@ -47,6 +47,35 @@ describe('projectSchema', () => {
     });
     expect(r.success).toBe(true);
   });
+
+  it('rejects unknown keys (strict object catches typos / over-posting)', () => {
+    const r = projectSchema.safeParse({
+      title: 'x', description: 'y', type: 'Website',
+      url: 'https://example.com', tags: ['a'], category: 'ecosystem',
+      featuerd: true, // typo'd field must fail, not be silently dropped
+    });
+    expect(r.success).toBe(false);
+  });
+
+  it('rejects a GitHub Repo whose owner/repo could traverse paths', () => {
+    const base = {
+      title: 'x', description: 'y', type: 'GitHub Repo' as const,
+      url: 'https://example.com', tags: ['a'], category: 'ecosystem' as const,
+    };
+    expect(projectSchema.safeParse({ ...base, owner: '../../etc', repo: 'foo' }).success).toBe(false);
+    expect(projectSchema.safeParse({ ...base, owner: 'foo', repo: 'a/b' }).success).toBe(false);
+    expect(projectSchema.safeParse({ ...base, owner: 'ar-jan', repo: 'llm-venice' }).success).toBe(true);
+  });
+
+  it('rejects negative counts', () => {
+    const base = {
+      title: 'x', description: 'y', type: 'GitHub Repo' as const,
+      url: 'https://example.com', tags: ['a'], category: 'ecosystem' as const,
+      owner: 'o', repo: 'r',
+    };
+    expect(projectSchema.safeParse({ ...base, stars: -1 }).success).toBe(false);
+    expect(projectSchema.safeParse({ ...base, stars: 0 }).success).toBe(true);
+  });
 });
 
 describe('other section schemas', () => {
