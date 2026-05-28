@@ -68,8 +68,8 @@ export type Project = WebsiteProject | RepoProject | XAccountProject | TokenProj
 // Live GitHub stats — refresh via `npm run refresh-projects`.
 // Keep entries on a single line so the refresh script's regex can rewrite them.
 const STATS: Record<string, { stars: number; forks: number; language: string }> = {
-  "nikshepsvn/openvenice": { stars: 45, forks: 9, language: "TypeScript" },
-  "georgeglarson/deep-research-privacy": { stars: 37, forks: 4, language: "TypeScript" },
+  "nikshepsvn/openvenice": { stars: 46, forks: 9, language: "TypeScript" },
+  "georgeglarson/deep-research-privacy": { stars: 38, forks: 4, language: "TypeScript" },
   "ar-jan/llm-venice": { stars: 24, forks: 5, language: "Python" },
   "lorenzovenice/nanoclaw-venice": { stars: 19, forks: 4, language: "TypeScript" },
   "georgeglarson/venice-dev-tools": { stars: 14, forks: 2, language: "TypeScript" },
@@ -81,7 +81,7 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "KaffeMedFika/YouTube-Transcript-Summarizer": { stars: 6, forks: 0, language: "JavaScript" },
   "tunnckoCore/pi-venice": { stars: 7, forks: 2, language: "TypeScript" },
   "mars-llm/claude-venice": { stars: 5, forks: 0, language: "Shell" },
-  "georgeglarson/venicecode": { stars: 5, forks: 0, language: "TypeScript" },
+  "georgeglarson/venicecode": { stars: 6, forks: 0, language: "TypeScript" },
   "jooray/venice-e2ee-proxy": { stars: 5, forks: 3, language: "TypeScript" },
   "jooray/video-summarizer": { stars: 4, forks: 0, language: "Python" },
   "presstab/venice_discobot": { stars: 4, forks: 1, language: "Python" },
@@ -89,11 +89,11 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "actuallyrizzn/Venice-AI-SDK": { stars: 2, forks: 0, language: "Python" },
   "balresch/veniceresch": { stars: 1, forks: 0, language: "Python" },
   "michaellucasnzl/venice-ai-api-sdk": { stars: 1, forks: 0, language: "C#" },
-  "venicestats/venicestats-mcp": { stars: 1, forks: 0, language: "TypeScript" },
+  "venicestats/venicestats-mcp": { stars: 1, forks: 1, language: "TypeScript" },
   "ValenteCreativo/ARVI": { stars: 1, forks: 0, language: "TypeScript" },
   "decentrathai/veniceguard": { stars: 0, forks: 0, language: "HTML" },
   "drdeeks/venice-reply-composer": { stars: 0, forks: 0, language: "TypeScript" },
-  "jordanurbs/venice-video-mcp": { stars: 0, forks: 0, language: "TypeScript" },
+  "jordanurbs/venice-video-mcp": { stars: 1, forks: 0, language: "TypeScript" },
   "zzmrl/aiva": { stars: 0, forks: 1, language: "TypeScript" },
   "karthiksai109/healthguard": { stars: 0, forks: 2, language: "Python" },
 };
