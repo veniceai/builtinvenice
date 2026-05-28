@@ -172,10 +172,12 @@ input:focus-visible {
 }
 
 .site-header.is-scrolled {
+  --site-header-glass: saturate(180%) blur(14px);
+  background: rgba(246, 244, 237, 0.78);
   background: color-mix(in srgb, var(--background-default) 78%, transparent);
   border-bottom-color: var(--border);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: var(--site-header-glass);
+  backdrop-filter: var(--site-header-glass);
 }
 
 .site-header-inner {
