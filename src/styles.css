@@ -347,6 +347,18 @@ input:focus-visible {
   font-size: 15px;
 }
 
+.official-repo-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.official-repo-title-row .project-card-title {
+  margin-bottom: 0;
+}
+
 .official-repo-card .project-card-desc {
   font-size: 12px;
   line-clamp: 3;
@@ -967,6 +979,10 @@ input:focus-visible {
   white-space: nowrap;
   min-width: 0;
   flex: 1;
+}
+
+.card-type-label svg {
+  flex-shrink: 0;
 }
 
 .external-arrow {

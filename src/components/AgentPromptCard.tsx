@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AGENT_SKILL_URL, AGENT_SKILL_CANONICAL } from '../constants';
 import { SparkleIcon } from './icons';
 
-const PROMPT = `Submit to Built on Venice — fetch ${AGENT_SKILL_CANONICAL} and follow it.`;
+const PROMPT = `Submit to Built in Venice — fetch ${AGENT_SKILL_CANONICAL} and follow it.`;
 
 function CopyIcon() {
   return (
@@ -50,7 +50,7 @@ export default function AgentPromptCard() {
       </div>
       <div className="agent-prompt-snippet-wrap">
         <code className="agent-prompt-snippet">
-          <span className="agent-prompt-prose">Submit to Built on Venice — fetch </span>
+          <span className="agent-prompt-prose">Submit to Built in Venice — fetch </span>
           <span className="agent-prompt-url">{AGENT_SKILL_CANONICAL}</span>
           <span className="agent-prompt-prose"> and follow it.</span>
         </code>

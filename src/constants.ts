@@ -1,4 +1,4 @@
-export const REPO_URL = "https://github.com/veniceai/builtwithvenice";
+export const REPO_URL = "https://github.com/veniceai/builtinvenice";
 
 // Same-origin path for in-app links; absolute URL for text baked into
 // copy-paste prompts (which run in agents that don't know this site's origin).

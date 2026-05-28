@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "builtonvenice-submit",
   "version": 2,
-  "description": "Submit a community project to the Built on Venice directory. Submissions land as pull requests (preferred) or issues against veniceai/builtwithvenice.",
+  "description": "Submit a community project to the Built in Venice directory. Submissions land as pull requests (preferred) or issues against veniceai/builtwithvenice.",
   "repo": "https://github.com/veniceai/builtwithvenice",
   "site": "https://builtonvenice.ai",
   "skill": "https://builtonvenice.ai/agent-skill.md",

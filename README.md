@@ -1,4 +1,4 @@
-# Built on Venice
+# Built in Venice
 
 Community showcase of tools, SDKs, content, and builders in the Venice AI ecosystem.
 
