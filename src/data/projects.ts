@@ -78,6 +78,7 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "georgeglarson/venice-ai-php": { stars: 7, forks: 2, language: "HTML" },
   "DraconicDragon/ComfyUI-Venice-API": { stars: 6, forks: 1, language: "Python" },
   "KaffeMedFika/YouTube-Transcript-Summarizer": { stars: 6, forks: 0, language: "JavaScript" },
+  "tunnckoCore/pi-venice": { stars: 7, forks: 2, language: "TypeScript" },
   "mars-llm/claude-venice": { stars: 5, forks: 0, language: "Shell" },
   "georgeglarson/venicecode": { stars: 5, forks: 0, language: "TypeScript" },
   "jooray/venice-e2ee-proxy": { stars: 5, forks: 3, language: "TypeScript" },
@@ -309,6 +310,17 @@ const RAW_PROJECTS: Project[] = [
     owner: "michaellucasnzl",
     repo: "venice-ai-api-sdk",
     submittedBy: "michaellucasnzl",
+  },
+  {
+    title: "pi-venice",
+    description: "Venice extension for the Pi Coding Agent — wires Venice models into the Pi CLI so you can run Pi against Venice's OpenAI-compatible endpoint.",
+    type: "GitHub Repo",
+    url: "https://github.com/tunnckoCore/pi-venice",
+    tags: ["Developer Tools", "CLI", "Extension"],
+    category: "ecosystem",
+    owner: "tunnckoCore",
+    repo: "pi-venice",
+    submittedBy: "tunnckoCore",
   },
 
   // ── Powered by Venice ───────────────────────────────────
