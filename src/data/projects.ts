@@ -331,6 +331,19 @@ const RAW_PROJECTS: Project[] = [
     tags: ["MCP", "Inference", "x402"],
     category: "ecosystem",
   },
+  {
+    title: "AntSeed",
+    description: "Peer-to-peer marketplace for AI inference with on-chain USDC settlement on Base. Runs a DIEM staking pool that proxies into Venice; pool revenue from served Venice requests streams back to DIEM stakers.",
+    type: "Website",
+    url: "https://antseed.com",
+    tags: ["Inference", "Marketplace", "DIEM"],
+    category: "ecosystem",
+    socials: [
+      { kind: 'x', url: 'https://x.com/antseedai' },
+      { kind: 'github', url: 'https://github.com/antseed' },
+      { kind: 'telegram', url: 'https://t.me/antseed' },
+    ],
+  },
 
   // ── Powered by Venice ───────────────────────────────────
   {
