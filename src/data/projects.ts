@@ -353,6 +353,9 @@ const RAW_PROJECTS: Project[] = [
     tags: ["VVV", "DIEM", "Launchpad"],
     category: "ecosystem",
     thumbnail: "https://i.ibb.co/HTRYYy3L/liquid-protocol-og.png",
+    socials: [
+      { kind: 'x', url: 'https://x.com/liquid_launcher' },
+    ],
   },
   {
     title: "Surplus Intelligence",
