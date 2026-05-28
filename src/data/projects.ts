@@ -344,6 +344,14 @@ const RAW_PROJECTS: Project[] = [
       { kind: 'telegram', url: 'https://t.me/antseed' },
     ],
   },
+  {
+    title: "Liquid Protocol",
+    description: "Token launcher on Base built on Uniswap V4 — supports pairing new community token launches against VVV or DIEM with locked liquidity and MEV protection.",
+    type: "Website",
+    url: "https://liquidprotocol.org",
+    tags: ["VVV", "DIEM", "Launchpad"],
+    category: "ecosystem",
+  },
 
   // ── Powered by Venice ───────────────────────────────────
   {
