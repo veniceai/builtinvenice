@@ -43,9 +43,14 @@ export default function Header({ onSubmit }: Props) {
             />
           </svg>
         </a>
-        <button type="button" className="site-header-cta" onClick={onSubmit}>
-          Submit Work
-        </button>
+        <nav className="site-header-nav">
+          <a className="site-header-link" href="/submission-guidelines">
+            Guidelines
+          </a>
+          <button type="button" className="site-header-cta" onClick={onSubmit}>
+            Submit
+          </button>
+        </nav>
       </div>
     </header>
   );

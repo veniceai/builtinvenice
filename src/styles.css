@@ -204,6 +204,22 @@ input:focus-visible {
   display: block;
 }
 
+.site-header-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-header-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.72;
+  transition: opacity 0.15s ease;
+}
+
+.site-header-link:hover { opacity: 1; }
+
 .site-header-cta {
   display: inline-flex;
   align-items: center;
@@ -275,6 +291,69 @@ input:focus-visible {
   margin: 0 auto;
   line-height: 1.55;
   animation: pageElementIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+/* ==============================
+   SUBMISSION GUIDELINES PAGE
+   ============================== */
+.guidelines-section {
+  max-width: 720px;
+  text-align: left;
+  margin: 72px auto 96px;
+}
+
+.guidelines-section .hero-title {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.guidelines-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: pageElementIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.guidelines-body .hero-subtitle {
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  animation: none;
+}
+
+.guidelines-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.guidelines-list-item {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.guidelines-list-number {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.62;
+  line-height: 1.55;
+  flex-shrink: 0;
+}
+
+.guidelines-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guidelines-list-title {
+  font-weight: 500;
+  opacity: 0.85;
 }
 
 /* ==============================
@@ -1764,6 +1843,8 @@ input:focus-visible {
 @media (max-width: 768px) {
   /* Site header — tighter padding on mobile */
   .site-header-inner { padding: 8px 16px; }
+  .site-header-nav { gap: 12px; }
+  .site-header-link { font-size: 12.5px; }
   .site-header-cta { padding: 7px 13px; font-size: 12.5px; }
 
   /* Hero */
@@ -1771,6 +1852,10 @@ input:focus-visible {
   .hero-title { font-size: 38px; }
   .hero-subtitle { font-size: 15px; max-width: 100%; }
   .submit-cta { padding: 11px 22px; font-size: 13px; }
+
+  /* Guidelines */
+  .guidelines-section { margin-top: 36px; margin-bottom: 56px; }
+  .guidelines-list-number { font-size: 15px; }
 
   /* Sections */
   .section-padding { padding-left: 16px; padding-right: 16px; }
