@@ -19,6 +19,20 @@ export interface VeniceEvent {
 
 export const events: VeniceEvent[] = [
   {
+    title: "MetaMask Smart Accounts Kit × 1Shot API × Venice AI Dev Cook-Off",
+    description: "Online hackathon co-hosted by MetaMask, 1Shot API, and Venice AI. Build agents that combine MetaMask Smart Accounts (ERC-7715 permissions) with Venice for permissionless intelligence — text, image, audio, video, and crypto RPC access. Dedicated Venice AI track.",
+    url: "https://www.hackquest.io/hackathons/MetaMask-Smart-Accounts-Kit-x-1Shot-API-x-Venice-AI-Dev-Cook-Off",
+    kind: "hackathon",
+    status: "live",
+    startDate: "2026-05-15",
+    endDate: "2026-06-15",
+    location: "Online",
+    host: "MetaMask Developer + 1Shot API + Venice AI",
+    prize: "$14K total ($3K Venice AI track)",
+    tags: ["Hackathon", "Agents", "MetaMask", "x402"],
+    thumbnail: "/preview-metamask-cookoff-2026.png",
+  },
+  {
     title: "The Synthesis 2026 — Private Agents, Trusted Actions",
     description: "Ethereum's first agentic hackathon, judged by AI agent judges. Venice ran the 'Private Agents, Trusted Actions' track for agents that reason over sensitive data without exposure. 153 projects submitted to the Venice track.",
     url: "https://synthesis.md/",
