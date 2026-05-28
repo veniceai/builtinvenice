@@ -1,8 +1,8 @@
-# Built with Venice
+# Built on Venice
 
 Community showcase of tools, SDKs, content, and builders in the Venice AI ecosystem.
 
-Live at: https://venice-labs-production.up.railway.app
+Live at: https://builtonvenice.ai
 
 ## What's here
 
@@ -11,17 +11,19 @@ A single tabbed Explore section covers four content types:
 - **Projects** — Websites, GitHub repos, X accounts, and community tokens built by or for the Venice ecosystem. Filterable by type, tag, and free-text search. Each project can link multiple socials (X, Farcaster, Instagram, Telegram, Discord, YouTube, GitHub, website).
 - **Cookbooks** — Community-written recipes for building on Venice, filterable by difficulty.
 - **Events** — Upcoming and past hackathons, meetups, workshops, and conferences.
-- **Watch** — Videos, interviews, and recaps about Venice and the projects built on it. (Internal data file: `src/data/demos.ts`.)
+- **Watch** — Videos, interviews, and recaps about Venice and the projects built on it.
 
 Projects are categorized as either **Ecosystem** (tools built for the Venice community) or **Powered by Venice** (apps that use the Venice API).
 
 ## Submit something
 
-**Easiest:** Click "Submit your work" on the [live site](https://builtwithvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
+You don't need to clone the repo or run anything locally to submit — every option below works from the browser or by editing a single file.
 
-You can also [pick a submission form](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and videos (demos) each have their own template.
+**Easiest:** Click "Submit your work" on the [live site](https://builtonvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
 
-**Via pull request:** fork, add your entry to the relevant file under `src/data/`, open a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+You can also [pick a submission form](https://github.com/veniceai/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and videos (demos) each have their own template.
+
+**Via pull request:** fork, add your entry to the relevant file under `src/data/` (`projects.ts`, `cookbooks.ts`, `events.ts`, or `demos.ts`), and open a PR. You can do this entirely in the GitHub web editor — no local checkout, no dev server, no token setup. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the per-type schema.
 
 **Via AI agent:** copy the prompt from the hero on the live site — it points your agent at [`/agent-skill.md`](./public/agent-skill.md), which walks it through the schema, validation, and PR flow.
 
@@ -29,7 +31,9 @@ You can also [pick a submission form](https://github.com/nikshepsvn/builtwithven
 
 Projects must be publicly accessible and offer something beyond the base Venice platform, or be a community asset (X account, community token, cookbook, event) that complements it. Bare API wrappers and marketing-only submissions are declined.
 
-## Development
+## Local development
+
+> Only needed if you're modifying the site itself (styling, components, layout). Adding or updating a listing does **not** require any of this — edit the relevant file under `src/data/` in the GitHub web editor and open a PR.
 
 Private `@veniceai/*` packages are hosted on GitHub Packages. Before installing:
 
@@ -40,21 +44,20 @@ Private `@veniceai/*` packages are hosted on GitHub Packages. Before installing:
    export VENICE_PACKAGE_REGISTRY_READ="<YOUR_PERSONAL_ACCESS_TOKEN>"
    ```
 
-3. Install and run:
+   The token is read from the shell environment by `.npmrc` at install time — it is not loaded from `.env`.
+
+3. (Optional) Copy `.env.example` to `.env` and add a free [ImgBB](https://api.imgbb.com) API key as `VITE_IMGBB_KEY` if you want to exercise the submit-dialog thumbnail upload locally. The rest of the site works without it.
+
+4. Install and run:
 
    ```bash
    npm install
    npm run dev
    ```
 
-The token is read from the shell environment by `.npmrc` at install time — it is not loaded from `.env`.
+## Deploy
 
-## Build & Deploy
-
-```bash
-npm run build
-railway up
-```
+The site is hosted on Cloudflare Pages and deploys automatically from `main`. Build command is `npm run build`; output directory is `dist`. The `VENICE_PACKAGE_REGISTRY_READ` token must be set as a Pages environment variable so `@veniceai/*` packages install at build time.
 
 ## For maintainers
 
@@ -62,7 +65,11 @@ An agent-readable triage skill lives at [`/admin-skill.md`](./public/admin-skill
 
 ## Stack
 
-React 19 / TypeScript / Vite / Pure CSS (DM Sans + DM Mono) / Railway
+React 19 / TypeScript / Vite / Pure CSS (DM Sans + DM Mono) / Cloudflare Pages
+
+## License
+
+MIT — see [LICENSE](./LICENSE). Listing content (project descriptions, links, logos) remains the property of the respective submitters.
 
 ## Disclaimer
 

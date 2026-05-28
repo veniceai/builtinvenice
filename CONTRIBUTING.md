@@ -1,4 +1,4 @@
-# Contributing to Built with Venice
+# Contributing to Built on Venice
 
 A community-curated showcase of projects, tools, and content built on the Venice AI ecosystem.
 
@@ -10,12 +10,12 @@ Maintained by the Venice DevRel team — **Sabrina Aquino** and **Josh Meyer**.
 
 Pick the form that matches what you're submitting:
 
-- [**Project**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+) — website, GitHub repo, X account, or community token.
-- [**Cookbook / Recipe**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-cookbook.yml&title=%5BCookbook%5D+)
-- [**Event**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-event.yml&title=%5BEvent%5D+) — hackathon, meetup, workshop, or conference.
-- [**Demo**](https://github.com/nikshepsvn/builtwithvenice/issues/new?template=submit-demo.yml&title=%5BDemo%5D+) — short clip, screenshot, or post of something you made on Venice.
+- [**Project**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+) — website, GitHub repo, X account, or community token.
+- [**Cookbook / Recipe**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-cookbook.yml&title=%5BCookbook%5D+)
+- [**Event**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-event.yml&title=%5BEvent%5D+) — hackathon, meetup, workshop, or conference.
+- [**Demo**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-demo.yml&title=%5BDemo%5D+) — short clip, screenshot, or post of something you made on Venice.
 
-Or [browse all submission forms](https://github.com/nikshepsvn/builtwithvenice/issues/new/choose).
+Or [browse all submission forms](https://github.com/veniceai/builtwithvenice/issues/new/choose).
 
 ### Option 2 — Pull request
 
@@ -170,4 +170,4 @@ We will not accept:
 
 ## Disclaimer
 
-Listing on Built with Venice does not imply endorsement by Venice AI, Inc.
+Listing on Built on Venice does not imply endorsement by Venice AI, Inc.
