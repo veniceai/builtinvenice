@@ -352,6 +352,18 @@ const RAW_PROJECTS: Project[] = [
     tags: ["VVV", "DIEM", "Launchpad"],
     category: "ecosystem",
   },
+  {
+    title: "Surplus Intelligence",
+    description: "Marketplace where independent sellers list discounted credits for ~170+ AI models — Venice's uncensored series alongside Claude, GPT, Gemini, Qwen, and others. Built by @mac_eth.",
+    type: "Website",
+    url: "https://www.surplusintelligence.ai",
+    tags: ["Marketplace", "Inference"],
+    category: "ecosystem",
+    submittedBy: "mac_eth",
+    socials: [
+      { kind: 'x', url: 'https://x.com/mac_eth' },
+    ],
+  },
 
   // ── Powered by Venice ───────────────────────────────────
   {
