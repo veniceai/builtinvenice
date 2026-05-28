@@ -21,9 +21,9 @@ You don't need to clone the repo or run anything locally to submit — every opt
 
 **Easiest:** Click "Submit your work" on the [live site](https://builtonvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
 
-You can also [pick a submission form](https://github.com/veniceai/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and videos (demos) each have their own template.
+You can also [pick a submission form](https://github.com/veniceai/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and media each have their own template.
 
-**Via pull request:** fork, add your entry to the relevant file under `src/data/` (`projects.ts`, `cookbooks.ts`, `events.ts`, or `demos.ts`), and open a PR. You can do this entirely in the GitHub web editor — no local checkout, no dev server, no token setup. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the per-type schema.
+**Via pull request:** fork, add your entry to the relevant file under `src/data/` (`projects.ts`, `cookbooks.ts`, `events.ts`, or `media.ts`), and open a PR. You can do this entirely in the GitHub web editor — no local checkout, no dev server, no token setup. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the per-type schema.
 
 **Via AI agent:** copy the prompt from the hero on the live site — it points your agent at [`/agent-skill.md`](./public/agent-skill.md), which walks it through the schema, validation, and PR flow.
 

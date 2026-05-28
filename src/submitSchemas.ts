@@ -15,7 +15,7 @@ export interface FieldConfig {
 }
 
 export interface SubmissionType {
-  key: 'project' | 'cookbook' | 'event' | 'demo';
+  key: 'project' | 'cookbook' | 'event' | 'media';
   label: string;
   blurb: string;
   template: string;
@@ -128,16 +128,16 @@ export const submissionTypes: SubmissionType[] = [
     ],
   },
   {
-    key: 'demo',
-    label: 'Demo',
-    blurb: 'Short clip, screenshot, or post showing something you made on Venice.',
-    template: 'submit-demo.yml',
-    titlePrefix: '[Demo] ',
-    titleField: 'demo-title',
+    key: 'media',
+    label: 'Media',
+    blurb: 'Video, interview, recap, or post about Venice or something built on it.',
+    template: 'submit-media.yml',
+    titlePrefix: '[Media] ',
+    titleField: 'media-title',
     fields: [
-      { id: 'demo-title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Multimodal demo running in one tab' },
-      { id: 'demo-url', label: 'Demo URL', type: 'text', required: true, placeholder: 'https://x.com/yourhandle/status/…  /  https://loom.com/…  /  https://…', description: 'Link to where the demo lives — X post, Loom, asciinema, gallery image.' },
-      { id: 'description', label: 'Description', type: 'textarea', required: true, placeholder: '1–2 plain sentences about what the demo shows.' },
+      { id: 'media-title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Multimodal walkthrough running in one tab' },
+      { id: 'media-url', label: 'Media URL', type: 'text', required: true, placeholder: 'https://x.com/yourhandle/status/…  /  https://loom.com/…  /  https://…', description: 'Link to where the media lives — X post, Loom, asciinema, gallery image.' },
+      { id: 'description', label: 'Description', type: 'textarea', required: true, placeholder: '1–2 plain sentences about what the media shows.' },
       { id: 'builder', label: 'Your handle', type: 'text', required: true, placeholder: 'e.g. yourhandle' },
       { id: 'published-at', label: 'Published date', type: 'date', required: true, placeholder: 'YYYY-MM-DD' },
       { id: 'tags', label: 'Tags', type: 'text', required: true, placeholder: 'Frontend, Multimodal' },

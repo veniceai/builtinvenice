@@ -31,9 +31,9 @@ export {
 } from './cookbooks';
 
 export {
-  demos,
-  type Demo,
-} from './demos';
+  media,
+  type Media,
+} from './media';
 
 export {
   officialResources,

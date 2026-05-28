@@ -1407,10 +1407,10 @@ input:focus-visible {
 }
 
 /* ==============================
-   DEMO CARD
+   MEDIA CARD
    ============================== */
 
-.demo-thumb {
+.media-thumb {
   position: relative;
   aspect-ratio: 16/9;
   overflow: hidden;
@@ -1419,16 +1419,16 @@ input:focus-visible {
   border-bottom: 1px solid var(--img-border);
 }
 
-.demo-thumb img {
+.media-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.project-card:hover .demo-thumb img { transform: scale(1.04); }
+.project-card:hover .media-thumb img { transform: scale(1.04); }
 
-.demo-thumb-placeholder {
+.media-thumb-placeholder {
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, var(--sea-dark) 0%, #1a3552 100%);
@@ -1437,7 +1437,7 @@ input:focus-visible {
   justify-content: center;
 }
 
-.demo-thumb-initial {
+.media-thumb-initial {
   font-size: 64px;
   font-weight: 300;
   color: rgba(255,255,255,0.25);
@@ -1445,7 +1445,7 @@ input:focus-visible {
   letter-spacing: -0.03em;
 }
 
-.demo-thumb-overlay {
+.media-thumb-overlay {
   position: absolute;
   inset: 0;
   display: flex;
@@ -1457,9 +1457,9 @@ input:focus-visible {
   transition: opacity 0.2s ease;
 }
 
-.project-card:hover .demo-thumb-overlay { opacity: 1; }
+.project-card:hover .media-thumb-overlay { opacity: 1; }
 
-.demo-thumb-cta {
+.media-thumb-cta {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -2187,5 +2187,5 @@ input:focus-visible {
   .hero-subtitle { font-size: 14px; }
   .footer-columns { grid-template-columns: 1fr; }
   .card-preview { max-height: 140px; }
-  .demo-thumb { max-height: 160px; }
+  .media-thumb { max-height: 160px; }
 }

@@ -1,19 +1,19 @@
 import { useState, useMemo } from 'react';
-import { demos } from '../../data';
+import { media } from '../../data';
 import Toolbar from './Toolbar';
-import DemoCard from '../cards/DemoCard';
+import MediaCard from '../cards/MediaCard';
 
-export default function Demos() {
+export default function Media() {
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
-    let list = demos;
+    let list = media;
     if (search) {
       const q = search.toLowerCase();
-      list = list.filter(d =>
-        d.title.toLowerCase().includes(q) ||
-        d.description.toLowerCase().includes(q) ||
-        d.builder.toLowerCase().includes(q),
+      list = list.filter(m =>
+        m.title.toLowerCase().includes(q) ||
+        m.description.toLowerCase().includes(q) ||
+        m.builder.toLowerCase().includes(q),
       );
     }
     return [...list].sort((a, b) => {
@@ -30,8 +30,8 @@ export default function Demos() {
       />
 
       <div className="project-grid">
-        {filtered.map(demo => (
-          <DemoCard key={demo.url} demo={demo} />
+        {filtered.map(item => (
+          <MediaCard key={item.url} item={item} />
         ))}
       </div>
 

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import type { SubmissionType } from '../../submitSchemas';
-import { projects, cookbooks, events, demos } from '../../data';
+import { projects, cookbooks, events, media } from '../../data';
 import Projects from './Projects';
 import Cookbooks from './Cookbooks';
 import Events from './Events';
-import Demos from './Demos';
+import Media from './Media';
 
 type TabKey = SubmissionType['key'];
 
@@ -35,9 +35,9 @@ const tabs: TabConfig[] = [
     lede: 'Hackathons, meetups, workshops, and conferences for the Venice ecosystem.',
   },
   {
-    key: 'demo',
-    label: 'Demos',
-    count: demos.length,
+    key: 'media',
+    label: 'Media',
+    count: media.length,
     lede: 'Videos, interviews, and recaps about Venice and the projects built on it.',
   },
 ];
@@ -77,7 +77,7 @@ export default function Explore() {
         {tab === 'project' && <Projects />}
         {tab === 'cookbook' && <Cookbooks />}
         {tab === 'event' && <Events />}
-        {tab === 'demo' && <Demos />}
+        {tab === 'media' && <Media />}
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ This skill tells an agent how to:
 3. Open a PR that adds a single entry to `src/data/projects.ts`, or fall back to an issue.
 
 Repo: <https://github.com/veniceai/builtwithvenice>
-Issue picker (project, cookbook, event, demo): <https://github.com/veniceai/builtwithvenice/issues/new/choose>
+Issue picker (project, cookbook, event, media): <https://github.com/veniceai/builtwithvenice/issues/new/choose>
 
 ---
 
@@ -39,7 +39,7 @@ Use this skill when the user asks something like:
 - "Add [repo / site / X handle] to builtonvenice.ai."
 - "Add this to the Venice community directory."
 
-This skill covers **project** submissions only. Cookbooks, events, and demos live in the same repo but have their own issue templates and data files (`src/data/cookbooks.ts`, `src/data/events.ts`, `src/data/demos.ts`). For those, point the user at the issue picker above.
+This skill covers **project** submissions only. Cookbooks, events, and media live in the same repo but have their own issue templates and data files (`src/data/cookbooks.ts`, `src/data/events.ts`, `src/data/media.ts`). For those, point the user at the issue picker above.
 
 ---
 
