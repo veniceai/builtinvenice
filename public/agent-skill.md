@@ -45,7 +45,7 @@ Common to every project type:
 | `tags`          | yes      | 1-4 short Title-Case tags. **Reuse existing tags.** Discover them with `grep -hoE "tags: \[[^]]+\]" src/data/projects.ts \| sort -u` (or just scan `src/data/projects.ts`). Don't invent close synonyms -- prefer `Privacy`, `TEE`, or `Security` over a new `Verifier`. |
 | `submittedBy`   | yes      | GitHub or X handle of the submitter (no `@`).                         |
 | `socials`       | no       | Array of `{ kind, url }`. See `SocialKind` below.                     |
-| `thumbnail`     | no       | 16:9 preview image. Local path (e.g. `/preview-foo.png` in `public/`) or absolute https URL. For GitHub Repo entries, leave blank -- the maintainer runs `npm run refresh-projects`, which pre-bakes the GitHub OG image into `public/repo-previews/<owner>-<repo>.png`. The card falls back to `https://github.com/<owner>.png` (the owner avatar) at runtime if that file 404s. **In the issue template, this field is named `screenshot` (label: "Thumbnail (optional)") -- same concept, different name.** |
+| `thumbnail`     | no       | 16:9 preview image. **What to provide depends on type:** <br>- `GitHub Repo`: **leave blank.** Maintainers run `npm run refresh-projects`, which bakes the repo's GitHub OG image into `public/repo-previews/<owner>-<repo>.png`; the card falls back to the owner avatar (`https://github.com/<owner>.png`) at runtime. Anything you supply gets ignored. <br>- `X Account`: **leave blank.** X Account cards don't render thumbnails. <br>- `Website`: **helpful but optional.** Paste an absolute https URL to a 16:9 image the user already has hosted (their CDN, GitHub raw, S3, etc.). If they only have a local file and no host, **do not try to upload it yourself** -- instead, point them at the in-app form at <https://builtonvenice.ai/> (the "Submit your work" button), which handles the upload automatically. As a last resort, leave blank; a maintainer will capture a screenshot during review. <br>In the issue template the field is named `screenshot` (label: "Thumbnail (optional)") -- same concept, different name. Maintainers may also use a local path (e.g. `/preview-foo.png` in `public/`) when curating manually. |
 | `featured`      | no       | **Do not set.** Maintainers choose featured projects.                 |
 
 Type-specific extras:
@@ -210,7 +210,7 @@ github: https://github.com/yourHandle
 
 ### Thumbnail (optional)
 
-<absolute https URL of a 16:9 image, or "_No response_">
+<For Website: absolute https URL of a 16:9 image the user already has hosted. For GitHub Repo and X Account: "_No response_" (auto-baked / not rendered). If the user only has a local file and no host, leave "_No response_" and tell them the in-app form at https://builtonvenice.ai handles upload automatically.>
 
 ### Quality Checklist
 
