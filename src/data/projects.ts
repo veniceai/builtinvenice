@@ -329,6 +329,7 @@ const RAW_PROJECTS: Project[] = [
     url: "https://gitlawb.com/node/repos/z6Mkw3V6/vvvkernel",
     tags: ["MCP", "Inference", "x402"],
     category: "ecosystem",
+    thumbnail: "https://i.ibb.co/qYLF3TW8/vvvkernel-og.png",
   },
   {
     title: "AntSeed",
@@ -337,6 +338,7 @@ const RAW_PROJECTS: Project[] = [
     url: "https://antseed.com",
     tags: ["Inference", "Marketplace", "DIEM"],
     category: "ecosystem",
+    thumbnail: "https://i.ibb.co/v46tw9fK/antseed-og.jpg",
     socials: [
       { kind: 'x', url: 'https://x.com/antseedai' },
       { kind: 'github', url: 'https://github.com/antseed' },
@@ -350,6 +352,7 @@ const RAW_PROJECTS: Project[] = [
     url: "https://liquidprotocol.org",
     tags: ["VVV", "DIEM", "Launchpad"],
     category: "ecosystem",
+    thumbnail: "https://i.ibb.co/HTRYYy3L/liquid-protocol-og.png",
   },
   {
     title: "Surplus Intelligence",
@@ -359,6 +362,7 @@ const RAW_PROJECTS: Project[] = [
     tags: ["Marketplace", "Inference"],
     category: "ecosystem",
     submittedBy: "mac_eth",
+    thumbnail: "https://i.ibb.co/0RbDH4T6/surplus-intelligence-og.png",
     socials: [
       { kind: 'x', url: 'https://x.com/mac_eth' },
     ],
