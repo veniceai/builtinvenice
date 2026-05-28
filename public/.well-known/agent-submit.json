@@ -1,70 +1,425 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "builtonvenice-submit",
-  "version": 2,
+  "version": 3,
   "description": "Submit a community project to the Built in Venice directory. Submissions land as pull requests (preferred) or issues against veniceai/builtwithvenice.",
   "repo": "https://github.com/veniceai/builtwithvenice",
   "site": "https://builtonvenice.ai",
   "skill": "https://builtonvenice.ai/agent-skill.md",
   "issueTemplate": "https://github.com/veniceai/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+",
   "issuePicker": "https://github.com/veniceai/builtwithvenice/issues/new/choose",
-  "project": {
-    "common": {
-      "type": "object",
-      "required": ["title", "description", "url", "type", "category", "tags", "submittedBy"],
-      "properties": {
-        "title":       { "type": "string", "maxLength": 40 },
-        "description": { "type": "string", "maxLength": 220 },
-        "url":         { "type": "string", "format": "uri", "pattern": "^https://" },
-        "type":        { "enum": ["Website", "GitHub Repo", "X Account"] },
-        "category": {
-          "enum": ["ecosystem", "powered-by"],
-          "description": "ecosystem = maintained by/with Venice. powered-by = built on Venice."
-        },
-        "tags":        { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 4 },
-        "submittedBy": { "type": "string", "description": "GitHub or X handle, without the @." },
-        "socials": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["kind", "url"],
-            "properties": {
-              "kind": { "enum": ["x", "github", "website", "farcaster", "warpcast", "instagram", "telegram", "discord", "youtube", "tiktok", "token"] },
-              "url":  { "type": "string", "format": "uri", "pattern": "^https://" }
+  "preferredFlow": "pull-request",
+  "fallbackFlow": "github-issue",
+  "targetDir": "content/projects/",
+  "projectSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "ecosystem",
+              "powered-by"
+            ]
+          },
+          "submittedBy": {
+            "type": "string"
+          },
+          "featured": {
+            "type": "boolean",
+            "const": true
+          },
+          "socials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "x",
+                    "github",
+                    "website",
+                    "farcaster",
+                    "instagram",
+                    "telegram",
+                    "discord",
+                    "youtube",
+                    "tiktok",
+                    "warpcast",
+                    "token"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "thumbnail": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "const": "Website"
           }
         },
-        "thumbnail": {
-          "type": "string",
-          "description": "Optional 16:9 preview image. Local path (e.g. /preview-foo.png in public/) or absolute https:// URL. GitHub Repo entries auto-default to /repo-previews/<owner>-<repo>.png, pre-baked by `npm run refresh-projects`; the card falls back to https://github.com/<owner>.png if that file is missing."
-        }
-      }
-    },
-    "byType": {
-      "Website": { "type": "object" },
-      "GitHub Repo": {
-        "type": "object",
-        "required": ["owner", "repo"],
-        "properties": {
-          "owner":    { "type": "string" },
-          "repo":     { "type": "string" },
-          "stars":    { "type": "integer" },
-          "forks":    { "type": "integer" },
-          "language": { "type": "string" }
-        }
+        "required": [
+          "title",
+          "description",
+          "url",
+          "tags",
+          "category",
+          "type"
+        ],
+        "additionalProperties": false
       },
-      "X Account": {
+      {
         "type": "object",
-        "required": ["handle"],
         "properties": {
-          "handle":    { "type": "string", "description": "without @" },
-          "followers": { "type": "integer" },
-          "bio":       { "type": "string" }
-        }
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "ecosystem",
+              "powered-by"
+            ]
+          },
+          "submittedBy": {
+            "type": "string"
+          },
+          "featured": {
+            "type": "boolean",
+            "const": true
+          },
+          "socials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "x",
+                    "github",
+                    "website",
+                    "farcaster",
+                    "instagram",
+                    "telegram",
+                    "discord",
+                    "youtube",
+                    "tiktok",
+                    "warpcast",
+                    "token"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "thumbnail": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "const": "GitHub Repo"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "forks": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "language": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "url",
+          "tags",
+          "category",
+          "type",
+          "owner",
+          "repo"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "ecosystem",
+              "powered-by"
+            ]
+          },
+          "submittedBy": {
+            "type": "string"
+          },
+          "featured": {
+            "type": "boolean",
+            "const": true
+          },
+          "socials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "x",
+                    "github",
+                    "website",
+                    "farcaster",
+                    "instagram",
+                    "telegram",
+                    "discord",
+                    "youtube",
+                    "tiktok",
+                    "warpcast",
+                    "token"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "thumbnail": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "const": "X Account"
+          },
+          "handle": {
+            "type": "string"
+          },
+          "followers": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "bio": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "url",
+          "tags",
+          "category",
+          "type",
+          "handle"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "ecosystem",
+              "powered-by"
+            ]
+          },
+          "submittedBy": {
+            "type": "string"
+          },
+          "featured": {
+            "type": "boolean",
+            "const": true
+          },
+          "socials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "x",
+                    "github",
+                    "website",
+                    "farcaster",
+                    "instagram",
+                    "telegram",
+                    "discord",
+                    "youtube",
+                    "tiktok",
+                    "warpcast",
+                    "token"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "thumbnail": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "const": "Token"
+          },
+          "ticker": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string",
+            "enum": [
+              "solana",
+              "base",
+              "ethereum"
+            ]
+          },
+          "marketCap": {
+            "type": "number"
+          },
+          "holders": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "url",
+          "tags",
+          "category",
+          "type",
+          "ticker",
+          "address",
+          "chain"
+        ],
+        "additionalProperties": false
       }
-    }
-  },
-  "targetFile": "src/data/projects.ts",
-  "preferredFlow": "pull-request",
-  "fallbackFlow": "github-issue"
+    ]
+  }
 }
