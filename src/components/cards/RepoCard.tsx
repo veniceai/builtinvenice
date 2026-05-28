@@ -1,4 +1,4 @@
-import { GitHubIcon, ExternalArrow } from '../icons';
+import { GitHubIcon, ExternalArrow, StarIcon } from '../icons';
 import { categoryLabels, type RepoProject } from '../../data';
 import SocialsRow from './SocialsRow';
 import { safeUrl } from '../../utils/safeUrl';
@@ -31,6 +31,11 @@ export default function RepoCard({ project }: { project: RepoProject }) {
             <GitHubIcon /> {project.owner}/{project.repo}
           </span>
           <span className="card-row-right">
+            {project.featured && (
+              <span className="featured-badge" aria-label="Featured" title="Featured">
+                <StarIcon size={12} />
+              </span>
+            )}
             <span className={`category-badge category-${project.category}`}>
               {categoryLabels[project.category]}
             </span>

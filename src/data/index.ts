@@ -34,3 +34,13 @@ export {
   demos,
   type Demo,
 } from './demos';
+
+export {
+  officialResources,
+  officialRepos,
+  officialLinks,
+  type OfficialResource,
+  type OfficialRepoResource,
+  type OfficialLinkResource,
+  type OfficialResourceKind,
+} from './officialResources';

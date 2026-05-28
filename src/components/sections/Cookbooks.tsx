@@ -23,7 +23,11 @@ export default function Cookbooks() {
         c.title.toLowerCase().includes(q) || c.description.toLowerCase().includes(q),
       );
     }
-    return [...list].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+    return [...list].sort((a, b) => {
+      const featuredDiff = Number(b.featured ?? false) - Number(a.featured ?? false);
+      if (featuredDiff !== 0) return featuredDiff;
+      return b.publishedAt.localeCompare(a.publishedAt);
+    });
   }, [difficulty, search]);
 
   return (

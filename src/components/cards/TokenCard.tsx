@@ -1,4 +1,4 @@
-import { CoinIcon, UsersIcon, ExternalArrow } from '../icons';
+import { CoinIcon, UsersIcon, ExternalArrow, StarIcon } from '../icons';
 import { categoryLabels, chainLabels, chainColors, type TokenProject } from '../../data';
 import SocialsRow from './SocialsRow';
 import { safeUrl } from '../../utils/safeUrl';
@@ -22,6 +22,11 @@ export default function TokenCard({ project }: { project: TokenProject }) {
         <div className="card-type-row">
           <span className="card-type-label"><CoinIcon /> ${project.ticker}</span>
           <span className="card-row-right">
+            {project.featured && (
+              <span className="featured-badge" aria-label="Featured" title="Featured">
+                <StarIcon size={12} />
+              </span>
+            )}
             <span className={`category-badge category-${project.category}`}>
               {categoryLabels[project.category]}
             </span>

@@ -1,4 +1,4 @@
-import { BookIcon, ClockIcon, ExternalArrow } from '../icons';
+import { BookIcon, ClockIcon, ExternalArrow, StarIcon } from '../icons';
 import { difficultyLabels, langColors, type Cookbook } from '../../data';
 import { safeUrl } from '../../utils/safeUrl';
 
@@ -25,6 +25,11 @@ export default function CookbookCard({ cookbook }: { cookbook: Cookbook }) {
         <div className="card-type-row">
           <span className="card-type-label"><BookIcon /> Recipe</span>
           <span className="card-row-right">
+            {cookbook.featured && (
+              <span className="featured-badge" aria-label="Featured" title="Featured">
+                <StarIcon size={12} />
+              </span>
+            )}
             <span className={`difficulty-badge difficulty-${cookbook.difficulty}`}>
               {difficultyLabels[cookbook.difficulty]}
             </span>

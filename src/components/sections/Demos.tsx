@@ -16,7 +16,11 @@ export default function Demos() {
         d.builder.toLowerCase().includes(q),
       );
     }
-    return [...list].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+    return [...list].sort((a, b) => {
+      const featuredDiff = Number(b.featured ?? false) - Number(a.featured ?? false);
+      if (featuredDiff !== 0) return featuredDiff;
+      return b.publishedAt.localeCompare(a.publishedAt);
+    });
   }, [search]);
 
   return (

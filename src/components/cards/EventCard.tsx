@@ -1,4 +1,4 @@
-import { CalendarIcon, MapPinIcon, TrophyIcon, ExternalArrow } from '../icons';
+import { CalendarIcon, MapPinIcon, TrophyIcon, ExternalArrow, StarIcon } from '../icons';
 import type { VeniceEvent, EventKind, EventStatus } from '../../data';
 import { safeUrl } from '../../utils/safeUrl';
 
@@ -58,6 +58,11 @@ export default function EventCard({ event }: { event: VeniceEvent }) {
             <CalendarIcon /> {kindLabels[event.kind]}
           </span>
           <span className="card-row-right">
+            {event.featured && (
+              <span className="featured-badge" aria-label="Featured" title="Featured">
+                <StarIcon size={12} />
+              </span>
+            )}
             <span className={`event-status-badge status-${event.status}`}>
               {statusLabels[event.status]}
             </span>
