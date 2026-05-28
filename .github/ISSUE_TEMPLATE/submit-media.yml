@@ -1,21 +1,21 @@
-name: Submit a Demo
-description: Share a short clip, screenshot, or post of something you made on Venice
-title: "[Demo] "
-labels: ["submission", "demo"]
+name: Submit Media
+description: Share a video, interview, recap, or post about Venice or something built on it
+title: "[Media] "
+labels: ["submission", "media"]
 body:
   - type: input
-    id: demo-title
+    id: media-title
     attributes:
       label: Title
-      placeholder: e.g. Multimodal demo running in one tab
+      placeholder: e.g. Multimodal walkthrough running in one tab
     validations:
       required: true
 
   - type: input
-    id: demo-url
+    id: media-url
     attributes:
-      label: Demo URL
-      description: Link to where the demo lives — X post, Loom, asciinema, gallery image, etc.
+      label: Media URL
+      description: Link to where the media lives — X post, Loom, asciinema, gallery image, etc.
       placeholder: https://x.com/yourhandle/status/…
     validations:
       required: true
@@ -24,8 +24,8 @@ body:
     id: description
     attributes:
       label: Description
-      description: 1–2 plain sentences about what the demo shows. Avoid marketing copy.
-      placeholder: Describe what's in the demo...
+      description: 1–2 plain sentences about what the media shows. Avoid marketing copy.
+      placeholder: Describe what's in the media...
     validations:
       required: true
 
@@ -66,9 +66,9 @@ body:
     attributes:
       label: Quality Checklist
       options:
-        - label: The demo URL is publicly accessible.
+        - label: The media URL is publicly accessible.
           required: true
-        - label: The demo is something you actually built or worked on.
+        - label: The media is something you actually made, were featured in, or worked on.
           required: true
         - label: I understand that listing does not imply endorsement by Venice AI.
           required: true

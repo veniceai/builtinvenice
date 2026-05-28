@@ -71,7 +71,6 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "nikshepsvn/openvenice": { stars: 46, forks: 9, language: "TypeScript" },
   "georgeglarson/deep-research-privacy": { stars: 38, forks: 4, language: "TypeScript" },
   "ar-jan/llm-venice": { stars: 24, forks: 5, language: "Python" },
-  "lorenzovenice/nanoclaw-venice": { stars: 19, forks: 4, language: "TypeScript" },
   "georgeglarson/venice-dev-tools": { stars: 14, forks: 2, language: "TypeScript" },
   "sethbang/venice-ai": { stars: 13, forks: 4, language: "Python" },
   "grasponcrypto/venice_ai": { stars: 13, forks: 3, language: "Python" },
@@ -330,6 +329,46 @@ const RAW_PROJECTS: Project[] = [
     url: "https://gitlawb.com/node/repos/z6Mkw3V6/vvvkernel",
     tags: ["MCP", "Inference", "x402"],
     category: "ecosystem",
+    thumbnail: "https://i.ibb.co/qYLF3TW8/vvvkernel-og.png",
+  },
+  {
+    title: "AntSeed",
+    description: "Peer-to-peer marketplace for AI inference with on-chain USDC settlement on Base. Runs a DIEM staking pool that proxies into Venice; pool revenue from served Venice requests streams back to DIEM stakers.",
+    type: "Website",
+    url: "https://antseed.com",
+    tags: ["Inference", "Marketplace", "DIEM"],
+    category: "ecosystem",
+    thumbnail: "https://i.ibb.co/v46tw9fK/antseed-og.jpg",
+    socials: [
+      { kind: 'x', url: 'https://x.com/antseedai' },
+      { kind: 'github', url: 'https://github.com/antseed' },
+      { kind: 'telegram', url: 'https://t.me/antseed' },
+    ],
+  },
+  {
+    title: "Liquid Protocol",
+    description: "Token launcher on Base built on Uniswap V4 — supports pairing new community token launches against VVV or DIEM with locked liquidity and MEV protection.",
+    type: "Website",
+    url: "https://liquidprotocol.org",
+    tags: ["VVV", "DIEM", "Launchpad"],
+    category: "ecosystem",
+    thumbnail: "https://i.ibb.co/HTRYYy3L/liquid-protocol-og.png",
+    socials: [
+      { kind: 'x', url: 'https://x.com/liquid_launcher' },
+    ],
+  },
+  {
+    title: "Surplus Intelligence",
+    description: "Marketplace where independent sellers list discounted credits for ~170+ AI models — Venice's uncensored series alongside Claude, GPT, Gemini, Qwen, and others. Built by @mac_eth.",
+    type: "Website",
+    url: "https://www.surplusintelligence.ai",
+    tags: ["Marketplace", "Inference"],
+    category: "ecosystem",
+    submittedBy: "mac_eth",
+    thumbnail: "https://i.ibb.co/0RbDH4T6/surplus-intelligence-og.png",
+    socials: [
+      { kind: 'x', url: 'https://x.com/mac_eth' },
+    ],
   },
 
   // ── Powered by Venice ───────────────────────────────────
@@ -431,17 +470,6 @@ const RAW_PROJECTS: Project[] = [
     owner: "zzmrl",
     repo: "aiva",
     submittedBy: "zzmrl",
-  },
-  {
-    title: "nanoclaw-venice",
-    description: "Personal AI assistant built on Venice — fork of NanoClaw with Telegram and WhatsApp messaging support.",
-    type: "GitHub Repo",
-    url: "https://github.com/lorenzovenice/nanoclaw-venice",
-    tags: ["Assistant", "Telegram", "WhatsApp"],
-    category: "powered-by",
-    owner: "lorenzovenice",
-    repo: "nanoclaw-venice",
-    submittedBy: "lorenzovenice",
   },
 ];
 

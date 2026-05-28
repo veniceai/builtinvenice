@@ -1,7 +1,7 @@
 // Watch — videos, posts, recaps, and gallery content about Venice.
 // Live deployments belong in Projects; this tab is for media you watch or read.
 
-export interface Demo {
+export interface Media {
   title: string;
   builder: string;
   description: string;
@@ -12,7 +12,7 @@ export interface Demo {
   featured?: true;
 }
 
-export const demos: Demo[] = [
+export const media: Media[] = [
   {
     title: "Venice intro — decentralized, privacy-first AI",
     builder: "Venice.ai",
