@@ -19,6 +19,18 @@ Issue picker (project, cookbook, event, demo): <https://github.com/veniceai/buil
 
 ---
 
+## Operating principle
+
+**Ship a complete entry. Don't defer to maintainers.** Maintainers triage, label, and merge -- they shouldn't have to fetch metadata, hunt down thumbnails, or guess at fields the agent could have filled in. For every optional field, ask in order:
+
+1. Can I fetch this myself? (e.g. stars/forks/language via `gh api`, language/og:image via the project URL, X bio via a public X profile page).
+2. Can I ask the user a quick, specific question to get it?
+3. Only if both fail, omit it -- and note in the PR/issue body what's missing and why.
+
+If you discover during validation that something the user said is wrong or thin (description is marketing-speak, tags don't match conventions, no socials provided), **rewrite it or ask** before submitting. The bar is "this entry could be merged as-is."
+
+---
+
 ## When to use this skill
 
 Use this skill when the user asks something like:
@@ -38,21 +50,25 @@ Common to every project type:
 | field           | required | notes                                                                 |
 |-----------------|----------|-----------------------------------------------------------------------|
 | `title`         | yes      | Display name. Keep under 40 chars.                                    |
-| `description`   | yes      | One to two sentences. Max ~220 chars. No marketing filler.            |
+| `description`   | yes      | One to two sentences. Max ~220 chars. If the user gives you marketing copy ("revolutionary", "cutting-edge", emoji, ALL CAPS), **rewrite it yourself** in plain language describing what it does, then show the user the rewrite. If you can't tell what the project does, fetch the URL and read the page before asking. |
 | `url`           | yes      | Canonical URL for the project. Must be `https://`.                    |
 | `type`          | yes      | `"Website"` \| `"GitHub Repo"` \| `"X Account"`                       |
 | `category`      | yes      | `"ecosystem"` (maintained by/with Venice) or `"powered-by"` (built on Venice). |
 | `tags`          | yes      | 1-4 short Title-Case tags. **Reuse existing tags.** Discover them with `grep -hoE "tags: \[[^]]+\]" src/data/projects.ts \| sort -u` (or just scan `src/data/projects.ts`). Don't invent close synonyms -- prefer `Privacy`, `TEE`, or `Security` over a new `Verifier`. |
 | `submittedBy`   | yes      | GitHub or X handle of the submitter (no `@`).                         |
-| `socials`       | no       | Array of `{ kind, url }`. See `SocialKind` below.                     |
-| `thumbnail`     | no       | 16:9 preview image. **What to provide depends on type:** <br>- `GitHub Repo`: **leave blank.** Maintainers run `npm run refresh-projects`, which bakes the repo's GitHub OG image into `public/repo-previews/<owner>-<repo>.png`; the card falls back to the owner avatar (`https://github.com/<owner>.png`) at runtime. Anything you supply gets ignored. <br>- `X Account`: **leave blank.** X Account cards don't render thumbnails. <br>- `Website`: **helpful but optional.** Paste an absolute https URL to a 16:9 image the user already has hosted (their CDN, GitHub raw, S3, etc.). If they only have a local file and no host, **do not try to upload it yourself** -- instead, point them at the in-app form at <https://builtonvenice.ai/> (the "Submit your work" button), which handles the upload automatically. As a last resort, leave blank; a maintainer will capture a screenshot during review. <br>In the issue template the field is named `screenshot` (label: "Thumbnail (optional)") -- same concept, different name. Maintainers may also use a local path (e.g. `/preview-foo.png` in `public/`) when curating manually. |
+| `socials`       | no       | Array of `{ kind, url }`. See `SocialKind` below. **Don't leave empty by default.** Fetch the project URL and look for linked socials in the page metadata or footer; check the GitHub repo's `homepage` / README badges; ask the user "any X handle, Farcaster, Discord, or Telegram people should know about?" before submitting. |
+| `thumbnail`     | no       | 16:9 preview image. **What to provide depends on type:** <br>- `GitHub Repo`: **leave blank.** A build-time script bakes the repo's GitHub OG image into `public/repo-previews/<owner>-<repo>.png` and the card falls back to the owner avatar at runtime -- anything you supply for this type gets overwritten. <br>- `X Account`: **leave blank.** `XAccountCard` doesn't render thumbnails. <br>- `Website`: **try to provide one.** In order: (1) fetch the URL and read its `<meta property="og:image">` -- if it's a 16:9 absolute https URL, use it; (2) if og:image is missing or wrong shape, ask the user "do you have a 16:9 screenshot or hero image hosted somewhere?"; (3) if they only have a local file, point them at the in-app form at <https://builtonvenice.ai/> ("Submit your work"), which uploads automatically -- the agent's own API access doesn't include the upload endpoint. Don't try to upload via a random third-party host. <br>In the issue template the field is named `screenshot` (label: "Thumbnail (optional)") -- same concept, different name. |
 | `featured`      | no       | **Do not set.** Maintainers choose featured projects.                 |
 
 Type-specific extras:
 
-- `Website` -- no extra required fields (use `thumbnail` for the preview image).
-- `GitHub Repo` -- `owner`, `repo`; `stars?`, `forks?`, `language?` (leave empty unless you know them; the maintainer's `npm run refresh-projects` script fills them in).
-- `X Account` -- `handle` (no `@`), `followers?`, `bio?`.
+- `Website` -- no extra required fields. Try to provide `thumbnail` per the rules above.
+- `GitHub Repo` -- `owner`, `repo` (required). For `stars`, `forks`, `language`, **fetch them yourself**:
+  ```
+  gh api repos/<owner>/<repo> --jq '{stars: .stargazers_count, forks: .forks_count, language: .language}'
+  ```
+  Include the values in the entry. (A maintainer refresh script overwrites them with up-to-date numbers periodically, but that's a backstop -- ship fresh values.)
+- `X Account` -- `handle` (no `@`, required). For `bio` and `followers`, fetch from the public profile page (`https://x.com/<handle>`) if accessible, otherwise ask the user. Don't leave both empty.
 
 `SocialKind` values: `"x" | "github" | "website" | "farcaster" | "warpcast" | "instagram" | "telegram" | "discord" | "youtube" | "tiktok" | "token"`.
 
@@ -185,11 +201,11 @@ GitHub renders the issue body as one `### <Field Label>` heading per field, with
 
 ### Stars (repos only, optional)
 
-_No response_
+<integer from `gh api repos/<owner>/<repo>` -- fill this in; don't leave blank>
 
 ### Forks (repos only, optional)
 
-_No response_
+<integer from `gh api repos/<owner>/<repo>` -- fill this in; don't leave blank>
 
 ### X Handle (X accounts only)
 
@@ -201,7 +217,7 @@ _No response_
 
 ### Followers (X accounts only, optional)
 
-_No response_
+<integer scraped from the public X profile page, or asked from the user -- fill in if you can get it>
 
 ### Connected socials (optional)
 
@@ -210,7 +226,7 @@ github: https://github.com/yourHandle
 
 ### Thumbnail (optional)
 
-<For Website: absolute https URL of a 16:9 image the user already has hosted. For GitHub Repo and X Account: "_No response_" (auto-baked / not rendered). If the user only has a local file and no host, leave "_No response_" and tell them the in-app form at https://builtonvenice.ai handles upload automatically.>
+<For Website: the og:image you scraped from the project URL, or a hosted https URL the user provided. For GitHub Repo and X Account: "_No response_" (auto-baked / not rendered). If the user has only a local file, tell them the in-app form at https://builtonvenice.ai handles upload automatically -- don't punt to maintainers.>
 
 ### Quality Checklist
 
@@ -220,7 +236,7 @@ github: https://github.com/yourHandle
 ```
 
 Notes:
-- Use `_No response_` for optional fields you're leaving blank -- that matches how the browser flow renders empty inputs.
+- Use `_No response_` only for fields where there is genuinely nothing to put. Per the operating principle above, try to fetch or ask before falling back to it.
 - All three Quality Checklist boxes are required by the template and must be checked.
 
 Return the issue URL so the user can review.
@@ -232,14 +248,16 @@ Return the issue URL so the user can review.
 Before opening a PR or issue, confirm:
 
 - [ ] The URL is `https://` and resolves (HEAD 200, or expected redirect).
-- [ ] For GitHub repos: the repo is public.
-- [ ] For X accounts: the handle exists (`https://x.com/<handle>` doesn't 404).
+- [ ] For GitHub repos: the repo is public, and `stars` / `forks` / `language` are filled in via `gh api`.
+- [ ] For X accounts: the handle exists (`https://x.com/<handle>` doesn't 404), and either `bio` or `followers` is filled in (ideally both).
+- [ ] For Websites: a `thumbnail` is included if one is reasonably gettable (og:image scrape, user-hosted URL, or in-app form for local files).
 - [ ] No duplicate entry already exists -- search `src/data/projects.ts` for the URL and the title.
-- [ ] The description is 1-2 plain sentences, under ~220 chars, no marketing filler ("revolutionary", "cutting-edge", emoji, ALL CAPS).
+- [ ] The description is 1-2 plain sentences, under ~220 chars, no marketing filler. If you rewrote it from the user's input, show them the rewrite.
 - [ ] `tags` is 1-4 short Title-Case strings; reuse existing tags from `src/data/projects.ts` where it makes sense.
+- [ ] `socials` has at least one entry, unless the user has genuinely no public socials.
 - [ ] The project meets the public submission guidelines at <https://builtonvenice.ai/submission-guidelines>.
 
-If any check fails, stop and ask the user.
+If any check fails, fetch / ask / rewrite to fix it before submitting -- don't defer to maintainers.
 
 ---
 
