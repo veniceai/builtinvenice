@@ -323,6 +323,14 @@ const RAW_PROJECTS: Project[] = [
     repo: "pi-venice",
     submittedBy: "tunnckoCore",
   },
+  {
+    title: "VVVKernel",
+    description: "Inference kernel that wires Venice models into seven role-specific expert agents, exposed via an MCP server and an HTTP REST API. Includes optional x402 micropayment metering on Base. Hosted off-GitHub; the x402 wallet flow is unaudited — review before connecting funds.",
+    type: "Website",
+    url: "https://gitlawb.com/node/repos/z6Mkw3V6/vvvkernel",
+    tags: ["MCP", "Inference", "x402"],
+    category: "ecosystem",
+  },
 
   // ── Powered by Venice ───────────────────────────────────
   {
