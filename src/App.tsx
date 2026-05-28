@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
+import OfficialResources from './components/sections/OfficialResources';
 import Explore from './components/sections/Explore';
 import SubmissionGuidelines from './components/sections/SubmissionGuidelines';
 import SubmitDialog from './components/SubmitDialog';
@@ -22,6 +23,7 @@ function App() {
         ) : (
           <>
             <Hero onSubmit={openSubmit} />
+            <OfficialResources />
             <Explore />
           </>
         )}

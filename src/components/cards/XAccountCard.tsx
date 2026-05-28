@@ -1,4 +1,4 @@
-import { XIcon, UsersIcon, ExternalArrow } from '../icons';
+import { XIcon, UsersIcon, ExternalArrow, StarIcon } from '../icons';
 import { categoryLabels, type XAccountProject } from '../../data';
 import SocialsRow from './SocialsRow';
 import { safeUrl } from '../../utils/safeUrl';
@@ -16,6 +16,11 @@ export default function XAccountCard({ project }: { project: XAccountProject }) 
         <div className="card-type-row">
           <span className="card-type-label"><XIcon /> @{project.handle}</span>
           <span className="card-row-right">
+            {project.featured && (
+              <span className="featured-badge" aria-label="Featured" title="Featured">
+                <StarIcon size={12} />
+              </span>
+            )}
             <span className={`category-badge category-${project.category}`}>
               {categoryLabels[project.category]}
             </span>

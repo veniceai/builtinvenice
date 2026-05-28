@@ -22,7 +22,11 @@ export default function Events() {
         e.location.toLowerCase().includes(q),
       );
     }
-    return [...list].sort((a, b) => a.startDate.localeCompare(b.startDate));
+    return [...list].sort((a, b) => {
+      const featuredDiff = Number(b.featured ?? false) - Number(a.featured ?? false);
+      if (featuredDiff !== 0) return featuredDiff;
+      return a.startDate.localeCompare(b.startDate);
+    });
   }, [status, search]);
 
   return (

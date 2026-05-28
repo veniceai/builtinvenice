@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { projects, type Project } from '../../data';
 import { ChevronDownIcon } from '../icons';
 import Toolbar from './Toolbar';
@@ -16,7 +16,9 @@ function ProjectCard({ project }: { project: Project }) {
   }
 }
 
-const typeOptions: { label: string; value: Project['type'] | 'all' }[] = [
+type ProjectTypeFilter = Project['type'] | 'all';
+
+const typeOptions: { label: string; value: ProjectTypeFilter }[] = [
   { label: 'Websites', value: 'Website' },
   { label: 'Repos', value: 'GitHub Repo' },
   { label: 'X Accounts', value: 'X Account' },
@@ -35,9 +37,22 @@ function getTagsByPopularity(items: Project[]) {
     .map(([tag]) => tag);
 }
 
+function matchesProjectFilters(item: Project, activeType: ProjectTypeFilter, search: string) {
+  if (activeType !== 'all' && item.type !== activeType) return false;
+  if (search) {
+    const q = search.toLowerCase();
+    return item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q);
+  }
+  return true;
+}
+
+function tagExistsForFilters(tag: string, activeType: ProjectTypeFilter, search: string) {
+  return projects.some(item => matchesProjectFilters(item, activeType, search) && item.tags.includes(tag));
+}
+
 export default function Projects() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [activeType, setActiveType] = useState<Project['type'] | 'all'>('all');
+  const [activeType, setActiveType] = useState<ProjectTypeFilter>('all');
   const [search, setSearch] = useState('');
   const [tagsExpanded, setTagsExpanded] = useState(false);
   const [collapsedTagCount, setCollapsedTagCount] = useState(POPULAR_TAG_COUNT);
@@ -45,35 +60,20 @@ export default function Projects() {
   const tagMeasureRef = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
-    return projects.filter(item => {
-      if (activeType !== 'all' && item.type !== activeType) return false;
-      if (activeTag && !item.tags.includes(activeTag)) return false;
-      if (search) {
-        const q = search.toLowerCase();
-        return item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q);
-      }
-      return true;
-    });
+    return projects
+      .filter(item => {
+        if (!matchesProjectFilters(item, activeType, search)) return false;
+        if (activeTag && !item.tags.includes(activeTag)) return false;
+        return true;
+      })
+      .sort((a, b) => Number(b.featured ?? false) - Number(a.featured ?? false));
   }, [activeTag, activeType, search]);
 
   const tagCandidates = useMemo(() => {
-    return projects.filter(item => {
-      if (activeType !== 'all' && item.type !== activeType) return false;
-      if (search) {
-        const q = search.toLowerCase();
-        return item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q);
-      }
-      return true;
-    });
+    return projects.filter(item => matchesProjectFilters(item, activeType, search));
   }, [activeType, search]);
 
   const tagsByPopularity = useMemo(() => getTagsByPopularity(tagCandidates), [tagCandidates]);
-
-  useEffect(() => {
-    if (activeTag && !tagsByPopularity.includes(activeTag)) {
-      setActiveTag(null);
-    }
-  }, [activeTag, tagsByPopularity]);
 
   useLayoutEffect(function setupTagRowMeasurement() {
     const row = tagRowRef.current;
@@ -122,14 +122,30 @@ export default function Projects() {
   const hiddenTagCount = tagsByPopularity.length - collapsedTagCount;
   const showActiveTagOutsideList = activeTag && !visibleTags.includes(activeTag);
 
+  const clearUnavailableTag = (nextType: ProjectTypeFilter, nextSearch: string) => {
+    setActiveTag(currentTag => (
+      currentTag && !tagExistsForFilters(currentTag, nextType, nextSearch) ? null : currentTag
+    ));
+  };
+
+  const handleTypeChange = (nextType: ProjectTypeFilter) => {
+    setActiveType(nextType);
+    clearUnavailableTag(nextType, search);
+  };
+
+  const handleSearchChange = (nextSearch: string) => {
+    setSearch(nextSearch);
+    clearUnavailableTag(activeType, nextSearch);
+  };
+
   return (
     <>
       <Toolbar
-        search={{ value: search, onChange: setSearch, placeholder: 'Search projects…' }}
+        search={{ value: search, onChange: handleSearchChange, placeholder: 'Search projects…' }}
         filter={{
           options: typeOptions,
           value: activeType,
-          onChange: setActiveType,
+          onChange: handleTypeChange,
           clearValue: 'all',
           ariaLabel: 'Filter by project type',
         }}

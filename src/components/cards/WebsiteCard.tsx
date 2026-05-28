@@ -1,4 +1,4 @@
-import { GlobeIcon, ExternalArrow } from '../icons';
+import { GlobeIcon, ExternalArrow, StarIcon } from '../icons';
 import { categoryLabels, type WebsiteProject } from '../../data';
 import SocialsRow from './SocialsRow';
 import { safeUrl } from '../../utils/safeUrl';
@@ -23,8 +23,15 @@ export default function WebsiteCard({ project }: { project: WebsiteProject }) {
       <div className="card-body">
         <div className="card-type-row">
           <span className="card-type-label"><GlobeIcon /> Website</span>
-          <span className={`category-badge category-${project.category}`}>
-            {categoryLabels[project.category]}
+          <span className="card-row-right">
+            {project.featured && (
+              <span className="featured-badge" aria-label="Featured" title="Featured">
+                <StarIcon size={12} />
+              </span>
+            )}
+            <span className={`category-badge category-${project.category}`}>
+              {categoryLabels[project.category]}
+            </span>
           </span>
         </div>
         <h3 className="project-card-title">{project.title}</h3>

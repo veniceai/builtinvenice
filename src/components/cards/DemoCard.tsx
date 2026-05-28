@@ -1,4 +1,4 @@
-import { ExternalArrow } from '../icons';
+import { ExternalArrow, StarIcon } from '../icons';
 import type { Demo } from '../../data';
 import { safeUrl } from '../../utils/safeUrl';
 
@@ -12,6 +12,11 @@ export default function DemoCard({ demo }: { demo: Demo }) {
           <div className="demo-thumb-placeholder" aria-hidden="true">
             <span className="demo-thumb-initial">{demo.builder.charAt(0).toUpperCase()}</span>
           </div>
+        )}
+        {demo.featured && (
+          <span className="featured-badge featured-corner" aria-label="Featured" title="Featured">
+            <StarIcon size={12} />
+          </span>
         )}
         <div className="demo-thumb-overlay">
           <span className="demo-thumb-cta">
