@@ -1,7 +1,7 @@
 name: Submit a Project
 description: Submit your project to be featured on Built on Venice
 title: "[Project] "
-labels: ["submission"]
+labels: ["submission", "project"]
 body:
   - type: input
     id: project-name

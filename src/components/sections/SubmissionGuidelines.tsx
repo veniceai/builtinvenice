@@ -35,7 +35,7 @@ export default function SubmissionGuidelines() {
       <h1 className="hero-title">Submission Guidelines</h1>
       <div className="guidelines-body">
         <p className="hero-subtitle">
-          Built with Venice is for projects, tools, guides, and experiments that help people discover what can be built with Venice.
+          Built on Venice is for projects, tools, guides, and experiments that help people discover what can be built with Venice.
         </p>
         <p className="hero-subtitle">A good submission should:</p>
         <ol className="guidelines-list">
@@ -50,7 +50,7 @@ export default function SubmissionGuidelines() {
           ))}
         </ol>
         <p className="hero-subtitle">
-          All submissions are reviewed before publishing. Listing on Built with Venice does not imply endorsement by Venice AI.
+          All submissions are reviewed before publishing. Listing on Built on Venice does not imply endorsement by Venice AI.
         </p>
       </div>
     </section>
