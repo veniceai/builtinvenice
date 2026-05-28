@@ -27,9 +27,19 @@ You can also [pick a submission form](https://github.com/veniceai/builtwithvenic
 
 **Via AI agent:** copy the prompt from the hero on the live site — it points your agent at [`/agent-skill.md`](./public/agent-skill.md), which walks it through the schema, validation, and PR flow.
 
-### Quality bar
+### Submission guidelines
 
-Projects must be publicly accessible and offer something beyond the base Venice platform, or be a community asset (X account, community token, cookbook, event) that complements it. Bare API wrappers and marketing-only submissions are declined.
+A good submission is:
+
+- **Clearly connected to Venice** — uses, integrates with, teaches, or supports the Venice ecosystem.
+- **Publicly accessible** — include a working link (live demo, repo, package, docs, video, or event page).
+- **Useful or interesting** — real builder value, creative use cases, helpful integrations, or strong ecosystem signal.
+- **Easy to understand** — clear title, short description, relevant tags, and any setup instructions.
+- **Accurate** — no unsupported claims about privacy, compliance, security, performance, or Venice endorsement.
+- **Token-secondary** — token-related projects are welcome when there's a real product, protocol, or resource behind them.
+- **Safe for users** — wallet, payment, extension, or automation submissions must explain permissions and data handling.
+
+Full guidelines: [builtonvenice.ai/submission-guidelines](https://builtonvenice.ai/submission-guidelines). All submissions are reviewed before publishing; listing does not imply endorsement by Venice AI.
 
 ## Local development
 
