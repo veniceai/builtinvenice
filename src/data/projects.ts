@@ -71,6 +71,7 @@ const STATS: Record<string, { stars: number; forks: number; language: string }> 
   "nikshepsvn/openvenice": { stars: 45, forks: 9, language: "TypeScript" },
   "georgeglarson/deep-research-privacy": { stars: 37, forks: 4, language: "TypeScript" },
   "ar-jan/llm-venice": { stars: 24, forks: 5, language: "Python" },
+  "lorenzovenice/nanoclaw-venice": { stars: 19, forks: 4, language: "TypeScript" },
   "georgeglarson/venice-dev-tools": { stars: 14, forks: 2, language: "TypeScript" },
   "sethbang/venice-ai": { stars: 13, forks: 4, language: "Python" },
   "grasponcrypto/venice_ai": { stars: 13, forks: 3, language: "Python" },
@@ -422,6 +423,17 @@ const RAW_PROJECTS: Project[] = [
     owner: "zzmrl",
     repo: "aiva",
     submittedBy: "zzmrl",
+  },
+  {
+    title: "nanoclaw-venice",
+    description: "Personal AI assistant built on Venice — fork of NanoClaw with Telegram and WhatsApp messaging support.",
+    type: "GitHub Repo",
+    url: "https://github.com/lorenzovenice/nanoclaw-venice",
+    tags: ["Assistant", "Telegram", "WhatsApp"],
+    category: "powered-by",
+    owner: "lorenzovenice",
+    repo: "nanoclaw-venice",
+    submittedBy: "lorenzovenice",
   },
 ];
 
