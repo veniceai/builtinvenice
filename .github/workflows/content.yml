@@ -6,6 +6,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  packages: read
 
 jobs:
   validate:
@@ -17,6 +18,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+        env:
+          VENICE_PACKAGE_REGISTRY_READ: ${{ secrets.GITHUB_TOKEN }}
       # Schema-validates all content (loader throws on bad YAML) + runs unit tests.
       - run: npm run build
       - run: npm test
