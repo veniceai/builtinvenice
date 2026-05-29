@@ -3,16 +3,16 @@
 # Content (data-only) vs. code is split so a listing change and a site change
 # are reviewed by the right people and are mechanically distinguishable.
 
-# Default: everything is owned by core maintainers unless overridden below.
-* @veniceai/SensitiveCodeOwners @willyogo @sabrinaaquino @joshua-mo-143
+# Default: everything is owned by the maintainers unless overridden below.
+* @willyogo @sabrinaaquino @joshua-mo-143 @reallybeard
 
 # Community content — data files only. Lighter review by DevRel.
-/content/ @sabrinaaquino @joshua-mo-143 @willyogo
+/content/ @sabrinaaquino @joshua-mo-143 @willyogo @reallybeard
 
-# Code, build, automation, and config — core maintainers only. Listed last so
-# these win over the /content/ rule if a PR somehow touches both.
-/src/         @veniceai/SensitiveCodeOwners @willyogo
-/.github/     @veniceai/SensitiveCodeOwners @willyogo
-/scripts/     @veniceai/SensitiveCodeOwners @willyogo
-/package.json @veniceai/SensitiveCodeOwners @willyogo
-/vite.config.ts @veniceai/SensitiveCodeOwners @willyogo
+# Code, build, automation, and config. Listed last so these win over the
+# /content/ rule if a PR somehow touches both.
+/src/           @willyogo @sabrinaaquino @joshua-mo-143 @reallybeard
+/.github/       @willyogo @sabrinaaquino @joshua-mo-143 @reallybeard
+/scripts/       @willyogo @sabrinaaquino @joshua-mo-143 @reallybeard
+/package.json   @willyogo @sabrinaaquino @joshua-mo-143 @reallybeard
+/vite.config.ts @willyogo @sabrinaaquino @joshua-mo-143 @reallybeard
