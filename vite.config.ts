@@ -15,5 +15,22 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
+    setupFiles: ['./src/test/setup.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'lcov'],
+      include: [
+        'src/data/**/*.ts',
+        'src/utils/**/*.ts',
+        'src/submitSchemas.ts',
+        'src/components/SubmitDialog.tsx',
+        'src/components/ImageField.tsx',
+        'src/components/cards/**/*.tsx',
+      ],
+      exclude: ['**/*.test.*', '**/*.d.ts'],
+      // Thresholds intentionally omitted here — they're enabled in the
+      // final task after all new tests land. This lets each test-adding
+      // commit pass CI on its own.
+    },
   },
 })
