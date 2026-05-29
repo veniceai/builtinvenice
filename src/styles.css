@@ -295,13 +295,14 @@ input:focus-visible {
   left: 0;
   right: 0;
   width: 100%;
-  /* Oversized + offset so parallax drift never exposes a hard edge.
-     Headroom must exceed PARALLAX_FACTOR. */
+  /* Oversized + offset so parallax drift never exposes an edge: the layer
+     drifts down at PARALLAX_FACTOR while the page scrolls it up faster, so the
+     top edge always stays above the fold and the bottom stays covered. */
   top: -20%;
   height: 168%;
   object-fit: cover;
   object-position: center center;
-  /* Soften the footage so it reads as a calm backdrop, not a focal point. */
+  /* Pull the colour back slightly so it sits calmly behind the content. */
   filter: saturate(0.8);
   will-change: transform;
   backface-visibility: hidden;

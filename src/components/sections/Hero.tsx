@@ -24,15 +24,14 @@ export default function Hero({ onSubmit }: { onSubmit: () => void }) {
       return;
     }
 
+    // Cache the hero height so the scroll handler never reads layout per frame;
+    // progress runs 0 → 1 over the hero's own scroll range, then settles.
+    let height = sectionRef.current?.offsetHeight || 1;
     let frame = 0;
+
     const update = () => {
       frame = 0;
-      const section = sectionRef.current;
-      if (!section || !video) return;
-
-      // Progress through the hero's own scroll range only (0 → 1), so the
-      // effect settles once the hero has left the viewport.
-      const height = section.offsetHeight || 1;
+      if (!video) return;
       const progress = Math.min(Math.max(window.scrollY / height, 0), 1);
       const drift = progress * height * PARALLAX_FACTOR;
       video.style.transform = `translate3d(0, ${drift.toFixed(2)}px, 0)`;
@@ -43,13 +42,18 @@ export default function Hero({ onSubmit }: { onSubmit: () => void }) {
       frame = window.requestAnimationFrame(update);
     };
 
+    const onResize = () => {
+      height = sectionRef.current?.offsetHeight || 1;
+      onScroll();
+    };
+
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      window.removeEventListener('resize', onResize);
     };
   }, []);
 
@@ -63,8 +67,8 @@ export default function Hero({ onSubmit }: { onSubmit: () => void }) {
           muted
           loop
           playsInline
-          preload="auto"
-          poster="/hero/hero-poster.jpg"
+          preload="metadata"
+          poster="/hero-poster.jpg"
         >
           <source src="/hero-4k.webm" type="video/webm" />
           <source src="/hero-4k.mp4" type="video/mp4" />
