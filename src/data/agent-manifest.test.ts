@@ -3,22 +3,21 @@ import { resolve } from 'node:path';
 import { z } from 'zod';
 import { describe, expect, it } from 'vitest';
 import { projectSchema } from './schema';
+import { AGENT_SKILL_CANONICAL, REPO_SLUG, REPO_URL, SITE_URL } from '../constants';
 
 const MANIFEST = resolve(__dirname, '../../public/.well-known/agent-submit.json');
 
 // Static metadata preserved across regenerations.
 const META = {
   $schema: 'https://json-schema.org/draft/2020-12/schema',
-  name: 'builtonvenice-submit',
+  name: 'builtinvenice-submit',
   version: 3,
-  description:
-    'Submit a community project to the Built in Venice directory. Submissions land as pull requests (preferred) or issues against veniceai/builtwithvenice.',
-  repo: 'https://github.com/veniceai/builtwithvenice',
-  site: 'https://builtonvenice.ai',
-  skill: 'https://builtonvenice.ai/agent-skill.md',
-  issueTemplate:
-    'https://github.com/veniceai/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+',
-  issuePicker: 'https://github.com/veniceai/builtwithvenice/issues/new/choose',
+  description: `Submit a community project to the Built in Venice directory. Submissions land as pull requests (preferred) or issues against ${REPO_SLUG}.`,
+  repo: REPO_URL,
+  site: SITE_URL,
+  skill: AGENT_SKILL_CANONICAL,
+  issueTemplate: `${REPO_URL}/issues/new?template=submit-project.yml&title=%5BProject%5D+`,
+  issuePicker: `${REPO_URL}/issues/new/choose`,
   preferredFlow: 'pull-request',
   fallbackFlow: 'github-issue',
   targetDir: 'content/projects/',

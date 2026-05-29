@@ -1,5 +1,5 @@
 blank_issues_enabled: true
 contact_links:
   - name: Contributing guide
-    url: https://github.com/veniceai/builtwithvenice/blob/main/CONTRIBUTING.md
+    url: https://github.com/veniceai/builtinvenice/blob/main/CONTRIBUTING.md
     about: Read the schema and PR flow before opening a submission.

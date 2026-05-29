@@ -2,7 +2,7 @@
 
 Community showcase of tools, SDKs, content, and builders in the Venice AI ecosystem.
 
-Live at: https://builtonvenice.ai
+Live at: https://builtinvenice.ai
 
 ## What's here
 
@@ -19,9 +19,9 @@ Projects are categorized as either **Ecosystem** (tools built for the Venice com
 
 You don't need to clone the repo or run anything locally to submit — every option below works from the browser or by editing a single file.
 
-**Easiest:** Click "Submit your work" on the [live site](https://builtonvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
+**Easiest:** Click "Submit your work" on the [live site](https://builtinvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
 
-You can also [pick a submission form](https://github.com/veniceai/builtwithvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and media each have their own template.
+You can also [pick a submission form](https://github.com/veniceai/builtinvenice/issues/new/choose) directly on GitHub — projects, cookbooks, events, and media each have their own template.
 
 **Via pull request:** fork, add your entry to the relevant file under `src/data/` (`projects.ts`, `cookbooks.ts`, `events.ts`, or `media.ts`), and open a PR. You can do this entirely in the GitHub web editor — no local checkout, no dev server, no token setup. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the per-type schema.
 
@@ -39,7 +39,7 @@ A good submission is:
 - **Token-secondary** — token-related projects are welcome when there's a real product, protocol, or resource behind them.
 - **Safe for users** — wallet, payment, extension, or automation submissions must explain permissions and data handling.
 
-Full guidelines: [builtonvenice.ai/submission-guidelines](https://builtonvenice.ai/submission-guidelines). All submissions are reviewed before publishing; listing does not imply endorsement by Venice AI.
+Full guidelines: [builtinvenice.ai/submission-guidelines](https://builtinvenice.ai/submission-guidelines). All submissions are reviewed before publishing; listing does not imply endorsement by Venice AI.
 
 ## Local development
 
