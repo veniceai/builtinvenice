@@ -165,6 +165,8 @@ We will not accept:
 - [ ] Description is 1–2 plain sentences, under ~220 characters.
 - [ ] `tags` reuses existing tags where it makes sense.
 
+> Automated review (Cursor Bugbot) checks every PR against these same rules — security, PR hygiene, and the [submission guidelines](https://builtonvenice.ai/submission-guidelines). The rules it enforces live in [`.cursor/BUGBOT.md`](./.cursor/BUGBOT.md).
+
 ## Disclaimer
 
 Listing on Built in Venice does not imply endorsement by Venice AI, Inc.
