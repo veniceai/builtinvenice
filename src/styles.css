@@ -66,6 +66,9 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 12px;
+  /* Approx. sticky-header height (logo 45px + 10px×2 padding). Used to pull
+     the hero up so the video sits behind the transparent header. */
+  --header-h: 65px;
 }
 
 /* Lock the cyan ramp to the brand spec for light mode.
@@ -120,6 +123,9 @@ body {
 .page-frame {
   position: relative;
   min-height: 100vh;
+  /* `clip` lets the full-bleed hero break out to 100vw without spawning a
+     horizontal scrollbar, while keeping the sticky header working. */
+  overflow-x: clip;
 }
 
 @keyframes pageElementIn {
@@ -183,6 +189,7 @@ input:focus-visible {
 .site-header-inner {
   max-width: 1200px;
   margin: 0 auto;
+  min-height: var(--header-h);
   padding: 10px 70px;
   display: flex;
   align-items: center;
@@ -261,9 +268,72 @@ input:focus-visible {
    HERO
    ============================== */
 .hero-section {
+  position: relative;
+  /* Break out of the padded content column to span the full viewport. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  /* Pull up under the sticky header (its height + the main's top padding) so
+     the video extends behind the transparent header. */
+  margin-top: calc(-1 * (var(--header-h) + 24px));
+  margin-bottom: 56px;
+  padding: 128px 24px 132px;
   text-align: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-parallax {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* Oversized + offset so parallax drift never exposes an edge: the layer
+     drifts down at PARALLAX_FACTOR while the page scrolls it up faster, so the
+     top edge always stays above the fold and the bottom stays covered. */
+  top: -20%;
+  height: 168%;
+  object-fit: cover;
+  object-position: center center;
+  /* Pull the colour back slightly so it sits calmly behind the content. */
+  filter: saturate(0.8);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Gentle light wash behind the headline for legibility over the sky, plus a
+   fade into the page background at the bottom so the full-bleed image merges
+   seamlessly into the light content below. */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 78% at 50% 30%,
+      color-mix(in srgb, var(--background-default) 42%, transparent) 0%,
+      transparent 56%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--background-default) 30%, transparent) 0%,
+      transparent 16%,
+      transparent 42%,
+      color-mix(in srgb, var(--background-default) 10%, transparent) 58%,
+      color-mix(in srgb, var(--background-default) 26%, transparent) 72%,
+      color-mix(in srgb, var(--background-default) 55%, transparent) 86%,
+      color-mix(in srgb, var(--background-default) 82%, transparent) 94%,
+      var(--background-default) 100%);
+}
+
+.hero-content {
+  position: relative;
   max-width: 640px;
-  margin: 72px auto 64px;
+  margin: 0 auto;
 }
 
 .hero-title {
@@ -2022,7 +2092,7 @@ input:focus-visible {
   .site-header-cta { padding: 7px 13px; font-size: 12.5px; }
 
   /* Hero */
-  .hero-section { margin-top: 36px; margin-bottom: 40px; }
+  .hero-section { margin-bottom: 40px; padding: 92px 18px 104px; }
   .hero-title { font-size: 38px; }
   .hero-subtitle { font-size: 15px; max-width: 100%; }
   .submit-cta { padding: 11px 22px; font-size: 13px; }
