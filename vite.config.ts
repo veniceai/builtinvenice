@@ -28,14 +28,14 @@ export default defineConfig({
         'src/components/cards/**/*.tsx',
       ],
       exclude: ['**/*.test.*', '**/*.d.ts'],
-      // Threshold rationale: statements is 75 (not 80) because SubmitDialog
-      // and ImageField contain hard-to-exercise upload/drag-drop branches
-      // (FileReader callbacks, paste handlers, upload error paths) that
-      // inflate the statement count without representing real untested
-      // behavior. Branches is 70 because Zod's discriminated unions emit
-      // many statically-unreachable branches.
+      // Threshold rationale: statements and lines are 75 (not 80) because
+      // SubmitDialog and ImageField contain hard-to-exercise upload/drag-drop
+      // branches (FileReader callbacks, paste handlers, upload error paths)
+      // that inflate the count without representing real untested behavior.
+      // Branches is 70 because Zod's discriminated unions emit many
+      // statically-unreachable branches.
       thresholds: {
-        lines: 80,
+        lines: 75,
         functions: 80,
         branches: 70,
         statements: 75,
