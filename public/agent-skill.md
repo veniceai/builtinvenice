@@ -1,12 +1,12 @@
 ---
-name: submit-builtonvenice-project
-description: Submit a community project (website, GitHub repo, or X account) to the Built in Venice directory on behalf of the user, via a GitHub pull request (preferred) or issue against veniceai/builtwithvenice.
+name: submit-builtinvenice-project
+description: Submit a community project (website, GitHub repo, or X account) to the Built in Venice directory on behalf of the user, via a GitHub pull request (preferred) or issue against veniceai/builtinvenice.
 version: 2
 ---
 
 # Built in Venice -- agent submission skill
 
-Built in Venice (live at <https://builtonvenice.ai>) is a community-maintained directory of projects built on or around the Venice.ai API. It is an open-source site; there is no write API. Submissions are accepted as **GitHub pull requests** against `veniceai/builtwithvenice` or, as a fallback, **GitHub issues** using the project-submission template.
+Built in Venice (live at <https://builtinvenice.ai>) is a community-maintained directory of projects built on or around the Venice.ai API. It is an open-source site; there is no write API. Submissions are accepted as **GitHub pull requests** against `veniceai/builtinvenice` or, as a fallback, **GitHub issues** using the project-submission template.
 
 This skill tells an agent how to:
 
@@ -14,8 +14,8 @@ This skill tells an agent how to:
 2. Validate against the `Project` schema below.
 3. Open a PR that adds a single file `content/projects/<slug>.yaml`, or fall back to an issue.
 
-Repo: <https://github.com/veniceai/builtwithvenice>
-Issue picker (project, cookbook, event, media): <https://github.com/veniceai/builtwithvenice/issues/new/choose>
+Repo: <https://github.com/veniceai/builtinvenice>
+Issue picker (project, cookbook, event, media): <https://github.com/veniceai/builtinvenice/issues/new/choose>
 
 ---
 
@@ -36,7 +36,7 @@ If you discover during validation that something the user said is wrong or thin 
 Use this skill when the user asks something like:
 
 - "Submit my project to Built in Venice."
-- "Add [repo / site / X handle] to builtonvenice.ai."
+- "Add [repo / site / X handle] to builtinvenice.ai."
 - "Add this to the Venice community directory."
 
 This skill covers **project** submissions only. Cookbooks, events, and media live in the same repo but have their own issue templates and content directories (`content/cookbooks/`, `content/events/`, `content/media/`). For those, point the user at the issue picker above.
@@ -57,7 +57,7 @@ Common to every project type:
 | `tags`          | yes      | 1-4 short Title-Case tags. **Reuse existing tags.** Discover them by scanning existing files: `grep -rh "^  - " content/projects/` (or just scan `content/projects/*.yaml`). Don't invent close synonyms -- prefer `Privacy`, `TEE`, or `Security` over a new `Verifier`. |
 | `submittedBy`   | yes      | GitHub or X handle of the submitter (no `@`).                         |
 | `socials`       | no       | Array of `{ kind, url }`. See `SocialKind` below. **Don't leave empty by default.** Fetch the project URL and look for linked socials in the page metadata or footer; check the GitHub repo's `homepage` / README badges; ask the user "any X handle, Farcaster, Discord, or Telegram people should know about?" before submitting. |
-| `thumbnail`     | no       | 16:9 preview image. **What to provide depends on type:** <br>- `GitHub Repo`: **leave blank.** A build-time script bakes the repo's GitHub OG image into `public/repo-previews/<owner>-<repo>.png` and the card falls back to the owner avatar at runtime -- anything you supply for this type gets overwritten. <br>- `X Account`: **leave blank.** `XAccountCard` doesn't render thumbnails. <br>- `Website`: **try to provide one.** In order: (1) fetch the URL and read its `<meta property="og:image">` -- if it's a 16:9 absolute https URL, use it; (2) if og:image is missing or wrong shape, ask the user "do you have a 16:9 screenshot or hero image hosted somewhere?"; (3) if they only have a local file, point them at the in-app form at <https://builtonvenice.ai/> ("Submit your work"), which uploads automatically -- the agent's own API access doesn't include the upload endpoint. Don't try to upload via a random third-party host. <br>In the issue template the field is named `screenshot` (label: "Thumbnail (optional)") -- same concept, different name. |
+| `thumbnail`     | no       | 16:9 preview image. **What to provide depends on type:** <br>- `GitHub Repo`: **leave blank.** A build-time script bakes the repo's GitHub OG image into `public/repo-previews/<owner>-<repo>.png` and the card falls back to the owner avatar at runtime -- anything you supply for this type gets overwritten. <br>- `X Account`: **leave blank.** `XAccountCard` doesn't render thumbnails. <br>- `Website`: **try to provide one.** In order: (1) fetch the URL and read its `<meta property="og:image">` -- if it's a 16:9 absolute https URL, use it; (2) if og:image is missing or wrong shape, ask the user "do you have a 16:9 screenshot or hero image hosted somewhere?"; (3) if they only have a local file, point them at the in-app form at <https://builtinvenice.ai/> ("Submit your work"), which uploads automatically -- the agent's own API access doesn't include the upload endpoint. Don't try to upload via a random third-party host. <br>In the issue template the field is named `screenshot` (label: "Thumbnail (optional)") -- same concept, different name. |
 | `featured`      | no       | **Do not set.** Maintainers choose featured projects.                 |
 
 Type-specific extras:
@@ -78,15 +78,15 @@ Type-specific extras:
 
 Use this when the agent has write access via `gh` or a GitHub API token.
 
-1. Fork `veniceai/builtwithvenice` (or reuse an existing fork):
+1. Fork `veniceai/builtinvenice` (or reuse an existing fork):
    ```
-   gh repo fork veniceai/builtwithvenice --clone
+   gh repo fork veniceai/builtinvenice --clone
    ```
 2. Create a branch: `submit/<short-kebab-title>`.
 3. Create `content/projects/<slug>.yaml` where the slug is: `<owner>-<repo>` for GitHub repos, the handle (no `@`) for X accounts, the ticker for tokens, and kebab-case of the title otherwise. One entry per file — do not edit other files or any code in `src/`.
-4. Open a PR against `veniceai/builtwithvenice` `main`:
+4. Open a PR against `veniceai/builtinvenice` `main`:
    ```
-   gh pr create --repo veniceai/builtwithvenice --base main \
+   gh pr create --repo veniceai/builtinvenice --base main \
      --title "Add <title>" \
      --body "Submitted by @<handle>. Adds a single file content/projects/<slug>.yaml."
    ```
@@ -124,7 +124,7 @@ There are two sub-flows depending on whether you can drive a browser:
 Open this URL (or hand it to the user); GitHub will render the form prefilled:
 
 ```
-https://github.com/veniceai/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+<url-encoded-title>
+https://github.com/veniceai/builtinvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+<url-encoded-title>
 ```
 
 Append `&<field-id>=<url-encoded-value>` for any of:
@@ -144,7 +144,7 @@ Dropdown values (must match exactly, URL-encoded):
 The template-prefill URL only works in a browser. To create the issue directly via `gh`, write the body yourself in the markdown format below, then:
 
 ```
-gh issue create --repo veniceai/builtwithvenice \
+gh issue create --repo veniceai/builtinvenice \
   --title "[Project] <title>" \
   --body-file <body-file> \
   --label submission
@@ -224,7 +224,7 @@ github: https://github.com/yourHandle
 
 ### Thumbnail (optional)
 
-<For Website: the og:image you scraped from the project URL, or a hosted https URL the user provided. For GitHub Repo and X Account: "_No response_" (auto-baked / not rendered). If the user has only a local file, tell them the in-app form at https://builtonvenice.ai handles upload automatically -- don't punt to maintainers.>
+<For Website: the og:image you scraped from the project URL, or a hosted https URL the user provided. For GitHub Repo and X Account: "_No response_" (auto-baked / not rendered). If the user has only a local file, tell them the in-app form at https://builtinvenice.ai handles upload automatically -- don't punt to maintainers.>
 
 ### Quality Checklist
 
@@ -253,7 +253,7 @@ Before opening a PR or issue, confirm:
 - [ ] The description is 1-2 plain sentences, under ~220 chars, no marketing filler. If you rewrote it from the user's input, show them the rewrite.
 - [ ] `tags` is 1-4 short Title-Case strings; reuse existing tags from `content/projects/` where it makes sense.
 - [ ] `socials` has at least one entry, unless the user has genuinely no public socials.
-- [ ] The project meets the public submission guidelines at <https://builtonvenice.ai/submission-guidelines>.
+- [ ] The project meets the public submission guidelines at <https://builtinvenice.ai/submission-guidelines>.
 
 If any check fails, fetch / ask / rewrite to fix it before submitting -- don't defer to maintainers.
 
@@ -264,7 +264,7 @@ If any check fails, fetch / ask / rewrite to fix it before submitting -- don't d
 The authoritative schema is `src/data/schema.ts` (zod) in the repo; a JSON-Schema mirror is at:
 
 ```
-https://builtonvenice.ai/.well-known/agent-submit.json
+https://builtinvenice.ai/.well-known/agent-submit.json
 ```
 
 Version this skill against the `version` field in that manifest.

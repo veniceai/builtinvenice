@@ -10,12 +10,12 @@ Maintained by the Venice DevRel team — **Sabrina Aquino** and **Josh Meyer**.
 
 Pick the form that matches what you're submitting:
 
-- [**Project**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+) — website, GitHub repo, X account, or community token.
-- [**Cookbook / Recipe**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-cookbook.yml&title=%5BCookbook%5D+)
-- [**Event**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-event.yml&title=%5BEvent%5D+) — hackathon, meetup, workshop, or conference.
-- [**Media**](https://github.com/veniceai/builtwithvenice/issues/new?template=submit-media.yml&title=%5BMedia%5D+) — video, interview, recap, or post about Venice or something built on it.
+- [**Project**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+) — website, GitHub repo, X account, or community token.
+- [**Cookbook / Recipe**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-cookbook.yml&title=%5BCookbook%5D+)
+- [**Event**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-event.yml&title=%5BEvent%5D+) — hackathon, meetup, workshop, or conference.
+- [**Media**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-media.yml&title=%5BMedia%5D+) — video, interview, recap, or post about Venice or something built on it.
 
-Or [browse all submission forms](https://github.com/veniceai/builtwithvenice/issues/new/choose).
+Or [browse all submission forms](https://github.com/veniceai/builtinvenice/issues/new/choose).
 
 ### Option 2 — Pull request
 
