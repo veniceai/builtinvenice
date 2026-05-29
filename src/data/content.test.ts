@@ -45,3 +45,69 @@ describe('content loads and is well-formed', () => {
     expect(officialLinks.every((l) => l.kind !== 'Repository')).toBe(true);
   });
 });
+
+describe('events ordering', () => {
+  it('events are sorted featured-first then by startDate ascending', () => {
+    for (let i = 1; i < events.length; i++) {
+      const a = events[i - 1];
+      const b = events[i];
+      const fa = Number(a.featured ?? false);
+      const fb = Number(b.featured ?? false);
+      expect(fa >= fb).toBe(true);
+      if (fa === fb) {
+        expect(a.startDate.localeCompare(b.startDate) <= 0).toBe(true);
+      }
+    }
+  });
+});
+
+describe('cookbooks and media ordering', () => {
+  it('cookbooks are sorted featured-first then by publishedAt descending', () => {
+    for (let i = 1; i < cookbooks.length; i++) {
+      const a = cookbooks[i - 1];
+      const b = cookbooks[i];
+      const fa = Number(a.featured ?? false);
+      const fb = Number(b.featured ?? false);
+      expect(fa >= fb).toBe(true);
+      if (fa === fb) {
+        expect(a.publishedAt.localeCompare(b.publishedAt) >= 0).toBe(true);
+      }
+    }
+  });
+
+  it('media is sorted featured-first then by publishedAt descending', () => {
+    for (let i = 1; i < media.length; i++) {
+      const a = media[i - 1];
+      const b = media[i];
+      const fa = Number(a.featured ?? false);
+      const fb = Number(b.featured ?? false);
+      expect(fa >= fb).toBe(true);
+      if (fa === fb) {
+        expect(a.publishedAt.localeCompare(b.publishedAt) >= 0).toBe(true);
+      }
+    }
+  });
+});
+
+describe('content uniqueness', () => {
+  it('cookbook URLs are unique', () => {
+    const urls = cookbooks.map(c => c.url);
+    expect(new Set(urls).size).toBe(urls.length);
+  });
+
+  it('media URLs are unique', () => {
+    const urls = media.map(m => m.url);
+    expect(new Set(urls).size).toBe(urls.length);
+  });
+
+  it('event URLs are unique', () => {
+    const urls = events.map(e => e.url);
+    expect(new Set(urls).size).toBe(urls.length);
+  });
+});
+
+describe('officialResources composition', () => {
+  it('officialResources equals repos followed by links', () => {
+    expect(officialResources).toEqual([...officialRepos, ...officialLinks]);
+  });
+});
