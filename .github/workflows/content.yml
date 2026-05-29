@@ -20,9 +20,17 @@ jobs:
       - run: npm ci
         env:
           VENICE_PACKAGE_REGISTRY_READ: ${{ secrets.GITHUB_TOKEN }}
-      # Schema-validates all content (loader throws on bad YAML) + runs unit tests.
+      # Schema-validates all content (loader throws on bad YAML) + builds.
       - run: npm run build
-      - run: npm test
+      - run: npm run lint
+      - run: npm test -- --coverage
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 7
 
   classify:
     runs-on: ubuntu-latest
