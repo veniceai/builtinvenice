@@ -1,0 +1,16 @@
+title: Venice-AI-SDK (Python, alt)
+description: Alternative Python SDK with full Swagger spec coverage — chat,
+  image generation, audio synthesis, embeddings, and function calling.
+type: GitHub Repo
+url: https://github.com/actuallyrizzn/Venice-AI-SDK
+tags:
+  - SDK
+  - Python
+  - Developer Tools
+category: ecosystem
+owner: actuallyrizzn
+repo: Venice-AI-SDK
+submittedBy: actuallyrizzn
+stars: 2
+forks: 0
+language: Python

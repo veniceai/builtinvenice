@@ -1,0 +1,16 @@
+title: venice-ai-php
+description: PHP SDK for Venice AI. Drop-in OpenAI-compatible client for text
+  and image generation, with comprehensive examples.
+type: GitHub Repo
+url: https://github.com/georgeglarson/venice-ai-php
+tags:
+  - SDK
+  - PHP
+  - Developer Tools
+category: ecosystem
+owner: georgeglarson
+repo: venice-ai-php
+submittedBy: georgeglarson
+stars: 7
+forks: 2
+language: HTML

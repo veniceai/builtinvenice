@@ -1,0 +1,17 @@
+title: HealthGuard
+description: 1st place at Akash × Venice Open Agents 2026. Decentralized AI
+  health agent — Venice STT/vision/TTS run on Akash compute, 60s TTL on raw
+  media, AES-256-GCM at rest, Telegram alerts.
+type: GitHub Repo
+url: https://github.com/karthiksai109/healthguard
+tags:
+  - Health
+  - Multimodal
+  - Hackathon
+category: powered-by
+owner: karthiksai109
+repo: healthguard
+submittedBy: karthiksai109
+stars: 0
+forks: 2
+language: Python

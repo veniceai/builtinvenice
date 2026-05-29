@@ -1,0 +1,21 @@
+title: openvenice
+description: Open-source frontend for Venice AI. Chat, image gen, audio, video,
+  embeddings, and visual workflows in one UI. No backend required.
+type: GitHub Repo
+url: https://github.com/nikshepsvn/openvenice
+tags:
+  - Frontend
+  - Open Source
+  - Privacy
+category: powered-by
+owner: nikshepsvn
+repo: openvenice
+submittedBy: nikshepsvn
+featured: true
+socials:
+  - kind: x
+    url: https://x.com/nikshepsvn
+stars: 46
+forks: 9
+language: TypeScript
+thumbnail: /preview-openvenice.png

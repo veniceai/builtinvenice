@@ -1,0 +1,16 @@
+title: venice-dev-tools
+description: TypeScript SDK monorepo for the Venice API — core runtime, Node CLI
+  helpers, and a browser bundle entry.
+type: GitHub Repo
+url: https://github.com/georgeglarson/venice-dev-tools
+tags:
+  - SDK
+  - TypeScript
+  - Developer Tools
+category: ecosystem
+owner: georgeglarson
+repo: venice-dev-tools
+submittedBy: georgeglarson
+stars: 14
+forks: 2
+language: TypeScript

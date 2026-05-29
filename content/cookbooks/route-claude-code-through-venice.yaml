@@ -1,0 +1,15 @@
+title: Route Claude Code through Venice
+description: Use Claude Code (Anthropic CLI) against Venice via
+  claude-code-router — pay-per-token access to Claude Opus 4.5/4.6 and Sonnet
+  with prompt caching wired up.
+url: https://docs.venice.ai/guides/integrations/claude-code
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: intermediate
+readTime: 12 min
+tags:
+  - Claude Code
+  - CLI
+  - Routing
+publishedAt: 2026-04-01
+thumbnail: /preview-venice-claude-code.png

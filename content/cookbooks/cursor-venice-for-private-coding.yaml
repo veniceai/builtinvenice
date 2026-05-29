@@ -1,0 +1,14 @@
+title: Cursor + Venice for private coding
+description: Step-by-step guide to point Cursor at Venice's OpenAI-compatible
+  endpoint, including the `venice-` model-prefix trick for Claude 4.6 in Cursor.
+url: https://venice.ai/blog/how-to-code-with-the-venice-api-in-cursor-a-quick-guide
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: beginner
+readTime: 8 min
+tags:
+  - Cursor
+  - Coding
+  - Setup
+publishedAt: 2025-02-21
+thumbnail: /preview-venice-cursor.png

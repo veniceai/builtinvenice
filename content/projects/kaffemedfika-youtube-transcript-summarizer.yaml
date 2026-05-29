@@ -1,0 +1,15 @@
+title: YouTube Transcript Summarizer
+description: Chrome extension that uses Venice AI to summarize YouTube
+  transcripts and answer questions about video content.
+type: GitHub Repo
+url: https://github.com/KaffeMedFika/YouTube-Transcript-Summarizer
+tags:
+  - Chrome Extension
+  - Summarization
+category: powered-by
+owner: KaffeMedFika
+repo: YouTube-Transcript-Summarizer
+submittedBy: KaffeMedFika
+stars: 6
+forks: 0
+language: JavaScript

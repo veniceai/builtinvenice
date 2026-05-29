@@ -1,0 +1,19 @@
+title: ARVI
+description: Autonomous environmental sensor agent — real weather data → Venice
+  analysis → anomaly detection → on-chain alerts on Base. ERC-8004 identity.
+type: GitHub Repo
+url: https://github.com/ValenteCreativo/ARVI
+tags:
+  - Agent
+  - Privacy
+  - On-chain
+category: powered-by
+owner: ValenteCreativo
+repo: ARVI
+submittedBy: ValenteCreativo
+socials:
+  - kind: website
+    url: https://arvi-eight.vercel.app
+stars: 1
+forks: 0
+language: TypeScript

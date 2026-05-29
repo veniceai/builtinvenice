@@ -1,0 +1,16 @@
+title: pi-venice
+description: Venice extension for the Pi Coding Agent — wires Venice models into
+  the Pi CLI so you can run Pi against Venice's OpenAI-compatible endpoint.
+type: GitHub Repo
+url: https://github.com/tunnckoCore/pi-venice
+tags:
+  - Developer Tools
+  - CLI
+  - Extension
+category: ecosystem
+owner: tunnckoCore
+repo: pi-venice
+submittedBy: tunnckoCore
+stars: 7
+forks: 2
+language: TypeScript

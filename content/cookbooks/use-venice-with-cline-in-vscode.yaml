@@ -1,0 +1,14 @@
+title: Use Venice with Cline in VSCode
+description: Install Cline, plug in your Venice API key, and point it at the
+  OpenAI-compatible base URL for private AI coding assistance.
+url: https://venice.ai/blog/how-to-use-the-venice-api-with-cline-in-vscode-a-developers-guide
+author: Venice.ai
+authorUrl: https://venice.ai
+difficulty: beginner
+readTime: 7 min
+tags:
+  - Cline
+  - VSCode
+  - Setup
+publishedAt: 2025-02-20
+thumbnail: /preview-venice-cline.png

@@ -1,0 +1,15 @@
+title: video-summarizer
+description: Summarize video transcripts using Venice AI (or any
+  OpenAI-compatible endpoint).
+type: GitHub Repo
+url: https://github.com/jooray/video-summarizer
+tags:
+  - Summarization
+  - CLI
+category: powered-by
+owner: jooray
+repo: video-summarizer
+submittedBy: jooray
+stars: 4
+forks: 0
+language: Python

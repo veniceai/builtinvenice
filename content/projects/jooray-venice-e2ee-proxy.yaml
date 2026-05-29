@@ -1,0 +1,16 @@
+title: venice-e2ee-proxy
+description: Local proxy that transparently end-to-end encrypts
+  OpenAI-compatible requests to Venice — drop it in front of any client.
+type: GitHub Repo
+url: https://github.com/jooray/venice-e2ee-proxy
+tags:
+  - Privacy
+  - Encryption
+  - Proxy
+category: ecosystem
+owner: jooray
+repo: venice-e2ee-proxy
+submittedBy: jooray
+stars: 5
+forks: 3
+language: TypeScript

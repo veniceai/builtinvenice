@@ -1,0 +1,16 @@
+title: venicecode
+description: AI-powered coding agent built on opencode with Venice integration
+  and enhanced model compatibility.
+type: GitHub Repo
+url: https://github.com/georgeglarson/venicecode
+tags:
+  - Developer Tools
+  - CLI
+  - Agent
+category: powered-by
+owner: georgeglarson
+repo: venicecode
+submittedBy: georgeglarson
+stars: 6
+forks: 0
+language: TypeScript

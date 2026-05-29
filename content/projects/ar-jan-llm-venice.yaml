@@ -1,0 +1,18 @@
+title: llm-venice
+description: Venice plugin for Simon Willison's `llm` CLI. Use Venice models
+  from your terminal alongside other LLM providers, with venice_parameters
+  support.
+type: GitHub Repo
+url: https://github.com/ar-jan/llm-venice
+tags:
+  - CLI
+  - Plugin
+  - Developer Tools
+category: ecosystem
+owner: ar-jan
+repo: llm-venice
+submittedBy: ar-jan
+featured: true
+stars: 24
+forks: 5
+language: Python

@@ -1,0 +1,6 @@
+title: MCP server
+description: Connect Venice models to MCP-compatible agents and clients.
+url: https://github.com/veniceai/venice-mcp-server
+kind: Repository
+slug: veniceai/venice-mcp-server
+order: 0

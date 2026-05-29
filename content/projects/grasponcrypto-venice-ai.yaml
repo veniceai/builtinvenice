@@ -1,0 +1,16 @@
+title: venice_ai (Home Assistant)
+description: Home Assistant conversation integration for Venice AI. Private AI
+  inside your smart home.
+type: GitHub Repo
+url: https://github.com/grasponcrypto/venice_ai
+tags:
+  - Smart Home
+  - Integration
+  - Privacy
+category: powered-by
+owner: grasponcrypto
+repo: venice_ai
+submittedBy: grasponcrypto
+stars: 13
+forks: 3
+language: Python

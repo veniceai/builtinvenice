@@ -1,0 +1,15 @@
+title: VeniceStats
+description: Community analytics dashboard for the Venice network — VVV/DIEM
+  staking, the Venetians leaderboard, and live ecosystem metrics.
+type: Website
+url: https://venicestats.com
+tags:
+  - Analytics
+  - Dashboard
+  - VVV
+category: ecosystem
+thumbnail: /preview-venicestats.png
+featured: true
+socials:
+  - kind: github
+    url: https://github.com/venicestats
