@@ -87,3 +87,42 @@ describe('buildIssueUrl', () => {
     expect(url.startsWith(`${REPO}/issues/new?`)).toBe(true);
   });
 });
+
+describe('submissionTypes', () => {
+  it('exposes exactly the four expected keys', () => {
+    expect(submissionTypes.map(t => t.key).sort()).toEqual([
+      'cookbook', 'event', 'media', 'project',
+    ]);
+  });
+
+  it("each type's titleField refers to a real field id", () => {
+    for (const t of submissionTypes) {
+      const ids = t.fields.map(f => f.id);
+      expect(ids).toContain(t.titleField);
+    }
+  });
+
+  it('each select field declares non-empty options', () => {
+    for (const t of submissionTypes) {
+      for (const f of t.fields) {
+        if (f.type === 'select') {
+          expect(f.options?.length ?? 0).toBeGreaterThan(0);
+        }
+      }
+    }
+  });
+
+  it('field ids are unique within a type', () => {
+    for (const t of submissionTypes) {
+      const ids = t.fields.map(f => f.id);
+      expect(new Set(ids).size).toBe(ids.length);
+    }
+  });
+
+  it('the project type has exactly one image field (the thumbnail)', () => {
+    const project = submissionTypes.find(t => t.key === 'project')!;
+    const images = project.fields.filter(f => f.type === 'image');
+    expect(images.length).toBe(1);
+    expect(images[0].id).toBe('screenshot');
+  });
+});
