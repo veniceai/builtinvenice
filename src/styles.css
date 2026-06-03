@@ -2031,10 +2031,6 @@ input:focus-visible {
 .footer-logo {
   width: 96px;
   height: auto;
-  aspect-ratio: 95 / 44;
-  background-color: var(--sea-dark);
-  -webkit-mask: url('/builtinvenice-wordmark.svg') no-repeat center / contain;
-  mask: url('/builtinvenice-wordmark.svg') no-repeat center / contain;
 }
 
 .footer-columns {
