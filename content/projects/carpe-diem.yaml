@@ -1,0 +1,17 @@
+title: Carpe Diem
+description: Decentralized marketplace for Venice.ai inference on Base L2.
+  Providers provision their Venice API keys into a TEE to earn DIEM; buyers
+  access Venice models at up to 85% off, paying on-chain with credits.
+type: Website
+url: https://carpe-diem.xyz
+tags:
+  - Inference
+  - Marketplace
+  - DIEM
+  - TEE
+category: ecosystem
+submittedBy: willyogo
+thumbnail: https://i.ibb.co/hJL7C93d/carpe-diem-og.png
+socials:
+  - kind: x
+    url: https://x.com/Ask_CarpeDiem
