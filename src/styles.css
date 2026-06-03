@@ -200,7 +200,7 @@ input:focus-visible {
 .site-header-logo {
   display: inline-flex;
   align-items: center;
-  color: var(--foreground);
+  color: #0A121A;
   opacity: 0.92;
   transition: opacity 0.15s ease;
 }
@@ -341,7 +341,7 @@ input:focus-visible {
   font-size: clamp(44px, 5.6vw, 68px);
   font-weight: 400;
   letter-spacing: -0.038em;
-  color: var(--black);
+  color: #0A121A;
   margin-bottom: 18px;
   line-height: 1.04;
   animation: pageElementIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
