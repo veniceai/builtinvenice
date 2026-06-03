@@ -1,0 +1,19 @@
+title: Amach Health (iOS)
+description: Native iOS app for Amach Health that syncs Apple Health data into
+  encrypted Storj storage with on-chain attestations, feeding the Venice-powered
+  Luma health companion.
+type: GitHub Repo
+url: https://github.com/DaveO280/AmachHealth-iOS
+tags:
+  - Health
+  - Privacy
+  - On-chain
+  - iOS
+category: powered-by
+owner: DaveO280
+repo: AmachHealth-iOS
+language: Swift
+submittedBy: DaveO280
+socials:
+  - kind: website
+    url: https://www.amachhealth.com
