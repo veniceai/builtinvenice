@@ -80,6 +80,7 @@ html[data-theme='light'] {
   --primary: #125DA3;
   --primary-hover: #0D4982;
   --accent: #125DA3;
+  --foreground: #0A121A;
 }
 
 html {
