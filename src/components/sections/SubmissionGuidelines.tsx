@@ -1,7 +1,14 @@
-const GUIDELINES = [
+import type { ReactNode } from 'react';
+
+const GUIDELINES: { title: string; body: ReactNode }[] = [
   {
     title: 'Be clearly connected to Venice',
-    body: 'It should use Venice, integrate with Venice, teach people how to use Venice, or support the Venice ecosystem.',
+    body: (
+      <>
+        It should use Venice, integrate with Venice, teach people how to use Venice, or support the Venice ecosystem. If you're using Venice's name or marks, check the{' '}
+        <a href="https://venice.ai/brand">Venice Brand Kit</a> to keep things consistent.
+      </>
+    ),
   },
   {
     title: 'Be publicly accessible',

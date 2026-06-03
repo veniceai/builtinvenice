@@ -350,7 +350,7 @@ input:focus-visible {
 .hero-title-name {
   font-family: inherit;
   font-weight: 400;
-  color: var(--primary);
+  color: inherit;
   letter-spacing: -0.022em;
 }
 
@@ -530,6 +530,8 @@ input:focus-visible {
   margin: 0;
   text-align: left;
   animation: none;
+  opacity: 1;
+  color: var(--black);
 }
 
 .guidelines-list {
@@ -551,7 +553,6 @@ input:focus-visible {
   font-size: 17px;
   font-weight: 500;
   color: var(--black);
-  opacity: 0.62;
   line-height: 1.55;
   flex-shrink: 0;
 }
@@ -564,7 +565,18 @@ input:focus-visible {
 
 .guidelines-list-title {
   font-weight: 500;
-  opacity: 0.85;
+}
+
+.guidelines-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.2s ease;
+}
+
+.guidelines-body a:hover {
+  opacity: 0.7;
 }
 
 /* ==============================
@@ -2017,16 +2029,8 @@ input:focus-visible {
 }
 
 .footer-logo {
-  width: 40px;
+  width: 96px;
   height: auto;
-  opacity: 0.8;
-}
-
-.footer-tagline {
-  font-size: 13px;
-  font-style: italic;
-  opacity: 0.4;
-  letter-spacing: 0.01em;
 }
 
 .footer-columns {

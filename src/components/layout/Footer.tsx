@@ -5,9 +5,8 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-brand">
         <a href="https://venice.ai" aria-label="Venice AI">
-          <img src="/venice-emblem.svg" alt="Venice" className="footer-logo" />
+          <img src="/builtinvenice-wordmark.svg" alt="Built in Venice" className="footer-logo" />
         </a>
-        <p className="footer-tagline">Ad Intellectum Infinitum</p>
       </div>
       <div className="footer-columns">
         <div className="footer-links-group">
@@ -16,9 +15,11 @@ export default function Footer() {
           <a href="https://venice.ai/about">About</a>
           <a href="https://venice.ai/features">Features</a>
           <a href="https://venice.ai/pricing">Pricing</a>
+          <a href="https://venice.ai/brand">Brand Kit</a>
         </div>
         <div className="footer-links-group">
           <span className="footer-links-heading">Resources</span>
+          <a href="/submission-guidelines">Submission Guidelines</a>
           <a href="https://docs.venice.ai">API Docs</a>
           <a href="https://venice.ai/blog">Blog</a>
           <a href={REPO_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
