@@ -1,0 +1,21 @@
+title: Amach Health (Web)
+description: Open-source Next.js codebase for the Amach Health platform, with
+  wallet auth, encrypted Storj storage, on-chain profiles, and the Venice-powered
+  Luma AI health companion.
+type: GitHub Repo
+url: https://github.com/DaveO280/Amach-Website
+tags:
+  - Health
+  - Privacy
+  - Encryption
+  - On-chain
+category: powered-by
+owner: DaveO280
+repo: Amach-Website
+language: TypeScript
+submittedBy: DaveO280
+socials:
+  - kind: x
+    url: https://x.com/amachhealth
+  - kind: website
+    url: https://www.amachhealth.com
