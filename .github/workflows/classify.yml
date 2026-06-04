@@ -1,0 +1,51 @@
+name: Classify PR
+# Uses pull_request_target so labeling works on PRs from forks (which get a
+# read-only GITHUB_TOKEN under pull_request). We never check out the PR head
+# here — only the GitHub API is used — so running with the elevated token
+# does not execute untrusted code.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Classify and label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number, per_page: 100,
+            });
+
+            let content = false;
+            let code = false;
+            for (const f of files) {
+              if (f.filename.startsWith('content/')) content = true;
+              else code = true;
+            }
+            core.info(`content=${content} code=${code}`);
+
+            if (content && !code) {
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number: pull_number, labels: ['content-only'],
+              });
+            } else if (content && code) {
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number: pull_number, labels: ['code-change'],
+              });
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: pull_number,
+                body: '⚠️ This PR changes both `content/` and code/config. A listing change should touch **only** `content/`. Reviewers: confirm the non-content changes are intended.',
+              });
+            }

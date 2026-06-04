@@ -5,11 +5,16 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
   packages: read
 
 jobs:
   validate:
+    # Fork PRs can't safely run this job: npm ci needs the registry token
+    # to install @veniceai/tokens, and exposing secrets.GITHUB_TOKEN to a
+    # build influenced by fork-controlled package.json / lockfile / .npmrc
+    # risks token exfiltration via a malicious dep or redirected registry.
+    # Maintainers can re-run by pushing the PR's branch into this repo.
+    if: github.event.pull_request.head.repo.fork == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,7 +22,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # --ignore-scripts blocks transitive postinstall hooks — defense in
+      # depth even for same-repo PRs, since a compromised contributor
+      # branch could otherwise exfil the registry token.
+      - run: npm ci --ignore-scripts
         env:
           VENICE_PACKAGE_REGISTRY_READ: ${{ secrets.GITHUB_TOKEN }}
       # Schema-validates all content (loader throws on bad YAML) + builds.
@@ -31,50 +39,3 @@ jobs:
           name: coverage
           path: coverage/
           retention-days: 7
-
-  classify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Classify changed paths
-        id: diff
-        run: |
-          BASE="${{ github.event.pull_request.base.sha }}"
-          HEAD="${{ github.event.pull_request.head.sha }}"
-          FILES=$(git diff --name-only "$BASE" "$HEAD")
-          echo "Changed files:"; echo "$FILES"
-          CONTENT=false; CODE=false
-          while IFS= read -r f; do
-            [ -z "$f" ] && continue
-            case "$f" in
-              content/*) CONTENT=true ;;
-              *) CODE=true ;;
-            esac
-          done <<< "$FILES"
-          echo "content=$CONTENT" >> "$GITHUB_OUTPUT"
-          echo "code=$CODE" >> "$GITHUB_OUTPUT"
-      - name: Label content-only
-        if: steps.diff.outputs.content == 'true' && steps.diff.outputs.code == 'false'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner, repo: context.repo.repo,
-              issue_number: context.issue.number, labels: ['content-only'],
-            });
-      - name: Flag mixed content + code
-        if: steps.diff.outputs.content == 'true' && steps.diff.outputs.code == 'true'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner, repo: context.repo.repo,
-              issue_number: context.issue.number, labels: ['code-change'],
-            });
-            await github.rest.issues.createComment({
-              owner: context.repo.owner, repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: '⚠️ This PR changes both `content/` and code/config. A listing change should touch **only** `content/`. Reviewers: confirm the non-content changes are intended.',
-            });
