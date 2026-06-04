@@ -24,7 +24,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: 1–2 plain sentences about what the recipe teaches. Avoid marketing language.
+      description: 1–2 plain sentences about what the recipe teaches (under 220 characters). Avoid marketing language.
       placeholder: Describe the recipe...
     validations:
       required: true

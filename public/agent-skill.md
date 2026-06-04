@@ -50,7 +50,7 @@ Common to every project type:
 | field           | required | notes                                                                 |
 |-----------------|----------|-----------------------------------------------------------------------|
 | `title`         | yes      | Display name. Keep under 40 chars.                                    |
-| `description`   | yes      | One to two sentences. Max ~220 chars. If the user gives you marketing copy ("revolutionary", "cutting-edge", emoji, ALL CAPS), **rewrite it yourself** in plain language describing what it does, then show the user the rewrite. If you can't tell what the project does, fetch the URL and read the page before asking. |
+| `description`   | yes      | One to two sentences. Max 220 chars. If the user gives you marketing copy ("revolutionary", "cutting-edge", emoji, ALL CAPS), **rewrite it yourself** in plain language describing what it does, then show the user the rewrite. If you can't tell what the project does, fetch the URL and read the page before asking. |
 | `url`           | yes      | Canonical URL for the project. Must be `https://`.                    |
 | `type`          | yes      | `"Website"` \| `"GitHub Repo"` \| `"X Account"`                       |
 | `category`      | yes      | `"ecosystem"` (maintained by/with Venice) or `"powered-by"` (built on Venice). |
@@ -250,7 +250,7 @@ Before opening a PR or issue, confirm:
 - [ ] For X accounts: the handle exists (`https://x.com/<handle>` doesn't 404), and either `bio` or `followers` is filled in (ideally both).
 - [ ] For Websites: a `thumbnail` is included if one is reasonably gettable (og:image scrape, user-hosted URL, or in-app form for local files).
 - [ ] No duplicate entry already exists -- search `content/projects/` for the URL and the title (e.g. `grep -rl <url> content/projects`).
-- [ ] The description is 1-2 plain sentences, under ~220 chars, no marketing filler. If you rewrote it from the user's input, show them the rewrite.
+- [ ] The description is 1-2 plain sentences, under 220 chars, no marketing filler. If you rewrote it from the user's input, show them the rewrite.
 - [ ] `tags` is 1-4 short Title-Case strings; reuse existing tags from `content/projects/` where it makes sense.
 - [ ] `socials` has at least one entry, unless the user has genuinely no public socials.
 - [ ] The project meets the public submission guidelines at <https://builtinvenice.ai/submission-guidelines>.
