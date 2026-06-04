@@ -1,0 +1,17 @@
+title: Blue Chat
+description: AI-native chat interface for Base builders. An onchain agent
+  with 50 tools — wallet analytics, contract audits, gas oracle, bridge,
+  and deploy — all powered by Venice and gated by $BLUEAGENT staking.
+type: Website
+url: https://blueagent.dev/chat
+tags:
+  - Agent
+  - Base
+  - Onchain
+  - Founders
+category: powered-by
+socials:
+  - kind: x
+    url: https://x.com/blueagent_
+  - kind: telegram
+    url: https://t.me/blueagent_hub
