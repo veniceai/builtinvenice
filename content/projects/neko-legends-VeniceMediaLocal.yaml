@@ -1,0 +1,19 @@
+title: Venice Media Local
+description: A local Tauri desktop app that lets you generate images, video, music, SFX, and voice via your own Venice API key. Your key and generated files stay on your machine, with a burn-folder workflow for secure local file cleanup.
+type: GitHub Repo
+url: https://github.com/neko-legends/VeniceMediaLocal
+tags:
+  - Image Generation
+  - Multimodal
+  - Open Source
+  - Privacy
+category: powered-by
+owner: neko-legends
+repo: VeniceMediaLocal
+language: Rust
+stars: 0
+forks: 0
+submittedBy: flashosophy
+socials:
+  - kind: github
+    url: https://github.com/neko-legends
