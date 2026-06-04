@@ -1,0 +1,19 @@
+title: Pi Venice Stats
+description: Live Venice Protocol stats dashboard for the Pi Coding Agent. Displays
+  real-time VVV and DIEM prices, market data, wallet balances, staking metrics, and
+  billing usage via health-driven polling against venicestats.com.
+type: GitHub Repo
+url: https://github.com/c-drew/pi-venice-stats
+category: powered-by
+tags: [Dashboard, Extension, VVV, DIEM]
+owner: c-drew
+repo: pi-venice-stats
+language: TypeScript
+stars: 2
+forks: 1
+submittedBy: c-drew
+socials:
+  - kind: github
+    url: https://github.com/c-drew
+  - kind: x
+    url: https://x.com/tlodrew
