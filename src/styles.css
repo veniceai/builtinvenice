@@ -2118,6 +2118,10 @@ input:focus-visible {
   /* Grids — single column */
   .project-grid { grid-template-columns: 1fr; }
 
+  /* Thumbnails fill full card width — drop the height cap so the
+     16/9 aspect ratio isn't forced to shrink width and leave whitespace */
+  .card-preview { max-height: none; }
+
   /* Cards — tighter padding */
   .card-body { padding: 16px; }
   .project-card-title { font-size: 16px; }
@@ -2276,6 +2280,5 @@ input:focus-visible {
   .hero-title { font-size: 32px; }
   .hero-subtitle { font-size: 14px; }
   .footer-columns { grid-template-columns: 1fr; }
-  .card-preview { max-height: 140px; }
   .media-thumb { max-height: 160px; }
 }
