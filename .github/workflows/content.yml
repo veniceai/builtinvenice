@@ -9,6 +9,12 @@ permissions:
 
 jobs:
   validate:
+    # Fork PRs can't safely run this job: npm ci needs the registry token
+    # to install @veniceai/tokens, and exposing secrets.GITHUB_TOKEN to a
+    # build influenced by fork-controlled package.json / lockfile / .npmrc
+    # risks token exfiltration via a malicious dep or redirected registry.
+    # Maintainers can re-run by pushing the PR's branch into this repo.
+    if: github.event.pull_request.head.repo.fork == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,7 +22,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # --ignore-scripts blocks transitive postinstall hooks — defense in
+      # depth even for same-repo PRs, since a compromised contributor
+      # branch could otherwise exfil the registry token.
+      - run: npm ci --ignore-scripts
         env:
           VENICE_PACKAGE_REGISTRY_READ: ${{ secrets.GITHUB_TOKEN }}
       # Schema-validates all content (loader throws on bad YAML) + builds.
