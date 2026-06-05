@@ -46,7 +46,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: 1–2 plain sentences about what the project does. Avoid marketing language.
+      description: 1–2 plain sentences about what the project does (under 220 characters). Avoid marketing language.
       placeholder: Describe your project...
     validations:
       required: true
