@@ -1,0 +1,19 @@
+title: venice-bench
+description: Benchmarks Venice AI models across scripted chat and reasoning suites, calling the Venice API and logging per-run cost, latency, and pricing-tier telemetry.
+type: GitHub Repo
+url: https://github.com/Arxonic1/venice-bench
+tags:
+  - Inference
+  - Research
+category: powered-by
+owner: Arxonic1
+repo: venice-bench
+submittedBy: Arxonic
+stars: 0
+forks: 0
+language: TypeScript
+socials:
+  - kind: x
+    url: https://x.com/Arxonic
+  - kind: github
+    url: https://github.com/Arxonic1/venice-bench
