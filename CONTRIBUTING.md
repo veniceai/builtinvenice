@@ -162,7 +162,7 @@ We will not accept:
 - [ ] TypeScript compiles (`npm run build`).
 - [ ] Entry includes all required fields for its type.
 - [ ] URL is publicly accessible.
-- [ ] Description is 1–2 plain sentences, under ~220 characters.
+- [ ] Description is 1–2 plain sentences, under 220 characters.
 - [ ] `tags` reuses existing tags where it makes sense.
 
 ## Disclaimer

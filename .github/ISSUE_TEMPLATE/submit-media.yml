@@ -24,7 +24,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: 1–2 plain sentences about what the media shows. Avoid marketing copy.
+      description: 1–2 plain sentences about what the media shows (under 220 characters). Avoid marketing copy.
       placeholder: Describe what's in the media...
     validations:
       required: true
