@@ -12,5 +12,7 @@ repo: venice-solana-x402
 language: TypeScript
 submittedBy: Impossible-Mission-Force
 socials:
+  - kind: x
+    url: https://x.com/huntmythos
   - kind: github
     url: https://github.com/Impossible-Mission-Force/venice-solana-x402
