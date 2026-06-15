@@ -29,7 +29,7 @@ const PROJECT_TYPE = 'project-type';
 
 // Exact option string for the Ecosystem category. Referenced by both the
 // category field's options and the showWhen predicates below so they can't drift.
-const ECOSYSTEM_CATEGORY = 'Ecosystem (built for the Venice community)';
+export const ECOSYSTEM_CATEGORY = 'Ecosystem (built for the Venice community)';
 
 export const submissionTypes: SubmissionType[] = [
   {

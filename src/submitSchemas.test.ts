@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildIssueUrl, submissionTypes } from './submitSchemas';
+import { buildIssueUrl, submissionTypes, ECOSYSTEM_CATEGORY } from './submitSchemas';
 
 const REPO = 'https://github.com/veniceai/builtinvenice';
 
@@ -91,7 +91,7 @@ describe('buildIssueUrl', () => {
     const url = buildIssueUrl(REPO, typeByKey('project'), {
       'project-name': 'Foo',
       'project-type': 'Website',
-      category: 'Ecosystem (built for the Venice community)',
+      category: ECOSYSTEM_CATEGORY,
       'venice-relationship': 'Tooling / SDK for Venice builders',
       'venice-connection': 'A CLI that wraps the Venice API for builders.',
     });
@@ -104,7 +104,7 @@ describe('buildIssueUrl', () => {
     const url = buildIssueUrl(REPO, typeByKey('project'), {
       'project-name': 'Foo',
       'project-type': 'Website',
-      category: 'Powered by Venice (uses the Venice API)',
+      category: 'Powered by Venice (uses the Venice API)', // intentional literal — no constant defined for this value
       'venice-relationship': 'shouldnotappear',
       'venice-connection': 'shouldnotappear',
     });
