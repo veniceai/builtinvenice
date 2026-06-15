@@ -118,6 +118,7 @@ describe('SubmitDialog — Ecosystem Venice fields', () => {
   it('reveals the Venice-relationship fields when Ecosystem is selected', async () => {
     const user = userEvent.setup();
     render(<SubmitDialog onClose={() => {}} initialKey="project" />);
+    expect(screen.queryByLabelText(/^Venice relationship/)).toBeNull();
     expect(screen.queryByLabelText(/How is this built for Venice/)).toBeNull();
     await user.selectOptions(
       screen.getByLabelText(/^Category/),
