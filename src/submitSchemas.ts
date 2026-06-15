@@ -27,6 +27,10 @@ export interface SubmissionType {
 
 const PROJECT_TYPE = 'project-type';
 
+// Exact option string for the Ecosystem category. Referenced by both the
+// category field's options and the showWhen predicates below so they can't drift.
+const ECOSYSTEM_CATEGORY = 'Ecosystem (built for the Venice community)';
+
 export const submissionTypes: SubmissionType[] = [
   {
     key: 'project',
@@ -50,10 +54,35 @@ export const submissionTypes: SubmissionType[] = [
         label: 'Category',
         type: 'select',
         required: true,
+        description:
+          'Ecosystem projects must be built specifically for Venice — not a general tool that Venice users could also use (e.g. Google Docs).',
         options: [
-          'Ecosystem (built for the Venice community)',
+          ECOSYSTEM_CATEGORY,
           'Powered by Venice (uses the Venice API)',
         ],
+      },
+      {
+        id: 'venice-relationship',
+        label: 'Venice relationship',
+        type: 'select',
+        required: true,
+        description: 'Pick the way this project is built for the Venice community.',
+        options: [
+          'Tooling / SDK for Venice builders',
+          'Community asset (e.g. Venice X account, token)',
+          'Content / education about Venice',
+          'Other (explain below)',
+        ],
+        showWhen: f => f.category === ECOSYSTEM_CATEGORY,
+      },
+      {
+        id: 'venice-connection',
+        label: 'How is this built for Venice?',
+        type: 'textarea',
+        required: true,
+        placeholder:
+          "Explain the specific Venice connection — who in the Venice community uses it, and why a general AI tool wouldn't serve the same purpose.",
+        showWhen: f => f.category === ECOSYSTEM_CATEGORY,
       },
       { id: 'description', label: 'Description', type: 'textarea', required: true, placeholder: '1–2 plain sentences. Avoid marketing language.' },
       { id: 'tags', label: 'Tags', type: 'text', required: true, placeholder: 'SDK, TypeScript, Analytics', description: 'Comma-separated, 1–4 short tags.' },
