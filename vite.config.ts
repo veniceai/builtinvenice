@@ -16,6 +16,7 @@ export default defineConfig({
   test: {
     environment: 'node',
     setupFiles: ['./src/test/setup.ts'],
+    exclude: ['**/node_modules/**', '**/.claude/**'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
