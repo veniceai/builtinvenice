@@ -1,0 +1,18 @@
+title: Venice Solana x402 Agent Kit
+description: Solana-native x402 adapter for Venice. Sign-In-With-Solana auth, USDC top-up on Solana, and a reference agent that pays per call for private inference and settles output on-chain.
+type: GitHub Repo
+url: https://github.com/Impossible-Mission-Force/venice-solana-x402
+category: powered-by
+tags:
+  - Agent
+  - x402
+  - Solana
+owner: Impossible-Mission-Force
+repo: venice-solana-x402
+language: TypeScript
+submittedBy: Impossible-Mission-Force
+socials:
+  - kind: x
+    url: https://x.com/huntmythos
+  - kind: github
+    url: https://github.com/Impossible-Mission-Force/venice-solana-x402
