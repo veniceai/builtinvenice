@@ -1,0 +1,20 @@
+title: Amach Breathe
+description: Resonance breathing trainer with real-time HRV biofeedback,
+  coherence scoring, and an Apple Watch companion, featuring an AI breathing
+  coach powered by Venice.
+type: GitHub Repo
+url: https://github.com/DaveO280/AmachHealthBreathe
+tags:
+  - Health
+  - HRV
+  - iOS
+category: powered-by
+owner: DaveO280
+repo: AmachHealthBreathe
+language: Swift
+submittedBy: DaveO280
+socials:
+  - kind: x
+    url: https://x.com/amachhealth
+  - kind: website
+    url: https://www.amachhealth.com
