@@ -1,0 +1,22 @@
+title: venice-e2ee-proxy
+description: Run-it-locally proxy that adds end-to-end encryption to Venice.ai.
+  Plug in Hermes, OpenClaw, NanoClaw, Cursor, or any OpenAI-compatible agent
+  — no code changes. Your requests are encrypted with verified TEE attestation
+  before they leave your machine.
+type: GitHub Repo
+url: https://github.com/AxLabs/venice-e2ee-proxy
+tags:
+  - Privacy
+  - Encryption
+  - Proxy
+  - TEE
+category: powered-by
+owner: AxLabs
+repo: venice-e2ee-proxy
+submittedBy: ax_labs
+language: TypeScript
+socials:
+  - kind: x
+    url: https://x.com/ax_labs
+  - kind: github
+    url: https://github.com/AxLabs
