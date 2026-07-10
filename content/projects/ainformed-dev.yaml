@@ -1,0 +1,15 @@
+title: AInformed Dev
+description: Daily AI news site that uses Venice to sort, summarize, and curate stories, with archives and source links.
+type: Website
+url: https://www.ainformed.dev
+tags:
+  - News
+  - Content
+category: powered-by
+thumbnail: https://i.ibb.co/7JkTRMPM/blob.png
+submittedBy: AInformeddev
+socials:
+  - kind: x
+    url: https://x.com/AInformeddev
+  - kind: youtube
+    url: https://www.youtube.com/@AInformedDev
