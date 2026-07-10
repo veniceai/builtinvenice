@@ -1,0 +1,13 @@
+title: Fraterna
+description: OpenAI-compatible API routing for small Venice groups. Members pool Venice API keys in invite-only groups, with automatic rotation and shared inference budgets.
+type: Website
+url: https://fraterna.ai
+tags:
+  - Privacy
+  - Proxy
+  - Inference
+category: ecosystem
+submittedBy: mapcom
+socials:
+  - kind: discord
+    url: https://discord.com/channels/1318981892061794375/1507369999671754895
