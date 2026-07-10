@@ -1,0 +1,18 @@
+title: Amach Health
+description: Decentralized health data platform where users own their encrypted
+  records. Combines Storj storage, zkSync-verified profiles, and Luma, an AI
+  health companion powered by Venice.
+type: Website
+url: https://www.amachhealth.com
+tags:
+  - Health
+  - Privacy
+  - Encryption
+  - On-chain
+category: powered-by
+submittedBy: DaveO280
+socials:
+  - kind: x
+    url: https://x.com/amachhealth
+  - kind: github
+    url: https://github.com/DaveO280/Amach-Website
