@@ -1,0 +1,21 @@
+title: TradeOS Public Intelligence Kit
+description: SDKs, MCP tools, CLI agents, and bot examples for building Venice-powered market intelligence with BYOK inference and feedback provenance.
+type: GitHub Repo
+url: https://github.com/agenticsrclab/tradeos-public-intel-kit
+tags:
+  - MCP
+  - SDK
+  - Agent
+  - Market Intelligence
+category: powered-by
+owner: agenticsrclab
+repo: tradeos-public-intel-kit
+language: TypeScript
+stars: 0
+forks: 0
+submittedBy: agenticsrclab
+socials:
+  - kind: website
+    url: https://tradeos.tech
+  - kind: x
+    url: https://x.com/AgenticSrcLab
