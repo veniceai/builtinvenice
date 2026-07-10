@@ -34,7 +34,7 @@ Copy the "paste this into your AI agent" prompt from the hero on the live site, 
 
 ## Project categories
 
-- **`ecosystem`** — Tools, dashboards, SDKs, content, and community assets built *for* the Venice community (e.g. VeniceStats, a language SDK, a community X account).
+- **`ecosystem`** — Tools, dashboards, SDKs, content, and community assets built *specifically for* the Venice community (e.g. VeniceStats, a language SDK, a community X account). It must have a specific Venice focus — a general-purpose tool that Venice users could also use, but isn't built for Venice (e.g. Google Docs), doesn't qualify.
 - **`powered-by`** — Apps and integrations that use the Venice API to power their product (e.g. a chatbot, a research tool).
 
 ## Connected socials
@@ -162,7 +162,7 @@ We will not accept:
 - [ ] TypeScript compiles (`npm run build`).
 - [ ] Entry includes all required fields for its type.
 - [ ] URL is publicly accessible.
-- [ ] Description is 1–2 plain sentences, under ~220 characters.
+- [ ] Description is 1–2 plain sentences, under 220 characters.
 - [ ] `tags` reuses existing tags where it makes sense.
 
 ## Disclaimer

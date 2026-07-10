@@ -1,0 +1,18 @@
+title: Hermes OS
+description: Managed hosting for Nous Research's Hermes Agent — deploy a
+  persistent instance in minutes, no Docker or VPS. A single Venice API key
+  powers the agent's image, video, audio, web-search, and embedding tools.
+type: Website
+url: https://hermesos.cloud
+tags:
+  - Agent
+  - Multimodal
+  - Inference
+category: powered-by
+submittedBy: Wayland_Six
+thumbnail: https://hermesos.cloud/og-image.png
+socials:
+  - kind: x
+    url: https://x.com/Wayland_Six
+  - kind: website
+    url: https://hermesos.cloud

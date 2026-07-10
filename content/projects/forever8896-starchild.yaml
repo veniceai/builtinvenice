@@ -1,0 +1,22 @@
+title: Starchild
+description: A private, open-source desktop companion that helps you find your life's purpose through gamified quests. Every conversation runs end-to-end encrypted on Venice, and all your data stays local on your machine.
+type: GitHub Repo
+url: https://github.com/forever8896/starchild
+tags:
+  - Privacy
+  - Encryption
+  - Open Source
+category: powered-by
+owner: forever8896
+repo: starchild
+language: TypeScript
+stars: 3
+forks: 0
+submittedBy: forever8896
+socials:
+  - kind: github
+    url: https://github.com/forever8896/starchild
+  - kind: website
+    url: https://starchild.software
+  - kind: x
+    url: https://x.com/KilianSolutions

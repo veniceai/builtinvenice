@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildIssueUrl, submissionTypes } from './submitSchemas';
+import { buildIssueUrl, submissionTypes, ECOSYSTEM_CATEGORY } from './submitSchemas';
 
 const REPO = 'https://github.com/veniceai/builtinvenice';
 
@@ -85,6 +85,32 @@ describe('buildIssueUrl', () => {
   it('builds against the new-issue endpoint of the provided repo', () => {
     const url = buildIssueUrl(REPO, typeByKey('media'), {});
     expect(url.startsWith(`${REPO}/issues/new?`)).toBe(true);
+  });
+
+  it('includes the Venice-relationship fields when category is Ecosystem', () => {
+    const url = buildIssueUrl(REPO, typeByKey('project'), {
+      'project-name': 'Foo',
+      'project-type': 'Website',
+      category: ECOSYSTEM_CATEGORY,
+      'venice-relationship': 'Tooling / SDK for Venice builders',
+      'venice-connection': 'A CLI that wraps the Venice API for builders.',
+    });
+    const params = new URL(url).searchParams;
+    expect(params.get('venice-relationship')).toBe('Tooling / SDK for Venice builders');
+    expect(params.get('venice-connection')).toBe('A CLI that wraps the Venice API for builders.');
+  });
+
+  it('drops the Venice-relationship fields when category is Powered by Venice', () => {
+    const url = buildIssueUrl(REPO, typeByKey('project'), {
+      'project-name': 'Foo',
+      'project-type': 'Website',
+      category: 'Powered by Venice (uses the Venice API)', // intentional literal — no constant defined for this value
+      'venice-relationship': 'shouldnotappear',
+      'venice-connection': 'shouldnotappear',
+    });
+    const params = new URL(url).searchParams;
+    expect(params.has('venice-relationship')).toBe(false);
+    expect(params.has('venice-connection')).toBe(false);
   });
 });
 
