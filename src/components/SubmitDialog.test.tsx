@@ -113,3 +113,49 @@ describe('SubmitDialog — submission without image', () => {
     expect(onClose).toHaveBeenCalled();
   });
 });
+
+describe('SubmitDialog — Ecosystem Venice fields', () => {
+  it('reveals the Venice-relationship fields when Ecosystem is selected', async () => {
+    const user = userEvent.setup();
+    render(<SubmitDialog onClose={() => {}} initialKey="project" />);
+    expect(screen.queryByLabelText(/^Venice relationship/)).toBeNull();
+    expect(screen.queryByLabelText(/How is this built for Venice/)).toBeNull();
+    await user.selectOptions(
+      screen.getByLabelText(/^Category/),
+      'Ecosystem (built for the Venice community)',
+    );
+    expect(screen.getByLabelText(/^Venice relationship/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/How is this built for Venice/)).toBeInTheDocument();
+  });
+
+  it('keeps the Venice-relationship fields hidden for Powered by Venice', async () => {
+    const user = userEvent.setup();
+    render(<SubmitDialog onClose={() => {}} initialKey="project" />);
+    await user.selectOptions(
+      screen.getByLabelText(/^Category/),
+      'Powered by Venice (uses the Venice API)',
+    );
+    expect(screen.queryByLabelText(/^Venice relationship/)).toBeNull();
+    expect(screen.queryByLabelText(/How is this built for Venice/)).toBeNull();
+  });
+
+  it('blocks submission until the Ecosystem fields are filled', async () => {
+    const user = userEvent.setup();
+    const openSpy = vi.spyOn(window, 'open').mockReturnValue(null);
+    render(<SubmitDialog onClose={() => {}} initialKey="project" />);
+    await user.type(screen.getByLabelText(/^Project name/), 'Foo');
+    await user.selectOptions(screen.getByLabelText(/^Project type/), 'Website');
+    await user.type(screen.getByLabelText(/^Project URL/), 'https://foo.dev');
+    await user.selectOptions(
+      screen.getByLabelText(/^Category/),
+      'Ecosystem (built for the Venice community)',
+    );
+    await user.type(screen.getByLabelText(/^Description/), 'Does a thing.');
+    await user.type(screen.getByLabelText(/^Tags/), 'SDK');
+    // venice-relationship + venice-connection left blank
+    await user.click(screen.getByRole('button', { name: /Open prefilled issue/ }));
+    expect(openSpy).not.toHaveBeenCalled();
+    expect(screen.getAllByText('Required').length).toBeGreaterThan(0);
+    openSpy.mockRestore();
+  });
+});
