@@ -1,0 +1,19 @@
+title: ClipEngine
+description: Local video-to-shorts pipeline that selects highlight clips from long videos using two-pass Venice AI calls, then reframes them to vertical 9:16 with MediaPipe speaker tracking.
+type: GitHub Repo
+url: https://github.com/Arxonic1/clipengine
+tags:
+  - Multimodal
+  - Video
+category: powered-by
+owner: Arxonic1
+repo: clipengine
+submittedBy: Arxonic
+stars: 0
+forks: 0
+language: TypeScript
+socials:
+  - kind: x
+    url: https://x.com/Arxonic
+  - kind: github
+    url: https://github.com/Arxonic1/clipengine

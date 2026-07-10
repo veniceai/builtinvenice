@@ -1,0 +1,17 @@
+title: venice-agent-guardrails
+description: Composes Venice E2EE chat with an ICME Preflight policy check —
+  returns a verifiable proof per agent action. Ships as a library and an MCP
+  server for Claude Code, Hermes, and other MCP agents.
+type: GitHub Repo
+url: https://github.com/hshadab/venice-agent-guardrails
+tags:
+  - Privacy
+  - TEE
+  - Agent
+  - MCP
+  - Library
+category: ecosystem
+owner: hshadab
+repo: venice-agent-guardrails
+language: JavaScript
+submittedBy: hshadab
