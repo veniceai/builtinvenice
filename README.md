@@ -31,7 +31,7 @@ You can also [pick a submission form](https://github.com/veniceai/builtinvenice/
 
 A good submission is:
 
-- **Clearly connected to Venice** — uses, integrates with, teaches, or supports the Venice ecosystem.
+- **Clearly connected to Venice** — uses, integrates with, teaches, or supports the Venice ecosystem. A general tool that Venice users could also use but has no specific Venice focus (e.g. Google Docs) doesn't qualify.
 - **Publicly accessible** — include a working link (live demo, repo, package, docs, video, or event page).
 - **Useful or interesting** — real builder value, creative use cases, helpful integrations, or strong ecosystem signal.
 - **Easy to understand** — clear title, short description, relevant tags, and any setup instructions.
