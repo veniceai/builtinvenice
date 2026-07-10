@@ -1,0 +1,15 @@
+title: gitlumen-screen-sdk
+description: GitLumen screens GitHub repositories and pull requests, then uses Venice AI to generate review summaries and reviewer guidance.
+type: GitHub Repo
+url: https://github.com/gitlumen-team/gitlumen-screen-sdk
+tags: [SDK, Developer Tools, Code Review, AI]
+category: powered-by
+owner: gitlumen-team
+repo: gitlumen-screen-sdk
+language: JavaScript
+submittedBy: gitlumen-team
+socials:
+  - kind: website
+    url: https://gitlumen.com
+  - kind: github
+    url: https://github.com/gitlumen-team
