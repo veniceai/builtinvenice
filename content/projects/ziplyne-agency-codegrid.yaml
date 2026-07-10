@@ -1,0 +1,20 @@
+title: CodeGrid
+description: Desktop coding workspace with a first-class Venice agent that can inspect repository files and apply edits directly to a project.
+type: GitHub Repo
+url: https://github.com/ZipLyne-Agency/CodeGrid
+tags:
+  - Agent
+  - Developer Tools
+  - Coding
+category: powered-by
+owner: ZipLyne-Agency
+repo: CodeGrid
+language: TypeScript
+stars: 17
+forks: 2
+submittedBy: iowitz
+socials:
+  - kind: website
+    url: https://codegrid.app
+  - kind: x
+    url: https://x.com/CodeGridDev
