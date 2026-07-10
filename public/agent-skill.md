@@ -50,10 +50,10 @@ Common to every project type:
 | field           | required | notes                                                                 |
 |-----------------|----------|-----------------------------------------------------------------------|
 | `title`         | yes      | Display name. Keep under 40 chars.                                    |
-| `description`   | yes      | One to two sentences. Max ~220 chars. If the user gives you marketing copy ("revolutionary", "cutting-edge", emoji, ALL CAPS), **rewrite it yourself** in plain language describing what it does, then show the user the rewrite. If you can't tell what the project does, fetch the URL and read the page before asking. |
+| `description`   | yes      | One to two sentences. Max 220 chars. If the user gives you marketing copy ("revolutionary", "cutting-edge", emoji, ALL CAPS), **rewrite it yourself** in plain language describing what it does, then show the user the rewrite. If you can't tell what the project does, fetch the URL and read the page before asking. |
 | `url`           | yes      | Canonical URL for the project. Must be `https://`.                    |
 | `type`          | yes      | `"Website"` \| `"GitHub Repo"` \| `"X Account"`                       |
-| `category`      | yes      | `"ecosystem"` (maintained by/with Venice) or `"powered-by"` (built on Venice). |
+| `category`      | yes      | `"ecosystem"` (built specifically for the Venice community) or `"powered-by"` (uses the Venice API). `ecosystem` must have a specific Venice focus — a general tool Venice users could also use (e.g. Google Docs) doesn't qualify. The issue form asks ecosystem submissions for a `venice-relationship` (one of: Tooling / SDK for Venice builders; Community asset; Content / education about Venice; Other) and a free-text `venice-connection` explaining the tie to Venice. |
 | `tags`          | yes      | 1-4 short Title-Case tags. **Reuse existing tags.** Discover them by scanning existing files: `grep -rh "^  - " content/projects/` (or just scan `content/projects/*.yaml`). Don't invent close synonyms -- prefer `Privacy`, `TEE`, or `Security` over a new `Verifier`. |
 | `submittedBy`   | yes      | GitHub or X handle of the submitter (no `@`).                         |
 | `socials`       | no       | Array of `{ kind, url }`. See `SocialKind` below. **Don't leave empty by default.** Fetch the project URL and look for linked socials in the page metadata or footer; check the GitHub repo's `homepage` / README badges; ask the user "any X handle, Farcaster, Discord, or Telegram people should know about?" before submitting. |
@@ -250,7 +250,7 @@ Before opening a PR or issue, confirm:
 - [ ] For X accounts: the handle exists (`https://x.com/<handle>` doesn't 404), and either `bio` or `followers` is filled in (ideally both).
 - [ ] For Websites: a `thumbnail` is included if one is reasonably gettable (og:image scrape, user-hosted URL, or in-app form for local files).
 - [ ] No duplicate entry already exists -- search `content/projects/` for the URL and the title (e.g. `grep -rl <url> content/projects`).
-- [ ] The description is 1-2 plain sentences, under ~220 chars, no marketing filler. If you rewrote it from the user's input, show them the rewrite.
+- [ ] The description is 1-2 plain sentences, under 220 chars, no marketing filler. If you rewrote it from the user's input, show them the rewrite.
 - [ ] `tags` is 1-4 short Title-Case strings; reuse existing tags from `content/projects/` where it makes sense.
 - [ ] `socials` has at least one entry, unless the user has genuinely no public socials.
 - [ ] The project meets the public submission guidelines at <https://builtinvenice.ai/submission-guidelines>.

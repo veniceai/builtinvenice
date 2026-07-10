@@ -24,7 +24,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: 1–2 plain sentences about the event. Avoid marketing copy.
+      description: 1–2 plain sentences about the event (under 220 characters). Avoid marketing copy.
       placeholder: Describe the event...
     validations:
       required: true
