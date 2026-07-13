@@ -3,7 +3,8 @@ import { buildIssueUrl, submissionTypes, ECOSYSTEM_CATEGORY } from './submitSche
 
 const REPO = 'https://github.com/veniceai/builtinvenice';
 
-function typeByKey(key: 'project' | 'cookbook' | 'event' | 'media') {
+// Media temporarily hidden — restore `| 'media'` to re-enable.
+function typeByKey(key: 'project' | 'cookbook' | 'event') {
   const t = submissionTypes.find(t => t.key === key);
   if (!t) throw new Error(`type ${key} not found`);
   return t;
@@ -83,7 +84,7 @@ describe('buildIssueUrl', () => {
   });
 
   it('builds against the new-issue endpoint of the provided repo', () => {
-    const url = buildIssueUrl(REPO, typeByKey('media'), {});
+    const url = buildIssueUrl(REPO, typeByKey('event'), {});
     expect(url.startsWith(`${REPO}/issues/new?`)).toBe(true);
   });
 
@@ -115,9 +116,10 @@ describe('buildIssueUrl', () => {
 });
 
 describe('submissionTypes', () => {
-  it('exposes exactly the four expected keys', () => {
+  it('exposes exactly the three expected keys', () => {
     expect(submissionTypes.map(t => t.key).sort()).toEqual([
-      'cookbook', 'event', 'media', 'project',
+      // Media temporarily hidden — add 'media' back here to re-enable.
+      'cookbook', 'event', 'project',
     ]);
   });
 
