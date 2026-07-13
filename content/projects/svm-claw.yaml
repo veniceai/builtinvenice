@@ -1,0 +1,16 @@
+title: SVM Claw
+description: Solana infrastructure for deploying OpenClaw and Hermes agents powered by Venice, with hosted operations and wallet-based billing.
+type: Website
+url: https://claw.svmtech.xyz
+tags:
+  - Agent
+  - Infrastructure
+  - Solana
+category: powered-by
+thumbnail: https://i.ibb.co/ZqxtG57/blob.png
+submittedBy: svmacc
+socials:
+  - kind: website
+    url: https://svmtech.xyz
+  - kind: github
+    url: https://github.com/svmacc
