@@ -1,0 +1,17 @@
+title: DeFi Bench
+description: Live onchain benchmark measuring how frontier AI models manage DeFi yield portfolios with real capital, public verification, and inference served through Venice.
+type: Website
+url: https://www.defi-bench.com
+tags:
+  - DeFi
+  - Benchmark
+  - Agent
+category: powered-by
+submittedBy: Dialectic_Group
+socials:
+  - kind: x
+    url: https://x.com/Dialectic_Group
+  - kind: website
+    url: https://dialectic.com
+  - kind: telegram
+    url: https://t.me/makinafinance
