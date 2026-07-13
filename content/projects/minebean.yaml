@@ -1,0 +1,23 @@
+title: MineBean
+description: Onchain mining game whose autonomous agents use Venice by default and surface each player's VVV and sVVV staking allowance.
+type: Website
+url: https://www.minebean.com
+tags:
+  - Agent
+  - Inference
+  - Gaming
+  - On-chain
+category: powered-by
+thumbnail: https://i.ibb.co/W4wgj8Y6/blob.png
+submittedBy: minebean_
+socials:
+  - kind: x
+    url: https://x.com/minebean_
+  - kind: farcaster
+    url: https://farcaster.xyz/minebean
+  - kind: github
+    url: https://github.com/nu11dotfun/mine-bean
+    label: Game
+  - kind: github
+    url: https://github.com/damo-nu11/hermes-mine-bean
+    label: Venice agent

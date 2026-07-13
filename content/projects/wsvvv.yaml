@@ -1,0 +1,18 @@
+title: wsVVV
+description: Liquid, autocompounding vault for sVVV yield, curated by 9Summits on Lagoon Finance. Redemptions average about 24 hours but can take up to seven days.
+type: Website
+url: https://app.lagoon.finance/vault/8453/0x370f89ddd85ca2afcd2c891e67d10289d9d8d2d1
+tags:
+  - sVVV
+  - DeFi
+  - Yield
+category: ecosystem
+thumbnail: https://i.ibb.co/0yGkttF7/blob.png
+submittedBy: nine_summits
+socials:
+  - kind: x
+    url: https://x.com/nine_summits
+    label: Curator
+  - kind: x
+    url: https://x.com/lagoon_finance
+    label: Vault platform
