@@ -1,0 +1,16 @@
+title: Venice Attestation Verifier
+description: Browser-based verifier for Venice attestation reports with local TDX quote, NVIDIA evidence, and certificate-chain checks plus optional live Intel and NVIDIA completion.
+type: Website
+url: https://privacy-proofs.vercel.app
+tags:
+  - Privacy
+  - TEE
+  - Security
+  - Verifier
+category: ecosystem
+submittedBy: willyogo
+socials:
+  - kind: x
+    url: https://x.com/willyogo
+  - kind: github
+    url: https://github.com/willyogo/privacy-proofs
