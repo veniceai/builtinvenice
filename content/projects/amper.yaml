@@ -1,0 +1,19 @@
+title: Amper
+description: Venice-powered DeFi agent that turns plain-language intents into onchain actions through a conversational interface.
+type: Website
+url: https://amper.chat
+tags:
+  - DeFi
+  - Agent
+  - Chat
+  - Trading
+category: powered-by
+thumbnail: https://i.ibb.co/7JTPDBpJ/blob.png
+submittedBy: helloamper
+socials:
+  - kind: x
+    url: https://x.com/helloamper
+  - kind: github
+    url: https://github.com/helloamper
+  - kind: farcaster
+    url: https://farcaster.xyz/helloamper

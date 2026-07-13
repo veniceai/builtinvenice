@@ -1,0 +1,19 @@
+title: Regent
+description: A non-custodial AI agent that executes DeFi swaps within signed
+  spending mandates. Venice AI evaluates DEX routes; budget, slippage, and
+  expiry limits are enforced in the UI, the agent, and on-chain.
+type: GitHub Repo
+url: https://github.com/artomily/regent
+tags:
+  - Agent
+  - DeFi
+  - On-chain
+  - Base
+category: powered-by
+owner: artomily
+repo: regent
+language: TypeScript
+submittedBy: artomily
+socials:
+  - kind: x
+    url: https://x.com/regentonchain
