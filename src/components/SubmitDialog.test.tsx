@@ -5,13 +5,15 @@ import userEvent from '@testing-library/user-event';
 import SubmitDialog from './SubmitDialog';
 
 describe('SubmitDialog — type picker', () => {
-  it('shows the four submission types when no initialKey is provided', () => {
+  it('shows the three submission types when no initialKey is provided', () => {
     render(<SubmitDialog onClose={() => {}} />);
     expect(screen.getByRole('heading', { name: /What are you submitting/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Project/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Cookbook/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Event/ })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Media/ })).toBeInTheDocument();
+    // Media temporarily hidden — restore this assertion to re-enable:
+    // expect(screen.getByRole('button', { name: /Media/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Media/ })).toBeNull();
   });
 
   it('skips the picker when initialKey is provided', () => {
@@ -91,27 +93,54 @@ describe('SubmitDialog — submission without image', () => {
     openSpy.mockRestore();
   });
 
+  // This test used the Media type before it was temporarily hidden. The
+  // original media version is preserved below — swap back to re-enable.
   it('opens a prefilled GitHub issue URL on successful submit', async () => {
     const user = userEvent.setup();
     const onClose = vi.fn();
-    render(<SubmitDialog onClose={onClose} initialKey="media" />);
-    await user.type(screen.getByLabelText(/^Title/), 'Demo video');
-    await user.type(screen.getByLabelText(/^Media URL/), 'https://x.com/me/status/1');
-    await user.type(screen.getByLabelText(/^Description/), 'A short demo.');
-    await user.type(screen.getByLabelText(/^Your handle/), 'me');
+    render(<SubmitDialog onClose={onClose} initialKey="cookbook" />);
+    await user.type(screen.getByLabelText(/^Title/), 'Quickstart');
+    await user.type(screen.getByLabelText(/^URL/), 'https://github.com/o/r/blob/main/recipe.md');
+    await user.type(screen.getByLabelText(/^Description/), 'A short guide.');
+    await user.type(screen.getByLabelText(/^Author handle/), 'me');
+    await user.selectOptions(screen.getByLabelText(/^Difficulty/), 'beginner');
+    await user.type(screen.getByLabelText(/^Read time/), '10 min');
+    await user.type(screen.getByLabelText(/^Tags/), 'Guide');
     await user.type(screen.getByLabelText(/^Published date/), '2026-05-29');
-    await user.type(screen.getByLabelText(/^Tags/), 'Demo');
     await user.click(screen.getByRole('button', { name: /Open prefilled issue/ }));
 
     expect(openSpy).toHaveBeenCalledTimes(1);
     const [url, target, features] = openSpy.mock.calls[0];
     expect(String(url)).toContain('/issues/new?');
-    expect(new URL(String(url)).searchParams.get('title')).toBe('[Media] Demo video');
-    expect(new URL(String(url)).searchParams.get('template')).toBe('submit-media.yml');
+    expect(new URL(String(url)).searchParams.get('title')).toBe('[Cookbook] Quickstart');
+    expect(new URL(String(url)).searchParams.get('template')).toBe('submit-cookbook.yml');
     expect(target).toBe('_blank');
     expect(features).toBe('noopener,noreferrer');
     expect(onClose).toHaveBeenCalled();
   });
+
+  // Media temporarily hidden — original media version of the test above:
+  // it('opens a prefilled GitHub issue URL on successful submit', async () => {
+  //   const user = userEvent.setup();
+  //   const onClose = vi.fn();
+  //   render(<SubmitDialog onClose={onClose} initialKey="media" />);
+  //   await user.type(screen.getByLabelText(/^Title/), 'Demo video');
+  //   await user.type(screen.getByLabelText(/^Media URL/), 'https://x.com/me/status/1');
+  //   await user.type(screen.getByLabelText(/^Description/), 'A short demo.');
+  //   await user.type(screen.getByLabelText(/^Your handle/), 'me');
+  //   await user.type(screen.getByLabelText(/^Published date/), '2026-05-29');
+  //   await user.type(screen.getByLabelText(/^Tags/), 'Demo');
+  //   await user.click(screen.getByRole('button', { name: /Open prefilled issue/ }));
+  //
+  //   expect(openSpy).toHaveBeenCalledTimes(1);
+  //   const [url, target, features] = openSpy.mock.calls[0];
+  //   expect(String(url)).toContain('/issues/new?');
+  //   expect(new URL(String(url)).searchParams.get('title')).toBe('[Media] Demo video');
+  //   expect(new URL(String(url)).searchParams.get('template')).toBe('submit-media.yml');
+  //   expect(target).toBe('_blank');
+  //   expect(features).toBe('noopener,noreferrer');
+  //   expect(onClose).toHaveBeenCalled();
+  // });
 });
 
 describe('SubmitDialog — Ecosystem Venice fields', () => {
