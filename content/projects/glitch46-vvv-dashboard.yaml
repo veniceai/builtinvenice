@@ -1,0 +1,16 @@
+title: VVV Unstaking Queue
+description: Dashboard for VVV buy and sell volume, upcoming unstaking, new stakes, and average daily unlocks, built with Venice crypto RPC tooling.
+type: GitHub Repo
+url: https://github.com/glitch46/vvv-dashboard
+tags:
+  - Analytics
+  - VVV
+  - Dashboard
+category: ecosystem
+owner: glitch46
+repo: vvv-dashboard
+language: HTML
+stars: 0
+forks: 0
+thumbnail: https://i.ibb.co/v4k6HBWs/blob.png
+submittedBy: Papacit0e

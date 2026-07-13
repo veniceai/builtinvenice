@@ -13,7 +13,9 @@ Pick the form that matches what you're submitting:
 - [**Project**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-project.yml&title=%5BProject%5D+) — website, GitHub repo, X account, or community token.
 - [**Cookbook / Recipe**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-cookbook.yml&title=%5BCookbook%5D+)
 - [**Event**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-event.yml&title=%5BEvent%5D+) — hackathon, meetup, workshop, or conference.
+<!-- Media submissions temporarily hidden — restore this bullet to re-enable:
 - [**Media**](https://github.com/veniceai/builtinvenice/issues/new?template=submit-media.yml&title=%5BMedia%5D+) — video, interview, recap, or post about Venice or something built on it.
+-->
 
 Or [browse all submission forms](https://github.com/veniceai/builtinvenice/issues/new/choose).
 
@@ -24,7 +26,9 @@ Or [browse all submission forms](https://github.com/veniceai/builtinvenice/issue
    - Projects (website / repo / X account / token) → `content/projects/<slug>.yaml`
    - Cookbook recipes → `content/cookbooks/<slug>.yaml`
    - Events / hackathons → `content/events/<slug>.yaml`
+   <!-- Media submissions temporarily hidden — restore this bullet to re-enable:
    - Media → `content/media/<slug>.yaml`
+   -->
 3. Open a pull request with one entry per PR.
 4. Sabrina or Josh reviews and merges.
 
@@ -135,9 +139,14 @@ socials:
     url: https://t.me/…
 ```
 
+<!-- Media submissions temporarily hidden — original heading/body to restore:
 ## Adding a Cookbook / Event / Media
 
 Each has a simple schema — add a file under `content/cookbooks/`, `content/events/`, or `content/media/` following an existing entry. Keep descriptions plain and short.
+-->
+## Adding a Cookbook / Event
+
+Each has a simple schema — add a file under `content/cookbooks/` or `content/events/` following an existing entry. Keep descriptions plain and short.
 
 ## Quality bar
 
