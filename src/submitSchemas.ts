@@ -15,7 +15,8 @@ export interface FieldConfig {
 }
 
 export interface SubmissionType {
-  key: 'project' | 'cookbook' | 'event' | 'media';
+  // Media temporarily hidden — restore `| 'media'` to re-enable.
+  key: 'project' | 'cookbook' | 'event';
   label: string;
   blurb: string;
   template: string;
@@ -156,22 +157,24 @@ export const submissionTypes: SubmissionType[] = [
       { id: 'tags', label: 'Tags', type: 'text', required: true, placeholder: 'Hackathon, Online' },
     ],
   },
-  {
-    key: 'media',
-    label: 'Media',
-    blurb: 'Video, interview, recap, or post about Venice or something built on it.',
-    template: 'submit-media.yml',
-    titlePrefix: '[Media] ',
-    titleField: 'media-title',
-    fields: [
-      { id: 'media-title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Multimodal walkthrough running in one tab' },
-      { id: 'media-url', label: 'Media URL', type: 'text', required: true, placeholder: 'https://x.com/yourhandle/status/…  /  https://loom.com/…  /  https://…', description: 'Link to where the media lives — X post, Loom, asciinema, gallery image.' },
-      { id: 'description', label: 'Description', type: 'textarea', required: true, placeholder: '1–2 plain sentences about what the media shows.' },
-      { id: 'builder', label: 'Your handle', type: 'text', required: true, placeholder: 'e.g. yourhandle' },
-      { id: 'published-at', label: 'Published date', type: 'date', required: true, placeholder: 'YYYY-MM-DD' },
-      { id: 'tags', label: 'Tags', type: 'text', required: true, placeholder: 'Frontend, Multimodal' },
-    ],
-  },
+  // Media submissions temporarily hidden — uncomment this entry (and restore
+  // `| 'media'` in SubmissionType above) to re-enable.
+  // {
+  //   key: 'media',
+  //   label: 'Media',
+  //   blurb: 'Video, interview, recap, or post about Venice or something built on it.',
+  //   template: 'submit-media.yml',
+  //   titlePrefix: '[Media] ',
+  //   titleField: 'media-title',
+  //   fields: [
+  //     { id: 'media-title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Multimodal walkthrough running in one tab' },
+  //     { id: 'media-url', label: 'Media URL', type: 'text', required: true, placeholder: 'https://x.com/yourhandle/status/…  /  https://loom.com/…  /  https://…', description: 'Link to where the media lives — X post, Loom, asciinema, gallery image.' },
+  //     { id: 'description', label: 'Description', type: 'textarea', required: true, placeholder: '1–2 plain sentences about what the media shows.' },
+  //     { id: 'builder', label: 'Your handle', type: 'text', required: true, placeholder: 'e.g. yourhandle' },
+  //     { id: 'published-at', label: 'Published date', type: 'date', required: true, placeholder: 'YYYY-MM-DD' },
+  //     { id: 'tags', label: 'Tags', type: 'text', required: true, placeholder: 'Frontend, Multimodal' },
+  //   ],
+  // },
 ];
 
 export function buildIssueUrl(

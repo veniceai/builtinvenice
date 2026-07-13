@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import type { SubmissionType } from '../../submitSchemas';
-import { projects, cookbooks, events, media } from '../../data';
+import { projects, cookbooks, events } from '../../data';
 import Projects from './Projects';
 import Cookbooks from './Cookbooks';
 import Events from './Events';
-import Media from './Media';
+// Media tab temporarily hidden — uncomment the lines marked "Media tab" below
+// (and the matching blocks in submitSchemas.ts) to re-enable.
+// import { media } from '../../data';
+// import Media from './Media';
 
 type TabKey = SubmissionType['key'];
 
@@ -34,12 +37,13 @@ const tabs: TabConfig[] = [
     count: events.length,
     lede: 'Hackathons, meetups, workshops, and conferences for the Venice ecosystem.',
   },
-  {
-    key: 'media',
-    label: 'Media',
-    count: media.length,
-    lede: 'Videos, interviews, and recaps about Venice and the projects built on it.',
-  },
+  // Media tab temporarily hidden:
+  // {
+  //   key: 'media',
+  //   label: 'Media',
+  //   count: media.length,
+  //   lede: 'Videos, interviews, and recaps about Venice and the projects built on it.',
+  // },
 ];
 
 export default function Explore() {
@@ -77,7 +81,7 @@ export default function Explore() {
         {tab === 'project' && <Projects />}
         {tab === 'cookbook' && <Cookbooks />}
         {tab === 'event' && <Events />}
-        {tab === 'media' && <Media />}
+        {/* Media tab temporarily hidden: {tab === 'media' && <Media />} */}
       </div>
     </section>
   );
