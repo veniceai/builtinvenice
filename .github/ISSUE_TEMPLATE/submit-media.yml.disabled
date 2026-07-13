@@ -1,3 +1,5 @@
+# Media submissions temporarily hidden — rename this file back to
+# submit-media.yml to re-enable (GitHub ignores non-.yml files in this folder).
 name: Submit Media
 description: Share a video, interview, recap, or post about Venice or something built on it
 title: "[Media] "

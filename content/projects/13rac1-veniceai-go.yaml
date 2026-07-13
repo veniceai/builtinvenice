@@ -1,0 +1,15 @@
+title: VeniceAI Go Client
+description: Go client for Venice that wraps openai-go with Venice-specific parameters, response headers, and generated bindings for every API endpoint.
+type: GitHub Repo
+url: https://github.com/13rac1/veniceai-go
+tags:
+  - SDK
+  - Developer Tools
+  - Go
+category: ecosystem
+owner: 13rac1
+repo: veniceai-go
+language: Go
+stars: 1
+forks: 0
+submittedBy: 13rac1
