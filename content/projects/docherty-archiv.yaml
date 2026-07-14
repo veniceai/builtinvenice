@@ -1,0 +1,21 @@
+title: Archiv
+description: Local-first backup and browser for Venice.ai conversations, Studio
+  sessions, attachments, and generated media. It imports Venice browser storage
+  into a searchable archive and supports incremental syncs.
+type: GitHub Repo
+url: https://github.com/docherty/archiv
+tags:
+  - Privacy
+  - Open Source
+  - CLI
+  - Search
+category: ecosystem
+owner: docherty
+repo: archiv
+stars: 0
+forks: 0
+language: JavaScript
+submittedBy: docherty
+socials:
+  - kind: github
+    url: https://github.com/docherty
