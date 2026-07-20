@@ -163,6 +163,7 @@ We will not accept:
 - Placeholder or demo-only projects.
 - Marketing copy in descriptions ("revolutionary", "cutting-edge", emoji-only taglines).
 - Venice's own official token.
+- Names that imply an official Venice product or affiliation, or that appear to trade on the Venice brand. Descriptive third-party names (e.g. an SDK or dashboard "for Venice") are fine; names likely to be confused with an official Venice offering need prior discussion with the Venice team and should follow the [Venice Brand Kit](https://venice.ai/brand).
 
 ## PR checklist
 
