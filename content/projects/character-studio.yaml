@@ -1,5 +1,5 @@
 title: Character Studio
-description: A development suite for authors of Venice.AI characters: fast iteration on system prompts and context data, quick testing, and image and video generation for thumbnails. Works with any OpenAI-compatible service.
+description: "A development suite for authors of Venice.AI characters: fast iteration on system prompts and context data, quick testing, and image and video generation for thumbnails. Works with any OpenAI-compatible service."
 type: Website
 url: https://characterbrowser.app/studio/
 tags:
