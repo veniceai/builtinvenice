@@ -19,6 +19,15 @@ const GUIDELINES: { title: string; body: ReactNode }[] = [
     body: "We're looking for projects that show real builder value, creative use cases, helpful integrations, educational content, or strong ecosystem signal.",
   },
   {
+    title: 'Avoid Venice naming ambiguity',
+    body: (
+      <>
+        Descriptive names that make it clear you're a third-party project (e.g. an SDK or dashboard for Venice) are welcome. But names that imply an official product or affiliation — or that appear to trade on the Venice brand — are highly likely to be rejected without prior discussion with the Venice team. If you're using Venice's name or marks, follow the{' '}
+        <a href="https://venice.ai/brand">Venice Brand Kit</a>.
+      </>
+    ),
+  },
+  {
     title: 'Be easy to understand',
     body: 'Include a clear title, short description, relevant tags, and any setup or usage instructions someone would need.',
   },
