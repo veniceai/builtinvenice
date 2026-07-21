@@ -1,0 +1,15 @@
+title: Gondola AI
+description: A marketplace for Venice inference. DIEM holders lend idle daily allowance and earn USDC; buyers pay less for the same Venice models through a Venice-style web app or an OpenAI-compatible API, in USDC on Base.
+type: Website
+url: https://gondola-ai.com/
+tags:
+  - Marketplace
+  - DIEM
+  - Inference
+  - Base
+category: ecosystem
+thumbnail: https://i.ibb.co/Kc1VPzRS/blob.png
+submittedBy: xatarrer
+socials:
+  - kind: x
+    url: https://x.com/gondolamarket

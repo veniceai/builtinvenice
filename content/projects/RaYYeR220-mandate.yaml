@@ -1,0 +1,16 @@
+title: Mandate
+description: Converts a plain-English treasury policy into narrowing on-chain delegations (ERC-7715/7710) that AI agents execute gaslessly. Uses the Venice API to turn the policy into a strict JSON plan.
+type: GitHub Repo
+url: https://github.com/RaYYeR220/mandate
+tags:
+  - Agent
+  - DeFi
+  - On-chain
+  - Delegation
+category: powered-by
+owner: RaYYeR220
+repo: mandate
+language: TypeScript
+stars: 0
+forks: 0
+submittedBy: rayyer_220
