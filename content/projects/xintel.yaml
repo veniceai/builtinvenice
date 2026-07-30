@@ -1,0 +1,15 @@
+title: Xintel
+description: Privacy-focused Venice workspace for X intelligence, community signal, VVV/DIEM stats, and image/audio/video generation - with optional x402 USDC credits and bring-your-own-key (BYOK).
+type: Website
+url: https://xintel.aispace.bot
+tags:
+  - Dashboard
+  - Privacy
+  - Analytics
+  - x402
+category: powered-by
+thumbnail: https://xintel.aispace.bot/preview-xintel.png
+submittedBy: aispace_bot
+socials:
+  - kind: x
+    url: https://x.com/aispace_bot
