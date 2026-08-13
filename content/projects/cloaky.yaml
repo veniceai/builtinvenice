@@ -1,0 +1,18 @@
+title: Cloaky
+description: A pseudonymous coding-agent workbench for Venice, local models,
+  and providers you already trust — with every route visible and the exact
+  per-response spend on the ledger.
+type: Website
+url: https://cloaky.dev
+tags:
+  - Agent
+  - Developer Tools
+  - Mac
+category: powered-by
+thumbnail: /preview-cloaky.png
+submittedBy: PeopleTechs
+socials:
+  - kind: x
+    url: https://x.com/cloakyapp
+  - kind: github
+    url: https://github.com/PeopleTechs/cloaky-public
