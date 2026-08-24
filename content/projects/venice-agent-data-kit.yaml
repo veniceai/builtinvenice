@@ -1,0 +1,14 @@
+title: Venice Agent Data Kit
+description: Working agent that pays Venice for inference and buys live external data over x402 from one Base wallet. Code-level guardrails (allowlist, price ceiling, asset pinning). No API keys anywhere.
+type: GitHub Repo
+url: https://github.com/GTCC777/venice-agent-data-kit
+category: ecosystem
+tags:
+  - Agent
+  - x402
+  - Base
+  - Open Source
+owner: GTCC777
+repo: venice-agent-data-kit
+language: JavaScript
+submittedBy: GTCC777
