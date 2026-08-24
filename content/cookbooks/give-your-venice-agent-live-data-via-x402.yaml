@@ -1,0 +1,15 @@
+title: Give your Venice agent live data via x402
+description: Build an agent that pays Venice for inference and buys live market
+  data over x402 from the same Base wallet. Covers the 402 challenge,
+  verify-before-pay guardrails, and Venice's wallet top-up flow.
+url: https://github.com/GTCC777/venice-agent-data-kit/blob/main/README.md
+author: GTCC777
+authorUrl: https://github.com/GTCC777
+difficulty: intermediate
+readTime: 10 min
+language: JavaScript
+tags:
+  - x402
+  - Agents
+  - Wallet
+publishedAt: 2026-08-24
