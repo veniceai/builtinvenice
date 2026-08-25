@@ -1,0 +1,16 @@
+title: hermes-venice
+description: Plugins that integrate Venice into Hermes Agent as a model, image
+  generation, voice, and web search provider.
+type: GitHub Repo
+url: https://github.com/etkecc/hermes-venice
+tags:
+  - Agent
+  - Plugin
+  - Multimodal
+  - Python
+category: ecosystem
+owner: etkecc
+repo: hermes-venice
+submittedBy: aine-etke
+stars: 3
+language: Python
