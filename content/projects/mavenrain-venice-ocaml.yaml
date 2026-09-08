@@ -1,0 +1,18 @@
+title: venice-ocaml
+description: Community OCaml SDK for Venice AI with typed model capabilities, streaming chat via OCaml 5 effect handlers, and bounded retries with per-attempt reporting.
+type: GitHub Repo
+url: https://github.com/MavenRain/venice-ocaml
+tags:
+  - SDK
+  - Developer Tools
+  - OCaml
+category: ecosystem
+owner: MavenRain
+repo: venice-ocaml
+language: OCaml
+stars: 0
+forks: 0
+submittedBy: MavenRain
+socials:
+  - kind: github
+    url: https://github.com/MavenRain
