@@ -1,0 +1,18 @@
+title: Murph
+description: Personal health AI in iMessage that syncs wearables, reads
+  bloodwork, and runs experiments to find what works for you. Hosted members can
+  select Venice as the model provider.
+type: Website
+url: https://withmurph.ai
+tags:
+  - Health
+  - Agent
+  - Chat
+category: powered-by
+thumbnail: https://i.ibb.co/dq1zZzY/blob.png
+submittedBy: withmurphai
+socials:
+  - kind: x
+    url: https://x.com/withmurphai
+  - kind: github
+    url: https://github.com/cobuildwithus/murph
