@@ -3,6 +3,7 @@ import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SubmitDialog from './SubmitDialog';
+import { NO_PARTNERSHIP_CLAIM_LABEL } from '../constants';
 
 describe('SubmitDialog — type picker', () => {
   it('shows the three submission types when no initialKey is provided', () => {
@@ -82,6 +83,24 @@ describe('SubmitDialog — validation', () => {
     const titleField = document.getElementById('field-cookbook-title')!.closest('.form-field')!;
     expect(within(titleField as HTMLElement).queryByText('Required')).toBeNull();
   });
+
+  it('blocks submission until the partnership rule is accepted', async () => {
+    const user = userEvent.setup();
+    const openSpy = vi.spyOn(window, 'open').mockReturnValue(null);
+    render(<SubmitDialog onClose={() => {}} initialKey="cookbook" />);
+    await user.type(screen.getByLabelText(/^Title/), 'Quickstart');
+    await user.type(screen.getByLabelText(/^URL/), 'https://github.com/o/r/blob/main/recipe.md');
+    await user.type(screen.getByLabelText(/^Description/), 'A short guide.');
+    await user.type(screen.getByLabelText(/^Author handle/), 'me');
+    await user.selectOptions(screen.getByLabelText(/^Difficulty/), 'beginner');
+    await user.type(screen.getByLabelText(/^Read time/), '10 min');
+    await user.type(screen.getByLabelText(/^Tags/), 'Guide');
+    await user.type(screen.getByLabelText(/^Published date/), '2026-05-29');
+    await user.click(screen.getByRole('button', { name: /Open prefilled issue/ }));
+    expect(openSpy).not.toHaveBeenCalled();
+    expect(screen.getByText('Required')).toBeInTheDocument();
+    openSpy.mockRestore();
+  });
 });
 
 describe('SubmitDialog — submission without image', () => {
@@ -107,6 +126,7 @@ describe('SubmitDialog — submission without image', () => {
     await user.type(screen.getByLabelText(/^Read time/), '10 min');
     await user.type(screen.getByLabelText(/^Tags/), 'Guide');
     await user.type(screen.getByLabelText(/^Published date/), '2026-05-29');
+    await user.click(screen.getByLabelText(NO_PARTNERSHIP_CLAIM_LABEL));
     await user.click(screen.getByRole('button', { name: /Open prefilled issue/ }));
 
     expect(openSpy).toHaveBeenCalledTimes(1);

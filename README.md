@@ -37,6 +37,7 @@ A good submission is:
 - **Useful or interesting** — real builder value, creative use cases, helpful integrations, or strong ecosystem signal.
 - **Easy to understand** — clear title, short description, relevant tags, and any setup instructions.
 - **Accurate** — no unsupported claims about privacy, compliance, security, performance, or Venice endorsement.
+- **No partnership claims** — social media posts that insinuate an official partnership with Venice as a result of a directory submission, whether accepted or not, result in immediate disqualification and removal.
 - **Token-secondary** — token-related projects are welcome when there's a real product, protocol, or resource behind them.
 - **Safe for users** — wallet, payment, extension, or automation submissions must explain permissions and data handling.
 
