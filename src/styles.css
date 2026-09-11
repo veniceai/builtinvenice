@@ -1924,6 +1924,33 @@ input:focus-visible {
   border-color: var(--accent);
 }
 
+.form-field-checkbox {
+  margin-top: 4px;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.form-checkbox input[type='checkbox'] {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.has-error .form-checkbox {
+  color: var(--accent);
+}
+
 .form-error {
   font-size: 11px;
   font-family: var(--mono);

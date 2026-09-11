@@ -164,6 +164,7 @@ We will not accept:
 - Marketing copy in descriptions ("revolutionary", "cutting-edge", emoji-only taglines).
 - Venice's own official token.
 - Names that imply an official Venice product or affiliation, or that appear to trade on the Venice brand. Descriptive third-party names (e.g. an SDK or dashboard "for Venice") are fine; names likely to be confused with an official Venice offering need prior discussion with the Venice team and should follow the [Venice Brand Kit](https://venice.ai/brand).
+- Social media posts that insinuate an official partnership with Venice as a result of a directory submission, whether accepted or not. This results in immediate disqualification and removal.
 
 ## PR checklist
 
@@ -174,7 +175,8 @@ We will not accept:
 - [ ] URL is publicly accessible.
 - [ ] Description is 1–2 plain sentences, under 220 characters.
 - [ ] `tags` reuses existing tags where it makes sense.
+- [ ] I understand that social media posts insinuating an official partnership with Venice as a result of a directory submission, whether accepted or not, will result in immediate disqualification and removal.
 
 ## Disclaimer
 
-Listing on Built in Venice does not imply endorsement by Venice AI, Inc.
+Listing on Built in Venice does not imply endorsement or an official partnership with Venice AI, Inc.

@@ -232,11 +232,12 @@ github: https://github.com/yourHandle
 - [x] This project is publicly accessible.
 - [x] This project offers functionality beyond the base Venice platform, OR is a community asset (X account) that complements it.
 - [x] I understand that listing does not imply endorsement by Venice AI.
+- [x] I understand that social media posts insinuating an official partnership with Venice as a result of a directory submission, whether accepted or not, will result in immediate disqualification and removal.
 ```
 
 Notes:
 - Use `_No response_` only for fields where there is genuinely nothing to put. Per the operating principle above, try to fetch or ask before falling back to it.
-- All three Quality Checklist boxes are required by the template and must be checked.
+- All Quality Checklist boxes are required by the template and must be checked.
 
 Return the issue URL so the user can review.
 

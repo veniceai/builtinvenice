@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { submissionTypes, buildIssueUrl, type SubmissionType, type FieldConfig } from '../submitSchemas';
-import { REPO_URL } from '../constants';
+import { NO_PARTNERSHIP_CLAIM_LABEL, REPO_URL } from '../constants';
 import ImageField from './ImageField';
 import { ArrowLeftIcon } from './icons';
 
@@ -54,6 +54,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
   const [imageBlob, setImageBlob] = useState<Blob | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [acceptedPartnershipRule, setAcceptedPartnershipRule] = useState(false);
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstFocusableRef = useRef<HTMLElement | null>(null);
@@ -128,6 +129,9 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
       if (f.required && !values[f.id]?.trim()) {
         next[f.id] = 'Required';
       }
+    }
+    if (!acceptedPartnershipRule) {
+      next['partnership-rule'] = 'Required';
     }
     setErrors(next);
     if (Object.keys(next).length > 0) {
@@ -206,6 +210,7 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
                 setSelectedKey(null);
                 setErrors({});
                 setImageBlob(null);
+                setAcceptedPartnershipRule(false);
               }}
               aria-label="Back to submission types"
             >
@@ -276,6 +281,29 @@ export default function SubmitDialog({ onClose, initialKey }: Props) {
                   />
                 );
               })}
+            </div>
+
+            <div className={`form-field form-field-checkbox ${errors['partnership-rule'] ? 'has-error' : ''}`}>
+              <label className="form-checkbox" htmlFor="field-partnership-rule">
+                <input
+                  id="field-partnership-rule"
+                  type="checkbox"
+                  checked={acceptedPartnershipRule}
+                  onChange={e => {
+                    setAcceptedPartnershipRule(e.target.checked);
+                    if (errors['partnership-rule']) {
+                      setErrors(prev => ({ ...prev, 'partnership-rule': '' }));
+                    }
+                  }}
+                  required
+                  aria-invalid={Boolean(errors['partnership-rule'])}
+                  aria-describedby={errors['partnership-rule'] ? 'field-partnership-rule-err' : undefined}
+                />
+                <span>{NO_PARTNERSHIP_CLAIM_LABEL}</span>
+              </label>
+              {errors['partnership-rule'] && (
+                <p id="field-partnership-rule-err" className="form-error">Required</p>
+              )}
             </div>
 
             <div className="submit-actions">
