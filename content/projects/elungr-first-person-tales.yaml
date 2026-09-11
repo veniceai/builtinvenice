@@ -1,0 +1,16 @@
+title: First Person Tales
+description: A local, single-player AI roleplaying game. You write what your character says and does, and a Venice narrator model continues the story, with optional scene illustration and editable history.
+type: GitHub Repo
+url: https://github.com/ElunGR/first-person-tales
+tags:
+  - Role Playing
+  - Storytelling
+  - Gaming
+  - TypeScript
+category: powered-by
+owner: ElunGR
+repo: first-person-tales
+language: TypeScript
+stars: 0
+forks: 0
+submittedBy: ElunGR
