@@ -5,12 +5,12 @@ import userEvent from '@testing-library/user-event';
 import SubmitDialog from './SubmitDialog';
 
 describe('SubmitDialog — type picker', () => {
-  it('shows the three submission types when no initialKey is provided', () => {
+  it('shows the two submission types when no initialKey is provided', () => {
     render(<SubmitDialog onClose={() => {}} />);
     expect(screen.getByRole('heading', { name: /What are you submitting/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Project/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Cookbook/ })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Event/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Event/ })).toBeNull();
     // Media temporarily hidden — restore this assertion to re-enable:
     // expect(screen.getByRole('button', { name: /Media/ })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Media/ })).toBeNull();
