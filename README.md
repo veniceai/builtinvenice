@@ -6,11 +6,10 @@ Live at: https://builtinvenice.ai
 
 ## What's here
 
-A single tabbed Explore section covers four content types:
+A single tabbed Explore section covers three content types:
 
 - **Projects** — Websites, GitHub repos, X accounts, and community tokens built by or for the Venice ecosystem. Filterable by type, tag, and free-text search. Each project can link multiple socials (X, Farcaster, Instagram, Telegram, Discord, YouTube, GitHub, website).
 - **Cookbooks** — Community-written recipes for building on Venice, filterable by difficulty.
-- **Events** — Upcoming and past hackathons, meetups, workshops, and conferences.
 - **Watch** — Videos, interviews, and recaps about Venice and the projects built on it.
 
 Projects are categorized as either **Ecosystem** (tools built for the Venice community) or **Powered by Venice** (apps that use the Venice API).
@@ -22,9 +21,9 @@ You don't need to clone the repo or run anything locally to submit — every opt
 **Easiest:** Click "Submit your work" on the [live site](https://builtinvenice.ai) — fill the form, and we'll redirect you to a prefilled GitHub issue you can review and submit. Maintainers add it from there.
 
 <!-- Media submissions temporarily hidden — "and media" / "or `media.ts`" removed from the two lines below. -->
-You can also [pick a submission form](https://github.com/veniceai/builtinvenice/issues/new/choose) directly on GitHub — projects, cookbooks, and events each have their own template.
+You can also [pick a submission form](https://github.com/veniceai/builtinvenice/issues/new/choose) directly on GitHub — projects and cookbooks each have their own template.
 
-**Via pull request:** fork, add your entry to the relevant file under `src/data/` (`projects.ts`, `cookbooks.ts`, or `events.ts`), and open a PR. You can do this entirely in the GitHub web editor — no local checkout, no dev server, no token setup. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the per-type schema.
+**Via pull request:** fork, add your entry to the relevant file under `src/data/` (`projects.ts` or `cookbooks.ts`), and open a PR. You can do this entirely in the GitHub web editor — no local checkout, no dev server, no token setup. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the per-type schema.
 
 **Via AI agent:** copy the prompt from the hero on the live site — it points your agent at [`/agent-skill.md`](./public/agent-skill.md), which walks it through the schema, validation, and PR flow.
 
@@ -33,7 +32,7 @@ You can also [pick a submission form](https://github.com/veniceai/builtinvenice/
 A good submission is:
 
 - **Clearly connected to Venice** — uses, integrates with, teaches, or supports the Venice ecosystem. A general tool that Venice users could also use but has no specific Venice focus (e.g. Google Docs) doesn't qualify.
-- **Publicly accessible** — include a working link (live demo, repo, package, docs, video, or event page).
+- **Publicly accessible** — include a working link (live demo, repo, package, docs, or video).
 - **Useful or interesting** — real builder value, creative use cases, helpful integrations, or strong ecosystem signal.
 - **Easy to understand** — clear title, short description, relevant tags, and any setup instructions.
 - **Accurate** — no unsupported claims about privacy, compliance, security, performance, or Venice endorsement.
