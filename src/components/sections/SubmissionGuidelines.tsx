@@ -12,7 +12,7 @@ const GUIDELINES: { title: string; body: ReactNode }[] = [
   },
   {
     title: 'Be publicly accessible',
-    body: 'Please include a working link, such as a live demo, GitHub repo, package page, documentation page, video, or event page.',
+    body: 'Please include a working link, such as a live demo, GitHub repo, package page, documentation page, or video.',
   },
   {
     title: 'Be useful or interesting to the community',

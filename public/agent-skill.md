@@ -16,7 +16,7 @@ This skill tells an agent how to:
 
 Repo: <https://github.com/veniceai/builtinvenice>
 <!-- Media submissions temporarily hidden — "media" removed from the picker list and the paragraph in "When to use this skill". -->
-Issue picker (project, cookbook, event): <https://github.com/veniceai/builtinvenice/issues/new/choose>
+Issue picker (project, cookbook): <https://github.com/veniceai/builtinvenice/issues/new/choose>
 
 ---
 
@@ -40,7 +40,7 @@ Use this skill when the user asks something like:
 - "Add [repo / site / X handle] to builtinvenice.ai."
 - "Add this to the Venice community directory."
 
-This skill covers **project** submissions only. Cookbooks and events live in the same repo but have their own issue templates and content directories (`content/cookbooks/`, `content/events/`). For those, point the user at the issue picker above.
+This skill covers **project** submissions only. Cookbooks live in the same repo but have their own issue template and content directory (`content/cookbooks/`). For cookbook submissions, point the user at the issue picker above.
 
 ---
 
