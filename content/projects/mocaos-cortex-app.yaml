@@ -1,0 +1,20 @@
+title: Cortex
+description: Self-hosted knowledge base that turns documents and repos into a
+  queryable knowledge graph for humans and agents, reachable over REST, a
+  TypeScript SDK, and MCP. Runs LLM, vision, and embeddings on Venice.
+type: GitHub Repo
+url: https://github.com/mocaOS/cortex-app
+tags:
+  - Agent
+  - Memory
+  - Developer Tools
+  - Open Source
+category: powered-by
+owner: mocaOS
+repo: cortex-app
+submittedBy: mocaOS
+stars: 5
+language: Python
+socials:
+  - kind: x
+    url: https://x.com/museumofcrypto
