@@ -16,7 +16,7 @@ export interface FieldConfig {
 
 export interface SubmissionType {
   // Media temporarily hidden — restore `| 'media'` to re-enable.
-  key: 'project' | 'cookbook' | 'event';
+  key: 'project' | 'cookbook';
   label: string;
   blurb: string;
   template: string;
@@ -134,27 +134,6 @@ export const submissionTypes: SubmissionType[] = [
       { id: 'language', label: 'Primary language (optional)', type: 'text', placeholder: 'e.g. TypeScript, Python' },
       { id: 'tags', label: 'Tags', type: 'text', required: true, placeholder: 'Streaming, Chat, Tutorial' },
       { id: 'published-at', label: 'Published date', type: 'date', required: true, placeholder: 'YYYY-MM-DD' },
-    ],
-  },
-  {
-    key: 'event',
-    label: 'Event',
-    blurb: 'Hackathon, meetup, workshop, or conference.',
-    template: 'submit-event.yml',
-    titlePrefix: '[Event] ',
-    titleField: 'event-name',
-    fields: [
-      { id: 'event-name', label: 'Event name', type: 'text', required: true, placeholder: 'e.g. Community AI Hackathon' },
-      { id: 'event-url', label: 'URL', type: 'text', required: true, placeholder: 'https://lu.ma/your-event' },
-      { id: 'description', label: 'Description', type: 'textarea', required: true, placeholder: '1–2 plain sentences about the event.' },
-      { id: 'kind', label: 'Kind', type: 'select', required: true, options: ['hackathon', 'meetup', 'conference', 'workshop'] },
-      { id: 'status', label: 'Status', type: 'select', required: true, options: ['upcoming', 'live', 'past'] },
-      { id: 'start-date', label: 'Start date', type: 'date', required: true, placeholder: 'YYYY-MM-DD' },
-      { id: 'end-date', label: 'End date (optional)', type: 'date', description: 'Only for multi-day events.' },
-      { id: 'location', label: 'Location', type: 'text', required: true, placeholder: 'e.g. San Francisco, CA  /  Online' },
-      { id: 'host', label: 'Host', type: 'text', required: true, placeholder: 'e.g. Organizer Name, @yourhandle' },
-      { id: 'prize', label: 'Prize (hackathons only, optional)', type: 'text', placeholder: 'e.g. $15,000 in credits' },
-      { id: 'tags', label: 'Tags', type: 'text', required: true, placeholder: 'Hackathon, Online' },
     ],
   },
   // Media submissions temporarily hidden — uncomment this entry (and restore
