@@ -9,3 +9,6 @@ export const SITE_URL = "https://builtinvenice.ai";
 // copy-paste prompts (which run in agents that don't know this site's origin).
 export const AGENT_SKILL_URL = "/agent-skill.md";
 export const AGENT_SKILL_CANONICAL = `${SITE_URL}${AGENT_SKILL_URL}`;
+
+export const NO_PARTNERSHIP_CLAIM_LABEL =
+  "I understand that social media posts insinuating an official partnership with Venice as a result of a directory submission, whether accepted or not, will result in immediate disqualification and removal.";
