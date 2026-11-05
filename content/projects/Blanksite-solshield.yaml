@@ -1,0 +1,21 @@
+title: SolShield
+description: Non-custodial Solana transaction firewall, Blinks inspector, and Anchor policy vault using Venice AI to detect drainers and risky instructions privately before signing.
+type: GitHub Repo
+url: https://github.com/Blanksite/solshield
+tags:
+  - Security
+  - Privacy
+  - Crypto
+  - Developer Tools
+category: powered-by
+owner: Blanksite
+repo: solshield
+submittedBy: Blanksite
+language: TypeScript
+stars: 0
+forks: 0
+socials:
+  - kind: github
+    url: https://github.com/Blanksite
+  - kind: website
+    url: https://solshield-wine.vercel.app
