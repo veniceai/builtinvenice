@@ -1,0 +1,12 @@
+title: SPOE
+description: Private AI app builder that runs on Venice models. One Venice model writes a full-stack Next.js, Fastify and Postgres app, a second model from a different family reviews every change, and you export all the code with a signed certificate.
+type: Website
+url: https://spoe.ai
+tags:
+  - App Builder
+  - Code Generation
+  - Privacy
+  - Developer Tools
+category: powered-by
+thumbnail: https://spoe.ai/brand/og-card.jpg?v=flat2
+submittedBy: apir-ai
