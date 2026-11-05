@@ -1,0 +1,15 @@
+title: Have a second AI review every code change, with two model families
+description: Pair a writer and a reviewer from different model families on Venice, plus three rules that turn the
+  review into a real gate, in working TypeScript.
+url: https://spoe.ai/blog/second-model-review-on-venice
+author: SPOE
+authorUrl: https://spoe.ai
+difficulty: intermediate
+readTime: 8 min
+language: TypeScript
+tags:
+  - Code Review
+  - Coding
+  - Security
+publishedAt: 2026-10-22
+thumbnail: https://spoe.ai/brand/og-card.jpg?v=free300
