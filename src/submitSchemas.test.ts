@@ -4,7 +4,7 @@ import { buildIssueUrl, submissionTypes, ECOSYSTEM_CATEGORY } from './submitSche
 const REPO = 'https://github.com/veniceai/builtinvenice';
 
 // Media temporarily hidden — restore `| 'media'` to re-enable.
-function typeByKey(key: 'project' | 'cookbook' | 'event') {
+function typeByKey(key: 'project' | 'cookbook') {
   const t = submissionTypes.find(t => t.key === key);
   if (!t) throw new Error(`type ${key} not found`);
   return t;
@@ -25,8 +25,8 @@ describe('buildIssueUrl', () => {
   });
 
   it('emits only the prefix when the titleField is blank', () => {
-    const url = buildIssueUrl(REPO, typeByKey('event'), {});
-    expect(new URL(url).searchParams.get('title')).toBe('[Event] ');
+    const url = buildIssueUrl(REPO, typeByKey('cookbook'), {});
+    expect(new URL(url).searchParams.get('title')).toBe('[Cookbook] ');
   });
 
   it('omits empty/whitespace-only values', () => {
@@ -84,7 +84,7 @@ describe('buildIssueUrl', () => {
   });
 
   it('builds against the new-issue endpoint of the provided repo', () => {
-    const url = buildIssueUrl(REPO, typeByKey('event'), {});
+    const url = buildIssueUrl(REPO, typeByKey('cookbook'), {});
     expect(url.startsWith(`${REPO}/issues/new?`)).toBe(true);
   });
 
@@ -116,10 +116,10 @@ describe('buildIssueUrl', () => {
 });
 
 describe('submissionTypes', () => {
-  it('exposes exactly the three expected keys', () => {
+  it('exposes exactly the two expected keys', () => {
     expect(submissionTypes.map(t => t.key).sort()).toEqual([
       // Media temporarily hidden — add 'media' back here to re-enable.
-      'cookbook', 'event', 'project',
+      'cookbook', 'project',
     ]);
   });
 
