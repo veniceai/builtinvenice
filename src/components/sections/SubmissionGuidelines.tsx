@@ -28,6 +28,10 @@ const GUIDELINES: { title: string; body: ReactNode }[] = [
     ),
   },
   {
+    title: 'Do not claim an official partnership',
+    body: 'A listing on Built in Venice is not a partnership with Venice — whether the submission is accepted or not. Social media posts that insinuate an official partnership as a result of a directory submission will result in immediate disqualification and removal.',
+  },
+  {
     title: 'Be easy to understand',
     body: 'Include a clear title, short description, relevant tags, and any setup or usage instructions someone would need.',
   },

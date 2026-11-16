@@ -98,3 +98,5 @@ body:
           required: true
         - label: I understand that listing does not imply endorsement by Venice AI.
           required: true
+        - label: I understand that social media posts insinuating an official partnership with Venice as a result of a directory submission, whether accepted or not, will result in immediate disqualification and removal.
+          required: true

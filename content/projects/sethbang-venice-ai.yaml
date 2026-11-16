@@ -1,16 +1,15 @@
-title: venice-ai (Python)
-description: Python client for Venice.ai. Sync/async, streaming, and full
-  coverage of chat, image gen, TTS, and embeddings.
+title: venice-py (Python)
+description: Async-first Python SDK for the Venice API with typed responses. Covers chat, images, video, music, audio, embeddings, TEE attestation and x402 wallet billing, and includes a CLI.
 type: GitHub Repo
-url: https://github.com/sethbang/venice-ai
+url: https://github.com/sethbang/venice-py
 tags:
   - SDK
   - Python
   - Developer Tools
 category: ecosystem
 owner: sethbang
-repo: venice-ai
+repo: venice-py
 submittedBy: sethbang
 stars: 13
-forks: 4
+forks: 8
 language: Python

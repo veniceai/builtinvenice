@@ -1,0 +1,14 @@
+title: AI Key Shift
+description: A workspace for Venice API keys. Connect an admin key, set a USD or DIEM allowance per key, and schedule when those limits change on a weekly or one-off basis.
+type: Website
+url: https://aikeyshift.com
+tags:
+  - Developer Tools
+  - DIEM
+  - Workflow
+category: ecosystem
+thumbnail: https://i.ibb.co/tpyk8pgp/blob.png
+submittedBy: michielpostnl
+socials:
+  - kind: x
+    url: https://x.com/aikeyshift

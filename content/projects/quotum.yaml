@@ -1,0 +1,19 @@
+title: quotum
+description: Each seat runs AI agents on the Venice API under a daily spend cap, and a 20:00 UTC bell publishes per-seat spend as a public receipt every day. Works with Hermes Agent, OpenClaw and any OpenAI-compatible client.
+type: Website
+url: https://quotum.org
+tags:
+  - AI Agents
+  - Spend Caps
+  - Hermes Agent
+  - Public Receipts
+category: powered-by
+thumbnail: https://quotum.org/og-home.jpg?v=2610301640
+submittedBy: quotumorg
+socials:
+  - kind: x
+    url: https://x.com/quotumorg
+  - kind: github
+    url: https://github.com/qvotvm/hermes-quotum
+  - kind: telegram
+    url: https://t.me/qvotvm
